@@ -280,6 +280,9 @@ async function handleSignup() {
   document.getElementById('success-name').textContent = fname;
   document.getElementById('form-screen').style.display = 'none';
   document.getElementById('success-screen').style.display = 'block';
+
+  // Redirect to onboarding after 1.5 seconds
+  setTimeout(() => { window.location.href = '/onboarding'; }, 1500);
 }
 </script>
 </body>

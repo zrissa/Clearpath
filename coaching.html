@@ -336,9 +336,14 @@ function switchPillar(btn, pillar) {
 
 loadProfile();
 
-// Auth gate — redirect to signup if not logged in
+// Auth gate
 if (!localStorage.getItem('clearpath_auth')) {
   window.location.href = '/signup';
+}
+
+// Onboarding gate
+if (!localStorage.getItem('clearpath_onboarded')) {
+  window.location.href = '/onboarding';
 }
 </script>
 </body>

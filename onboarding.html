@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Clearpath — Let's get to know your program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;
+  --white:#FFFFFF;--off:#F8FAF9;--g100:#F2F5F3;--g200:#E2EAE6;--g400:#8BA89A;
+  --text:#111C17;--text-md:#3D5248;--text-lt:#6B8A78;
+}
+html,body{min-height:100%;font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--text);-webkit-font-smoothing:antialiased;}
+
+nav{
+  height:64px;display:flex;align-items:center;padding:0 32px;
+  background:var(--white);border-bottom:1px solid var(--g200);
+  position:fixed;top:0;left:0;right:0;z-index:100;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-mark{width:30px;height:30px;border-radius:8px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--mint);}
+.nav-name{font-size:16px;font-weight:800;color:var(--forest);letter-spacing:-.3px;}
+.nav-right{margin-left:auto;font-size:13px;color:var(--text-lt);}
+
+.page{
+  min-height:100vh;padding-top:64px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+.card{
+  width:100%;max-width:560px;
+  background:var(--white);border:1px solid var(--g200);
+  border-radius:20px;padding:48px;
+  margin:32px 20px;
+}
+
+/* PROGRESS */
+.progress-wrap{margin-bottom:32px;}
+.progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.p-step{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);}
+.p-count{font-size:12px;color:var(--text-lt);}
+.progress-bar{height:3px;background:var(--g200);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--mint);border-radius:2px;transition:width .4s ease;}
+
+/* QUESTION */
+.q-title{font-size:24px;font-weight:800;color:var(--forest);letter-spacing:-.8px;line-height:1.2;margin-bottom:8px;}
+.q-sub{font-size:14px;color:var(--text-lt);line-height:1.65;margin-bottom:28px;font-weight:300;}
+
+/* INPUTS */
+input[type=text]{
+  width:100%;padding:14px 16px;
+  background:var(--off);border:1.5px solid var(--g200);border-radius:12px;
+  font-size:16px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;
+  outline:none;transition:all .2s;
+}
+input[type=text]:focus{border-color:var(--mint);background:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
+input[type=text]::placeholder{color:var(--g400);}
+
+.options{display:flex;flex-direction:column;gap:10px;}
+.opt{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;border-radius:12px;
+  border:1.5px solid var(--g200);background:var(--white);
+  cursor:pointer;transition:all .2s;text-align:left;width:100%;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.opt:hover{border-color:rgba(52,199,123,.4);background:var(--mint-pale);}
+.opt.selected{border-color:var(--mint);background:var(--mint-pale);}
+.opt-radio{
+  width:18px;height:18px;border-radius:50%;
+  border:2px solid var(--g200);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.opt.selected .opt-radio{border-color:var(--mint);background:var(--mint);}
+.opt.selected .opt-radio::after{content:'';width:6px;height:6px;border-radius:50%;background:white;}
+.opt-label{font-size:14px;font-weight:500;color:var(--text);}
+.opt.selected .opt-label{color:var(--forest);}
+.opt-sub{font-size:12px;color:var(--text-lt);margin-top:2px;font-weight:300;}
+
+/* ACTIONS */
+.actions{display:flex;gap:12px;margin-top:28px;align-items:center;}
+.back-btn{
+  padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;
+  color:var(--text-lt);background:none;border:1.5px solid var(--g200);
+  cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;
+}
+.back-btn:hover{border-color:var(--g400);color:var(--text);}
+.next-btn{
+  flex:1;padding:14px;border-radius:10px;font-size:15px;font-weight:800;
+  color:var(--white);background:var(--forest);border:none;
+  cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;
+  letter-spacing:-.2px;
+}
+.next-btn:hover{background:var(--sage);}
+.next-btn:disabled{opacity:.5;cursor:not-allowed;}
+
+/* SUCCESS */
+.success{display:none;text-align:center;}
+.success-icon{width:64px;height:64px;border-radius:50%;background:var(--mint-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:var(--mint);}
+.success-h{font-size:28px;font-weight:800;color:var(--forest);margin-bottom:8px;letter-spacing:-.8px;}
+.success-p{font-size:15px;color:var(--text-lt);margin-bottom:32px;line-height:1.6;font-weight:300;}
+.success-btn{
+  display:block;width:100%;padding:15px;border-radius:10px;
+  font-size:15px;font-weight:800;background:var(--forest);color:var(--white);
+  text-decoration:none;text-align:center;transition:all .2s;
+  letter-spacing:-.2px;
+}
+.success-btn:hover{background:var(--sage);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.q-area{animation:fadeUp .3s ease both;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-mark">C</div>
+    <span class="nav-name">Clearpath</span>
+  </a>
+  <div class="nav-right" id="nav-greeting"></div>
+</nav>
+
+<div class="page">
+  <div class="card">
+
+    <div id="onboarding-screen">
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span class="p-step" id="step-label">Step 1</span>
+          <span class="p-count" id="step-count">1 of 7</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:14%"></div>
+        </div>
+      </div>
+
+      <div class="q-area" id="q-area">
+        <div class="q-title" id="q-title"></div>
+        <div class="q-sub" id="q-sub"></div>
+        <div id="input-area"></div>
+      </div>
+
+      <div class="actions">
+        <button class="back-btn" id="back-btn" onclick="goBack()" style="display:none;">Back</button>
+        <button class="next-btn" id="next-btn" onclick="goNext()">Continue →</button>
+      </div>
+    </div>
+
+    <div class="success" id="success-screen">
+      <div class="success-icon">✓</div>
+      <h2 class="success-h" id="success-h">Your profile is ready.</h2>
+      <p class="success-p" id="success-p">Clearpath now knows your program. Your AI advisor is ready to give you specific, actionable guidance for your situation.</p>
+      <a href="/coaching" class="success-btn">Go to my program advisor →</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    id: 'sportOrCategory',
+    label: 'What sport or specific category are you running?',
+    sub: 'The more specific you are, the more targeted your coaching and grant matches will be.',
+    type: 'text',
+    placeholder: 'e.g. Soccer, Basketball, Coding, Robotics, After-School Enrichment...'
+  },
+  {
+    id: 'participantCount',
+    label: 'How many participants do you have or plan to have?',
+    sub: 'This shapes your budget benchmarks, facility needs, staffing ratios, and grant size matching.',
+    type: 'select',
+    options: [
+      { value: 'Under 25', label: 'Under 25', sub: 'Small program or just getting started' },
+      { value: '25–50', label: '25–50 participants', sub: 'Growing program' },
+      { value: '51–100', label: '51–100 participants', sub: 'Established mid-size program' },
+      { value: '101–250', label: '101–250 participants', sub: 'Large program' },
+      { value: '250+', label: '250+ participants', sub: 'Very large or multi-team program' },
+      { value: 'Not sure yet', label: 'Not sure yet', sub: "I'm still planning" },
+    ]
+  },
+  {
+    id: 'entityType',
+    label: 'What is your legal structure?',
+    sub: 'This determines your grant eligibility and shapes your entire compliance path.',
+    type: 'select',
+    options: [
+      { value: 'Nonprofit 501(c)(3)', label: 'Nonprofit 501(c)(3)', sub: 'Tax-exempt nonprofit status' },
+      { value: 'LLC', label: 'LLC', sub: 'Limited liability company' },
+      { value: 'Sole Proprietor', label: 'Sole Proprietor', sub: 'Running it personally' },
+      { value: 'Municipal Department', label: 'Municipal Department', sub: 'City or county government entity' },
+      { value: 'In process of forming', label: 'In process of forming', sub: "I've started but not finished" },
+      { value: 'Not yet incorporated', label: 'Not yet incorporated', sub: "Haven't started the legal process yet" },
+    ]
+  },
+  {
+    id: 'budgetRange',
+    label: 'What is your annual budget or target budget?',
+    sub: 'Filters grant matches by award size and sets the right financial benchmarks for your program.',
+    type: 'select',
+    options: [
+      { value: 'Under $25K', label: 'Under $25,000', sub: 'Early stage or small program' },
+      { value: '$25K–$100K', label: '$25,000 – $100,000', sub: 'Growing program' },
+      { value: '$100K–$300K', label: '$100,000 – $300,000', sub: 'Established program' },
+      { value: '$300K–$750K', label: '$300,000 – $750,000', sub: 'Large program' },
+      { value: 'Over $750K', label: 'Over $750,000', sub: 'Major organization' },
+    ]
+  },
+  {
+    id: 'grantExperience',
+    label: 'Have you applied for grants before?',
+    sub: 'No wrong answer — this calibrates how much guidance Clearpath provides in the Fund pillar.',
+    type: 'select',
+    options: [
+      { value: 'Never applied', label: 'Never applied', sub: "This is all new to me" },
+      { value: 'A few times', label: 'A few times', sub: "I've tried but could use more help" },
+      { value: 'Regularly', label: 'Regularly', sub: "I know the process, just need better tools" },
+    ]
+  },
+  {
+    id: 'biggestChallenge',
+    label: 'What is your biggest challenge right now?',
+    sub: 'This tells Clearpath which pillar to prioritize for you first.',
+    type: 'select',
+    options: [
+      { value: 'Finding funding', label: 'Finding funding', sub: 'Grants, sponsorships, pricing strategy' },
+      { value: 'Building the program structure', label: 'Building the program structure', sub: 'Legal, compliance, facility, frameworks' },
+      { value: 'Managing participants and operations', label: 'Managing day-to-day operations', sub: 'Registration, attendance, communication' },
+      { value: 'Proving impact to funders', label: 'Proving impact to funders', sub: 'Reporting, data, storytelling' },
+      { value: 'All of the above', label: 'All of the above', sub: "I need help across the board" },
+    ]
+  },
+  {
+    id: 'referralSource',
+    label: 'One last thing — how did you hear about Clearpath?',
+    sub: 'Helps us understand how to reach more program directors like you.',
+    type: 'select',
+    options: [
+      { value: 'Word of mouth', label: 'Word of mouth', sub: 'Someone told me about it' },
+      { value: 'Social media', label: 'Social media', sub: 'Saw it online' },
+      { value: 'Google search', label: 'Google search', sub: 'Found it while searching' },
+      { value: 'Sports organization', label: 'Sports organization', sub: 'Through a league or association' },
+      { value: 'Other', label: 'Other', sub: '' },
+    ]
+  }
+];
+
+let current = 0;
+let answers = {};
+let user = {};
+let airtableRecordId = null;
+
+function init() {
+  const stored = localStorage.getItem('clearpath_user');
+  const profile = localStorage.getItem('clearpath_profile');
+
+  if (!localStorage.getItem('clearpath_auth')) {
+    window.location.href = '/signup';
+    return;
+  }
+
+  if (stored) user = JSON.parse(stored);
+  if (profile) {
+    const p = JSON.parse(profile);
+    answers.sportOrCategory = p.sportOrCategory || '';
+    answers.participantCount = p.participantCount !== 'Not specified' ? p.participantCount : '';
+    answers.entityType = p.entityType !== 'Not yet incorporated' ? p.entityType : '';
+    answers.budgetRange = p.budgetRange !== 'Under $25K' ? p.budgetRange : '';
+    answers.grantExperience = p.grantExperience !== 'Never applied' ? p.grantExperience : '';
+  }
+
+  if (user.fname) {
+    document.getElementById('nav-greeting').textContent = `Hi ${user.fname} 👋`;
+  }
+
+  renderQuestion(0);
+}
+
+function renderQuestion(i) {
+  const q = questions[i];
+  const total = questions.length;
+  const pct = Math.round(((i) / total) * 100);
+
+  document.getElementById('step-label').textContent = `Step ${i + 1}`;
+  document.getElementById('step-count').textContent = `${i + 1} of ${total}`;
+  document.getElementById('progress-fill').style.width = `${pct}%`;
+
+  const area = document.getElementById('q-area');
+  area.style.animation = 'none';
+  area.offsetHeight;
+  area.style.animation = 'fadeUp .3s ease both';
+
+  document.getElementById('q-title').textContent = q.label;
+  document.getElementById('q-sub').textContent = q.sub;
+
+  const inputArea = document.getElementById('input-area');
+
+  if (q.type === 'text') {
+    inputArea.innerHTML = `<input type="text" id="answer-input" placeholder="${q.placeholder || ''}" value="${answers[q.id] || ''}" />`;
+    setTimeout(() => {
+      const el = document.getElementById('answer-input');
+      if (el) { el.focus(); el.onkeydown = e => { if (e.key === 'Enter') goNext(); }; }
+    }, 50);
+  } else {
+    inputArea.innerHTML = `<div class="options">${q.options.map(o =>
+      `<button class="opt${answers[q.id] === o.value ? ' selected' : ''}" onclick="selectOpt(this, '${q.id}', '${o.value}')">
+        <div class="opt-radio"></div>
+        <div>
+          <div class="opt-label">${o.label}</div>
+          ${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}
+        </div>
+      </button>`
+    ).join('')}</div>`;
+  }
+
+  document.getElementById('back-btn').style.display = i > 0 ? 'block' : 'none';
+  document.getElementById('next-btn').textContent = i === questions.length - 1 ? 'Complete my profile →' : 'Continue →';
+}
+
+function selectOpt(btn, id, value) {
+  document.querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[id] = value;
+}
+
+function goNext() {
+  const q = questions[current];
+
+  if (q.type === 'text') {
+    const val = document.getElementById('answer-input')?.value?.trim();
+    if (!val) {
+      document.getElementById('answer-input').style.borderColor = '#E24B4A';
+      return;
+    }
+    answers[q.id] = val;
+  } else {
+    if (!answers[q.id]) {
+      document.querySelectorAll('.opt').forEach(b => b.style.borderColor = '#E24B4A');
+      return;
+    }
+  }
+
+  updateProfile();
+
+  if (current < questions.length - 1) {
+    current++;
+    renderQuestion(current);
+  } else {
+    completeOnboarding();
+  }
+}
+
+function goBack() {
+  if (current > 0) {
+    current--;
+    renderQuestion(current);
+  }
+}
+
+function updateProfile() {
+  const existing = JSON.parse(localStorage.getItem('clearpath_profile') || '{}');
+  const updated = { ...existing, ...answers };
+  localStorage.setItem('clearpath_profile', JSON.stringify(updated));
+}
+
+async function completeOnboarding() {
+  document.getElementById('next-btn').textContent = 'Saving your profile...';
+  document.getElementById('next-btn').disabled = true;
+
+  updateProfile();
+  localStorage.setItem('clearpath_onboarded', 'true');
+
+  try {
+    await fetch('/.netlify/functions/onboarding', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: user.email,
+        orgname: user.orgname,
+        answers
+      })
+    });
+  } catch(e) {
+    console.log('Onboarding save failed — data saved locally');
+  }
+
+  const profile = JSON.parse(localStorage.getItem('clearpath_profile') || '{}');
+  document.getElementById('success-h').textContent = `You're all set, ${user.fname || ''}!`;
+  document.getElementById('success-p').textContent =
+    `Clearpath now knows you're running ${profile.orgName || 'your program'} — a ${profile.programType || ''} program. Your AI advisor is ready to give you specific, actionable guidance starting with your biggest challenge: ${answers.biggestChallenge || 'getting started'}.`;
+
+  document.getElementById('onboarding-screen').style.display = 'none';
+  document.getElementById('success-screen').style.display = 'block';
+  document.getElementById('progress-fill').style.width = '100%';
+}
+
+init();
+</script>
+</body>
+</html>
