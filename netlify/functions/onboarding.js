@@ -19,20 +19,20 @@ exports.handler = async function(event, context) {
     const baseId = process.env.AIRTABLE_ORGS_BASE_ID;
     const token = process.env.AIRTABLE_TOKEN;
 
-    // Find the existing record by email
+    console.log('Onboarding for email:', email);
+    console.log('Answers received:', JSON.stringify(answers));
+
+    // Search for existing record by email
     const searchRes = await fetch(
       `https://api.airtable.com/v0/${baseId}/Orgs?filterByFormula=${encodeURIComponent(`{Email}="${email}"`)}`,
-      {
-        headers: { 'Authorization': `Bearer ${token}` }
-      }
+      { headers: { 'Authorization': `Bearer ${token}` } }
     );
 
     const searchData = await searchRes.json();
-    const record = searchData.records?.[0];
+    console.log('Search result count:', searchData.records?.length);
 
     const fields = {
       'Sport or Category': answers.sportOrCategory || '',
-      'Participant Count': answers.participantCount || '',
       'Entity Type': answers.entityType || '',
       'Annual Budget Range': answers.budgetRange || '',
       'Grant Experience': answers.grantExperience || '',
@@ -40,9 +40,18 @@ exports.handler = async function(event, context) {
       'Onboarding Complete': true,
     };
 
+    // Only add Participant Count if it exists as a field
+    if (answers.participantCount) {
+      fields['Participant Count'] = answers.participantCount;
+    }
+
+    console.log('Fields to write:', JSON.stringify(fields));
+
+    const record = searchData.records?.[0];
+
     if (record) {
-      // Update existing record
-      await fetch(
+      console.log('Updating record:', record.id);
+      const updateRes = await fetch(
         `https://api.airtable.com/v0/${baseId}/Orgs/${record.id}`,
         {
           method: 'PATCH',
@@ -53,9 +62,15 @@ exports.handler = async function(event, context) {
           body: JSON.stringify({ fields })
         }
       );
+      const updateData = await updateRes.json();
+      console.log('Update response:', JSON.stringify(updateData));
+
+      if (!updateRes.ok) {
+        throw new Error(updateData.error?.message || 'Update failed');
+      }
     } else {
-      // Create new record if not found
-      await fetch(
+      console.log('No record found — creating new');
+      const createRes = await fetch(
         `https://api.airtable.com/v0/${baseId}/Orgs`,
         {
           method: 'POST',
@@ -72,6 +87,8 @@ exports.handler = async function(event, context) {
           })
         }
       );
+      const createData = await createRes.json();
+      console.log('Create response:', JSON.stringify(createData));
     }
 
     return {
