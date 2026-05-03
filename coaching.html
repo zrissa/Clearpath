@@ -106,8 +106,10 @@ textarea::placeholder{color:var(--g400);}
 <body>
 
 <nav>
-  <div class="nav-mark">C</div>
-  <span class="nav-name">Clearpath</span>
+  <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <div class="nav-mark">C</div>
+    <span class="nav-name">Clearpath</span>
+  </a>
   <div class="nav-right">
     <span class="nav-pill" id="nav-program">Loading...</span>
   </div>
@@ -218,14 +220,17 @@ function loadProfile() {
   document.getElementById('sb-sub').textContent =
     (orgProfile.programType || '') + (orgProfile.sportOrCategory ? ' — ' + orgProfile.sportOrCategory : '') + ' · ' + (orgProfile.location || '');
 
-  const tags = [orgProfile.entityType, orgProfile.budgetRange, orgProfile.grantExperience].filter(Boolean);
-  document.getElementById('sb-tags').innerHTML = tags.map(t =>
-    `<span class="pc-tag">${t}</span>`).join('');
+  const tags = [
+    orgProfile.programType !== 'Not specified' ? orgProfile.programType : null,
+    orgProfile.stage !== 'Not specified' ? orgProfile.stage : null,
+  ].filter(Boolean);
+  document.getElementById('sb-tags').innerHTML = tags.length > 0 ? tags.map(t =>
+    `<span class="pc-tag">${t}</span>`).join('') : '<span class="pc-tag" style="color:var(--mint);border-color:rgba(52,199,123,.3);background:var(--mint-pale);">Complete your profile →</span>';
 
   document.getElementById('ch-context').textContent =
     `${orgProfile.programType} · ${orgProfile.location} · ${currentPillar} pillar`;
 
-  const greeting = `Hi! I'm your Clearpath advisor — I know you're building **${orgProfile.orgName}**, a ${orgProfile.programType}${orgProfile.sportOrCategory ? ' (' + orgProfile.sportOrCategory + ')' : ''} program in ${orgProfile.location}.\n\nRight now you're in the **${currentPillar}** pillar. Your biggest challenge is **${orgProfile.biggestChallenge}**.\n\nWhat would you like to tackle? You can ask me anything — from finding a field to your first grant application. I'll give you specific, actionable steps for your situation.`;
+  const greeting = `Hi ${orgProfile.firstName || ''}! I'm your Clearpath advisor — I know you're building **${orgProfile.orgName}**, a ${orgProfile.programType !== 'Not specified' ? orgProfile.programType : 'community'} program${orgProfile.location !== 'Not specified' ? ' in ' + orgProfile.location : ''}.\n\nTo give you the most specific advice, I have a few quick questions. What sport or program category are you running, and where are you in the journey — just starting, already running, or ready to grow?\n\nOr just ask me anything and I'll help you figure out your next step.`;
 
   addMessage('assistant', greeting);
 }
@@ -330,6 +335,11 @@ function switchPillar(btn, pillar) {
 }
 
 loadProfile();
+
+// Auth gate — redirect to signup if not logged in
+if (!localStorage.getItem('clearpath_auth')) {
+  window.location.href = '/signup';
+}
 </script>
 </body>
 </html>
