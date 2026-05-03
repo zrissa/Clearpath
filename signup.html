@@ -224,6 +224,12 @@ select option{color:var(--text);}
 </div>
 
 <script>
+// Prefill from URL params if coming from landing page
+const params = new URLSearchParams(window.location.search);
+if (params.get('email')) document.getElementById('email').value = params.get('email');
+if (params.get('fname')) document.getElementById('fname').value = params.get('fname');
+if (params.get('org')) document.getElementById('orgname').value = params.get('org');
+
 function showError(id, show) {
   document.getElementById(id).style.display = show ? 'block' : 'none';
 }
