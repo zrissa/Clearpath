@@ -222,7 +222,9 @@ function loadProfile() {
 
   const tags = [
     orgProfile.programType !== 'Not specified' ? orgProfile.programType : null,
-    orgProfile.stage !== 'Not specified' ? orgProfile.stage : null,
+    orgProfile.sportOrCategory && orgProfile.sportOrCategory !== '' ? orgProfile.sportOrCategory : null,
+    orgProfile.entityType && orgProfile.entityType !== 'Not specified' ? orgProfile.entityType : null,
+    orgProfile.budgetRange && orgProfile.budgetRange !== 'Not specified' ? orgProfile.budgetRange : null,
   ].filter(Boolean);
   document.getElementById('sb-tags').innerHTML = tags.length > 0 ? tags.map(t =>
     `<span class="pc-tag">${t}</span>`).join('') : '<span class="pc-tag" style="color:var(--mint);border-color:rgba(52,199,123,.3);background:var(--mint-pale);">Complete your profile →</span>';
@@ -230,7 +232,18 @@ function loadProfile() {
   document.getElementById('ch-context').textContent =
     `${orgProfile.programType} · ${orgProfile.location} · ${currentPillar} pillar`;
 
-  const greeting = `Hi ${orgProfile.firstName || ''}! I'm your Clearpath advisor — I know you're building **${orgProfile.orgName}**, a ${orgProfile.programType !== 'Not specified' ? orgProfile.programType : 'community'} program${orgProfile.location !== 'Not specified' ? ' in ' + orgProfile.location : ''}.\n\nTo give you the most specific advice, I have a few quick questions. What sport or program category are you running, and where are you in the journey — just starting, already running, or ready to grow?\n\nOr just ask me anything and I'll help you figure out your next step.`;
+  const isOnboarded = localStorage.getItem('clearpath_onboarded');
+  const sport = orgProfile.sportOrCategory && orgProfile.sportOrCategory !== '' ? orgProfile.sportOrCategory : null;
+  const challenge = orgProfile.biggestChallenge && orgProfile.biggestChallenge !== 'Finding funding' ? orgProfile.biggestChallenge : orgProfile.biggestChallenge;
+  const entity = orgProfile.entityType && orgProfile.entityType !== 'Not yet incorporated' ? orgProfile.entityType : null;
+  const budget = orgProfile.budgetRange && orgProfile.budgetRange !== 'Under $25K' ? orgProfile.budgetRange : orgProfile.budgetRange;
+
+  let greeting;
+  if (isOnboarded && sport) {
+    greeting = `Hi ${orgProfile.firstName || ''}! I'm your Clearpath advisor — I know everything about **${orgProfile.orgName}**.\n\nYou're running a **${orgProfile.programType}${sport ? ' (' + sport + ')' : ''}** program in **${orgProfile.location}**. Your legal structure is **${orgProfile.entityType}**, your budget range is **${orgProfile.budgetRange}**, and your biggest challenge right now is **${orgProfile.biggestChallenge}**.\n\nYou're in the **${currentPillar}** pillar. What would you like to tackle first? I can give you specific, actionable next steps based on exactly where you are.`;
+  } else {
+    greeting = `Hi ${orgProfile.firstName || ''}! I'm your Clearpath advisor — I know you're building **${orgProfile.orgName}**, a ${orgProfile.programType !== 'Not specified' ? orgProfile.programType : 'community'} program in ${orgProfile.location !== 'Not specified' ? orgProfile.location : 'your area'}.\n\nWhat sport or specific category are you running? And what's your biggest challenge right now — finding funding, building the program structure, or managing operations?\n\nThe more you tell me, the more specific I can be.`;
+  }
 
   addMessage('assistant', greeting);
 }
