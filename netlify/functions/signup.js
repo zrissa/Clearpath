@@ -23,8 +23,10 @@ exports.handler = async function(event, context) {
     const baseId = process.env.AIRTABLE_ORGS_BASE_ID;
     const token = process.env.AIRTABLE_TOKEN;
 
-    console.log('Base ID:', baseId);
-    console.log('Token prefix:', token ? token.substring(0, 15) : 'MISSING');
+    // Split location into city and state
+    const locationParts = (location || '').split(',');
+    const city = locationParts[0]?.trim() || '';
+    const state = locationParts[1]?.trim() || '';
 
     const response = await fetch(
       `https://api.airtable.com/v0/${baseId}/Orgs`,
@@ -41,7 +43,8 @@ exports.handler = async function(event, context) {
             'Contact Last Name': lname || '',
             'Email': email,
             'Program Type': progtype || '',
-            'Location': location || '',
+            'City': city,
+            'State': state,
             'Onboarding Complete': false,
             'Date Joined': new Date().toISOString().split('T')[0]
           }
