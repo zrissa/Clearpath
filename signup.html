@@ -224,9 +224,6 @@ select option{color:var(--text);}
 </div>
 
 <script>
-const AIRTABLE_TOKEN = 'patIG91xfoYcqtzdh.428f48a8b6eea4598fc6a132b633f2fe840092d40b49e99defff7cd40fb70582';
-const ORGS_BASE_ID = 'appLfs6kQXB7vMRQe';
-
 function showError(id, show) {
   document.getElementById(id).style.display = show ? 'block' : 'none';
 }
@@ -271,24 +268,10 @@ async function handleSignup() {
   localStorage.setItem('clearpath_auth', 'true');
 
   try {
-    await fetch(`https://api.airtable.com/v0/${ORGS_BASE_ID}/Orgs`, {
+    await fetch('/.netlify/functions/signup', {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        fields: {
-          'Org Name': orgname,
-          'Contact First Name': fname,
-          'Contact Last Name': lname,
-          'Email': email,
-          'Program Type': progtype || '',
-          'Location': location || '',
-          'Onboarding Complete': false,
-          'Date Joined': new Date().toISOString().split('T')[0]
-        }
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fname, lname, email, orgname, progtype, location, stage })
     });
   } catch(e) {
     console.log('Airtable save failed — profile saved locally');
