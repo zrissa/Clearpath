@@ -5,72 +5,34 @@ exports.handler = async function(event, context) {
     'Content-Type': 'application/json'
   };
 
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 200, headers, body: '' };
-  }
-
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers, body: 'Method Not Allowed' };
-  }
+  if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers, body: '' };
+  if (event.httpMethod !== 'POST') return { statusCode: 405, headers, body: 'Method Not Allowed' };
 
   try {
-    const { fname, lname, email, orgname, progtype, location, stage } = JSON.parse(event.body);
-
-    if (!fname || !email || !orgname) {
-      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing required fields' }) };
-    }
-
+    const { email, orgname } = JSON.parse(event.body);
     const baseId = process.env.AIRTABLE_ORGS_BASE_ID;
     const token = process.env.AIRTABLE_TOKEN;
 
-    // Split location into city and state
-    const locationParts = (location || '').split(',');
-    const city = locationParts[0]?.trim() || '';
-    const state = locationParts[1]?.trim() || '';
-
-    const response = await fetch(
-      `https://api.airtable.com/v0/${baseId}/Orgs`,
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          fields: {
-            'Org Name': orgname,
-            'Contact First Name': fname,
-            'Contact Last Name': lname || '',
-            'Email': email,
-            'Program Type': progtype || '',
-            'City': city,
-            'State': state,
-            'Onboarding Complete': false,
-            'Date Joined': new Date().toISOString().split('T')[0]
-          }
-        })
-      }
-    );
+    const response = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields: {
+          'Org Name': orgname || '',
+          'Email': email || '',
+          'Onboarding Complete': false,
+          'Date Joined': new Date().toISOString().split('T')[0]
+        }
+      })
+    });
 
     const data = await response.json();
-    console.log('Airtable response:', JSON.stringify(data));
+    console.log('Signup saved:', JSON.stringify(data));
 
-    if (!response.ok) {
-      throw new Error(data.error?.message || 'Airtable error');
-    }
-
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ success: true, id: data.id })
-    };
+    return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
 
   } catch (error) {
     console.error('Signup error:', error.message);
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: error.message })
-    };
+    return { statusCode: 500, headers, body: JSON.stringify({ error: error.message }) };
   }
 };
