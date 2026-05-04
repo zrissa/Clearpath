@@ -303,7 +303,17 @@ function switchPillar(btn, pillar) {
 // Auth + onboarding gates
 if (!localStorage.getItem('clearpath_auth')) { window.location.href = '/signup'; }
 else if (!localStorage.getItem('clearpath_onboarded')) { window.location.href = '/onboarding'; }
-else { loadProfile(); }
+else {
+  loadProfile();
+  // Pre-load question from URL param (e.g. from dashboard task links)
+  const urlQ = new URLSearchParams(window.location.search).get('q');
+  if (urlQ) {
+    setTimeout(() => {
+      document.getElementById('user-input').value = decodeURIComponent(urlQ);
+      send();
+    }, 800);
+  }
+}
 </script>
 </body>
 </html>

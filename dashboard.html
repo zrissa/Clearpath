@@ -18,133 +18,160 @@
 html,body{min-height:100%;font-family:"Plus Jakarta Sans",sans-serif;background:var(--off);color:var(--text);-webkit-font-smoothing:antialiased;}
 
 /* NAV */
-nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);display:flex;align-items:center;padding:0 24px;gap:12px;position:sticky;top:0;z-index:100;}
+nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);display:flex;align-items:center;padding:0 24px;gap:8px;position:sticky;top:0;z-index:100;}
 .nlogo{display:flex;align-items:center;gap:8px;text-decoration:none;}
 .nmark{width:28px;height:28px;border-radius:7px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--mint);}
 .nname{font-size:15px;font-weight:800;color:var(--forest);letter-spacing:-.3px;}
 .nav-links{display:flex;align-items:center;gap:2px;margin-left:16px;}
 .nav-link{font-size:13px;font-weight:500;color:var(--text-lt);text-decoration:none;padding:6px 12px;border-radius:7px;transition:all .15s;}
-.nav-link:hover{color:var(--forest);background:var(--g100);}
-.nav-link.active{color:var(--forest);background:var(--g100);font-weight:600;}
-.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.nav-link:hover,.nav-link.active{color:var(--forest);background:var(--g100);font-weight:600;}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;}
 .nav-plan{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--mint-pale);color:var(--sage);}
-.nav-avatar{width:30px;height:30px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--mint);cursor:pointer;}
+.nav-avatar{width:30px;height:30px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--mint);cursor:pointer;text-decoration:none;}
 
 /* PAGE */
-.page{max-width:1100px;margin:0 auto;padding:28px 24px;}
+.page{max-width:1080px;margin:0 auto;padding:24px 20px 48px;}
 
-/* HEADER */
-.page-header{margin-bottom:28px;}
-.welcome{font-size:22px;font-weight:800;color:var(--forest);letter-spacing:-.5px;margin-bottom:4px;}
-.welcome-sub{font-size:14px;color:var(--text-lt);font-weight:300;}
+/* STATE BANNER — changes based on journey */
+.state-banner{border-radius:16px;padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;}
+.sb-starting{background:var(--forest);}
+.sb-running{background:linear-gradient(135deg,#0D5DBE,#1A73E8);}
+.sb-established{background:linear-gradient(135deg,#5B1FA0,#7B2D8B);}
+.state-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(255,255,255,.07) 0%,transparent 60%);pointer-events:none;}
+.sb-icon{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.sb-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;}
+.sb-title{font-size:20px;font-weight:800;color:var(--white);letter-spacing:-.5px;margin-bottom:4px;line-height:1.2;}
+.sb-sub{font-size:13px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.5;}
+.sb-right{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
+.sb-prog{text-align:right;}
+.sb-prog-num{font-size:28px;font-weight:800;color:var(--white);letter-spacing:-1px;line-height:1;}
+.sb-prog-lbl{font-size:11px;color:rgba(255,255,255,.4);}
+.sb-btn{padding:9px 18px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;transition:all .2s;white-space:nowrap;cursor:pointer;}
+.sb-btn:hover{background:rgba(255,255,255,.25);}
 
-/* NEXT STEP BANNER */
-.next-banner{
-  background:var(--forest);border-radius:16px;padding:20px 24px;
-  display:flex;align-items:center;gap:16px;margin-bottom:24px;
-  cursor:pointer;transition:all .2s;
-}
-.next-banner:hover{background:var(--sage);}
-.nb-icon{width:44px;height:44px;border-radius:12px;background:rgba(52,199,123,.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.nb-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(52,199,123,.7);margin-bottom:3px;}
-.nb-title{font-size:16px;font-weight:700;color:var(--white);letter-spacing:-.3px;}
-.nb-sub{font-size:13px;color:rgba(255,255,255,.5);margin-top:2px;font-weight:300;}
-.nb-arrow{margin-left:auto;font-size:20px;color:rgba(255,255,255,.4);}
+/* PILLARS */
+.section-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g400);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
+.section-label span{font-size:12px;font-weight:500;color:var(--mint);letter-spacing:0;text-transform:none;cursor:pointer;}
+.pillars-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
+.pill{background:var(--white);border:1.5px solid var(--g200);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;position:relative;}
+.pill:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(11,61,46,.07);}
+.pill.focused{border-width:2px;}
+.pill.focused.p-build{border-color:var(--mint);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
+.pill.focused.p-fund{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,184,0,.1);}
+.pill.focused.p-run{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+.pill.focused.p-grow{border-color:var(--purple);box-shadow:0 0 0 3px rgba(123,45,139,.1);}
+.pill-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.pill-icon{font-size:20px;}
+.pill-pct{font-size:11px;font-weight:700;padding:2px 7px;border-radius:100px;}
+.pct-build{background:var(--mint-pale);color:var(--sage);}
+.pct-fund{background:rgba(255,184,0,.1);color:#7A5A00;}
+.pct-run{background:rgba(26,115,232,.1);color:var(--blue);}
+.pct-grow{background:rgba(123,45,139,.1);color:var(--purple);}
+.pill-name{font-size:14px;font-weight:800;color:var(--forest);letter-spacing:-.3px;margin-bottom:2px;}
+.pill-desc{font-size:11px;color:var(--text-lt);font-weight:300;margin-bottom:10px;}
+.pill-bar{height:3px;background:var(--g200);border-radius:2px;overflow:hidden;}
+.pill-fill{height:100%;border-radius:2px;transition:width .5s ease;}
 
-/* PILLARS GRID */
-.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
-.pillar-card{
-  background:var(--white);border:1.5px solid var(--g200);border-radius:14px;
-  padding:20px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;
-}
-.pillar-card:hover{border-color:rgba(52,199,123,.4);box-shadow:0 6px 20px rgba(11,61,46,.08);transform:translateY(-2px);}
-.pillar-card.active{border-color:var(--mint);box-shadow:0 6px 20px rgba(52,199,123,.15);}
-.pillar-card.locked{opacity:.6;cursor:default;}
-.pillar-card.locked:hover{transform:none;box-shadow:none;border-color:var(--g200);}
-.pc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.pc-icon{font-size:24px;}
-.pc-status{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;}
-.pcs-done{background:var(--mint-pale);color:var(--sage);}
-.pcs-active{background:rgba(26,115,232,.1);color:var(--blue);}
-.pcs-ready{background:var(--g100);color:var(--g400);}
-.pcs-locked{background:var(--g100);color:var(--g400);}
-.pc-name{font-size:16px;font-weight:800;color:var(--forest);letter-spacing:-.4px;margin-bottom:3px;}
-.pc-desc{font-size:12px;color:var(--text-lt);font-weight:300;margin-bottom:14px;line-height:1.5;}
-.pc-progress{height:4px;background:var(--g200);border-radius:2px;overflow:hidden;}
-.pc-progress-fill{height:100%;border-radius:2px;transition:width .4s ease;}
-.pc-pct{font-size:11px;color:var(--text-lt);margin-top:5px;}
-.lock-overlay{position:absolute;top:12px;right:12px;font-size:14px;opacity:.4;}
+/* MAIN GRID */
+.main-grid{display:grid;grid-template-columns:1fr 320px;gap:16px;}
 
-/* TWO COL */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+/* TASK PANEL */
+.task-panel{background:var(--white);border:1px solid var(--g200);border-radius:14px;overflow:hidden;}
+.task-header{padding:16px 20px;border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:space-between;}
+.task-title{font-size:15px;font-weight:700;color:var(--forest);}
+.task-meta{font-size:12px;color:var(--text-lt);}
+.task-filter{display:flex;gap:6px;padding:12px 20px;border-bottom:1px solid var(--g200);overflow-x:auto;}
+.tf{padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid var(--g200);color:var(--text-lt);cursor:pointer;white-space:nowrap;transition:all .15s;background:none;font-family:"Plus Jakarta Sans",sans-serif;}
+.tf.active{background:var(--forest);color:var(--white);border-color:var(--forest);}
+.task-list{padding:8px 0;max-height:520px;overflow-y:auto;}
+.task-list::-webkit-scrollbar{width:3px;}
+.task-list::-webkit-scrollbar-thumb{background:var(--g200);}
 
-/* CHECKLIST CARD */
-.card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:20px;}
-.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-.card-title{font-size:15px;font-weight:700;color:var(--forest);letter-spacing:-.3px;}
-.card-action{font-size:12px;font-weight:600;color:var(--mint);text-decoration:none;cursor:pointer;}
-.checklist{display:flex;flex-direction:column;gap:8px;}
-.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .15s;}
-.check-item:hover{background:var(--off);}
-.check-item.done .ci-text{text-decoration:line-through;color:var(--text-lt);}
-.checkbox{width:18px;height:18px;border-radius:5px;border:2px solid var(--g200);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer;}
-.check-item.done .checkbox{background:var(--mint);border-color:var(--mint);color:white;font-size:10px;}
-.ci-text{font-size:13px;color:var(--text-md);line-height:1.4;}
-.ci-tag{font-size:10px;font-weight:600;padding:1px 7px;border-radius:100px;margin-left:auto;flex-shrink:0;}
-.tag-build{background:rgba(52,199,123,.1);color:var(--sage);}
+/* TASK ITEM */
+.task-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s;border-bottom:1px solid var(--g100);}
+.task-item:hover{background:var(--off);}
+.task-item.done{opacity:.55;}
+.task-item.done .ti-title{text-decoration:line-through;color:var(--text-lt);}
+.task-check{width:20px;height:20px;border-radius:6px;border:2px solid var(--g200);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer;}
+.task-item.done .task-check{background:var(--mint);border-color:var(--mint);color:white;font-size:11px;}
+.ti-body{flex:1;min-width:0;}
+.ti-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:3px;}
+.ti-detail{font-size:12px;color:var(--text-lt);font-weight:300;line-height:1.5;}
+.ti-tags{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap;}
+.ti-tag{font-size:10px;font-weight:600;padding:1px 7px;border-radius:100px;}
+.tag-build{background:var(--mint-pale);color:var(--sage);}
 .tag-fund{background:rgba(255,184,0,.1);color:#7A5A00;}
 .tag-run{background:rgba(26,115,232,.1);color:var(--blue);}
-.tag-grow{background:rgba(234,67,53,.1);color:#8B1A14;}
+.tag-grow{background:rgba(123,45,139,.1);color:var(--purple);}
+.tag-urgent{background:rgba(234,67,53,.1);color:var(--red);}
+.ti-ask{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mint);font-weight:600;margin-top:6px;opacity:0;transition:opacity .15s;}
+.task-item:hover .ti-ask{opacity:1;}
 
-/* QUICK ACTIONS */
-.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
-.qa{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--off);border:1px solid var(--g200);border-radius:10px;cursor:pointer;text-decoration:none;transition:all .15s;}
-.qa:hover{border-color:rgba(52,199,123,.4);background:var(--white);}
-.qa-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0;}
-.qa-text{font-size:13px;font-weight:600;color:var(--forest);}
-.qa-sub{font-size:11px;color:var(--text-lt);margin-top:1px;font-weight:300;}
+/* LOADING STATE */
+.task-loading{padding:32px 20px;text-align:center;}
+.tl-icon{font-size:32px;margin-bottom:12px;animation:pulse 1.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.tl-title{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:4px;}
+.tl-sub{font-size:12px;color:var(--text-lt);font-weight:300;}
 
-/* STATS ROW */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
-.stat-card{background:var(--white);border:1px solid var(--g200);border-radius:12px;padding:16px;}
-.stat-num{font-size:26px;font-weight:800;color:var(--forest);letter-spacing:-1px;line-height:1;}
-.stat-label{font-size:12px;color:var(--text-lt);margin-top:4px;font-weight:400;}
-.stat-change{font-size:11px;font-weight:600;color:var(--sage);margin-top:2px;}
+/* RIGHT SIDEBAR */
+.right-col{display:flex;flex-direction:column;gap:14px;}
 
-/* JOURNEY PROGRESS */
-.journey-bar{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:20px;margin-bottom:24px;}
-.jb-steps{display:flex;align-items:center;margin-top:16px;}
-.jb-step{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
-.jb-step:not(:last-child)::after{content:"";position:absolute;top:14px;left:60%;right:-40%;height:2px;background:var(--g200);z-index:0;}
-.jb-step.done:not(:last-child)::after{background:var(--mint);}
-.jb-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;position:relative;z-index:1;border:2px solid var(--g200);background:var(--white);color:var(--text-lt);}
-.jb-step.done .jb-circle{background:var(--mint);border-color:var(--mint);color:white;}
-.jb-step.active .jb-circle{background:var(--forest);border-color:var(--forest);color:white;}
-.jb-label{font-size:11px;font-weight:600;color:var(--text-lt);margin-top:6px;text-align:center;}
-.jb-step.done .jb-label{color:var(--sage);}
-.jb-step.active .jb-label{color:var(--forest);font-weight:700;}
+/* NEXT STEP CARD */
+.next-card{background:var(--forest);border-radius:14px;padding:20px;cursor:pointer;transition:all .2s;}
+.next-card:hover{background:var(--sage);}
+.nc-eye{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:8px;display:block;}
+.nc-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.3;}
+.nc-sub{font-size:12px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5;margin-bottom:12px;}
+.nc-btn{display:block;text-align:center;padding:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;transition:all .2s;}
+.nc-btn:hover{background:rgba(255,255,255,.2);}
+
+/* WHAT SHOULD I DO TODAY */
+.focus-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:20px;}
+.fc-title{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:4px;}
+.fc-sub{font-size:12px;color:var(--text-lt);font-weight:300;margin-bottom:14px;line-height:1.5;}
+.fc-btn{display:block;width:100%;padding:11px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:700;color:var(--forest);text-align:center;cursor:pointer;transition:all .2s;font-family:"Plus Jakarta Sans",sans-serif;text-decoration:none;}
+.fc-btn:hover{background:var(--mint-pale);border-color:rgba(52,199,123,.3);}
 
 /* ROOT CARD */
-.root-card{background:linear-gradient(135deg,#1A73E8,#0D5DBE);border-radius:14px;padding:20px;color:white;margin-bottom:16px;}
-.root-card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.root-badge-icon{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:16px;}
-.root-title{font-size:15px;font-weight:700;}
-.root-sub{font-size:12px;opacity:.7;margin-bottom:14px;line-height:1.5;font-weight:300;}
-.root-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:rgba(255,255,255,.15);border-radius:8px;font-size:13px;font-weight:700;color:white;text-decoration:none;transition:all .2s;border:1px solid rgba(255,255,255,.2);}
-.root-btn:hover{background:rgba(255,255,255,.25);}
+.root-card{background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:14px;padding:18px;}
+.rc-top{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.rc-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:15px;}
+.rc-name{font-size:14px;font-weight:700;color:var(--white);}
+.rc-sub{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:12px;font-weight:300;line-height:1.5;}
+.rc-btn{display:block;padding:9px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;text-align:center;transition:all .2s;}
+.rc-btn:hover{background:rgba(255,255,255,.22);}
+
+/* STATS */
+.stats-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:16px;}
+.sc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:12px;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.stat{padding:12px;background:var(--off);border-radius:10px;text-align:center;}
+.stat-num{font-size:20px;font-weight:800;color:var(--forest);letter-spacing:-1px;line-height:1;}
+.stat-lbl{font-size:10px;color:var(--text-lt);margin-top:3px;font-weight:400;}
+
+/* QUICK LINKS */
+.quick-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:16px;}
+.qc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:10px;}
+.qlinks{display:flex;flex-direction:column;gap:6px;}
+.qlink{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--off);border-radius:8px;text-decoration:none;transition:all .15s;border:1px solid transparent;}
+.qlink:hover{background:var(--white);border-color:var(--g200);}
+.ql-icon{font-size:16px;width:20px;text-align:center;}
+.ql-text{font-size:13px;font-weight:600;color:var(--forest);}
+.ql-sub{font-size:11px;color:var(--text-lt);font-weight:300;}
 
 /* MOBILE */
-@media(max-width:768px){
-  .pillars-grid{grid-template-columns:1fr 1fr;}
-  .two-col{grid-template-columns:1fr;}
-  .stats-row{grid-template-columns:1fr 1fr;}
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr;}
+  .right-col{order:-1;}
+  .pillars-row{grid-template-columns:1fr 1fr;}
   .nav-links{display:none;}
-  .page{padding:16px;}
 }
 @media(max-width:480px){
-  .pillars-grid{grid-template-columns:1fr 1fr;}
-  .stats-row{grid-template-columns:1fr 1fr;}
-  .quick-grid{grid-template-columns:1fr;}
+  .pillars-row{grid-template-columns:1fr 1fr;}
+  .state-banner{flex-wrap:wrap;}
+  .sb-right{flex-direction:row;align-items:center;width:100%;}
+  .page{padding:16px;}
 }
 </style>
 </head>
@@ -155,152 +182,142 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
   <div class="nav-links">
     <a href="/dashboard" class="nav-link active">Dashboard</a>
     <a href="/coaching" class="nav-link">AI Advisor</a>
-    <a href="/profile" class="nav-link">Edit Profile</a>
+    <a href="/profile" class="nav-link">Profile</a>
   </div>
   <div class="nav-right">
-    <span class="nav-plan" id="nav-plan">Free</span>
-    <a href="/profile" class="nav-avatar" id="nav-avatar" style="text-decoration:none;">Z</a>
+    <span class="nav-plan">Free</span>
+    <a href="/profile" class="nav-avatar" id="nav-avatar">Z</a>
   </div>
 </nav>
 
 <div class="page">
 
-  <!-- HEADER -->
-  <div class="page-header">
-    <div class="welcome" id="welcome">Good morning!</div>
-    <div class="welcome-sub" id="welcome-sub">Here's where your program stands today.</div>
-  </div>
-
-  <!-- NEXT STEP -->
-  <div class="next-banner" id="next-banner" onclick="goToNextStep()">
-    <div class="nb-icon" id="nb-icon">🏗️</div>
+  <!-- STATE BANNER -->
+  <div class="state-banner sb-starting" id="state-banner">
+    <div class="sb-icon" id="sb-icon">🌱</div>
     <div>
-      <div class="nb-label">Your next step</div>
-      <div class="nb-title" id="nb-title">Loading your next action...</div>
-      <div class="nb-sub" id="nb-sub"></div>
+      <div class="sb-eyebrow" id="sb-eyebrow">Getting started</div>
+      <div class="sb-title" id="sb-title">Let's build your program right.</div>
+      <div class="sb-sub" id="sb-sub">Your foundation determines everything that comes after it.</div>
     </div>
-    <div class="nb-arrow">→</div>
-  </div>
-
-  <!-- JOURNEY BAR -->
-  <div class="journey-bar">
-    <div class="card-header" style="margin-bottom:0;">
-      <span class="card-title">Your Journey</span>
-      <span style="font-size:12px;color:var(--text-lt);" id="journey-pct">0% complete</span>
-    </div>
-    <div class="jb-steps">
-      <div class="jb-step" id="jb-build">
-        <div class="jb-circle">🏗️</div>
-        <div class="jb-label">Build</div>
+    <div class="sb-right">
+      <div class="sb-prog">
+        <div class="sb-prog-num" id="sb-prog-num">0%</div>
+        <div class="sb-prog-lbl">overall progress</div>
       </div>
-      <div class="jb-step" id="jb-fund">
-        <div class="jb-circle">💰</div>
-        <div class="jb-label">Fund</div>
-      </div>
-      <div class="jb-step" id="jb-run">
-        <div class="jb-circle">⚙️</div>
-        <div class="jb-label">Run</div>
-      </div>
-      <div class="jb-step" id="jb-grow">
-        <div class="jb-circle">📈</div>
-        <div class="jb-label">Grow</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats-row" id="stats-row">
-    <div class="stat-card">
-      <div class="stat-num" id="stat-participants">—</div>
-      <div class="stat-label">Participants</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" id="stat-budget">—</div>
-      <div class="stat-label">Budget range</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" id="stat-stage">—</div>
-      <div class="stat-label">Journey stage</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" id="stat-tasks">0</div>
-      <div class="stat-label">Tasks completed</div>
+      <div class="sb-btn" onclick="window.location.href='/coaching'">Ask your advisor →</div>
     </div>
   </div>
 
   <!-- PILLARS -->
-  <div class="pillars-grid" id="pillars-grid">
-    <div class="pillar-card active" onclick="gotoPillar('Build')">
-      <div class="pc-top"><span class="pc-icon">🏗️</span><span class="pc-status pcs-active" id="build-status">In Progress</span></div>
-      <div class="pc-name">Build</div>
-      <div class="pc-desc">Legal, compliance, facility, certifications</div>
-      <div class="pc-progress"><div class="pc-progress-fill" id="build-prog" style="width:0%;background:var(--mint);"></div></div>
-      <div class="pc-pct" id="build-pct">0% complete</div>
+  <div class="section-label">
+    Your four pillars
+    <span onclick="resetFocus()">Show all</span>
+  </div>
+  <div class="pillars-row">
+    <div class="pill p-build focused" id="pill-build" onclick="focusPillar('Build')">
+      <div class="pill-top"><span class="pill-icon">🏗️</span><span class="pill-pct pct-build" id="pct-build">0%</span></div>
+      <div class="pill-name">Build</div>
+      <div class="pill-desc">Legal, compliance, facility</div>
+      <div class="pill-bar"><div class="pill-fill" id="fill-build" style="width:0%;background:var(--mint);"></div></div>
     </div>
-    <div class="pillar-card" onclick="gotoPillar('Fund')">
-      <div class="pc-top"><span class="pc-icon">💰</span><span class="pc-status pcs-ready" id="fund-status">Ready</span></div>
-      <div class="pc-name">Fund</div>
-      <div class="pc-desc">Grants, pricing, sponsorships</div>
-      <div class="pc-progress"><div class="pc-progress-fill" id="fund-prog" style="width:0%;background:var(--yellow);"></div></div>
-      <div class="pc-pct" id="fund-pct">0% complete</div>
+    <div class="pill p-fund" id="pill-fund" onclick="focusPillar('Fund')">
+      <div class="pill-top"><span class="pill-icon">💰</span><span class="pill-pct pct-fund" id="pct-fund">0%</span></div>
+      <div class="pill-name">Fund</div>
+      <div class="pill-desc">Grants, pricing, sponsorship</div>
+      <div class="pill-bar"><div class="pill-fill" id="fill-fund" style="width:0%;background:var(--yellow);"></div></div>
     </div>
-    <div class="pillar-card" onclick="gotoPillar('Run')">
-      <div class="pc-top"><span class="pc-icon">⚙️</span><span class="pc-status pcs-ready" id="run-status">Ready</span></div>
-      <div class="pc-name">Run</div>
-      <div class="pc-desc">Powered by Root — operations platform</div>
-      <div class="pc-progress"><div class="pc-progress-fill" id="run-prog" style="width:0%;background:var(--blue);"></div></div>
-      <div class="pc-pct" id="run-pct">0% complete</div>
+    <div class="pill p-run" id="pill-run" onclick="focusPillar('Run')">
+      <div class="pill-top"><span class="pill-icon">⚙️</span><span class="pill-pct pct-run" id="pct-run">0%</span></div>
+      <div class="pill-name">Run</div>
+      <div class="pill-desc">Powered by Root</div>
+      <div class="pill-bar"><div class="pill-fill" id="fill-run" style="width:0%;background:var(--blue);"></div></div>
     </div>
-    <div class="pillar-card" onclick="gotoPillar('Grow')">
-      <div class="pc-top"><span class="pc-icon">📈</span><span class="pc-status pcs-ready" id="grow-status">Ready</span></div>
-      <div class="pc-name">Grow</div>
-      <div class="pc-desc">Impact reports, expansion planning</div>
-      <div class="pc-progress"><div class="pc-progress-fill" id="grow-prog" style="width:0%;background:var(--purple);"></div></div>
-      <div class="pc-pct" id="grow-pct">0% complete</div>
+    <div class="pill p-grow" id="pill-grow" onclick="focusPillar('Grow')">
+      <div class="pill-top"><span class="pill-icon">📈</span><span class="pill-pct pct-grow" id="pct-grow">0%</span></div>
+      <div class="pill-name">Grow</div>
+      <div class="pill-desc">Impact, reports, expansion</div>
+      <div class="pill-bar"><div class="pill-fill" id="fill-grow" style="width:0%;background:var(--purple);"></div></div>
     </div>
   </div>
 
-  <!-- TWO COL -->
-  <div class="two-col">
+  <!-- MAIN GRID -->
+  <div class="main-grid">
 
-    <!-- CHECKLIST -->
-    <div class="card">
-      <div class="card-header">
-        <span class="card-title">Your Build Checklist</span>
-        <span class="card-action" onclick="gotoPillar('Build')">Ask AI for help →</span>
+    <!-- TASK PANEL -->
+    <div class="task-panel">
+      <div class="task-header">
+        <div>
+          <div class="task-title" id="task-panel-title">Your Tasks</div>
+          <div class="task-meta" id="task-panel-meta">Loading your personalized plan...</div>
+        </div>
       </div>
-      <div class="checklist" id="checklist">
-        <!-- populated by JS -->
+      <div class="task-filter" id="task-filter">
+        <button class="tf active" onclick="filterTasks('all', this)">All</button>
+        <button class="tf" onclick="filterTasks('Build', this)">🏗️ Build</button>
+        <button class="tf" onclick="filterTasks('Fund', this)">💰 Fund</button>
+        <button class="tf" onclick="filterTasks('Run', this)">⚙️ Run</button>
+        <button class="tf" onclick="filterTasks('Grow', this)">📈 Grow</button>
+        <button class="tf" onclick="filterTasks('urgent', this)">🔥 Urgent</button>
+      </div>
+      <div class="task-list" id="task-list">
+        <div class="task-loading">
+          <div class="tl-icon">🧠</div>
+          <div class="tl-title">Building your personalized plan...</div>
+          <div class="tl-sub">This only happens once. Generating tasks specific to your program, location, and stage.</div>
+        </div>
       </div>
     </div>
 
-    <!-- RIGHT COL -->
-    <div>
-      <!-- ROOT CARD -->
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+      <!-- NEXT STEP -->
+      <div class="next-card" id="next-card" onclick="window.location.href='/coaching'">
+        <span class="nc-eye">Your next step</span>
+        <div class="nc-title" id="nc-title">Loading your next action...</div>
+        <div class="nc-sub" id="nc-sub"></div>
+        <span class="nc-btn">Get help with this →</span>
+      </div>
+
+      <!-- WHAT SHOULD I DO TODAY -->
+      <div class="focus-card">
+        <div class="fc-title">Not sure where to focus?</div>
+        <div class="fc-sub">Ask your AI advisor what to work on today based on where your program is right now.</div>
+        <a href="/coaching?q=What+should+I+work+on+today+for+my+program?" class="fc-btn">What should I work on today? →</a>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-card">
+        <div class="sc-title" id="stats-org-name">Your Program</div>
+        <div class="stats-grid">
+          <div class="stat"><div class="stat-num" id="stat-type">—</div><div class="stat-lbl">Program type</div></div>
+          <div class="stat"><div class="stat-num" id="stat-participants">—</div><div class="stat-lbl">Participants</div></div>
+          <div class="stat"><div class="stat-num" id="stat-tasks-done">0</div><div class="stat-lbl">Tasks done</div></div>
+          <div class="stat"><div class="stat-num" id="stat-budget">—</div><div class="stat-lbl">Budget range</div></div>
+        </div>
+      </div>
+
+      <!-- ROOT -->
       <div class="root-card">
-        <div class="root-card-top">
-          <div class="root-badge-icon">⚽</div>
-          <div>
-            <div class="root-title">Root — Management Platform</div>
-          </div>
-        </div>
-        <div class="root-sub">Run your program operations on Root. Registration, scheduling, payments, and SafeSport compliance — all in one place. Free to start.</div>
-        <a href="https://www.rootsoccer.com" target="_blank" class="root-btn">Set up Root →</a>
+        <div class="rc-top"><div class="rc-icon">⚽</div><div class="rc-name">Root</div></div>
+        <div class="rc-sub">The Complete Management Platform — registration, scheduling, payments, SafeSport.</div>
+        <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn">Open Root →</a>
       </div>
 
-      <!-- QUICK ACTIONS -->
-      <div class="card">
-        <div class="card-header"><span class="card-title">Quick Actions</span></div>
-        <div class="quick-grid">
-          <a href="/coaching" class="qa"><div class="qa-icon">🤖</div><div><div class="qa-text">Ask AI Advisor</div><div class="qa-sub">Get personalized guidance</div></div></a>
-          <a href="/coaching" class="qa"><div class="qa-icon">💰</div><div><div class="qa-text">Find Grants</div><div class="qa-sub">Matched to your program</div></div></a>
-          <a href="https://www.rootsoccer.com" target="_blank" class="qa"><div class="qa-icon">⚙️</div><div><div class="qa-text">Open Root</div><div class="qa-sub">Manage operations</div></div></a>
-          <a href="/consulting" class="qa"><div class="qa-icon">📞</div><div><div class="qa-text">Book Consulting</div><div class="qa-sub">1:1 session · $150–$250</div></div></a>
+      <!-- QUICK LINKS -->
+      <div class="quick-card">
+        <div class="qc-title">Quick actions</div>
+        <div class="qlinks">
+          <a href="/coaching" class="qlink"><div class="ql-icon">🤖</div><div><div class="ql-text">Ask AI Advisor</div><div class="ql-sub">Get specific guidance</div></div></a>
+          <a href="/coaching?q=What+grants+should+I+apply+for+first?" class="qlink"><div class="ql-icon">💸</div><div><div class="ql-text">Find grants</div><div class="ql-sub">Matched to your program</div></div></a>
+          <a href="/profile" class="qlink"><div class="ql-icon">✏️</div><div><div class="ql-text">Edit profile</div><div class="ql-sub">Keep your info current</div></div></a>
+          <a href="/consulting" class="qlink"><div class="ql-icon">📞</div><div><div class="ql-text">Book consulting</div><div class="ql-sub">1:1 · $150–$250/session</div></div></a>
         </div>
       </div>
+
     </div>
   </div>
-
 </div>
 
 <script>
@@ -309,183 +326,326 @@ if (!localStorage.getItem('clearpath_auth')) { window.location.href = '/signup';
 else if (!localStorage.getItem('clearpath_onboarded')) { window.location.href = '/onboarding'; }
 
 let profile = {};
+let allTasks = [];
 let progress = {};
+let currentFilter = 'all';
+let focusedPillar = null;
 
-const CHECKLISTS = {
-  Build: [
-    { id:'llc', text:'Form LLC or Nonprofit Corporation', tag:'build' },
-    { id:'ein', text:'Get EIN from IRS (free at irs.gov/ein)', tag:'build' },
-    { id:'bank', text:'Open a business bank account', tag:'build' },
-    { id:'governing', text:'Join governing body (e.g. US Youth Soccer)', tag:'build' },
-    { id:'insurance', text:'Get general liability insurance', tag:'build' },
-    { id:'safesport', text:'Complete SafeSport certification (all adults)', tag:'build' },
-    { id:'background', text:'Run background checks on all coaches/staff', tag:'build' },
-    { id:'certs', text:'Complete coaching certifications', tag:'build' },
-    { id:'field', text:'Book field or facility', tag:'build' },
-    { id:'registration', text:'Set registration fees and open registration', tag:'build' },
-  ],
-  Fund: [
-    { id:'pricing', text:'Set your registration pricing strategy', tag:'fund' },
-    { id:'local_grant', text:'Apply to a local community foundation grant', tag:'fund' },
-    { id:'sponsor', text:'Identify 3 potential local sponsors', tag:'fund' },
-    { id:'501c3', text:'File for 501(c)(3) status', tag:'fund' },
-    { id:'first_grant', text:'Submit first sport-specific grant application', tag:'fund' },
-  ],
-  Run: [
-    { id:'root_account', text:'Create Root account at rootsoccer.com', tag:'run' },
-    { id:'root_setup', text:'Set up league/club in Root', tag:'run' },
-    { id:'root_forms', text:'Configure registration forms', tag:'run' },
-    { id:'root_payments', text:'Connect Stripe for payments', tag:'run' },
-    { id:'root_safesport', text:'Enable SafeSport tracking in Root', tag:'run' },
-    { id:'root_share', text:'Share registration link with families', tag:'run' },
-  ],
-  Grow: [
-    { id:'season_data', text:'Complete first full season on Root', tag:'grow' },
-    { id:'impact_report', text:'Generate season impact report', tag:'grow' },
-    { id:'grant_report', text:'Submit grant progress report', tag:'grow' },
-    { id:'yoy', text:'Compare year-over-year data', tag:'grow' },
-    { id:'expand', text:'Plan next season expansion', tag:'grow' },
-  ]
-};
-
-const NEXT_STEPS = {
-  build_llc: { icon:'🏛️', title:'Form your legal entity', sub:'File LLC at your state Secretary of State website. Takes 10 minutes online.' },
-  build_ein: { icon:'📄', title:'Get your EIN from the IRS', sub:'Free at irs.gov/ein. Takes 10 minutes. Required to open a bank account.' },
-  build_bank: { icon:'🏦', title:'Open a business bank account', sub:'Bring your EIN and Articles of Organization. Keep business and personal finances separate.' },
-  build_governing: { icon:'⚽', title:'Join your governing body', sub:'Register with US Youth Soccer or your sport\'s national governing body.' },
-  build_insurance: { icon:'🛡️', title:'Get general liability insurance', sub:'Required before booking any field or facility. K&K Insurance or through your governing body.' },
-  build_safesport: { icon:'✅', title:'Complete SafeSport certification', sub:'Free at safesport.org. Required for all adults working with youth. Takes 90 minutes.' },
-  build_background: { icon:'🔍', title:'Run background checks', sub:'Sterling Volunteers at sterlingvolunteers.com — $15–25/person.' },
-  build_certs: { icon:'📋', title:'Complete coaching certifications', sub:'Sport-specific license plus First Aid/CPR for all coaches.' },
-  build_field: { icon:'🏟️', title:'Book your field or facility', sub:'Contact city parks AND school district athletic director. Apply 6–8 weeks early.' },
-  build_registration: { icon:'📝', title:'Set up registration', sub:'Set your pricing, create your registration form, open for families.' },
-  fund_pricing: { icon:'💵', title:'Set your pricing strategy', sub:'Research comparable programs in your area. Set a fair price with scholarship options.' },
-  fund_local_grant: { icon:'🏦', title:'Apply to a local community foundation', sub:'Lowest competition, fastest response. Best first grant for new programs.' },
-  run_root_account: { icon:'⚙️', title:'Create your Root account', sub:'Go to rootsoccer.com and set up your free account. Takes 5 minutes.' },
-  grow_season_data: { icon:'📊', title:'Complete your first season', sub:'Run your program through Root to generate data for impact reports and grant applications.' },
-};
-
-function loadProfile() {
+// ── LOAD ──────────────────────────────────────────────────────────
+function init() {
   const stored = localStorage.getItem('clearpath_profile');
   if (stored) { try { profile = JSON.parse(stored); } catch(e){} }
-  progress = JSON.parse(localStorage.getItem('clearpath_progress') || '{}');
+  progress = JSON.parse(localStorage.getItem('clearpath_task_progress') || '{}');
 
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
-  document.getElementById('welcome').textContent = `${greeting}, ${profile.firstName || profile.orgName || 'there'}!`;
-  document.getElementById('welcome-sub').textContent = `Here's where ${profile.orgName || 'your program'} stands today.`;
-  document.getElementById('nav-avatar').textContent = (profile.firstName || 'Z')[0].toUpperCase();
+  renderHeader();
+  renderStats();
+  renderStateBanner();
 
+  // Check for cached tasks
+  const cached = localStorage.getItem('clearpath_tasks');
+  if (cached) {
+    try {
+      allTasks = JSON.parse(cached);
+      renderTasks();
+      renderPillarProgress();
+      renderNextStep();
+    } catch(e) { generateTasks(); }
+  } else {
+    generateTasks();
+  }
+}
+
+function renderHeader() {
+  const initial = (profile.firstName || profile.orgName || 'U')[0].toUpperCase();
+  document.getElementById('nav-avatar').textContent = initial;
+  document.getElementById('stats-org-name').textContent = profile.orgName || 'Your Program';
+}
+
+function renderStats() {
+  const type = profile.programType || '—';
+  const shortType = type.includes('Youth') ? 'Youth Sports' : type.includes('After') ? 'After-School' : type.includes('STEM') ? 'STEM' : type.includes('Parks') ? 'Parks & Rec' : type;
+  document.getElementById('stat-type').textContent = shortType;
   document.getElementById('stat-participants').textContent = profile.participantCount || '—';
   document.getElementById('stat-budget').textContent = profile.budgetRange ? profile.budgetRange.replace('Under ', '<') : '—';
-  document.getElementById('stat-stage').textContent = profile.journey ? profile.journey.split(' — ')[0] : '—';
-
-  renderChecklist();
-  renderPillarProgress();
-  renderJourneyBar();
-  renderNextStep();
 }
 
-function renderChecklist() {
-  // Show Build checklist by default
-  const items = CHECKLISTS.Build;
-  const html = items.map(item => {
-    const done = progress[item.id] === true;
-    return `<div class="check-item ${done ? 'done' : ''}" onclick="toggleCheck('${item.id}', this)">
-      <div class="checkbox">${done ? '✓' : ''}</div>
-      <div class="ci-text">${item.text}</div>
-      <span class="ci-tag tag-${item.tag}">${item.tag}</span>
-    </div>`;
-  }).join('');
-  document.getElementById('checklist').innerHTML = html;
-  updateTaskCount();
+function renderStateBanner() {
+  const journey = (profile.journey || '').toLowerCase();
+  const banner = document.getElementById('state-banner');
+  const icon = document.getElementById('sb-icon');
+  const eyebrow = document.getElementById('sb-eyebrow');
+  const title = document.getElementById('sb-title');
+  const sub = document.getElementById('sb-sub');
+
+  if (journey.includes('established') || journey.includes('expand')) {
+    banner.className = 'state-banner sb-established';
+    icon.textContent = '🏆';
+    eyebrow.textContent = 'Established program';
+    title.textContent = `You've built something real. Let's scale ${profile.orgName || 'it'}.`;
+    sub.textContent = 'Your focus is Grow — turn your Root data into impact reports and expansion plans.';
+  } else if (journey.includes('running') || journey.includes('launched') || journey.includes('new')) {
+    banner.className = 'state-banner sb-running';
+    icon.textContent = '⚡';
+    eyebrow.textContent = 'Program in progress';
+    title.textContent = `${profile.orgName || 'Your program'} is running. Let's level it up.`;
+    sub.textContent = 'Your focus is Fund and Run — find grants and get your operations on Root.';
+  } else {
+    banner.className = 'state-banner sb-starting';
+    icon.textContent = '🌱';
+    eyebrow.textContent = 'Just getting started';
+    title.textContent = `Let's build ${profile.orgName || 'your program'} right.`;
+    sub.textContent = 'Your foundation determines everything that comes after it. Start with Build.';
+  }
 }
 
-function toggleCheck(id, el) {
-  progress[id] = !progress[id];
-  localStorage.setItem('clearpath_progress', JSON.stringify(progress));
-  el.classList.toggle('done');
-  const cb = el.querySelector('.checkbox');
-  cb.textContent = progress[id] ? '✓' : '';
-  renderPillarProgress();
-  renderJourneyBar();
-  renderNextStep();
-  updateTaskCount();
+// ── GENERATE TASKS (API — called once, cached) ────────────────────
+async function generateTasks() {
+  const journey = (profile.journey || '').toLowerCase();
+  const isEstablished = journey.includes('established') || journey.includes('expand');
+  const isRunning = journey.includes('running') || journey.includes('launched') || journey.includes('new');
+
+  const prompt = `You are Clearpath, an advisor for community program directors. Based on this program profile, generate a personalized task list.
+
+PROFILE:
+- Program: ${profile.orgName || 'Unknown'}
+- Type: ${profile.programType || 'Unknown'} — ${profile.sportOrCategory || ''}
+- Location: ${profile.city || 'Unknown'}, ${profile.state || 'Unknown'}
+- Legal structure: ${profile.entityType || 'Unknown'}
+- Participants: ${profile.participantCount || 'Unknown'}
+- Budget: ${profile.budgetRange || 'Unknown'}
+- Grant experience: ${profile.grantExperience || 'Unknown'}
+- Biggest challenge: ${profile.biggestChallenge || 'Unknown'}
+- Journey stage: ${profile.journey || 'Unknown'}
+
+Generate exactly 16 tasks: 5 Build tasks, 4 Fund tasks, 4 Run tasks, 3 Grow tasks.
+
+Tasks must be SPECIFIC to their program type, location, and journey stage. Not generic. 
+- If they are "Not yet incorporated", their first Build task is about forming their specific legal structure.
+- If they already have 501c3, skip formation tasks.
+- If they are established, Build tasks should be about maintaining/improving not starting.
+- Fund tasks should match their grant experience level.
+- Run tasks should be about getting set up on Root.
+- Grow tasks only matter if they have seasons of data.
+
+Return ONLY a valid JSON array, no other text, no markdown:
+[
+  {
+    "id": "unique_id",
+    "title": "Specific task title",
+    "detail": "One sentence explaining exactly what to do and why it matters for their program",
+    "pillar": "Build|Fund|Run|Grow",
+    "urgent": true|false,
+    "askPrompt": "What the user should ask the AI about this task"
+  }
+]`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-5',
+        max_tokens: 2000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '[]';
+    const clean = text.replace(/```json|```/g, '').trim();
+    allTasks = JSON.parse(clean);
+    localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
+    renderTasks();
+    renderPillarProgress();
+    renderNextStep();
+  } catch(e) {
+    console.error('Task generation failed:', e);
+    // Fallback to default tasks
+    allTasks = getDefaultTasks();
+    localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
+    renderTasks();
+    renderPillarProgress();
+    renderNextStep();
+  }
 }
 
-function updateTaskCount() {
-  const total = Object.values(progress).filter(v => v === true).length;
-  document.getElementById('stat-tasks').textContent = total;
+function getDefaultTasks() {
+  const journey = (profile.journey || '').toLowerCase();
+  const isEstablished = journey.includes('established');
+  return [
+    {id:'b1',title:'Form your legal entity',detail:`File ${profile.entityType === 'LLC' ? 'LLC' : 'nonprofit corporation'} in ${profile.state || 'your state'} — search "[your state] secretary of state LLC filing"`,pillar:'Build',urgent:true,askPrompt:'How do I form my legal entity in my state?'},
+    {id:'b2',title:'Get your EIN from the IRS',detail:'Free at irs.gov/ein. Takes 10 minutes. Required before opening a bank account.',pillar:'Build',urgent:true,askPrompt:'How do I get an EIN from the IRS?'},
+    {id:'b3',title:'Open a business bank account',detail:'Bring your EIN and formation documents. Keep business and personal finances completely separate.',pillar:'Build',urgent:false,askPrompt:'How do I open a business bank account for my program?'},
+    {id:'b4',title:`Join your ${profile.programType === 'Youth Sports' ? 'governing body' : 'program network'}`,detail:`Register with the national governing body for ${profile.sportOrCategory || 'your program type'}.`,pillar:'Build',urgent:false,askPrompt:`What governing body should I join for ${profile.sportOrCategory || 'my program'}?`},
+    {id:'b5',title:'Get general liability insurance',detail:'Required before booking any field or facility. Apply through your governing body or K&K Insurance.',pillar:'Build',urgent:true,askPrompt:'What insurance do I need for my program?'},
+    {id:'f1',title:'Apply to your local community foundation',detail:'Lowest competition, fastest decisions. Your best first grant. Search "[your county] community foundation".',pillar:'Fund',urgent:false,askPrompt:'How do I find and apply to my local community foundation?'},
+    {id:'f2',title:'Set your registration pricing strategy',detail:'Research comparable programs in your area. Set a fair price with a scholarship option.',pillar:'Fund',urgent:false,askPrompt:'How should I price my program registration?'},
+    {id:'f3',title:`Apply for ${profile.programType === 'Youth Sports' ? 'sport-specific grants' : 'program-specific grants'}`,detail:`Find grants specific to ${profile.sportOrCategory || 'your program type'} — search "[sport] foundation grants youth programs"`,pillar:'Fund',urgent:false,askPrompt:`What grants exist specifically for ${profile.sportOrCategory || 'my program type'}?`},
+    {id:'f4',title:'Build a local sponsorship list',detail:'Identify 5 local businesses to approach. Law firms, medical practices, and car dealerships are strong targets.',pillar:'Fund',urgent:false,askPrompt:'How do I find and approach local sponsors?'},
+    {id:'r1',title:'Create your Root account',detail:'Go to rootsoccer.com and create your free account. Takes 5 minutes.',pillar:'Run',urgent:false,askPrompt:'How do I set up Root for my program?'},
+    {id:'r2',title:'Set up your league or club in Root',detail:'Configure your organization type, season structure, and division setup in Root.',pillar:'Run',urgent:false,askPrompt:'How do I configure Root for my specific program type?'},
+    {id:'r3',title:'Configure registration forms',detail:'Build your registration form in Root with all required fields including SafeSport uploads.',pillar:'Run',urgent:false,askPrompt:'What should I include in my registration form?'},
+    {id:'r4',title:'Share your registration link with families',detail:'Once Root is configured, share the link via email, social media, and your community channels.',pillar:'Run',urgent:false,askPrompt:'How do I get families to register for my program?'},
+    {id:'g1',title:'Complete your first full season on Root',detail:'Run a complete season through Root to build the data foundation for grant reports.',pillar:'Grow',urgent:false,askPrompt:'What data should I track during my season?'},
+    {id:'g2',title:'Generate your season impact report',detail:'Use your Root data to document participants served, attendance rates, and outcomes.',pillar:'Grow',urgent:false,askPrompt:'How do I create an impact report from my season data?'},
+    {id:'g3',title:'Plan next season expansion',detail:'Review what worked, what didn\'t, and what your data says about growth opportunities.',pillar:'Grow',urgent:false,askPrompt:'How do I know when I\'m ready to expand my program?'},
+  ];
 }
 
-function getPillarProgress(pillar) {
-  const items = CHECKLISTS[pillar];
-  const done = items.filter(i => progress[i.id] === true).length;
-  return Math.round((done / items.length) * 100);
-}
+// ── RENDER TASKS ───────────────────────────────────────────────────
+function renderTasks() {
+  const list = document.getElementById('task-list');
+  let tasks = allTasks;
 
-function renderPillarProgress() {
-  const pillars = ['Build', 'Fund', 'Run', 'Grow'];
-  const colors = { Build: 'var(--mint)', Fund: 'var(--yellow)', Run: 'var(--blue)', Grow: 'var(--purple)' };
-  pillars.forEach(p => {
-    const pct = getPillarProgress(p);
-    document.getElementById(`${p.toLowerCase()}-prog`).style.width = pct + '%';
-    document.getElementById(`${p.toLowerCase()}-pct`).textContent = pct + '% complete';
-    const statusEl = document.getElementById(`${p.toLowerCase()}-status`);
-    if (pct === 100) { statusEl.textContent = 'Done'; statusEl.className = 'pc-status pcs-done'; }
-    else if (pct > 0) { statusEl.textContent = 'In Progress'; statusEl.className = 'pc-status pcs-active'; }
-    else { statusEl.textContent = 'Ready'; statusEl.className = 'pc-status pcs-ready'; }
-  });
-}
+  // Apply pillar focus
+  if (focusedPillar) {
+    tasks = tasks.filter(t => t.pillar === focusedPillar);
+  }
 
-function renderJourneyBar() {
-  const pillars = ['build', 'fund', 'run', 'grow'];
-  let totalPct = 0;
-  pillars.forEach((p, i) => {
-    const pct = getPillarProgress(p.charAt(0).toUpperCase() + p.slice(1));
-    totalPct += pct;
-    const el = document.getElementById(`jb-${p}`);
-    el.className = 'jb-step';
-    if (pct === 100) el.classList.add('done');
-    else if (pct > 0) el.classList.add('active');
-  });
-  const overall = Math.round(totalPct / 4);
-  document.getElementById('journey-pct').textContent = overall + '% complete';
-}
-
-function renderNextStep() {
-  // Find first uncompleted task across all pillars in order
-  const allPillars = ['Build', 'Fund', 'Run', 'Grow'];
-  for (const pillar of allPillars) {
-    const items = CHECKLISTS[pillar];
-    const next = items.find(i => !progress[i.id]);
-    if (next) {
-      const key = `${pillar.toLowerCase()}_${next.id}`;
-      const step = NEXT_STEPS[key] || { icon: pillar === 'Build' ? '🏗️' : pillar === 'Fund' ? '💰' : pillar === 'Run' ? '⚙️' : '📈', title: next.text, sub: `Continue with your ${pillar} pillar` };
-      document.getElementById('nb-icon').textContent = step.icon;
-      document.getElementById('nb-title').textContent = step.title;
-      document.getElementById('nb-sub').textContent = step.sub;
-      document.getElementById('next-banner').dataset.pillar = pillar;
-      document.getElementById('next-banner').dataset.task = next.id;
-      return;
+  // Apply filter
+  if (currentFilter !== 'all') {
+    if (currentFilter === 'urgent') {
+      tasks = tasks.filter(t => t.urgent && !progress[t.id]);
+    } else {
+      tasks = tasks.filter(t => t.pillar === currentFilter);
     }
   }
-  // All done
-  document.getElementById('nb-icon').textContent = '🎉';
-  document.getElementById('nb-title').textContent = 'You\'ve completed all your checklist items!';
-  document.getElementById('nb-sub').textContent = 'Book a consulting session to plan your next season expansion.';
+
+  if (tasks.length === 0) {
+    list.innerHTML = '<div class="task-loading"><div class="tl-icon">✅</div><div class="tl-title">All tasks complete!</div><div class="tl-sub">You\'ve finished everything in this category. Check the other pillars.</div></div>';
+    return;
+  }
+
+  // Sort: incomplete first, then complete
+  const incomplete = tasks.filter(t => !progress[t.id]);
+  const complete = tasks.filter(t => progress[t.id]);
+  const sorted = [...incomplete, ...complete];
+
+  list.innerHTML = sorted.map(t => {
+    const done = progress[t.id] === true;
+    const pillarClass = `tag-${t.pillar.toLowerCase()}`;
+    return `<div class="task-item ${done ? 'done' : ''}" id="task-${t.id}">
+      <div class="task-check" onclick="toggleTask('${t.id}', event)">${done ? '✓' : ''}</div>
+      <div class="ti-body">
+        <div class="ti-title">${t.title}</div>
+        <div class="ti-detail">${t.detail}</div>
+        <div class="ti-tags">
+          <span class="ti-tag ${pillarClass}">${t.pillar}</span>
+          ${t.urgent && !done ? '<span class="ti-tag tag-urgent">Urgent</span>' : ''}
+        </div>
+        <div class="ti-ask" onclick="askAboutTask('${t.id}', event)">🤖 Ask AI about this →</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Update meta
+  const doneCount = allTasks.filter(t => progress[t.id]).length;
+  document.getElementById('task-panel-meta').textContent = `${doneCount} of ${allTasks.length} tasks complete`;
+  document.getElementById('stat-tasks-done').textContent = doneCount;
+
+  // Update panel title based on focus
+  document.getElementById('task-panel-title').textContent = focusedPillar ? `${focusedPillar} Tasks` : 'Your Tasks';
 }
 
-function goToNextStep() {
-  window.location.href = '/coaching';
+function toggleTask(id, e) {
+  e.stopPropagation();
+  progress[id] = !progress[id];
+  localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
+  renderTasks();
+  renderPillarProgress();
+  renderNextStep();
 }
 
-function gotoPillar(pillar) {
-  localStorage.setItem('clearpath_active_pillar', pillar);
-  window.location.href = '/coaching';
+function askAboutTask(id, e) {
+  e.stopPropagation();
+  const task = allTasks.find(t => t.id === id);
+  if (task) {
+    const q = encodeURIComponent(task.askPrompt || task.title);
+    window.location.href = `/coaching?q=${q}`;
+  }
 }
 
-loadProfile();
+function filterTasks(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.tf').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTasks();
+}
+
+// ── PILLAR FOCUS ───────────────────────────────────────────────────
+function focusPillar(pillar) {
+  focusedPillar = pillar;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('focused'));
+  document.getElementById(`pill-${pillar.toLowerCase()}`).classList.add('focused');
+  currentFilter = pillar;
+  document.querySelectorAll('.tf').forEach(b => b.classList.remove('active'));
+  const btn = [...document.querySelectorAll('.tf')].find(b => b.textContent.includes(pillar));
+  if (btn) btn.classList.add('active');
+  renderTasks();
+}
+
+function resetFocus() {
+  focusedPillar = null;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('focused'));
+  document.getElementById('pill-build').classList.add('focused');
+  currentFilter = 'all';
+  document.querySelectorAll('.tf').forEach(b => b.classList.remove('active'));
+  document.querySelector('.tf').classList.add('active');
+  renderTasks();
+}
+
+// ── PILLAR PROGRESS ────────────────────────────────────────────────
+function renderPillarProgress() {
+  const pillars = ['Build','Fund','Run','Grow'];
+  const colors = {Build:'var(--mint)',Fund:'var(--yellow)',Run:'var(--blue)',Grow:'var(--purple)'};
+  let totalPct = 0;
+
+  pillars.forEach(p => {
+    const pillarTasks = allTasks.filter(t => t.pillar === p);
+    if (pillarTasks.length === 0) return;
+    const done = pillarTasks.filter(t => progress[t.id]).length;
+    const pct = Math.round((done / pillarTasks.length) * 100);
+    totalPct += pct;
+    document.getElementById(`pct-${p.toLowerCase()}`).textContent = pct + '%';
+    document.getElementById(`fill-${p.toLowerCase()}`).style.width = pct + '%';
+  });
+
+  const overall = Math.round(totalPct / 4);
+  document.getElementById('sb-prog-num').textContent = overall + '%';
+}
+
+// ── NEXT STEP ──────────────────────────────────────────────────────
+function renderNextStep() {
+  // Find first incomplete urgent task, then first incomplete task
+  const urgent = allTasks.find(t => t.urgent && !progress[t.id]);
+  const next = urgent || allTasks.find(t => !progress[t.id]);
+
+  if (!next) {
+    document.getElementById('nc-title').textContent = 'You\'ve completed all your tasks!';
+    document.getElementById('nc-sub').textContent = 'Book a consulting session to plan your next season.';
+    return;
+  }
+
+  const icons = {Build:'🏗️',Fund:'💰',Run:'⚙️',Grow:'📈'};
+  document.getElementById('nc-title').textContent = next.title;
+  document.getElementById('nc-sub').textContent = next.detail;
+  document.getElementById('next-card').onclick = () => {
+    const q = encodeURIComponent(next.askPrompt || next.title);
+    window.location.href = `/coaching?q=${q}`;
+  };
+}
+
+// ── START ──────────────────────────────────────────────────────────
+init();
+
+// Handle ?refresh=1 to regenerate tasks
+if (new URLSearchParams(window.location.search).get('refresh') === '1') {
+  localStorage.removeItem('clearpath_tasks');
+  window.location.href = '/dashboard';
+}
 </script>
 </body>
 </html>
