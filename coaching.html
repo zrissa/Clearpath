@@ -483,9 +483,9 @@ function detectActionItem(text) {
     /your next step is (.{10,80})/i,
     /you should (.{10,80})/i,
     /i recommend (.{10,80})/i,
-    /action item[:\s]+(.{10,80})/i,
+    /action item[:\\s]+(.{10,80})/i,
     /make sure to (.{10,80})/i,
-    /first thing to do[:\s]+(.{10,80})/i,
+    /first thing to do[:\\s]+(.{10,80})/i,
     /start by (.{10,80})/i,
     /\*\*(.{10,60})\*\* — (.{10,80})/,
   ];
@@ -496,8 +496,7 @@ function detectActionItem(text) {
     if (match) {
       detected = (match[1] || match[0]).replace(/\*\*/g,'').trim();
       // Clean up — remove trailing punctuation and cut at sentence end
-      detected = detected.split(/[.!?
-]/)[0].trim();
+      detected = detected.split(/[.!?\n]/)[0].trim();
       if (detected.length > 15 && detected.length < 100) break;
       detected = null;
     }
@@ -519,28 +518,54 @@ function detectActionItem(text) {
 }
 
 function showCoachingTaskPrompt(taskText, pillar) {
-  // Don't spam — only show once per session
   const shown = sessionStorage.getItem('task_prompt_shown');
   if (shown) return;
   sessionStorage.setItem('task_prompt_shown', '1');
 
-  // Store for dashboard to pick up
   localStorage.setItem('clearpath_pending_task', JSON.stringify({ text: taskText, pillar }));
 
-  // Show small inline prompt at bottom of thread
   const thread = document.getElementById('thread');
   const prompt = document.createElement('div');
   prompt.id = 'task-prompt';
-  prompt.style.cssText = 'margin:8px 0;padding:12px 16px;background:var(--mint-pale);border:1.5px solid rgba(52,199,123,.3);border-radius:10px;display:flex;align-items:center;gap:12px;';
-  prompt.innerHTML = `
-    <span style="font-size:16px;">📌</span>
-    <div style="flex:1;">
-      <div style="font-size:12px;font-weight:700;color:var(--sage);margin-bottom:2px;">Add to your dashboard?</div>
-      <div style="font-size:13px;color:var(--forest);font-weight:600;">${taskText}</div>
-    </div>
-    <button onclick="addToBoard('${taskText.replace(/'/g,"\'")}','${pillar}')" style="padding:7px 12px;background:var(--forest);color:white;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap;">Add to ${pillar}</button>
-    <button onclick="document.getElementById('task-prompt').remove();localStorage.removeItem('clearpath_pending_task');" style="padding:7px 10px;background:none;border:1px solid var(--g200);border-radius:7px;font-size:12px;color:var(--text-lt);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Not now</button>
-  `;
+  prompt.style.cssText = 'margin:8px 0;padding:12px 16px;background:var(--mint-pale);border:1.5px solid rgba(52,199,123,.3);border-radius:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;';
+
+  const icon = document.createElement('span');
+  icon.style.fontSize = '16px';
+  icon.textContent = '📌';
+
+  const textDiv = document.createElement('div');
+  textDiv.style.flex = '1';
+  textDiv.style.minWidth = '0';
+
+  const label = document.createElement('div');
+  label.style.cssText = 'font-size:12px;font-weight:700;color:var(--sage);margin-bottom:2px;';
+  label.textContent = 'Add to your dashboard?';
+
+  const taskDiv = document.createElement('div');
+  taskDiv.style.cssText = 'font-size:13px;color:var(--forest);font-weight:600;';
+  taskDiv.textContent = taskText;
+
+  textDiv.appendChild(label);
+  textDiv.appendChild(taskDiv);
+
+  const addBtn = document.createElement('button');
+  addBtn.style.cssText = 'padding:7px 12px;background:var(--forest);color:white;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;';
+  addBtn.textContent = 'Add to ' + pillar;
+  addBtn.onclick = function() { addToBoard(taskText, pillar); };
+
+  const dismissBtn = document.createElement('button');
+  dismissBtn.style.cssText = 'padding:7px 10px;background:none;border:1px solid var(--g200);border-radius:7px;font-size:12px;color:var(--text-lt);cursor:pointer;font-family:inherit;';
+  dismissBtn.textContent = 'Not now';
+  dismissBtn.onclick = function() {
+    prompt.remove();
+    localStorage.removeItem('clearpath_pending_task');
+  };
+
+  prompt.appendChild(icon);
+  prompt.appendChild(textDiv);
+  prompt.appendChild(addBtn);
+  prompt.appendChild(dismissBtn);
+
   thread.appendChild(prompt);
   thread.scrollTop = thread.scrollHeight;
 }
@@ -554,7 +579,13 @@ function addToBoard(taskText, pillar) {
   const thread = document.getElementById('thread');
   const conf = document.createElement('div');
   conf.style.cssText = 'margin:8px 0;padding:10px 16px;background:var(--mint-pale);border-radius:8px;font-size:13px;color:var(--sage);font-weight:600;';
-  conf.innerHTML = `✓ Added to your ${pillar} tasks — <a href="/dashboard" style="color:var(--forest);font-weight:700;">View dashboard →</a>`;
+  const confText = document.createTextNode('✓ Added to your ' + pillar + ' tasks — ');
+  const confLink = document.createElement('a');
+  confLink.href = '/dashboard';
+  confLink.style.cssText = 'color:var(--forest);font-weight:700;';
+  confLink.textContent = 'View dashboard →';
+  conf.appendChild(confText);
+  conf.appendChild(confLink);
   thread.appendChild(conf);
   thread.scrollTop = thread.scrollHeight;
 }
