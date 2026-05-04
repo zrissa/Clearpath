@@ -256,10 +256,31 @@ footer{background:#0A1812;padding:28px 40px;display:flex;align-items:center;just
     <a href="#about" class="nl">About</a>
     <a href="#pricing" class="nl">Pricing</a>
   </div>
-  <div class="nr">
+  <div class="nr" id="nav-right">
     <a href="/coaching" class="nghost">Sign in</a>
     <a href="/signup" class="ncta">Get started</a>
   </div>
+
+<script>
+// Swap nav buttons if already signed in
+(function(){
+  const auth = localStorage.getItem('clearpath_auth');
+  const profile = localStorage.getItem('clearpath_profile');
+  if (auth && profile) {
+    try {
+      const p = JSON.parse(profile);
+      const name = p.firstName || p.orgName || 'My Program';
+      const initial = name[0].toUpperCase();
+      document.getElementById('nav-right').innerHTML =
+        '<a href="/dashboard" style="display:flex;align-items:center;gap:8px;text-decoration:none;">' +
+        '<div style="width:30px;height:30px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--mint);">' + initial + '</div>' +
+        '<span style="font-size:14px;font-weight:600;color:var(--forest);">' + name + '</span>' +
+        '</a>' +
+        '<a href="/dashboard" class="ncta">Go to dashboard →</a>';
+    } catch(e) {}
+  }
+})();
+</script>
 </nav>
 
 <!-- HERO -->
