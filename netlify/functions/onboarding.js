@@ -34,6 +34,7 @@ exports.handler = async function(event, context) {
       'Contact First Name': answers.firstName || '',
       'Contact Last Name': answers.lastName || '',
       'State': answers.state || '',
+      'City': answers.city || '',
       'Sport or Category': answers.subcategory || answers.category || '',
       'Program Type': answers.category || '',
       'Entity Type': answers.entityType || '',
@@ -45,7 +46,7 @@ exports.handler = async function(event, context) {
     };
 
     // Add zip if field exists
-    if (answers.zip) fields['Zip Code'] = answers.zip;
+    if (answers.city) fields['City'] = answers.city;
     if (answers.journey) fields['Onboarding Stage'] = answers.journey;
 
     console.log('Fields to save:', JSON.stringify(fields));
