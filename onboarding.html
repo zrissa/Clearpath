@@ -12,112 +12,58 @@
 :root{
   --forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;
   --white:#FFFFFF;--off:#F8FAF9;--g100:#F2F5F3;--g200:#E2EAE6;--g400:#8BA89A;
-  --text:#111C17;--text-md:#3D5248;--text-lt:#6B8A78;
+  --text:#111C17;--text-lt:#6B8A78;
 }
 html,body{min-height:100%;font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--text);-webkit-font-smoothing:antialiased;}
-
-nav{
-  height:64px;display:flex;align-items:center;padding:0 32px;
-  background:var(--white);border-bottom:1px solid var(--g200);
-  position:fixed;top:0;left:0;right:0;z-index:100;
-}
+nav{height:64px;display:flex;align-items:center;padding:0 32px;background:var(--white);border-bottom:1px solid var(--g200);position:fixed;top:0;left:0;right:0;z-index:100;}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .nav-mark{width:30px;height:30px;border-radius:8px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--mint);}
 .nav-name{font-size:16px;font-weight:800;color:var(--forest);letter-spacing:-.3px;}
 .nav-right{margin-left:auto;font-size:13px;color:var(--text-lt);}
-
-.page{
-  min-height:100vh;padding-top:64px;
-  display:flex;align-items:center;justify-content:center;
-}
-
-.card{
-  width:100%;max-width:560px;
-  background:var(--white);border:1px solid var(--g200);
-  border-radius:20px;padding:48px;
-  margin:32px 20px;
-}
-
-/* PROGRESS */
+.page{min-height:100vh;padding-top:64px;display:flex;align-items:center;justify-content:center;}
+.card{width:100%;max-width:580px;background:var(--white);border:1px solid var(--g200);border-radius:20px;padding:48px;margin:32px 20px;}
 .progress-wrap{margin-bottom:32px;}
-.progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.progress-label{display:flex;justify-content:space-between;margin-bottom:8px;}
 .p-step{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);}
 .p-count{font-size:12px;color:var(--text-lt);}
 .progress-bar{height:3px;background:var(--g200);border-radius:2px;overflow:hidden;}
 .progress-fill{height:100%;background:var(--mint);border-radius:2px;transition:width .4s ease;}
-
-/* QUESTION */
-.q-title{font-size:24px;font-weight:800;color:var(--forest);letter-spacing:-.8px;line-height:1.2;margin-bottom:8px;}
-.q-sub{font-size:14px;color:var(--text-lt);line-height:1.65;margin-bottom:28px;font-weight:300;}
-
-/* INPUTS */
-input[type=text]{
-  width:100%;padding:14px 16px;
-  background:var(--off);border:1.5px solid var(--g200);border-radius:12px;
-  font-size:16px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;
-  outline:none;transition:all .2s;
-}
-input[type=text]:focus{border-color:var(--mint);background:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
-input[type=text]::placeholder{color:var(--g400);}
-
-.options{display:flex;flex-direction:column;gap:10px;}
-.opt{
-  display:flex;align-items:center;gap:14px;
-  padding:14px 16px;border-radius:12px;
-  border:1.5px solid var(--g200);background:var(--white);
-  cursor:pointer;transition:all .2s;text-align:left;width:100%;
-  font-family:'Plus Jakarta Sans',sans-serif;
-}
+.q-area{animation:fadeUp .3s ease both;}
+.q-title{font-size:22px;font-weight:800;color:var(--forest);letter-spacing:-.8px;line-height:1.2;margin-bottom:8px;}
+.q-sub{font-size:14px;color:var(--text-lt);line-height:1.65;margin-bottom:24px;font-weight:300;}
+input[type=text],input[type=email],input[type=number]{width:100%;padding:13px 16px;background:var(--off);border:1.5px solid var(--g200);border-radius:12px;font-size:15px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:all .2s;}
+input:focus{border-color:var(--mint);background:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
+input::placeholder{color:var(--g400);}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+select{width:100%;padding:13px 16px;background:var(--off);border:1.5px solid var(--g200);border-radius:12px;font-size:15px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:all .2s;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238BA89A' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+select:focus{border-color:var(--mint);background-color:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:12px;border:1.5px solid var(--g200);background:var(--white);cursor:pointer;transition:all .2s;text-align:left;width:100%;font-family:'Plus Jakarta Sans',sans-serif;}
 .opt:hover{border-color:rgba(52,199,123,.4);background:var(--mint-pale);}
 .opt.selected{border-color:var(--mint);background:var(--mint-pale);}
-.opt-radio{
-  width:18px;height:18px;border-radius:50%;
-  border:2px solid var(--g200);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .2s;
-}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--g200);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .opt.selected .opt-radio{border-color:var(--mint);background:var(--mint);}
 .opt.selected .opt-radio::after{content:'';width:6px;height:6px;border-radius:50%;background:white;}
-.opt-label{font-size:14px;font-weight:500;color:var(--text);}
+.opt-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);}
 .opt.selected .opt-label{color:var(--forest);}
-.opt-sub{font-size:12px;color:var(--text-lt);margin-top:2px;font-weight:300;}
-
-/* ACTIONS */
+.opt-sub{font-size:12px;color:var(--text-lt);margin-top:1px;font-weight:300;}
 .actions{display:flex;gap:12px;margin-top:28px;align-items:center;}
-.back-btn{
-  padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;
-  color:var(--text-lt);background:none;border:1.5px solid var(--g200);
-  cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;
-}
+.back-btn{padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;color:var(--text-lt);background:none;border:1.5px solid var(--g200);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;}
 .back-btn:hover{border-color:var(--g400);color:var(--text);}
-.next-btn{
-  flex:1;padding:14px;border-radius:10px;font-size:15px;font-weight:800;
-  color:var(--white);background:var(--forest);border:none;
-  cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;
-  letter-spacing:-.2px;
-}
+.next-btn{flex:1;padding:14px;border-radius:10px;font-size:15px;font-weight:800;color:var(--white);background:var(--forest);border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;letter-spacing:-.2px;}
 .next-btn:hover{background:var(--sage);}
-.next-btn:disabled{opacity:.5;cursor:not-allowed;}
-
-/* SUCCESS */
 .success{display:none;text-align:center;}
-.success-icon{width:64px;height:64px;border-radius:50%;background:var(--mint-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:var(--mint);}
-.success-h{font-size:28px;font-weight:800;color:var(--forest);margin-bottom:8px;letter-spacing:-.8px;}
+.success-icon{width:64px;height:64px;border-radius:50%;background:var(--mint-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;}
+.success-h{font-size:26px;font-weight:800;color:var(--forest);margin-bottom:8px;letter-spacing:-.8px;}
 .success-p{font-size:15px;color:var(--text-lt);margin-bottom:32px;line-height:1.6;font-weight:300;}
-.success-btn{
-  display:block;width:100%;padding:15px;border-radius:10px;
-  font-size:15px;font-weight:800;background:var(--forest);color:var(--white);
-  text-decoration:none;text-align:center;transition:all .2s;
-  letter-spacing:-.2px;
-}
+.success-btn{display:block;width:100%;padding:15px;border-radius:10px;font-size:15px;font-weight:800;background:var(--forest);color:var(--white);text-decoration:none;text-align:center;transition:all .2s;}
 .success-btn:hover{background:var(--sage);}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-.q-area{animation:fadeUp .3s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:600px){.card{padding:32px 24px;margin:16px;}.input-row{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
 <nav>
   <a href="/" class="nav-logo">
     <div class="nav-mark">C</div>
@@ -125,167 +71,182 @@ input[type=text]::placeholder{color:var(--g400);}
   </a>
   <div class="nav-right" id="nav-greeting"></div>
 </nav>
-
 <div class="page">
   <div class="card">
-
     <div id="onboarding-screen">
       <div class="progress-wrap">
         <div class="progress-label">
           <span class="p-step" id="step-label">Step 1</span>
-          <span class="p-count" id="step-count">1 of 7</span>
+          <span class="p-count" id="step-count">1 of 11</span>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" id="progress-fill" style="width:14%"></div>
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
         </div>
       </div>
-
       <div class="q-area" id="q-area">
         <div class="q-title" id="q-title"></div>
         <div class="q-sub" id="q-sub"></div>
         <div id="input-area"></div>
       </div>
-
       <div class="actions">
-        <button class="back-btn" id="back-btn" onclick="goBack()" style="display:none;">Back</button>
+        <button class="back-btn" id="back-btn" onclick="goBack()" style="display:none;">← Back</button>
         <button class="next-btn" id="next-btn" onclick="goNext()">Continue →</button>
       </div>
     </div>
-
     <div class="success" id="success-screen">
       <div class="success-icon">✓</div>
       <h2 class="success-h" id="success-h">Your profile is ready.</h2>
-      <p class="success-p" id="success-p">Clearpath now knows your program. Your AI advisor is ready to give you specific, actionable guidance for your situation.</p>
+      <p class="success-p" id="success-p">Clearpath now knows your program inside and out. Your AI advisor is ready with specific, actionable guidance.</p>
       <a href="/coaching" class="success-btn">Go to my program advisor →</a>
     </div>
-
   </div>
 </div>
-
 <script>
-const questions = [
+const US_STATES = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+
+const STEPS = [
   {
-    id: 'sportOrCategory',
-    label: 'What sport or specific category are you running?',
-    sub: 'The more specific you are, the more targeted your coaching and grant matches will be.',
-    type: 'text',
-    placeholder: 'e.g. Soccer, Basketball, Coding, Robotics, After-School Enrichment...'
+    id:'name', label:"What's your name?", sub:"We'll use this to personalize your Clearpath experience.",
+    type:'name'
   },
   {
-    id: 'participantCount',
-    label: 'How many participants do you have or plan to have?',
-    sub: 'This shapes your budget benchmarks, facility needs, staffing ratios, and grant size matching.',
-    type: 'select',
-    options: [
-      { value: 'Under 25', label: 'Under 25', sub: 'Small program or just getting started' },
-      { value: '25–50', label: '25–50 participants', sub: 'Growing program' },
-      { value: '51–100', label: '51–100 participants', sub: 'Established mid-size program' },
-      { value: '101–250', label: '101–250 participants', sub: 'Large program' },
-      { value: '250+', label: '250+ participants', sub: 'Very large or multi-team program' },
-      { value: 'Not sure yet', label: 'Not sure yet', sub: "I'm still planning" },
+    id:'email', label:'What is your email address?', sub:'Used to save your profile and send you important updates about your program.',
+    type:'email', placeholder:'you@yourprogram.org'
+  },
+  {
+    id:'state', label:'What state are you in?', sub:'Clearpath uses your location to give you specific contacts, local funders, and state-level guidance.',
+    type:'state'
+  },
+  {
+    id:'zip', label:'What is your zip code?', sub:'Helps us identify local grant opportunities and community resources specific to your area.',
+    type:'text', placeholder:'e.g. 48043'
+  },
+  {
+    id:'category', label:'What type of program are you running?', sub:'This determines your entire coaching framework, grant database, and compliance requirements.',
+    type:'select-cards',
+    options:[
+      {value:'Youth Sports', label:'Youth Sports', icon:'⚽', sub:'Leagues, clubs, travel teams, academies'},
+      {value:'STEM', label:'STEM', icon:'💻', sub:'Coding, robotics, science, engineering'},
+      {value:'After-School Program', label:'After-School Program', icon:'📚', sub:'Enrichment, tutoring, leadership development'},
     ]
   },
   {
-    id: 'entityType',
-    label: 'What is your legal structure?',
-    sub: 'This determines your grant eligibility and shapes your entire compliance path.',
-    type: 'select',
-    options: [
-      { value: 'Nonprofit 501(c)(3)', label: 'Nonprofit 501(c)(3)', sub: 'Tax-exempt nonprofit status' },
-      { value: 'LLC', label: 'LLC', sub: 'Limited liability company' },
-      { value: 'Sole Proprietor', label: 'Sole Proprietor', sub: 'Running it personally' },
-      { value: 'Municipal Department', label: 'Municipal Department', sub: 'City or county government entity' },
-      { value: 'In process of forming', label: 'In process of forming', sub: "I've started but not finished" },
-      { value: 'Not yet incorporated', label: 'Not yet incorporated', sub: "Haven't started the legal process yet" },
+    id:'subcategory', label:'What specific type?', sub:'The more specific you are, the more targeted your coaching and grant matches will be.',
+    type:'branch',
+    branches:{
+      'Youth Sports':{
+        options:[
+          {value:'Soccer',icon:'⚽'},{value:'Basketball',icon:'🏀'},{value:'Football',icon:'🏈'},
+          {value:'Baseball / Softball',icon:'⚾'},{value:'Track & Field',icon:'🏃'},
+          {value:'Swimming',icon:'🏊'},{value:'Tennis',icon:'🎾'},{value:'Volleyball',icon:'🏐'},
+          {value:'Wrestling',icon:'🤼'},{value:'Lacrosse',icon:'🥍'},
+        ]
+      },
+      'STEM':{
+        options:[
+          {value:'Coding & Technology',icon:'💻'},{value:'Robotics',icon:'🤖'},
+          {value:'Science & Engineering',icon:'🔬'},{value:'Math Enrichment',icon:'📐'},
+          {value:'General STEM',icon:'🧪'},
+        ]
+      },
+      'After-School Program':{
+        options:[
+          {value:'Academic Enrichment',icon:'📖'},{value:'Tutoring & Homework Help',icon:'✏️'},
+          {value:'Leadership Development',icon:'🌟'},{value:'Arts & Creative',icon:'🎨'},
+          {value:'General After-School',icon:'🏫'},
+        ]
+      }
+    }
+  },
+  {
+    id:'journey', label:'Where are you in your journey?', sub:'This helps Clearpath prioritize the right pillar and give you advice that matches where you actually are.',
+    type:'select-cards',
+    options:[
+      {value:'Just starting — haven\'t launched yet', label:'Just Starting', icon:'🌱', sub:"Haven't launched yet — building from the ground up"},
+      {value:'New — launched in the last year', label:'Already Running', icon:'⚡', sub:'Launched in the last year — growing and figuring things out'},
+      {value:'Established — ready to expand', label:'Established', icon:'🏆', sub:'Running for 2+ years — ready to scale or improve'},
     ]
   },
   {
-    id: 'budgetRange',
-    label: 'What is your annual budget or target budget?',
-    sub: 'Filters grant matches by award size and sets the right financial benchmarks for your program.',
-    type: 'select',
-    options: [
-      { value: 'Under $25K', label: 'Under $25,000', sub: 'Early stage or small program' },
-      { value: '$25K–$100K', label: '$25,000 – $100,000', sub: 'Growing program' },
-      { value: '$100K–$300K', label: '$100,000 – $300,000', sub: 'Established program' },
-      { value: '$300K–$750K', label: '$300,000 – $750,000', sub: 'Large program' },
-      { value: 'Over $750K', label: 'Over $750,000', sub: 'Major organization' },
+    id:'entityType', label:'What is your legal structure?', sub:'Determines your grant eligibility and shapes your entire compliance path.',
+    type:'select-cards',
+    options:[
+      {value:'Nonprofit 501(c)(3)', label:'Nonprofit 501(c)(3)', icon:'🏛️', sub:'Tax-exempt nonprofit status'},
+      {value:'LLC', label:'LLC', icon:'📋', sub:'Limited liability company'},
+      {value:'Sole Proprietor', label:'Sole Proprietor', icon:'👤', sub:'Running it personally'},
+      {value:'Municipal Department', label:'Municipal Department', icon:'🏙️', sub:'City or county government entity'},
+      {value:'Not yet incorporated', label:'Not yet incorporated', icon:'🌱', sub:"Haven't started the legal process yet"},
     ]
   },
   {
-    id: 'grantExperience',
-    label: 'Have you applied for grants before?',
-    sub: 'No wrong answer — this calibrates how much guidance Clearpath provides in the Fund pillar.',
-    type: 'select',
-    options: [
-      { value: 'Never applied', label: 'Never applied', sub: "This is all new to me" },
-      { value: 'A few times', label: 'A few times', sub: "I've tried but could use more help" },
-      { value: 'Regularly', label: 'Regularly', sub: "I know the process, just need better tools" },
+    id:'participantCount', label:'How many participants do you have or plan to have?', sub:'Shapes budget benchmarks, facility needs, staffing ratios, and grant size matching.',
+    type:'select-cards',
+    options:[
+      {value:'Under 25', label:'Under 25', icon:'👥', sub:'Small program or just getting started'},
+      {value:'25–50', label:'25–50', icon:'👥', sub:'Growing program'},
+      {value:'51–100', label:'51–100', icon:'👥', sub:'Established mid-size program'},
+      {value:'101–250', label:'101–250', icon:'👥', sub:'Large program'},
+      {value:'250+', label:'250+', icon:'👥', sub:'Very large or multi-team organization'},
     ]
   },
   {
-    id: 'biggestChallenge',
-    label: 'What is your biggest challenge right now?',
-    sub: 'This tells Clearpath which pillar to prioritize for you first.',
-    type: 'select',
-    options: [
-      { value: 'Finding funding', label: 'Finding funding', sub: 'Grants, sponsorships, pricing strategy' },
-      { value: 'Building the program structure', label: 'Building the program structure', sub: 'Legal, compliance, facility, frameworks' },
-      { value: 'Managing participants and operations', label: 'Managing day-to-day operations', sub: 'Registration, attendance, communication' },
-      { value: 'Proving impact to funders', label: 'Proving impact to funders', sub: 'Reporting, data, storytelling' },
-      { value: 'All of the above', label: 'All of the above', sub: "I need help across the board" },
+    id:'budgetRange', label:'What is your annual budget or target budget?', sub:'Filters grant matches by award size and sets the right financial benchmarks.',
+    type:'select-cards',
+    options:[
+      {value:'Under $25K', label:'Under $25,000', icon:'💰', sub:'Early stage or small program'},
+      {value:'$25K–$100K', label:'$25K – $100K', icon:'💰', sub:'Growing program'},
+      {value:'$100K–$300K', label:'$100K – $300K', icon:'💰', sub:'Established program'},
+      {value:'$300K–$750K', label:'$300K – $750K', icon:'💰', sub:'Large program'},
+      {value:'Over $750K', label:'Over $750K', icon:'💰', sub:'Major organization'},
     ]
   },
   {
-    id: 'referralSource',
-    label: 'One last thing — how did you hear about Clearpath?',
-    sub: 'Helps us understand how to reach more program directors like you.',
-    type: 'select',
-    options: [
-      { value: 'Word of mouth', label: 'Word of mouth', sub: 'Someone told me about it' },
-      { value: 'Social media', label: 'Social media', sub: 'Saw it online' },
-      { value: 'Google search', label: 'Google search', sub: 'Found it while searching' },
-      { value: 'Sports organization', label: 'Sports organization', sub: 'Through a league or association' },
-      { value: 'Other', label: 'Other', sub: '' },
+    id:'biggestChallenge', label:'What is your biggest challenge right now?', sub:'This tells Clearpath which pillar to prioritize and what to tackle with you first.',
+    type:'select-cards',
+    options:[
+      {value:'Finding funding', label:'Finding funding', icon:'💸', sub:'Grants, sponsorships, pricing strategy'},
+      {value:'Building the program structure', label:'Building the program structure', icon:'🏗️', sub:'Legal, compliance, facility, frameworks'},
+      {value:'Managing day-to-day operations', label:'Managing operations', icon:'⚙️', sub:'Registration, attendance, communication'},
+      {value:'Proving impact to funders', label:'Proving impact', icon:'📈', sub:'Reporting, data, storytelling'},
+      {value:'All of the above', label:'All of the above', icon:'🎯', sub:'I need help across the board'},
     ]
-  }
+  },
 ];
 
 let current = 0;
 let answers = {};
 let user = {};
-let airtableRecordId = null;
+const TOTAL = STEPS.length;
 
 function init() {
-  const stored = localStorage.getItem('clearpath_user');
-  const profile = localStorage.getItem('clearpath_profile');
-
   if (!localStorage.getItem('clearpath_auth')) {
     window.location.href = '/signup';
     return;
   }
-
+  const stored = localStorage.getItem('clearpath_user');
   if (stored) user = JSON.parse(stored);
-  if (profile) {
-    const p = JSON.parse(profile);
-    answers.sportOrCategory = p.sportOrCategory || '';
-    answers.participantCount = p.participantCount !== 'Not specified' ? p.participantCount : '';
-    answers.entityType = p.entityType !== 'Not yet incorporated' ? p.entityType : '';
-    answers.budgetRange = p.budgetRange !== 'Under $25K' ? p.budgetRange : '';
-    answers.grantExperience = p.grantExperience !== 'Never applied' ? p.grantExperience : '';
-  }
+  if (user.fname) document.getElementById('nav-greeting').textContent = `Hi ${user.fname} 👋`;
 
-  if (user.fname) {
-    document.getElementById('nav-greeting').textContent = `Hi ${user.fname} 👋`;
-  }
+  // Prefill email from signup
+  if (user.email) answers.email = user.email;
+  if (user.fname) answers.firstName = user.fname;
 
-  renderQuestion(0);
+  renderStep(0);
 }
 
-function renderQuestion(i) {
-  const q = questions[i];
-  const total = questions.length;
-  const pct = Math.round(((i) / total) * 100);
+function getSteps() {
+  // Filter out subcategory if category not yet chosen
+  return STEPS.filter(s => {
+    if (s.id === 'subcategory') return !!answers.category;
+    return true;
+  });
+}
+
+function renderStep(i) {
+  const steps = getSteps();
+  const total = steps.length;
+  const s = steps[i];
+  const pct = Math.round((i / total) * 100);
 
   document.getElementById('step-label').textContent = `Step ${i + 1}`;
   document.getElementById('step-count').textContent = `${i + 1} of ${total}`;
@@ -296,31 +257,66 @@ function renderQuestion(i) {
   area.offsetHeight;
   area.style.animation = 'fadeUp .3s ease both';
 
-  document.getElementById('q-title').textContent = q.label;
-  document.getElementById('q-sub').textContent = q.sub;
+  // Update label for subcategory based on chosen category
+  let label = s.label;
+  let sub = s.sub;
+  if (s.id === 'subcategory') {
+    const cat = answers.category;
+    if (cat === 'Youth Sports') label = 'What sport are you running?';
+    if (cat === 'STEM') label = 'What type of STEM program?';
+    if (cat === 'After-School Program') label = 'What type of after-school program?';
+  }
 
-  const inputArea = document.getElementById('input-area');
+  document.getElementById('q-title').textContent = label;
+  document.getElementById('q-sub').textContent = sub;
+  document.getElementById('back-btn').style.display = i > 0 ? 'block' : 'none';
+  document.getElementById('next-btn').textContent = i === total - 1 ? 'Complete my profile →' : 'Continue →';
 
-  if (q.type === 'text') {
-    inputArea.innerHTML = `<input type="text" id="answer-input" placeholder="${q.placeholder || ''}" value="${answers[q.id] || ''}" />`;
-    setTimeout(() => {
-      const el = document.getElementById('answer-input');
-      if (el) { el.focus(); el.onkeydown = e => { if (e.key === 'Enter') goNext(); }; }
-    }, 50);
-  } else {
-    inputArea.innerHTML = `<div class="options">${q.options.map(o =>
-      `<button class="opt${answers[q.id] === o.value ? ' selected' : ''}" onclick="selectOpt(this, '${q.id}', '${o.value}')">
+  renderInput(s, i);
+}
+
+function renderInput(s, i) {
+  const area = document.getElementById('input-area');
+
+  if (s.type === 'name') {
+    area.innerHTML = `<div class="input-row">
+      <div><input type="text" id="inp-fname" placeholder="First name" value="${answers.firstName || user.fname || ''}"/></div>
+      <div><input type="text" id="inp-lname" placeholder="Last name" value="${answers.lastName || user.lname || ''}"/></div>
+    </div>`;
+    setTimeout(() => document.getElementById('inp-fname')?.focus(), 50);
+  }
+  else if (s.type === 'email') {
+    area.innerHTML = `<input type="email" id="inp-email" placeholder="${s.placeholder || ''}" value="${answers.email || user.email || ''}"/>`;
+    setTimeout(() => { const el = document.getElementById('inp-email'); if(el){el.focus();el.onkeydown=e=>{if(e.key==='Enter')goNext();}} }, 50);
+  }
+  else if (s.type === 'text') {
+    area.innerHTML = `<input type="text" id="inp-text" placeholder="${s.placeholder || ''}" value="${answers[s.id] || ''}"/>`;
+    setTimeout(() => { const el = document.getElementById('inp-text'); if(el){el.focus();el.onkeydown=e=>{if(e.key==='Enter')goNext();}} }, 50);
+  }
+  else if (s.type === 'state') {
+    const opts = US_STATES.map(st => `<option value="${st}" ${answers.state === st ? 'selected' : ''}>${st}</option>`).join('');
+    area.innerHTML = `<select id="inp-state"><option value="" disabled ${!answers.state?'selected':''}>Select your state</option>${opts}</select>`;
+  }
+  else if (s.type === 'select-cards') {
+    area.innerHTML = `<div class="options">${s.options.map(o =>
+      `<button class="opt${answers[s.id] === o.value ? ' selected' : ''}" onclick="selectOpt(this,'${s.id}','${o.value.replace(/'/g,"\\'")}')">
         <div class="opt-radio"></div>
-        <div>
-          <div class="opt-label">${o.label}</div>
-          ${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}
-        </div>
+        ${o.icon ? `<span class="opt-icon">${o.icon}</span>` : ''}
+        <div><div class="opt-label">${o.label || o.value}</div>${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}</div>
       </button>`
     ).join('')}</div>`;
   }
-
-  document.getElementById('back-btn').style.display = i > 0 ? 'block' : 'none';
-  document.getElementById('next-btn').textContent = i === questions.length - 1 ? 'Complete my profile →' : 'Continue →';
+  else if (s.type === 'branch') {
+    const cat = answers.category;
+    const branchOpts = s.branches[cat]?.options || [];
+    area.innerHTML = `<div class="options">${branchOpts.map(o =>
+      `<button class="opt${answers[s.id] === o.value ? ' selected' : ''}" onclick="selectOpt(this,'${s.id}','${o.value.replace(/'/g,"\\'")}')">
+        <div class="opt-radio"></div>
+        ${o.icon ? `<span class="opt-icon">${o.icon}</span>` : ''}
+        <div><div class="opt-label">${o.value}</div></div>
+      </button>`
+    ).join('')}</div>`;
+  }
 }
 
 function selectOpt(btn, id, value) {
@@ -330,42 +326,75 @@ function selectOpt(btn, id, value) {
 }
 
 function goNext() {
-  const q = questions[current];
+  const steps = getSteps();
+  const s = steps[current];
 
-  if (q.type === 'text') {
-    const val = document.getElementById('answer-input')?.value?.trim();
-    if (!val) {
-      document.getElementById('answer-input').style.borderColor = '#E24B4A';
-      return;
-    }
-    answers[q.id] = val;
-  } else {
-    if (!answers[q.id]) {
-      document.querySelectorAll('.opt').forEach(b => b.style.borderColor = '#E24B4A');
+  // Validate
+  if (s.type === 'name') {
+    const fn = document.getElementById('inp-fname')?.value.trim();
+    const ln = document.getElementById('inp-lname')?.value.trim();
+    if (!fn) { document.getElementById('inp-fname').style.borderColor='#E24B4A'; return; }
+    answers.firstName = fn;
+    answers.lastName = ln;
+    user.fname = fn;
+    const stored = JSON.parse(localStorage.getItem('clearpath_user') || '{}');
+    localStorage.setItem('clearpath_user', JSON.stringify({...stored, fname: fn, lname: ln}));
+  }
+  else if (s.type === 'email') {
+    const v = document.getElementById('inp-email')?.value.trim();
+    if (!v || !v.includes('@')) { document.getElementById('inp-email').style.borderColor='#E24B4A'; return; }
+    answers.email = v;
+  }
+  else if (s.type === 'text') {
+    const v = document.getElementById('inp-text')?.value.trim();
+    if (!v) { document.getElementById('inp-text').style.borderColor='#E24B4A'; return; }
+    answers[s.id] = v;
+  }
+  else if (s.type === 'state') {
+    const v = document.getElementById('inp-state')?.value;
+    if (!v) { document.getElementById('inp-state').style.borderColor='#E24B4A'; return; }
+    answers.state = v;
+  }
+  else if (s.type === 'select-cards' || s.type === 'branch') {
+    if (!answers[s.id]) {
+      document.querySelectorAll('.opt').forEach(b => b.style.borderColor='#E24B4A');
       return;
     }
   }
 
-  updateProfile();
+  saveToLocalStorage();
 
-  if (current < questions.length - 1) {
+  if (current < steps.length - 1) {
     current++;
-    renderQuestion(current);
+    renderStep(current);
   } else {
     completeOnboarding();
   }
 }
 
 function goBack() {
-  if (current > 0) {
-    current--;
-    renderQuestion(current);
-  }
+  if (current > 0) { current--; renderStep(current); }
 }
 
-function updateProfile() {
+function saveToLocalStorage() {
   const existing = JSON.parse(localStorage.getItem('clearpath_profile') || '{}');
-  const updated = { ...existing, ...answers };
+  const updated = {
+    ...existing,
+    firstName: answers.firstName || existing.firstName,
+    lastName: answers.lastName || existing.lastName,
+    email: answers.email || existing.email,
+    state: answers.state || existing.state,
+    zip: answers.zip || existing.zip,
+    programType: answers.category || existing.programType,
+    sportOrCategory: answers.subcategory || existing.sportOrCategory,
+    journey: answers.journey || existing.journey,
+    entityType: answers.entityType || existing.entityType,
+    participantCount: answers.participantCount || existing.participantCount,
+    budgetRange: answers.budgetRange || existing.budgetRange,
+    biggestChallenge: answers.biggestChallenge || existing.biggestChallenge,
+    location: (answers.state || '') + (answers.zip ? ', ' + answers.zip : ''),
+    orgName: existing.orgName || user.orgname || '',
+  };
   localStorage.setItem('clearpath_profile', JSON.stringify(updated));
 }
 
@@ -373,27 +402,42 @@ async function completeOnboarding() {
   document.getElementById('next-btn').textContent = 'Saving your profile...';
   document.getElementById('next-btn').disabled = true;
 
-  updateProfile();
+  saveToLocalStorage();
   localStorage.setItem('clearpath_onboarded', 'true');
+
+  const profile = JSON.parse(localStorage.getItem('clearpath_profile') || '{}');
 
   try {
     await fetch('/.netlify/functions/onboarding', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        email: user.email,
-        orgname: user.orgname,
-        answers
+        email: answers.email || user.email,
+        orgname: profile.orgName,
+        answers: {
+          firstName: answers.firstName,
+          lastName: answers.lastName,
+          state: answers.state,
+          zip: answers.zip,
+          category: answers.category,
+          subcategory: answers.subcategory,
+          journey: answers.journey,
+          entityType: answers.entityType,
+          participantCount: answers.participantCount,
+          budgetRange: answers.budgetRange,
+          biggestChallenge: answers.biggestChallenge,
+        }
       })
     });
   } catch(e) {
-    console.log('Onboarding save failed — data saved locally');
+    console.log('Save failed — data stored locally');
   }
 
-  const profile = JSON.parse(localStorage.getItem('clearpath_profile') || '{}');
-  document.getElementById('success-h').textContent = `You're all set, ${user.fname || ''}!`;
+  const name = answers.firstName || user.fname || '';
+  const sport = answers.subcategory || answers.category || 'your program';
+  document.getElementById('success-h').textContent = `You're all set${name ? ', ' + name : ''}!`;
   document.getElementById('success-p').textContent =
-    `Clearpath now knows you're running ${profile.orgName || 'your program'} — a ${profile.programType || ''} program. Your AI advisor is ready to give you specific, actionable guidance starting with your biggest challenge: ${answers.biggestChallenge || 'getting started'}.`;
+    `Clearpath now knows you're running a ${sport} program in ${answers.state || 'your state'}. Your AI advisor is ready to help you ${answers.biggestChallenge ? answers.biggestChallenge.toLowerCase() : 'reach your goals'}.`;
 
   document.getElementById('onboarding-screen').style.display = 'none';
   document.getElementById('success-screen').style.display = 'block';
