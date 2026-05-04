@@ -130,6 +130,7 @@ const STEPS = [
       {value:'Youth Sports', label:'Youth Sports', icon:'⚽', sub:'Leagues, clubs, travel teams, academies'},
       {value:'STEM', label:'STEM', icon:'💻', sub:'Coding, robotics, science, engineering'},
       {value:'After-School Program', label:'After-School Program', icon:'📚', sub:'Enrichment, tutoring, leadership development'},
+      {value:'Parks & Recreation', label:'Parks & Recreation', icon:'🌳', sub:'Municipal rec programs, leagues, camps, aquatics'},
     ]
   },
   {
@@ -156,6 +157,14 @@ const STEPS = [
           {value:'Academic Enrichment',icon:'📖'},{value:'Tutoring & Homework Help',icon:'✏️'},
           {value:'Leadership Development',icon:'🌟'},{value:'Arts & Creative',icon:'🎨'},
           {value:'General After-School',icon:'🏫'},
+        ]
+      },
+      'Parks & Recreation':{
+        options:[
+          {value:'Youth Sports Leagues',icon:'⚽'},{value:'Aquatics & Swimming',icon:'🏊'},
+          {value:'Youth Camps',icon:'🏕️'},{value:'Senior Programs',icon:'👴'},
+          {value:'Fitness & Wellness',icon:'💪'},{value:'Special Events',icon:'🎉'},
+          {value:'Adaptive Recreation',icon:'♿'},{value:'General Recreation',icon:'🌳'},
         ]
       }
     }
@@ -276,6 +285,7 @@ function renderStep(i) {
     if (cat === 'Youth Sports') label = 'What sport are you running?';
     if (cat === 'STEM') label = 'What type of STEM program?';
     if (cat === 'After-School Program') label = 'What type of after-school program?';
+    if (cat === 'Parks & Recreation') label = 'What type of program or service?';
   }
 
   document.getElementById('q-title').textContent = label;
