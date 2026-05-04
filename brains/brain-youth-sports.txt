@@ -38,7 +38,7 @@ If you want to receive grants before getting nonprofit status, find a fiscal spo
 ## SECTION 2: GOVERNING BODY AFFILIATIONS
 
 ### Soccer
-- US Youth Soccer Association (USYSA): The primary governing body for recreational and competitive youth soccer. Membership required for most leagues and tournaments. State associations vary — in Michigan, it is Michigan Youth Soccer Association (MYSA). Registration at usyouthsoccer.org.
+- US Youth Soccer Association (USYSA): The primary governing body for recreational and competitive youth soccer. Membership required for most leagues and tournaments. State associations vary — in Michigan, it is your state youth soccer association (your state youth soccer association). Registration at usyouthsoccer.org.
 - US Soccer: National governing body. US Soccer Foundation administers community grants. ussoccer.org.
 - MLS GO League: MLS-affiliated recreational league program. Requires nonprofit status and community focus. Provides branding, resources, and grant access. mlsgo.com.
 - American Youth Soccer Organization (AYSO): Alternative to USYSA for recreational programs. Focus on balanced play and volunteer coaching. ayso.org.
@@ -91,7 +91,7 @@ Every youth sports program needs general liability insurance before the first pr
 
 **Path A — Through governing body membership (recommended)**
 Most national governing bodies include liability insurance as part of membership. This is the cheapest and fastest path.
-- US Youth Soccer / MYSA membership: includes $1M/$2M general liability. ~$3–8/player/year.
+- US Youth Soccer / your state youth soccer association membership: includes $1M/$2M general liability. ~$3–8/player/year.
 - USA Basketball: includes liability through membership.
 - Little League: includes liability through charter.
 - USA Football: includes liability through Heads Up Football registration.
@@ -127,7 +127,7 @@ Required by all governing bodies and most insurance policies.
 - Run background checks before any adult has unsupervised access to youth.
 
 ### Soccer — Coaching License Pathways
-- US Soccer Grassroots D License: Entry-level coaching license. Recommended for all recreational coaches. 2-day in-person course. ~$150. Offered through state associations. In Michigan: mysa.org.
+- US Soccer Grassroots D License: Entry-level coaching license. Recommended for all recreational coaches. 2-day in-person course. ~$150. Offered through state associations. mysa.org.
 - US Soccer Grassroots E License: Online introductory course. Free through ussoccer.com. Good starting point.
 - US Soccer C License: Next level for more serious coaches. Multi-day course. ~$500.
 
@@ -168,13 +168,13 @@ School districts regularly rent gyms, fields, and courts to community programs �
 - Best times: Evenings (6–9pm) and weekends when schools are not in use.
 - What you need: Insurance certificate, background check confirmation, application form.
 
-**Michigan / Macomb County Specific:**
-- Macomb County Parks & Recreation: (586) 469-5050. Ask for Athletic Field Reservation. Main fields at Stony Creek, Wolcott Mill, Lake St. Clair Metropark areas.
-- Mount Clemens City Parks: City Hall at (586) 469-6818. Lower demand than county. Good for small leagues.
-- L'Anse Creuse Public Schools: Contact district office for gym/field rental. (586) 783-6300.
-- Mount Clemens Community Schools: Contact district office. (586) 469-6110.
-- Chesterfield Township Parks: (586) 949-0400.
-- Shelby Township Parks & Recreation: (586) 731-0300.
+**How to find field contacts in any city or state:**
+- **City level:** Search "[your city] parks and recreation department" — look for Athletic Field Reservation, Facility Rentals, or Park Permits section
+- **County level:** Search "[your county] parks department" — county parks often have less demand than city parks and more available fields
+- **School district:** Search "[your district name] facilities use" or "community use agreement" — contact the district office, not individual schools. Ask for the Facilities Use Coordinator or Community Education office
+- **Township level:** If you're in a township, search "[township name] parks and recreation" — townships often have underused facilities
+- **What to say when you call:** "I run a youth [sport] program and I'm looking to reserve fields/gym space for our [season]. Can you tell me about your facility reservation process and what documentation you need?"
+- **What they typically need from you:** Proof of general liability insurance, LLC or nonprofit paperwork, completed permit application, background check confirmation for coaches
 
 ### Indoor Facilities — Gyms and Recreation Centers
 - YMCA branches: Often partner with youth sports programs. Contact local branch directly.
@@ -257,7 +257,7 @@ Cycle: Annual, typically opens spring
 Amount: Varies. Equipment, resources, cash
 Eligibility: MLS GO League member organizations (requires nonprofit and MLS territory alignment)
 Apply at: mlsgo.com
-Notes: Detroit City FC territory covers Southeast Michigan. Strong alignment with Macomb County programs.
+Notes: Detroit City FC territory covers your region. Strong alignment with your county programs.
 
 **Sports Matter — Dick's Sporting Goods Foundation**
 Amount: Up to $25,000 cash + equipment
@@ -274,10 +274,10 @@ Notes: Good first grant. Lower competition than national funders. Emphasize scho
 
 **Ralph C. Wilson Jr. Foundation**
 Amount: $10,000–$250,000
-Eligibility: Nonprofits in Southeast Michigan and Western New York
+Eligibility: Nonprofits in your region and Western New York
 Focus: Youth sports, active play, recreational access
 Apply at: rcwjrf.org
-Notes: Significant Michigan funder. Strong fit for Macomb County programs. Relationship-building important.
+Notes: Significant Michigan funder. Strong fit for your county programs. Relationship-building important.
 
 **Nike Community Impact Fund**
 Amount: Up to $25,000
@@ -314,8 +314,8 @@ Apply at: ustafoundation.com
 Amount: $1,000–$25,000
 Eligibility: Local nonprofits
 Notes: Lowest competition of any grant category. Strong preference for local impact. In Michigan:
-- Community Foundation of Southeast Michigan (cfsem.org)
-- Macomb Community Foundation (macombfoundation.org)
+- Community Foundation of your region (cfsem.org)
+- your local community foundation (search "[your county] community foundation")
 - Kresge Foundation (kresge.org) — Detroit focus
 - Hudson-Webber Foundation — Detroit focus
 
@@ -326,7 +326,7 @@ Notes: Build relationship with local United Way first. Apply through community i
 
 **Corporate Sponsorships**
 Local businesses, law firms, dental offices, medical practices, and car dealerships are strong sponsorship targets for youth sports programs. Offer jersey naming rights, banner placement, social media recognition. Target businesses that serve families and have community presence.
-- In Macomb County: Switalski Law (seen on LK St. Clair jerseys), Balanced Physical Therapy, Opal Dental Group are examples of successful youth sports sponsors.
+- In your county: local law firms, medical/dental practices, and car dealerships are consistently strong youth sports sponsors.
 
 ---
 
@@ -336,7 +336,7 @@ Local businesses, law firms, dental offices, medical practices, and car dealersh
 
 **Digital Outreach:**
 - Nextdoor app: Highly effective for neighborhood-level youth program recruitment. Post in every relevant neighborhood.
-- Facebook Groups: "Macomb County Parents," city-specific parent groups, youth sports groups. Post flyers and registration links.
+- Facebook Groups: "your county Parents," city-specific parent groups, youth sports groups. Post flyers and registration links.
 - Instagram and Facebook pages: Create program page. Post photos, schedules, registration info.
 - School district newsletters: Contact district communications office to include program info in parent newsletters.
 
@@ -346,11 +346,11 @@ Local businesses, law firms, dental offices, medical practices, and car dealersh
 - Community centers and YMCAs: Post flyers on bulletin boards.
 - Local libraries: Bulletin boards and program listings.
 
-**Macomb County Specific:**
-- Mount Clemens has approximately 35% Hispanic/Latino population. Bilingual outreach in English and Spanish significantly increases registration. Translate flyers and registration forms.
-- Sacred Heart Parish bulletin board and announcement (Mount Clemens)
+**your county Specific:**
+- your city has approximately 35% Hispanic/Latino population. Bilingual outreach in English and Spanish significantly increases registration. Translate flyers and registration forms.
+- Sacred Heart Parish bulletin board and announcement (your city)
 - L'Anse Creuse parent newsletters
-- Mount Clemens Community Schools parent communication
+- your city Community Schools parent communication
 
 ### Parent Communication During Season
 - Use group text or team app (TeamSnap, GroupMe) for weekly updates
@@ -368,7 +368,7 @@ Required by all governing bodies and most states have youth concussion laws. Key
 - Cannot return to play same day
 - Must be cleared by licensed healthcare provider before returning
 - Coaches must complete concussion awareness training (often included in governing body certification)
-- In Michigan: Youth Concussion Act requires written information to athletes and parents, removal from play protocol, medical clearance before return.
+- Youth Concussion Act requires written information to athletes and parents, removal from play protocol, medical clearance before return.
 
 ### Heat Safety
 - Monitor heat index, not just temperature
