@@ -44,6 +44,8 @@ select:focus{border-color:var(--mint);background-color:var(--white);box-shadow:0
 .opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--g200);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .opt.selected .opt-radio{border-color:var(--mint);background:var(--mint);}
 .opt.selected .opt-radio::after{content:'';width:6px;height:6px;border-radius:50%;background:white;}
+.opt-check{width:18px;height:18px;border-radius:4px;border:2px solid var(--g200);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.opt.selected .opt-check{border-color:var(--mint);background:var(--mint);color:white;font-size:11px;}
 .opt-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0;}
 .opt-label{font-size:14px;font-weight:600;color:var(--text);}
 .opt.selected .opt-label{color:var(--forest);}
@@ -131,8 +133,8 @@ const STEPS = [
     ]
   },
   {
-    id:'subcategory', label:'What specific type?', sub:'The more specific you are, the more targeted your coaching and grant matches will be.',
-    type:'branch',
+    id:'subcategory', label:'What specific type?', sub:'Select all that apply — many programs run multiple sports or categories.',
+    type:'branch-multi',
     branches:{
       'Youth Sports':{
         options:[
@@ -317,12 +319,39 @@ function renderInput(s, i) {
       </button>`
     ).join('')}</div>`;
   }
+  else if (s.type === 'branch-multi') {
+    const cat = answers.category;
+    const branchOpts = s.branches[cat]?.options || [];
+    const selected = Array.isArray(answers[s.id]) ? answers[s.id] : [];
+    area.innerHTML = `<div class="options">${branchOpts.map(o =>
+      `<button class="opt${selected.includes(o.value) ? ' selected' : ''}" onclick="toggleMulti(this,'${s.id}','${o.value.replace(/'/g,"\\'")}')">
+        <div class="opt-check">${selected.includes(o.value) ? '✓' : ''}</div>
+        ${o.icon ? `<span class="opt-icon">${o.icon}</span>` : ''}
+        <div><div class="opt-label">${o.value}</div></div>
+      </button>`
+    ).join('')}</div>
+    <div style="font-size:12px;color:var(--text-lt);margin-top:10px;text-align:center;">Select all that apply</div>`;
+  }
 }
 
 function selectOpt(btn, id, value) {
   document.querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
   answers[id] = value;
+}
+
+function toggleMulti(btn, id, value) {
+  let selected = Array.isArray(answers[id]) ? [...answers[id]] : [];
+  if (selected.includes(value)) {
+    selected = selected.filter(v => v !== value);
+    btn.classList.remove('selected');
+    btn.querySelector('.opt-check').textContent = '';
+  } else {
+    selected.push(value);
+    btn.classList.add('selected');
+    btn.querySelector('.opt-check').textContent = '✓';
+  }
+  answers[id] = selected;
 }
 
 function goNext() {
@@ -355,8 +384,8 @@ function goNext() {
     if (!v) { document.getElementById('inp-state').style.borderColor='#E24B4A'; return; }
     answers.state = v;
   }
-  else if (s.type === 'select-cards' || s.type === 'branch') {
-    if (!answers[s.id]) {
+  else if (s.type === 'select-cards' || s.type === 'branch' || s.type === 'branch-multi') {
+    if (!answers[s.id] || (Array.isArray(answers[s.id]) && answers[s.id].length === 0)) {
       document.querySelectorAll('.opt').forEach(b => b.style.borderColor='#E24B4A');
       return;
     }
@@ -386,7 +415,7 @@ function saveToLocalStorage() {
     state: answers.state || existing.state,
     zip: answers.city || existing.zip,
     programType: answers.category || existing.programType,
-    sportOrCategory: answers.subcategory || existing.sportOrCategory,
+    sportOrCategory: Array.isArray(answers.subcategory) ? answers.subcategory.join(', ') : (answers.subcategory || existing.sportOrCategory),
     journey: answers.journey || existing.journey,
     entityType: answers.entityType || existing.entityType,
     participantCount: answers.participantCount || existing.participantCount,
