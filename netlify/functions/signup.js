@@ -10,24 +10,27 @@ exports.handler = async function(event, context) {
 
   try {
     const { email, orgname } = JSON.parse(event.body);
-    const baseId = process.env.AIRTABLE_ORGS_BASE_ID;
-    const token = process.env.AIRTABLE_TOKEN;
 
-    const response = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs`, {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        fields: {
-          'Org Name': orgname || '',
-          'Email': email || '',
-          'Onboarding Complete': false,
-          'Date Joined': new Date().toISOString().split('T')[0]
-        }
-      })
-    });
+    // Save to MailerLite only at signup
+    const token = process.env.MAILERLITE_TOKEN;
+    const groupId = process.env.MAILERLITE_GROUP_ID;
 
-    const data = await response.json();
-    console.log('Signup saved:', JSON.stringify(data));
+    if (token && groupId) {
+      await fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          fields: { company: orgname },
+          groups: [groupId],
+          status: 'active'
+        })
+      });
+    }
 
     return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
 
