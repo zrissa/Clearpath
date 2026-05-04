@@ -14,21 +14,24 @@ exports.handler = async function(event, context) {
     const token = process.env.AIRTABLE_TOKEN;
 
     console.log('Onboarding for:', email);
+    console.log('Answers:', JSON.stringify(answers));
 
     const fields = {
       'Org Name': orgname || '',
       'Email': email || '',
       'Contact First Name': answers.firstName || '',
       'Contact Last Name': answers.lastName || '',
+      'City': answers.city || '',
       'State': answers.state || '',
-      'City': answers.city || answers.zip || '',
       'Program Type': answers.category || '',
       'Sport or Category': Array.isArray(answers.subcategory) ? answers.subcategory.join(', ') : (answers.subcategory || ''),
       'Entity Type': answers.entityType || '',
-      'Annual Budget Range': answers.budgetRange || '',
-      'Biggest Challenge': answers.biggestChallenge || '',
-      'Onboarding Stage (Single line text)': answers.journey || '',
       'Participant Count': answers.participantCount || '',
+      'Annual Budget Range': answers.budgetRange || '',
+      'Grant Experience': answers.grantExperience || '',
+      'Biggest Challenge': answers.biggestChallenge || '',
+      'Onboarding Stage': answers.journey || '',
+      'Date Joined': new Date().toISOString().split('T')[0],
     };
 
     console.log('Fields:', JSON.stringify(fields));
@@ -40,7 +43,7 @@ exports.handler = async function(event, context) {
     });
 
     const data = await res.json();
-    console.log('Response:', JSON.stringify(data));
+    console.log('Airtable response:', JSON.stringify(data));
 
     if (!res.ok) throw new Error(data.error?.message || 'Airtable error');
 
