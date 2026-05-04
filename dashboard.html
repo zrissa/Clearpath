@@ -229,6 +229,7 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
   </div>
   <div class="nav-right">
     <span class="nav-plan" id="nav-plan">Free</span>
+    <a href="#" onclick="signOut()" style="font-size:13px;font-weight:500;color:var(--text-lt);text-decoration:none;padding:6px 12px;border-radius:7px;transition:all .15s;" onmouseover="this.style.background='var(--g100)'" onmouseout="this.style.background='none'">Sign out</a>
     <a href="/profile" class="nav-avatar" id="nav-avatar">Z</a>
   </div>
 </nav>
@@ -1005,6 +1006,19 @@ function markRunComplete() {
 })();
 
 init();
+
+// Sign out
+function signOut() {
+  localStorage.removeItem('clearpath_auth');
+  localStorage.removeItem('clearpath_pro');
+  localStorage.removeItem('clearpath_onboarded');
+  localStorage.removeItem('clearpath_profile');
+  localStorage.removeItem('clearpath_user');
+  localStorage.removeItem('clearpath_tasks');
+  localStorage.removeItem('clearpath_task_progress');
+  localStorage.removeItem('clearpath_pending_task');
+  window.location.href = '/signin';
+}
 </script>
 </body>
 </html>

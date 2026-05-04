@@ -589,6 +589,19 @@ function addToBoard(taskText, pillar) {
   thread.appendChild(conf);
   thread.scrollTop = thread.scrollHeight;
 }
+
+// Sign out
+function signOut() {
+  localStorage.removeItem('clearpath_auth');
+  localStorage.removeItem('clearpath_pro');
+  localStorage.removeItem('clearpath_onboarded');
+  localStorage.removeItem('clearpath_profile');
+  localStorage.removeItem('clearpath_user');
+  localStorage.removeItem('clearpath_tasks');
+  localStorage.removeItem('clearpath_task_progress');
+  localStorage.removeItem('clearpath_pending_task');
+  window.location.href = '/signin';
+}
 </script>
 </body>
 </html>
