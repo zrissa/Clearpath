@@ -16,78 +16,39 @@ exports.handler = async function(event, context) {
     console.log('Onboarding for:', email);
     console.log('Answers:', JSON.stringify(answers));
 
-    // Only use fields we KNOW exist in Airtable
+    // Exact field names from Airtable CSV export:
+    // Org Name, Contact First Name, Contact Last Name, State, City,
+    // Program Type, Sport or Category, Entity Type, Annual Budget Range,
+    // Biggest Challenge, Onboarding Complete, Onboarding Stage (Single line text), Participant Count
+
     const fields = {
       'Org Name': orgname || '',
-      'Email': email || '',
       'Contact First Name': answers.firstName || '',
       'Contact Last Name': answers.lastName || '',
-      'City': answers.city || answers.zip || '',
       'State': answers.state || '',
+      'City': answers.city || answers.zip || '',
       'Program Type': answers.category || '',
       'Sport or Category': Array.isArray(answers.subcategory) ? answers.subcategory.join(', ') : (answers.subcategory || ''),
       'Entity Type': answers.entityType || '',
       'Annual Budget Range': answers.budgetRange || '',
       'Biggest Challenge': answers.biggestChallenge || '',
       'Onboarding Complete': true,
-      'Date Joined': new Date().toISOString().split('T')[0]
+      'Onboarding Stage (Single line text)': answers.journey || '',
+      'Participant Count': answers.participantCount || '',
     };
 
     console.log('Fields to write:', JSON.stringify(fields));
 
-    // Try to find existing record first
-    const searchRes = await fetch(
-      `https://api.airtable.com/v0/${baseId}/Orgs?filterByFormula=${encodeURIComponent(`{Email}="${email}"`)}`,
-      { headers: { 'Authorization': `Bearer ${token}` } }
-    );
-    const searchData = await searchRes.json();
-    const record = searchData.records?.[0];
-    console.log('Record found:', record ? record.id : 'none');
-
-    let res;
-    if (record) {
-      // Update existing
-      res = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs/${record.id}`, {
-        method: 'PATCH',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fields })
-      });
-    } else {
-      // Create new
-      res = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs`, {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fields })
-      });
-    }
+    const res = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fields })
+    });
 
     const data = await res.json();
     console.log('Airtable response:', JSON.stringify(data));
 
-    if (!res.ok) {
-      // If there's a field error, try again with just the safe fields
-      console.log('Retrying with minimal fields...');
-      const safeFields = {
-        'Org Name': orgname || '',
-        'Email': email || '',
-        'Contact First Name': answers.firstName || '',
-        'Contact Last Name': answers.lastName || '',
-        'City': answers.city || answers.zip || '',
-        'State': answers.state || '',
-        'Program Type': answers.category || '',
-        'Sport or Category': Array.isArray(answers.subcategory) ? answers.subcategory.join(', ') : (answers.subcategory || ''),
-        'Onboarding Complete': true,
-        'Date Joined': new Date().toISOString().split('T')[0]
-      };
-
-      const retry = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs`, {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fields: safeFields })
-      });
-      const retryData = await retry.json();
-      console.log('Retry response:', JSON.stringify(retryData));
-    }
+    if (!res.ok) throw new Error(data.error?.message || 'Airtable error');
 
     return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
 
