@@ -252,6 +252,19 @@ async function send() {
   const input = document.getElementById('user-input');
   const text = input.value.trim();
   if (!text || loading) return;
+
+  // Free tier limit check
+  const isPro = localStorage.getItem('clearpath_pro') === 'true';
+  if (!isPro) {
+    const count = parseInt(localStorage.getItem('clearpath_q_count') || '0');
+    const FREE_LIMIT = 10;
+    if (count >= FREE_LIMIT) {
+      showUpgradeModal();
+      return;
+    }
+    localStorage.setItem('clearpath_q_count', count + 1);
+    updateQuestionCounter(count + 1, FREE_LIMIT);
+  }
   input.value = '';
   input.style.height = 'auto';
   loading = true;
@@ -314,6 +327,57 @@ else {
     }, 800);
   }
 }
+</script>
+
+<!-- QUESTION COUNTER -->
+<div id="q-counter" style="display:none;position:fixed;bottom:80px;right:16px;background:var(--white);border:1px solid var(--g200);border-radius:10px;padding:8px 14px;font-size:12px;color:var(--text-lt);box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:50;">
+  <span id="q-counter-text">10 free questions remaining</span>
+</div>
+
+<!-- UPGRADE MODAL -->
+<div id="upgrade-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:var(--white);border-radius:20px;padding:40px;max-width:420px;width:100%;text-align:center;">
+    <div style="font-size:40px;margin-bottom:16px;">🔒</div>
+    <div style="font-size:22px;font-weight:800;color:var(--forest);letter-spacing:-.5px;margin-bottom:8px;">You've used your 10 free questions</div>
+    <div style="font-size:14px;color:var(--text-lt);line-height:1.6;margin-bottom:28px;font-weight:300;">Upgrade to Pro and get unlimited personalized AI coaching — specific to your program, your city, your stage. <strong style="color:var(--forest);">$20/month or $200/year.</strong></div>
+    <a href="/signup?upgrade=true" style="display:block;padding:14px;background:var(--forest);color:white;border-radius:10px;font-size:15px;font-weight:800;text-decoration:none;margin-bottom:10px;transition:all .2s;">Upgrade to Pro →</a>
+    <button onclick="closeUpgradeModal()" style="display:block;width:100%;padding:12px;background:none;border:1.5px solid var(--g200);border-radius:10px;font-size:14px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Maybe later</button>
+    <div style="font-size:11px;color:var(--g400);margin-top:12px;">14-day free trial · Cancel anytime</div>
+  </div>
+</div>
+
+<script>
+function showUpgradeModal() {
+  document.getElementById('upgrade-modal').style.display = 'flex';
+}
+function closeUpgradeModal() {
+  document.getElementById('upgrade-modal').style.display = 'none';
+}
+function updateQuestionCounter(used, limit) {
+  const remaining = limit - used;
+  const counter = document.getElementById('q-counter');
+  const text = document.getElementById('q-counter-text');
+  const isPro = localStorage.getItem('clearpath_pro') === 'true';
+  if (isPro) { counter.style.display = 'none'; return; }
+  if (remaining <= 5 && remaining > 0) {
+    counter.style.display = 'block';
+    text.textContent = remaining + ' free question' + (remaining === 1 ? '' : 's') + ' remaining';
+    counter.style.borderColor = remaining <= 2 ? '#E24B4A' : 'var(--g200)';
+  } else if (remaining <= 0) {
+    counter.style.display = 'block';
+    text.textContent = 'Free limit reached — upgrade to Pro';
+    counter.style.borderColor = '#E24B4A';
+  }
+}
+
+// Show counter on load if needed
+(function(){
+  const isPro = localStorage.getItem('clearpath_pro') === 'true';
+  if (!isPro) {
+    const count = parseInt(localStorage.getItem('clearpath_q_count') || '0');
+    updateQuestionCounter(count, 10);
+  }
+})();
 </script>
 </body>
 </html>
