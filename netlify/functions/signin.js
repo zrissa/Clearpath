@@ -9,7 +9,7 @@ exports.handler = async function(event, context) {
   if (event.httpMethod !== 'POST') return { statusCode: 405, headers, body: 'Method Not Allowed' };
 
   try {
-    const { email } = JSON.parse(event.body);
+    const { email, passwordHash } = JSON.parse(event.body);
     const baseId = process.env.AIRTABLE_ORGS_BASE_ID;
     const token = process.env.AIRTABLE_TOKEN;
 
@@ -32,7 +32,17 @@ exports.handler = async function(event, context) {
 
     const f = record.fields;
 
-    // Build full profile from Airtable record
+    // Validate password hash
+    const storedHash = f['Password'] || '';
+    if (storedHash && passwordHash && storedHash !== passwordHash) {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ success: false, error: "Incorrect password. Please try again." })
+      };
+    }
+
+    // Build full profile
     const profile = {
       orgName: f['Org Name'] || '',
       email: f['Email'] || email,
@@ -51,7 +61,6 @@ exports.handler = async function(event, context) {
       location: (f['City'] || '') + (f['State'] ? ', ' + f['State'] : ''),
     };
 
-    // Check Pro status from Airtable checkbox
     const isPro = f['Pro'] === true;
 
     return {
