@@ -336,23 +336,6 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
         </div>
       </div>
 
-      <!-- DATA UPLOAD -->
-      <div class="upload-card" style="margin-top:16px;">
-        <div class="uc-header">
-          <span class="uc-title">📂 Upload Your Program Data</span>
-          <span class="uc-badge">Pro · 1/month</span>
-        </div>
-        <div class="uc-body">
-          <div class="uc-drop" id="upload-drop" onclick="document.getElementById('file-input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
-            <div class="uc-drop-icon">📊</div>
-            <div class="uc-drop-title">Drop your data file here</div>
-            <div class="uc-drop-sub">CSV, Excel (.xlsx), or PDF · Participant data, registration records, season stats</div>
-          </div>
-          <div class="uc-limit" id="upload-limit">1 upload per month included with Pro · <span id="uploads-remaining">1 remaining this month</span></div>
-          <div id="upload-status"></div>
-          <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
-        </div>
-      </div>
     </div>
 
     <!-- RIGHT COL -->
@@ -381,10 +364,39 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
         </div>
       </div>
 
-      <div class="root-card">
-        <div class="rc-top"><div class="rc-icon">⚽</div><div class="rc-name">Root</div></div>
-        <div class="rc-sub">Complete Management Platform — registration, scheduling, payments, SafeSport.</div>
-        <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn">Open Root →</a>
+      <div id="root-module">
+        <!-- ROOT CONNECTED STATE (default) -->
+        <div id="root-connected" class="root-card">
+          <div class="rc-top"><div class="rc-icon">⚽</div><div class="rc-name">Root — Run Pillar</div></div>
+          <div class="rc-sub">The Complete Management Platform for your day-to-day operations. Registration, scheduling, payments, and SafeSport — all in one place.</div>
+          <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn" style="margin-bottom:8px;">Open Root →</a>
+          <button onclick="optOutOfRoot()" style="display:block;width:100%;padding:7px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:7px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-top:6px;transition:all .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Not using Root? Upload your own data →</button>
+        </div>
+
+        <!-- OPT-OUT STATE (shown after clicking opt out) -->
+        <div id="root-optout" style="display:none;">
+          <div class="upload-card">
+            <div class="uc-header">
+              <span class="uc-title">📂 Upload Your Program Data</span>
+              <span class="uc-badge">Pro · 1/month</span>
+            </div>
+            <div class="uc-body">
+              <div style="font-size:12px;color:var(--text-lt);background:rgba(255,184,0,.08);border:1px solid rgba(255,184,0,.2);border-radius:8px;padding:10px 12px;margin-bottom:12px;line-height:1.5;">
+                💡 <strong style="color:var(--forest);">Root gives your AI better data.</strong> Uploading your own data works, but structured Root data produces more accurate impact reports and growth plans.
+                <button onclick="switchToRoot()" style="display:block;margin-top:6px;background:none;border:none;color:var(--blue);font-size:11px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;padding:0;">← Switch to Root instead</button>
+              </div>
+              <div class="uc-drop" id="upload-drop" onclick="document.getElementById('file-input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
+                <div class="uc-drop-icon">📊</div>
+                <div class="uc-drop-title">Drop your data file here</div>
+                <div class="uc-drop-sub">CSV, Excel, or PDF · Participant data, registration records, season stats</div>
+              </div>
+              <div class="uc-limit">1 upload per month · <span id="uploads-remaining">1 remaining this month</span></div>
+              <div id="upload-status"></div>
+              <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
+              <button onclick="markRunComplete()" style="display:block;width:100%;margin-top:10px;padding:9px;background:var(--forest);color:white;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">✓ Mark Run pillar complete</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="quick-card">
@@ -955,6 +967,42 @@ Keep it concise and specific to their program.`
     document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;">Analysis failed. Please try again.</div>';
   }
 }
+
+// Root opt-out
+function optOutOfRoot() {
+  localStorage.setItem('clearpath_root_optout', 'true');
+  document.getElementById('root-connected').style.display = 'none';
+  document.getElementById('root-optout').style.display = 'block';
+}
+
+function switchToRoot() {
+  localStorage.removeItem('clearpath_root_optout');
+  document.getElementById('root-optout').style.display = 'none';
+  document.getElementById('root-connected').style.display = 'block';
+}
+
+function markRunComplete() {
+  // Mark all Run tasks complete
+  allTasks.filter(t => t.pillar === 'Run').forEach(t => { progress[t.id] = true; });
+  localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
+  renderAll();
+  // Close upload panel and show success
+  switchToRoot();
+  const rootCard = document.getElementById('root-connected');
+  rootCard.innerHTML = rootCard.innerHTML.replace('Not using Root? Upload your own data →', '');
+  const conf = document.createElement('div');
+  conf.style.cssText = 'margin-top:8px;padding:8px 10px;background:rgba(52,199,123,.15);border-radius:7px;font-size:12px;color:var(--mint);font-weight:600;text-align:center;';
+  conf.textContent = '✓ Run pillar marked complete';
+  rootCard.appendChild(conf);
+}
+
+// Restore opt-out state on load
+(function(){
+  if (localStorage.getItem('clearpath_root_optout') === 'true') {
+    document.getElementById('root-connected').style.display = 'none';
+    document.getElementById('root-optout').style.display = 'block';
+  }
+})();
 
 init();
 </script>
