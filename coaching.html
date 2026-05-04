@@ -293,7 +293,7 @@ function switchPillar(btn, pillar) {
 
   // Special handling for Run pillar
   if (pillar === 'Run') {
-    addMsg('assistant', `The **Run** pillar is powered by **Root Soccer** — a purpose-built platform for league management, registration, scheduling, payments, and SafeSport compliance.\n\n**Here's how to get started with Root:**\n1. Go to rootsoccer.com and create a free account\n2. Set up your league or club\n3. Configure your registration forms and pricing\n4. Share your registration link with families\n\nOnce your program is running on Root, come back to the **Grow** pillar and Clearpath will help you turn that data into impact reports and expansion plans.\n\nWant me to walk you through the Root setup for your specific program type?`);
+    addMsg('assistant', `The **Run** pillar is powered by **Root** — a purpose-built platform for league management, registration, scheduling, payments, and SafeSport compliance.\n\n**Here's how to get started with Root:**\n1. Go to rootsoccer.com and create a free account\n2. Set up your league or club\n3. Configure your registration forms and pricing\n4. Share your registration link with families\n\nOnce your program is running on Root, come back to the **Grow** pillar and Clearpath will help you turn that data into impact reports and expansion plans.\n\nWant me to walk you through the Root setup for your specific program type?`);
   } else {
     ask(`I want to focus on the ${pillar} pillar. What should I know and do next for ${profile.orgName}?`);
   }
