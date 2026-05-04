@@ -203,6 +203,15 @@ const STEPS = [
     ]
   },
   {
+    id:'grantExperience', label:'Have you applied for grants before?', sub:'No wrong answer — this helps Clearpath calibrate how much guidance to provide in the Fund pillar.',
+    type:'select-cards',
+    options:[
+      {value:'Never applied', label:'Never applied', icon:'🌱', sub:"This is all new to me"},
+      {value:'A few times', label:'A few times', icon:'📝', sub:"I've tried but could use more help"},
+      {value:'Regularly', label:'Regularly', icon:'✅', sub:"I know the process, just need better tools"},
+    ]
+  },
+  {
     id:'biggestChallenge', label:'What is your biggest challenge right now?', sub:'This tells Clearpath which pillar to prioritize and what to tackle with you first.',
     type:'select-cards',
     options:[
@@ -413,13 +422,14 @@ function saveToLocalStorage() {
     lastName: answers.lastName || existing.lastName,
     email: answers.email || existing.email,
     state: answers.state || existing.state,
-    zip: answers.city || existing.zip,
+    city: answers.city || existing.city,
     programType: answers.category || existing.programType,
     sportOrCategory: Array.isArray(answers.subcategory) ? answers.subcategory.join(', ') : (answers.subcategory || existing.sportOrCategory),
     journey: answers.journey || existing.journey,
     entityType: answers.entityType || existing.entityType,
     participantCount: answers.participantCount || existing.participantCount,
     budgetRange: answers.budgetRange || existing.budgetRange,
+    grantExperience: answers.grantExperience || existing.grantExperience,
     biggestChallenge: answers.biggestChallenge || existing.biggestChallenge,
     location: (answers.state || '') + (answers.city ? ', ' + answers.city : ''),
     orgName: existing.orgName || user.orgname || '',
@@ -447,13 +457,14 @@ async function completeOnboarding() {
           firstName: answers.firstName,
           lastName: answers.lastName,
           state: answers.state,
-          zip: answers.city,
+          city: answers.city,
           category: answers.category,
           subcategory: answers.subcategory,
           journey: answers.journey,
           entityType: answers.entityType,
           participantCount: answers.participantCount,
           budgetRange: answers.budgetRange,
+          grantExperience: answers.grantExperience,
           biggestChallenge: answers.biggestChallenge,
         }
       })
