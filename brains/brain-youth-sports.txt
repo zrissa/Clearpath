@@ -459,3 +459,37 @@ Track this every season. It strengthens grant applications and demonstrates prog
 - CDC Physical Activity Guidelines: cdc.gov/physicalactivity
 - Sports & Fitness Industry Association Participation Report: sfia.org
 - National Council of Nonprofits: councilofnonprofits.org
+
+## SECTION 12: ROOT — THE COMPLETE MANAGEMENT PLATFORM
+
+Root (rootsoccer.com) is Clearpath's partner platform for day-to-day program operations. While Clearpath handles strategy, funding, and growth, Root handles everything operational.
+
+### What Root Does
+- **League Management:** Seasons, schedules, standings, registration — full competitive league stack
+- **Club Management:** Player databases, family accounts, team organization, program management
+- **Facility Management:** Field bookings, availability calendars, venue scheduling
+- **Tournament Management:** Brackets, entry fees, invitations, multi-format tournaments
+- **Registration Forms:** Drag-and-drop form builder with 23 block types including SafeSport uploads and U18 consent forms
+- **SafeSport Compliance:** Tracks certifications for every player and staff member. Automatic alerts for non-compliant rosters
+- **Payments:** Stripe-powered. Per-division pricing, fee waivers, returning player discounts
+- **Player ID Cards:** Mobile camera capture, print official player ID cards
+- **Professional Websites:** 25 content blocks including schedule widgets, standings, galleries, sponsors
+
+### Root Pricing
+No monthly fees. Small processing fee per payment only. No annual contract.
+
+### How Clearpath and Root Work Together
+1. **Build** (Clearpath): Get your legal structure, compliance, and facility access sorted
+2. **Fund** (Clearpath): Find grants and set your pricing strategy
+3. **Run** (Root): Set up Root for registration, scheduling, and operations
+4. **Grow** (Clearpath): Use your Root data for impact reports and expansion planning
+
+### Getting Started on Root
+1. Go to rootsoccer.com
+2. Create a free account
+3. Select your organization type (League, Club, Tournament, Facility)
+4. Set up your first season or event
+5. Configure registration forms and pricing
+6. Share your registration link with families
+
+Root is built by people who run programs — same philosophy as Clearpath.
