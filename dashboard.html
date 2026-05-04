@@ -229,6 +229,7 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
   </div>
   <div class="nav-right">
     <span class="nav-plan" id="nav-plan">Free</span>
+  <script>document.getElementById("nav-plan").textContent=localStorage.getItem("clearpath_pro")==="true"?"Pro ✓":"Free";if(localStorage.getItem("clearpath_pro")==="true"){document.getElementById("nav-plan").style.background="var(--forest)";document.getElementById("nav-plan").style.color="var(--mint)";}</script>
     <a href="#" onclick="signOut()" style="font-size:13px;font-weight:500;color:var(--text-lt);text-decoration:none;padding:6px 12px;border-radius:7px;transition:all .15s;" onmouseover="this.style.background='var(--g100)'" onmouseout="this.style.background='none'">Sign out</a>
     <a href="/profile" class="nav-avatar" id="nav-avatar">Z</a>
   </div>
