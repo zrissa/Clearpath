@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Clearpath — Edit Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;
+  --white:#fff;--off:#F8FAF9;--g100:#F2F5F3;--g200:#E2EAE6;--g400:#8BA89A;
+  --text:#111C17;--text-md:#3D5248;--text-lt:#6B8A78;
+}
+html,body{min-height:100%;font-family:"Plus Jakarta Sans",sans-serif;background:var(--off);color:var(--text);-webkit-font-smoothing:antialiased;}
+
+nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);display:flex;align-items:center;padding:0 24px;gap:12px;position:sticky;top:0;z-index:100;}
+.nlogo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nmark{width:28px;height:28px;border-radius:7px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--mint);}
+.nname{font-size:15px;font-weight:800;color:var(--forest);letter-spacing:-.3px;}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:16px;}
+.nav-link{font-size:13px;font-weight:500;color:var(--text-lt);text-decoration:none;padding:6px 12px;border-radius:7px;transition:all .15s;}
+.nav-link:hover,.nav-link.active{color:var(--forest);background:var(--g100);font-weight:600;}
+.nav-right{margin-left:auto;}
+
+.page{max-width:700px;margin:0 auto;padding:32px 24px;}
+.page-header{margin-bottom:28px;}
+.page-title{font-size:22px;font-weight:800;color:var(--forest);letter-spacing:-.5px;margin-bottom:4px;}
+.page-sub{font-size:14px;color:var(--text-lt);font-weight:300;}
+
+.card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:24px;margin-bottom:16px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mint);margin-bottom:16px;display:block;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.form-group{margin-bottom:14px;}
+label{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text-lt);margin-bottom:5px;}
+input,select,textarea{width:100%;padding:11px 14px;background:var(--off);border:1.5px solid var(--g200);border-radius:10px;font-size:14px;color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;outline:none;transition:all .2s;}
+input:focus,select:focus,textarea:focus{border-color:var(--mint);background:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
+input::placeholder,textarea::placeholder{color:var(--g400);}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238BA89A' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+
+.save-bar{display:flex;align-items:center;gap:12px;padding-top:8px;}
+.save-btn{padding:12px 28px;border-radius:10px;font-size:15px;font-weight:700;background:var(--forest);color:var(--white);border:none;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;transition:all .2s;}
+.save-btn:hover{background:var(--sage);}
+.save-btn:disabled{opacity:.6;cursor:not-allowed;}
+.cancel-btn{padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;color:var(--text-lt);background:none;border:1.5px solid var(--g200);cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;text-decoration:none;transition:all .2s;}
+.cancel-btn:hover{border-color:var(--g400);color:var(--text);}
+.save-msg{font-size:13px;color:var(--sage);font-weight:600;display:none;}
+
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr;}
+  .page{padding:16px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nlogo"><div class="nmark">C</div><span class="nname">Clearpath</span></a>
+  <div class="nav-links">
+    <a href="/dashboard" class="nav-link">Dashboard</a>
+    <a href="/coaching" class="nav-link">AI Advisor</a>
+    <a href="/profile" class="nav-link active">Profile</a>
+  </div>
+  <div class="nav-right"></div>
+</nav>
+
+<div class="page">
+  <div class="page-header">
+    <div class="page-title">Edit Your Profile</div>
+    <div class="page-sub">Keep your profile current so Clearpath can give you the most accurate guidance.</div>
+  </div>
+
+  <!-- PERSONAL INFO -->
+  <div class="card">
+    <span class="section-label">Personal Info</span>
+    <div class="form-row">
+      <div><label>First Name</label><input type="text" id="firstName" placeholder="First name"/></div>
+      <div><label>Last Name</label><input type="text" id="lastName" placeholder="Last name"/></div>
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="you@yourprogram.org"/>
+    </div>
+  </div>
+
+  <!-- ORGANIZATION -->
+  <div class="card">
+    <span class="section-label">Your Organization</span>
+    <div class="form-group">
+      <label>Organization Name</label>
+      <input type="text" id="orgName" placeholder="e.g. LK St. Clair Soccer"/>
+    </div>
+    <div class="form-row">
+      <div>
+        <label>City</label>
+        <input type="text" id="city" placeholder="e.g. Mount Clemens"/>
+      </div>
+      <div>
+        <label>State</label>
+        <select id="state">
+          <option value="">Select state</option>
+          <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAM -->
+  <div class="card">
+    <span class="section-label">Program Details</span>
+    <div class="form-row">
+      <div>
+        <label>Program Type</label>
+        <select id="programType">
+          <option value="">Select type</option>
+          <option>Youth Sports</option>
+          <option>STEM</option>
+          <option>After-School Program</option>
+          <option>Parks & Recreation</option>
+        </select>
+      </div>
+      <div>
+        <label>Sport or Category</label>
+        <input type="text" id="sportOrCategory" placeholder="e.g. Soccer, Robotics, Tutoring"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label>Legal Structure</label>
+        <select id="entityType">
+          <option value="">Select structure</option>
+          <option>Nonprofit 501(c)(3)</option>
+          <option>LLC</option>
+          <option>Sole Proprietor</option>
+          <option>Municipal Department</option>
+          <option>In process of forming</option>
+          <option>Not yet incorporated</option>
+        </select>
+      </div>
+      <div>
+        <label>Participant Count</label>
+        <select id="participantCount">
+          <option value="">Select range</option>
+          <option>Under 25</option>
+          <option>25–50</option>
+          <option>51–100</option>
+          <option>101–250</option>
+          <option>250+</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label>Annual Budget Range</label>
+        <select id="budgetRange">
+          <option value="">Select range</option>
+          <option>Under $25K</option>
+          <option>$25K–$100K</option>
+          <option>$100K–$300K</option>
+          <option>$300K–$750K</option>
+          <option>Over $750K</option>
+        </select>
+      </div>
+      <div>
+        <label>Grant Experience</label>
+        <select id="grantExperience">
+          <option value="">Select</option>
+          <option>Never applied</option>
+          <option>A few times</option>
+          <option>Regularly</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOURNEY -->
+  <div class="card">
+    <span class="section-label">Where You Are</span>
+    <div class="form-group">
+      <label>Journey Stage</label>
+      <select id="journey">
+        <option value="">Select stage</option>
+        <option>Just starting — haven't launched yet</option>
+        <option>New — launched in the last year</option>
+        <option>Established — ready to expand</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Biggest Challenge Right Now</label>
+      <select id="biggestChallenge">
+        <option value="">Select challenge</option>
+        <option>Finding funding</option>
+        <option>Building the program structure</option>
+        <option>Managing day-to-day operations</option>
+        <option>Proving impact to funders</option>
+        <option>All of the above</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- SAVE -->
+  <div class="save-bar">
+    <button class="save-btn" id="save-btn" onclick="saveProfile()">Save changes</button>
+    <a href="/dashboard" class="cancel-btn">Cancel</a>
+    <span class="save-msg" id="save-msg">✓ Profile saved</span>
+  </div>
+
+</div>
+
+<script>
+if (!localStorage.getItem('clearpath_auth')) { window.location.href = '/signup'; }
+
+const FIELDS = ['firstName','lastName','email','orgName','city','state','programType','sportOrCategory','entityType','participantCount','budgetRange','grantExperience','journey','biggestChallenge'];
+
+function loadProfile() {
+  const stored = localStorage.getItem('clearpath_profile');
+  if (!stored) return;
+  const p = JSON.parse(stored);
+  FIELDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && p[id]) el.value = p[id];
+  });
+}
+
+async function saveProfile() {
+  const btn = document.getElementById('save-btn');
+  btn.textContent = 'Saving...';
+  btn.disabled = true;
+
+  const existing = JSON.parse(localStorage.getItem('clearpath_profile') || '{}');
+  const updated = { ...existing };
+  FIELDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) updated[id] = el.value;
+  });
+  updated.location = (updated.city || '') + (updated.state ? ', ' + updated.state : '');
+
+  localStorage.setItem('clearpath_profile', JSON.stringify(updated));
+
+  // Save to Airtable
+  const user = JSON.parse(localStorage.getItem('clearpath_user') || '{}');
+  try {
+    await fetch('/.netlify/functions/onboarding', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: updated.email || user.email,
+        orgname: updated.orgName,
+        answers: {
+          firstName: updated.firstName,
+          lastName: updated.lastName,
+          state: updated.state,
+          city: updated.city,
+          category: updated.programType,
+          subcategory: updated.sportOrCategory,
+          entityType: updated.entityType,
+          participantCount: updated.participantCount,
+          budgetRange: updated.budgetRange,
+          grantExperience: updated.grantExperience,
+          journey: updated.journey,
+          biggestChallenge: updated.biggestChallenge,
+        }
+      })
+    });
+  } catch(e) {
+    console.log('Airtable update failed — saved locally');
+  }
+
+  btn.textContent = 'Save changes';
+  btn.disabled = false;
+  const msg = document.getElementById('save-msg');
+  msg.style.display = 'block';
+  setTimeout(() => { msg.style.display = 'none'; }, 3000);
+}
+
+loadProfile();
+</script>
+</body>
+</html>

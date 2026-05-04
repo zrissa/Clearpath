@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Clearpath — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;
+  --white:#fff;--off:#F8FAF9;--g100:#F2F5F3;--g200:#E2EAE6;--g400:#8BA89A;
+  --text:#111C17;--text-md:#3D5248;--text-lt:#6B8A78;
+  --yellow:#FFB800;--blue:#1A73E8;--red:#EA4335;--purple:#7B2D8B;
+}
+html,body{min-height:100%;font-family:"Plus Jakarta Sans",sans-serif;background:var(--off);color:var(--text);-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);display:flex;align-items:center;padding:0 24px;gap:12px;position:sticky;top:0;z-index:100;}
+.nlogo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nmark{width:28px;height:28px;border-radius:7px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--mint);}
+.nname{font-size:15px;font-weight:800;color:var(--forest);letter-spacing:-.3px;}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:16px;}
+.nav-link{font-size:13px;font-weight:500;color:var(--text-lt);text-decoration:none;padding:6px 12px;border-radius:7px;transition:all .15s;}
+.nav-link:hover{color:var(--forest);background:var(--g100);}
+.nav-link.active{color:var(--forest);background:var(--g100);font-weight:600;}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.nav-plan{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--mint-pale);color:var(--sage);}
+.nav-avatar{width:30px;height:30px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--mint);cursor:pointer;}
+
+/* PAGE */
+.page{max-width:1100px;margin:0 auto;padding:28px 24px;}
+
+/* HEADER */
+.page-header{margin-bottom:28px;}
+.welcome{font-size:22px;font-weight:800;color:var(--forest);letter-spacing:-.5px;margin-bottom:4px;}
+.welcome-sub{font-size:14px;color:var(--text-lt);font-weight:300;}
+
+/* NEXT STEP BANNER */
+.next-banner{
+  background:var(--forest);border-radius:16px;padding:20px 24px;
+  display:flex;align-items:center;gap:16px;margin-bottom:24px;
+  cursor:pointer;transition:all .2s;
+}
+.next-banner:hover{background:var(--sage);}
+.nb-icon{width:44px;height:44px;border-radius:12px;background:rgba(52,199,123,.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.nb-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(52,199,123,.7);margin-bottom:3px;}
+.nb-title{font-size:16px;font-weight:700;color:var(--white);letter-spacing:-.3px;}
+.nb-sub{font-size:13px;color:rgba(255,255,255,.5);margin-top:2px;font-weight:300;}
+.nb-arrow{margin-left:auto;font-size:20px;color:rgba(255,255,255,.4);}
+
+/* PILLARS GRID */
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.pillar-card{
+  background:var(--white);border:1.5px solid var(--g200);border-radius:14px;
+  padding:20px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;
+}
+.pillar-card:hover{border-color:rgba(52,199,123,.4);box-shadow:0 6px 20px rgba(11,61,46,.08);transform:translateY(-2px);}
+.pillar-card.active{border-color:var(--mint);box-shadow:0 6px 20px rgba(52,199,123,.15);}
+.pillar-card.locked{opacity:.6;cursor:default;}
+.pillar-card.locked:hover{transform:none;box-shadow:none;border-color:var(--g200);}
+.pc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.pc-icon{font-size:24px;}
+.pc-status{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;}
+.pcs-done{background:var(--mint-pale);color:var(--sage);}
+.pcs-active{background:rgba(26,115,232,.1);color:var(--blue);}
+.pcs-ready{background:var(--g100);color:var(--g400);}
+.pcs-locked{background:var(--g100);color:var(--g400);}
+.pc-name{font-size:16px;font-weight:800;color:var(--forest);letter-spacing:-.4px;margin-bottom:3px;}
+.pc-desc{font-size:12px;color:var(--text-lt);font-weight:300;margin-bottom:14px;line-height:1.5;}
+.pc-progress{height:4px;background:var(--g200);border-radius:2px;overflow:hidden;}
+.pc-progress-fill{height:100%;border-radius:2px;transition:width .4s ease;}
+.pc-pct{font-size:11px;color:var(--text-lt);margin-top:5px;}
+.lock-overlay{position:absolute;top:12px;right:12px;font-size:14px;opacity:.4;}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+
+/* CHECKLIST CARD */
+.card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:20px;}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.card-title{font-size:15px;font-weight:700;color:var(--forest);letter-spacing:-.3px;}
+.card-action{font-size:12px;font-weight:600;color:var(--mint);text-decoration:none;cursor:pointer;}
+.checklist{display:flex;flex-direction:column;gap:8px;}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .15s;}
+.check-item:hover{background:var(--off);}
+.check-item.done .ci-text{text-decoration:line-through;color:var(--text-lt);}
+.checkbox{width:18px;height:18px;border-radius:5px;border:2px solid var(--g200);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer;}
+.check-item.done .checkbox{background:var(--mint);border-color:var(--mint);color:white;font-size:10px;}
+.ci-text{font-size:13px;color:var(--text-md);line-height:1.4;}
+.ci-tag{font-size:10px;font-weight:600;padding:1px 7px;border-radius:100px;margin-left:auto;flex-shrink:0;}
+.tag-build{background:rgba(52,199,123,.1);color:var(--sage);}
+.tag-fund{background:rgba(255,184,0,.1);color:#7A5A00;}
+.tag-run{background:rgba(26,115,232,.1);color:var(--blue);}
+.tag-grow{background:rgba(234,67,53,.1);color:#8B1A14;}
+
+/* QUICK ACTIONS */
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.qa{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--off);border:1px solid var(--g200);border-radius:10px;cursor:pointer;text-decoration:none;transition:all .15s;}
+.qa:hover{border-color:rgba(52,199,123,.4);background:var(--white);}
+.qa-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0;}
+.qa-text{font-size:13px;font-weight:600;color:var(--forest);}
+.qa-sub{font-size:11px;color:var(--text-lt);margin-top:1px;font-weight:300;}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.stat-card{background:var(--white);border:1px solid var(--g200);border-radius:12px;padding:16px;}
+.stat-num{font-size:26px;font-weight:800;color:var(--forest);letter-spacing:-1px;line-height:1;}
+.stat-label{font-size:12px;color:var(--text-lt);margin-top:4px;font-weight:400;}
+.stat-change{font-size:11px;font-weight:600;color:var(--sage);margin-top:2px;}
+
+/* JOURNEY PROGRESS */
+.journey-bar{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:20px;margin-bottom:24px;}
+.jb-steps{display:flex;align-items:center;margin-top:16px;}
+.jb-step{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
+.jb-step:not(:last-child)::after{content:"";position:absolute;top:14px;left:60%;right:-40%;height:2px;background:var(--g200);z-index:0;}
+.jb-step.done:not(:last-child)::after{background:var(--mint);}
+.jb-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;position:relative;z-index:1;border:2px solid var(--g200);background:var(--white);color:var(--text-lt);}
+.jb-step.done .jb-circle{background:var(--mint);border-color:var(--mint);color:white;}
+.jb-step.active .jb-circle{background:var(--forest);border-color:var(--forest);color:white;}
+.jb-label{font-size:11px;font-weight:600;color:var(--text-lt);margin-top:6px;text-align:center;}
+.jb-step.done .jb-label{color:var(--sage);}
+.jb-step.active .jb-label{color:var(--forest);font-weight:700;}
+
+/* ROOT CARD */
+.root-card{background:linear-gradient(135deg,#1A73E8,#0D5DBE);border-radius:14px;padding:20px;color:white;margin-bottom:16px;}
+.root-card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.root-badge-icon{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:16px;}
+.root-title{font-size:15px;font-weight:700;}
+.root-sub{font-size:12px;opacity:.7;margin-bottom:14px;line-height:1.5;font-weight:300;}
+.root-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:rgba(255,255,255,.15);border-radius:8px;font-size:13px;font-weight:700;color:white;text-decoration:none;transition:all .2s;border:1px solid rgba(255,255,255,.2);}
+.root-btn:hover{background:rgba(255,255,255,.25);}
+
+/* MOBILE */
+@media(max-width:768px){
+  .pillars-grid{grid-template-columns:1fr 1fr;}
+  .two-col{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+  .page{padding:16px;}
+}
+@media(max-width:480px){
+  .pillars-grid{grid-template-columns:1fr 1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .quick-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nlogo"><div class="nmark">C</div><span class="nname">Clearpath</span></a>
+  <div class="nav-links">
+    <a href="/dashboard" class="nav-link active">Dashboard</a>
+    <a href="/coaching" class="nav-link">AI Advisor</a>
+    <a href="/profile" class="nav-link">Edit Profile</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-plan" id="nav-plan">Free</span>
+    <a href="/profile" class="nav-avatar" id="nav-avatar" style="text-decoration:none;">Z</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="welcome" id="welcome">Good morning!</div>
+    <div class="welcome-sub" id="welcome-sub">Here's where your program stands today.</div>
+  </div>
+
+  <!-- NEXT STEP -->
+  <div class="next-banner" id="next-banner" onclick="goToNextStep()">
+    <div class="nb-icon" id="nb-icon">🏗️</div>
+    <div>
+      <div class="nb-label">Your next step</div>
+      <div class="nb-title" id="nb-title">Loading your next action...</div>
+      <div class="nb-sub" id="nb-sub"></div>
+    </div>
+    <div class="nb-arrow">→</div>
+  </div>
+
+  <!-- JOURNEY BAR -->
+  <div class="journey-bar">
+    <div class="card-header" style="margin-bottom:0;">
+      <span class="card-title">Your Journey</span>
+      <span style="font-size:12px;color:var(--text-lt);" id="journey-pct">0% complete</span>
+    </div>
+    <div class="jb-steps">
+      <div class="jb-step" id="jb-build">
+        <div class="jb-circle">🏗️</div>
+        <div class="jb-label">Build</div>
+      </div>
+      <div class="jb-step" id="jb-fund">
+        <div class="jb-circle">💰</div>
+        <div class="jb-label">Fund</div>
+      </div>
+      <div class="jb-step" id="jb-run">
+        <div class="jb-circle">⚙️</div>
+        <div class="jb-label">Run</div>
+      </div>
+      <div class="jb-step" id="jb-grow">
+        <div class="jb-circle">📈</div>
+        <div class="jb-label">Grow</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row" id="stats-row">
+    <div class="stat-card">
+      <div class="stat-num" id="stat-participants">—</div>
+      <div class="stat-label">Participants</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-budget">—</div>
+      <div class="stat-label">Budget range</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-stage">—</div>
+      <div class="stat-label">Journey stage</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-tasks">0</div>
+      <div class="stat-label">Tasks completed</div>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <div class="pillars-grid" id="pillars-grid">
+    <div class="pillar-card active" onclick="gotoPillar('Build')">
+      <div class="pc-top"><span class="pc-icon">🏗️</span><span class="pc-status pcs-active" id="build-status">In Progress</span></div>
+      <div class="pc-name">Build</div>
+      <div class="pc-desc">Legal, compliance, facility, certifications</div>
+      <div class="pc-progress"><div class="pc-progress-fill" id="build-prog" style="width:0%;background:var(--mint);"></div></div>
+      <div class="pc-pct" id="build-pct">0% complete</div>
+    </div>
+    <div class="pillar-card" onclick="gotoPillar('Fund')">
+      <div class="pc-top"><span class="pc-icon">💰</span><span class="pc-status pcs-ready" id="fund-status">Ready</span></div>
+      <div class="pc-name">Fund</div>
+      <div class="pc-desc">Grants, pricing, sponsorships</div>
+      <div class="pc-progress"><div class="pc-progress-fill" id="fund-prog" style="width:0%;background:var(--yellow);"></div></div>
+      <div class="pc-pct" id="fund-pct">0% complete</div>
+    </div>
+    <div class="pillar-card" onclick="gotoPillar('Run')">
+      <div class="pc-top"><span class="pc-icon">⚙️</span><span class="pc-status pcs-ready" id="run-status">Ready</span></div>
+      <div class="pc-name">Run</div>
+      <div class="pc-desc">Powered by Root — operations platform</div>
+      <div class="pc-progress"><div class="pc-progress-fill" id="run-prog" style="width:0%;background:var(--blue);"></div></div>
+      <div class="pc-pct" id="run-pct">0% complete</div>
+    </div>
+    <div class="pillar-card" onclick="gotoPillar('Grow')">
+      <div class="pc-top"><span class="pc-icon">📈</span><span class="pc-status pcs-ready" id="grow-status">Ready</span></div>
+      <div class="pc-name">Grow</div>
+      <div class="pc-desc">Impact reports, expansion planning</div>
+      <div class="pc-progress"><div class="pc-progress-fill" id="grow-prog" style="width:0%;background:var(--purple);"></div></div>
+      <div class="pc-pct" id="grow-pct">0% complete</div>
+    </div>
+  </div>
+
+  <!-- TWO COL -->
+  <div class="two-col">
+
+    <!-- CHECKLIST -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Your Build Checklist</span>
+        <span class="card-action" onclick="gotoPillar('Build')">Ask AI for help →</span>
+      </div>
+      <div class="checklist" id="checklist">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- RIGHT COL -->
+    <div>
+      <!-- ROOT CARD -->
+      <div class="root-card">
+        <div class="root-card-top">
+          <div class="root-badge-icon">⚽</div>
+          <div>
+            <div class="root-title">Root — Management Platform</div>
+          </div>
+        </div>
+        <div class="root-sub">Run your program operations on Root. Registration, scheduling, payments, and SafeSport compliance — all in one place. Free to start.</div>
+        <a href="https://www.rootsoccer.com" target="_blank" class="root-btn">Set up Root →</a>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="card">
+        <div class="card-header"><span class="card-title">Quick Actions</span></div>
+        <div class="quick-grid">
+          <a href="/coaching" class="qa"><div class="qa-icon">🤖</div><div><div class="qa-text">Ask AI Advisor</div><div class="qa-sub">Get personalized guidance</div></div></a>
+          <a href="/coaching" class="qa"><div class="qa-icon">💰</div><div><div class="qa-text">Find Grants</div><div class="qa-sub">Matched to your program</div></div></a>
+          <a href="https://www.rootsoccer.com" target="_blank" class="qa"><div class="qa-icon">⚙️</div><div><div class="qa-text">Open Root</div><div class="qa-sub">Manage operations</div></div></a>
+          <a href="/consulting" class="qa"><div class="qa-icon">📞</div><div><div class="qa-text">Book Consulting</div><div class="qa-sub">1:1 session · $150–$250</div></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Auth gates
+if (!localStorage.getItem('clearpath_auth')) { window.location.href = '/signup'; }
+else if (!localStorage.getItem('clearpath_onboarded')) { window.location.href = '/onboarding'; }
+
+let profile = {};
+let progress = {};
+
+const CHECKLISTS = {
+  Build: [
+    { id:'llc', text:'Form LLC or Nonprofit Corporation', tag:'build' },
+    { id:'ein', text:'Get EIN from IRS (free at irs.gov/ein)', tag:'build' },
+    { id:'bank', text:'Open a business bank account', tag:'build' },
+    { id:'governing', text:'Join governing body (e.g. US Youth Soccer)', tag:'build' },
+    { id:'insurance', text:'Get general liability insurance', tag:'build' },
+    { id:'safesport', text:'Complete SafeSport certification (all adults)', tag:'build' },
+    { id:'background', text:'Run background checks on all coaches/staff', tag:'build' },
+    { id:'certs', text:'Complete coaching certifications', tag:'build' },
+    { id:'field', text:'Book field or facility', tag:'build' },
+    { id:'registration', text:'Set registration fees and open registration', tag:'build' },
+  ],
+  Fund: [
+    { id:'pricing', text:'Set your registration pricing strategy', tag:'fund' },
+    { id:'local_grant', text:'Apply to a local community foundation grant', tag:'fund' },
+    { id:'sponsor', text:'Identify 3 potential local sponsors', tag:'fund' },
+    { id:'501c3', text:'File for 501(c)(3) status', tag:'fund' },
+    { id:'first_grant', text:'Submit first sport-specific grant application', tag:'fund' },
+  ],
+  Run: [
+    { id:'root_account', text:'Create Root account at rootsoccer.com', tag:'run' },
+    { id:'root_setup', text:'Set up league/club in Root', tag:'run' },
+    { id:'root_forms', text:'Configure registration forms', tag:'run' },
+    { id:'root_payments', text:'Connect Stripe for payments', tag:'run' },
+    { id:'root_safesport', text:'Enable SafeSport tracking in Root', tag:'run' },
+    { id:'root_share', text:'Share registration link with families', tag:'run' },
+  ],
+  Grow: [
+    { id:'season_data', text:'Complete first full season on Root', tag:'grow' },
+    { id:'impact_report', text:'Generate season impact report', tag:'grow' },
+    { id:'grant_report', text:'Submit grant progress report', tag:'grow' },
+    { id:'yoy', text:'Compare year-over-year data', tag:'grow' },
+    { id:'expand', text:'Plan next season expansion', tag:'grow' },
+  ]
+};
+
+const NEXT_STEPS = {
+  build_llc: { icon:'🏛️', title:'Form your legal entity', sub:'File LLC at your state Secretary of State website. Takes 10 minutes online.' },
+  build_ein: { icon:'📄', title:'Get your EIN from the IRS', sub:'Free at irs.gov/ein. Takes 10 minutes. Required to open a bank account.' },
+  build_bank: { icon:'🏦', title:'Open a business bank account', sub:'Bring your EIN and Articles of Organization. Keep business and personal finances separate.' },
+  build_governing: { icon:'⚽', title:'Join your governing body', sub:'Register with US Youth Soccer or your sport\'s national governing body.' },
+  build_insurance: { icon:'🛡️', title:'Get general liability insurance', sub:'Required before booking any field or facility. K&K Insurance or through your governing body.' },
+  build_safesport: { icon:'✅', title:'Complete SafeSport certification', sub:'Free at safesport.org. Required for all adults working with youth. Takes 90 minutes.' },
+  build_background: { icon:'🔍', title:'Run background checks', sub:'Sterling Volunteers at sterlingvolunteers.com — $15–25/person.' },
+  build_certs: { icon:'📋', title:'Complete coaching certifications', sub:'Sport-specific license plus First Aid/CPR for all coaches.' },
+  build_field: { icon:'🏟️', title:'Book your field or facility', sub:'Contact city parks AND school district athletic director. Apply 6–8 weeks early.' },
+  build_registration: { icon:'📝', title:'Set up registration', sub:'Set your pricing, create your registration form, open for families.' },
+  fund_pricing: { icon:'💵', title:'Set your pricing strategy', sub:'Research comparable programs in your area. Set a fair price with scholarship options.' },
+  fund_local_grant: { icon:'🏦', title:'Apply to a local community foundation', sub:'Lowest competition, fastest response. Best first grant for new programs.' },
+  run_root_account: { icon:'⚙️', title:'Create your Root account', sub:'Go to rootsoccer.com and set up your free account. Takes 5 minutes.' },
+  grow_season_data: { icon:'📊', title:'Complete your first season', sub:'Run your program through Root to generate data for impact reports and grant applications.' },
+};
+
+function loadProfile() {
+  const stored = localStorage.getItem('clearpath_profile');
+  if (stored) { try { profile = JSON.parse(stored); } catch(e){} }
+  progress = JSON.parse(localStorage.getItem('clearpath_progress') || '{}');
+
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+  document.getElementById('welcome').textContent = `${greeting}, ${profile.firstName || profile.orgName || 'there'}!`;
+  document.getElementById('welcome-sub').textContent = `Here's where ${profile.orgName || 'your program'} stands today.`;
+  document.getElementById('nav-avatar').textContent = (profile.firstName || 'Z')[0].toUpperCase();
+
+  document.getElementById('stat-participants').textContent = profile.participantCount || '—';
+  document.getElementById('stat-budget').textContent = profile.budgetRange ? profile.budgetRange.replace('Under ', '<') : '—';
+  document.getElementById('stat-stage').textContent = profile.journey ? profile.journey.split(' — ')[0] : '—';
+
+  renderChecklist();
+  renderPillarProgress();
+  renderJourneyBar();
+  renderNextStep();
+}
+
+function renderChecklist() {
+  // Show Build checklist by default
+  const items = CHECKLISTS.Build;
+  const html = items.map(item => {
+    const done = progress[item.id] === true;
+    return `<div class="check-item ${done ? 'done' : ''}" onclick="toggleCheck('${item.id}', this)">
+      <div class="checkbox">${done ? '✓' : ''}</div>
+      <div class="ci-text">${item.text}</div>
+      <span class="ci-tag tag-${item.tag}">${item.tag}</span>
+    </div>`;
+  }).join('');
+  document.getElementById('checklist').innerHTML = html;
+  updateTaskCount();
+}
+
+function toggleCheck(id, el) {
+  progress[id] = !progress[id];
+  localStorage.setItem('clearpath_progress', JSON.stringify(progress));
+  el.classList.toggle('done');
+  const cb = el.querySelector('.checkbox');
+  cb.textContent = progress[id] ? '✓' : '';
+  renderPillarProgress();
+  renderJourneyBar();
+  renderNextStep();
+  updateTaskCount();
+}
+
+function updateTaskCount() {
+  const total = Object.values(progress).filter(v => v === true).length;
+  document.getElementById('stat-tasks').textContent = total;
+}
+
+function getPillarProgress(pillar) {
+  const items = CHECKLISTS[pillar];
+  const done = items.filter(i => progress[i.id] === true).length;
+  return Math.round((done / items.length) * 100);
+}
+
+function renderPillarProgress() {
+  const pillars = ['Build', 'Fund', 'Run', 'Grow'];
+  const colors = { Build: 'var(--mint)', Fund: 'var(--yellow)', Run: 'var(--blue)', Grow: 'var(--purple)' };
+  pillars.forEach(p => {
+    const pct = getPillarProgress(p);
+    document.getElementById(`${p.toLowerCase()}-prog`).style.width = pct + '%';
+    document.getElementById(`${p.toLowerCase()}-pct`).textContent = pct + '% complete';
+    const statusEl = document.getElementById(`${p.toLowerCase()}-status`);
+    if (pct === 100) { statusEl.textContent = 'Done'; statusEl.className = 'pc-status pcs-done'; }
+    else if (pct > 0) { statusEl.textContent = 'In Progress'; statusEl.className = 'pc-status pcs-active'; }
+    else { statusEl.textContent = 'Ready'; statusEl.className = 'pc-status pcs-ready'; }
+  });
+}
+
+function renderJourneyBar() {
+  const pillars = ['build', 'fund', 'run', 'grow'];
+  let totalPct = 0;
+  pillars.forEach((p, i) => {
+    const pct = getPillarProgress(p.charAt(0).toUpperCase() + p.slice(1));
+    totalPct += pct;
+    const el = document.getElementById(`jb-${p}`);
+    el.className = 'jb-step';
+    if (pct === 100) el.classList.add('done');
+    else if (pct > 0) el.classList.add('active');
+  });
+  const overall = Math.round(totalPct / 4);
+  document.getElementById('journey-pct').textContent = overall + '% complete';
+}
+
+function renderNextStep() {
+  // Find first uncompleted task across all pillars in order
+  const allPillars = ['Build', 'Fund', 'Run', 'Grow'];
+  for (const pillar of allPillars) {
+    const items = CHECKLISTS[pillar];
+    const next = items.find(i => !progress[i.id]);
+    if (next) {
+      const key = `${pillar.toLowerCase()}_${next.id}`;
+      const step = NEXT_STEPS[key] || { icon: pillar === 'Build' ? '🏗️' : pillar === 'Fund' ? '💰' : pillar === 'Run' ? '⚙️' : '📈', title: next.text, sub: `Continue with your ${pillar} pillar` };
+      document.getElementById('nb-icon').textContent = step.icon;
+      document.getElementById('nb-title').textContent = step.title;
+      document.getElementById('nb-sub').textContent = step.sub;
+      document.getElementById('next-banner').dataset.pillar = pillar;
+      document.getElementById('next-banner').dataset.task = next.id;
+      return;
+    }
+  }
+  // All done
+  document.getElementById('nb-icon').textContent = '🎉';
+  document.getElementById('nb-title').textContent = 'You\'ve completed all your checklist items!';
+  document.getElementById('nb-sub').textContent = 'Book a consulting session to plan your next season expansion.';
+}
+
+function goToNextStep() {
+  window.location.href = '/coaching';
+}
+
+function gotoPillar(pillar) {
+  localStorage.setItem('clearpath_active_pillar', pillar);
+  window.location.href = '/coaching';
+}
+
+loadProfile();
+</script>
+</body>
+</html>
