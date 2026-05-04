@@ -118,8 +118,8 @@ const STEPS = [
     type:'state'
   },
   {
-    id:'zip', label:'What is your zip code?', sub:'Helps us identify local grant opportunities and community resources specific to your area.',
-    type:'text', placeholder:'e.g. 48043'
+    id:'city', label:'What city are you in?', sub:'Clearpath uses your city to give you specific contacts, local funders, and community-level coaching.',
+    type:'text', placeholder:'e.g. Mount Clemens'
   },
   {
     id:'category', label:'What type of program are you running?', sub:'This determines your entire coaching framework, grant database, and compliance requirements.',
@@ -384,7 +384,7 @@ function saveToLocalStorage() {
     lastName: answers.lastName || existing.lastName,
     email: answers.email || existing.email,
     state: answers.state || existing.state,
-    zip: answers.zip || existing.zip,
+    zip: answers.city || existing.zip,
     programType: answers.category || existing.programType,
     sportOrCategory: answers.subcategory || existing.sportOrCategory,
     journey: answers.journey || existing.journey,
@@ -392,7 +392,7 @@ function saveToLocalStorage() {
     participantCount: answers.participantCount || existing.participantCount,
     budgetRange: answers.budgetRange || existing.budgetRange,
     biggestChallenge: answers.biggestChallenge || existing.biggestChallenge,
-    location: (answers.state || '') + (answers.zip ? ', ' + answers.zip : ''),
+    location: (answers.state || '') + (answers.city ? ', ' + answers.city : ''),
     orgName: existing.orgName || user.orgname || '',
   };
   localStorage.setItem('clearpath_profile', JSON.stringify(updated));
@@ -418,7 +418,7 @@ async function completeOnboarding() {
           firstName: answers.firstName,
           lastName: answers.lastName,
           state: answers.state,
-          zip: answers.zip,
+          zip: answers.city,
           category: answers.category,
           subcategory: answers.subcategory,
           journey: answers.journey,
@@ -437,7 +437,7 @@ async function completeOnboarding() {
   const sport = answers.subcategory || answers.category || 'your program';
   document.getElementById('success-h').textContent = `You're all set${name ? ', ' + name : ''}!`;
   document.getElementById('success-p').textContent =
-    `Clearpath now knows you're running a ${sport} program in ${answers.state || 'your state'}. Your AI advisor is ready to help you ${answers.biggestChallenge ? answers.biggestChallenge.toLowerCase() : 'reach your goals'}.`;
+    `Clearpath now knows you're running a ${sport} program in ${answers.city ? answers.city + ', ' + answers.state : answers.state || 'your area'}. Your AI advisor is ready to help you ${answers.biggestChallenge ? answers.biggestChallenge.toLowerCase() : 'reach your goals'}.`;
 
   document.getElementById('onboarding-screen').style.display = 'none';
   document.getElementById('success-screen').style.display = 'block';
