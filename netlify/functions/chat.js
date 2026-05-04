@@ -1,8 +1,95 @@
-exports.handler = async function(event, context) {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+const fs = require('fs');
+const path = require('path');
+
+// Load brain content from files
+function loadBrain(programType) {
+  const brainMap = {
+    'Youth Sports': 'brain-youth-sports.txt',
+    'STEM': 'brain-stem.txt',
+    'After-School Program': 'brain-afterschool.txt',
+    'After-School': 'brain-afterschool.txt',
+  };
+
+  const brainFile = brainMap[programType] || 'brain-youth-sports.txt';
+  const businessBrain = 'brain-business.txt';
+
+  let programBrain = '';
+  let generalBrain = '';
+
+  try {
+    programBrain = fs.readFileSync(path.join(__dirname, '../../brains', brainFile), 'utf8');
+  } catch(e) {
+    console.log('Could not load program brain:', e.message);
   }
 
+  try {
+    generalBrain = fs.readFileSync(path.join(__dirname, '../../brains', businessBrain), 'utf8');
+  } catch(e) {
+    console.log('Could not load business brain:', e.message);
+  }
+
+  return { programBrain, generalBrain };
+}
+
+// Simple keyword search to find relevant brain section
+function searchBrain(question, brainContent) {
+  if (!brainContent) return '';
+
+  const q = question.toLowerCase();
+  const lines = brainContent.split('\n');
+  const sections = [];
+  let currentSection = [];
+  let currentHeader = '';
+
+  // Split brain into sections by headers
+  for (const line of lines) {
+    if (line.startsWith('## ')) {
+      if (currentSection.length > 0) {
+        sections.push({ header: currentHeader, content: currentSection.join('\n') });
+      }
+      currentHeader = line;
+      currentSection = [line];
+    } else {
+      currentSection.push(line);
+    }
+  }
+  if (currentSection.length > 0) {
+    sections.push({ header: currentHeader, content: currentSection.join('\n') });
+  }
+
+  // Score each section by keyword matches
+  const keywords = q.split(' ').filter(w => w.length > 3);
+  const scored = sections.map(s => {
+    const text = (s.header + ' ' + s.content).toLowerCase();
+    const score = keywords.reduce((acc, kw) => acc + (text.includes(kw) ? 1 : 0), 0);
+    return { ...s, score };
+  });
+
+  // Return top 3 most relevant sections
+  const relevant = scored
+    .filter(s => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map(s => s.content)
+    .join('\n\n---\n\n');
+
+  return relevant;
+}
+
+// Detect if question needs real-time data
+function needsRealTimeData(question) {
+  const q = question.toLowerCase();
+  const realTimeKeywords = [
+    'current demographics', 'population data', 'census',
+    'grant deadline', 'currently accepting', 'open now', 'closing date',
+    'recent law', 'new legislation', 'policy change', 'latest news',
+    'current contact', 'phone number for', 'current director',
+    'weather', 'today', 'this week', 'right now'
+  ];
+  return realTimeKeywords.some(kw => q.includes(kw));
+}
+
+exports.handler = async function(event, context) {
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -13,86 +100,84 @@ exports.handler = async function(event, context) {
     return { statusCode: 200, headers, body: '' };
   }
 
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
+  }
+
   try {
-    const { messages, orgProfile } = JSON.parse(event.body);
+    const { messages, orgProfile, pillar } = JSON.parse(event.body);
 
-    const KNOWLEDGE_BASE = `You are Clearpath AI, a warm and knowledgeable program advisor for community sports and youth programs. You speak like a mentor who has been through this before — practical, specific, encouraging, never condescending.
+    // Get the latest user question
+    const userMessages = messages.filter(m => m.role === 'user');
+    const latestQuestion = userMessages[userMessages.length - 1]?.content || '';
 
-YOUTH SPORTS GUIDANCE:
-Legal structure: File LLC first ($50 in Michigan at michigan.gov/lara), then 501c3 via IRS Form 1023-EZ ($275, takes 2-3 months). Most major grants require 501c3 status.
+    console.log('Question:', latestQuestion);
+    console.log('Program type:', orgProfile?.programType);
 
-Field and facility access — ALWAYS mention both options:
-1. Parks and Recreation departments — contact city AND county parks. Many orgs only call county and miss city parks which have lower demand and are easier to book.
-2. School districts — contact the district athletic director directly, not individual schools. School districts regularly rent gyms and fields to nonprofits at reduced rates during evenings and weekends. This is one of the most overlooked resources for new programs.
+    // Load relevant brain content
+    const { programBrain, generalBrain } = loadBrain(orgProfile?.programType || 'Youth Sports');
 
-For Michigan / Macomb County specifically:
-- Macomb County Parks & Recreation: (586) 469-5050 — ask for Athletic Field Reservation
-- Mount Clemens City Parks: City Hall at (586) 469-6818 — lower demand than county
-- L'Anse Creuse Public Schools and Mount Clemens Community Schools: Contact district office for gym/field access
-- Spring fields: reserve January-February. Fall fields: reserve in May. Book 6-8 weeks early.
+    // Search brains for relevant content
+    const programContext = searchBrain(latestQuestion, programBrain);
+    const businessContext = searchBrain(latestQuestion, generalBrain);
 
-Insurance:
-- Path A (affiliate): US Youth Soccer Michigan membership includes liability insurance ~$3-5/player/year
-- Path B (standalone): K&K Insurance or Philadelphia Insurance Companies, $400-800/year for small programs
+    const relevantContext = [programContext, businessContext].filter(Boolean).join('\n\n===\n\n');
+    const hasContext = relevantContext.trim().length > 100;
+    const isRealTime = needsRealTimeData(latestQuestion);
 
-Compliance:
-- SafeSport: Free at safesport.org, 90 minutes online, required for all adults working with youth, renew annually
-- Background checks: Sterling Volunteers (sterlingvolunteers.com) $15-25/person
+    console.log('Has brain context:', hasContext);
+    console.log('Needs real-time:', isRealTime);
 
-Family outreach in Mount Clemens:
-- ~35% Hispanic/Latino population — bilingual outreach matters
-- Post in Macomb County Parents Facebook group, Sacred Heart church bulletin, L'Anse Creuse parent newsletters
-- Nextdoor app is highly effective for youth program recruitment in Macomb County
+    // Build org profile string
+    const profileStr = orgProfile ? `
+PROGRAM PROFILE:
+- Program: ${orgProfile.orgName || 'Unknown'}
+- Type: ${orgProfile.programType || 'Unknown'} — ${orgProfile.sportOrCategory || ''}
+- Location: ${orgProfile.city || ''}, ${orgProfile.state || ''}
+- Legal structure: ${orgProfile.entityType || 'Unknown'}
+- Participants: ${orgProfile.participantCount || 'Unknown'}
+- Budget: ${orgProfile.budgetRange || 'Unknown'}
+- Grant experience: ${orgProfile.grantExperience || 'Unknown'}
+- Biggest challenge: ${orgProfile.biggestChallenge || 'Unknown'}
+- Journey stage: ${orgProfile.journey || 'Unknown'}
+- Current pillar: ${pillar || 'Build'}
+` : '';
 
-Key funders for Youth Soccer:
-- US Soccer Foundation Passback Program — for new nonprofits in underserved communities
-- MLS GO League — check Detroit City FC territory coverage
-- Sports Matter (Dick's Sporting Goods Foundation) — up to $25,000
-- All Kids Play — equipment and access grants
-- Nike Community Impact Fund
-- Ralph C. Wilson Jr. Foundation — Michigan specific, significant awards
-- Local community foundations — low competition, high probability for new orgs
+    let systemPrompt = '';
+    let useAPI = false;
 
-AFTER-SCHOOL PROGRAMS:
-- 21st Century Community Learning Centers (federal, state-administered, $100K-500K/year)
-- Title IV-A through school districts (lower competition than 21st CCLC)
-- Wallace Foundation, Charles Stewart Mott Foundation
-- Requires formal school district partnership agreement — contact district office not individual school
+    if (hasContext && !isRealTime) {
+      // Answer from brain — no expensive reasoning needed
+      systemPrompt = `You are Clearpath, an AI advisor for community program directors. Answer the user's question using ONLY the knowledge base content provided below. Be specific, practical, and warm. Use bullet points for lists. Bold key action items. Keep response under 200 words unless the question requires more detail.
 
-STEM PROGRAMS:
-- Google.org, Verizon Foundation Innovative Learning, Northrop Grumman Foundation
-- Toshiba America Foundation ($1,000-10,000, lower competition)
-- FIRST Robotics grants, NSF Advancing Informal STEM Learning
-- Curriculum framework (Code.org, FIRST, PLTW) strengthens applications significantly
+If the knowledge base does not contain enough information to answer confidently, respond with exactly:
+"NEEDS_CONSULTANT"
 
-PARKS & RECREATION:
-- Land and Water Conservation Fund (LWCF) — must align with state SCORP
-- CDBG (Community Development Block Grant) through local entitlement community
-- NRPA grants, Outdoor Recreation Legacy Partnership (ORLP)
+Do not make up information. Do not guess. Only answer from the provided knowledge base.
 
-GENERAL PRINCIPLES:
-- Always recommend contacting both parks departments AND school districts for facilities
-- For new programs: legal structure first, then insurance, then facility, then recruit participants, then grants
-- Local community foundations are the best first grant target — low competition, fast turnaround
-- Grant applications are stronger after one full season of documented data
-- Be specific. Give real phone numbers, real organizations, real dollar amounts when possible.
-- Keep responses warm, practical, and under 200 words. Use clear formatting with bold for key action items.`;
+${profileStr}
 
-    const systemPrompt = `${KNOWLEDGE_BASE}
+KNOWLEDGE BASE:
+${relevantContext}`;
+      useAPI = true;
+    } else if (isRealTime) {
+      // Real-time data needed — use API with web context
+      systemPrompt = `You are Clearpath, an AI advisor for community program directors. The user needs real-time information. Answer specifically and practically. If you cannot provide current/real-time data, say so clearly and suggest where they can find it.
 
-CURRENT USER PROFILE:
-- Program Name: ${orgProfile.orgName || 'Unknown'}
-- Program Type: ${orgProfile.programType || 'Unknown'}
-- Sport/Category: ${orgProfile.sportOrCategory || 'Not specified'}
-- Location: ${orgProfile.location || 'Unknown'}
-- Participant Count: ${orgProfile.participantCount || 'Unknown'}
-- Legal Structure: ${orgProfile.entityType || 'Unknown'}
-- Annual Budget: ${orgProfile.budgetRange || 'Unknown'}
-- Grant Experience: ${orgProfile.grantExperience || 'Unknown'}
-- Biggest Challenge: ${orgProfile.biggestChallenge || 'Unknown'}
+${profileStr}`;
+      useAPI = true;
+    } else {
+      // No brain context and not real-time — route to consultant
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          reply: `That's a specific situation I want to make sure you get the right answer on. I'd recommend booking a direct consulting session — a program consultant can work through this with you one-on-one.\n\n**[Book a consulting session →](/consulting)**\n\nSessions are $150–$250 and cover exactly the kind of detailed guidance this question needs.`
+        })
+      };
+    }
 
-Always personalize your response using their program name, sport, and location. Reference specific local contacts and resources when you know them. Be their advisor, not a generic chatbot.`;
-
+    // Call Claude API
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -114,14 +199,21 @@ Always personalize your response using their program name, sport, and location. 
       throw new Error(data.error?.message || 'API error');
     }
 
+    let reply = data.content[0].text;
+
+    // If AI signals it needs a consultant
+    if (reply.trim() === 'NEEDS_CONSULTANT' || reply.includes('NEEDS_CONSULTANT')) {
+      reply = `That's a specific situation that goes beyond general best practices. I'd recommend booking a direct consulting session to get the right answer for your specific program.\n\n**[Book a consulting session →](/consulting)**\n\nSessions are $150–$250 and cover detailed, situation-specific guidance.`;
+    }
+
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ reply: data.content[0].text })
+      body: JSON.stringify({ reply })
     };
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Chat error:', error);
     return {
       statusCode: 500,
       headers,
