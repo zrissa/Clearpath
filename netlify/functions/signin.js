@@ -13,7 +13,7 @@ exports.handler = async function(event, context) {
     const baseId = process.env.AIRTABLE_ORGS_BASE_ID;
     const token = process.env.AIRTABLE_TOKEN;
 
-    // Look up profile by email in Airtable
+    // Look up profile by email
     const res = await fetch(
       `https://api.airtable.com/v0/${baseId}/Orgs?filterByFormula=${encodeURIComponent(`{Email}="${email}"`)}`,
       { headers: { 'Authorization': `Bearer ${token}` } }
@@ -32,7 +32,7 @@ exports.handler = async function(event, context) {
 
     const f = record.fields;
 
-    // Build profile from Airtable record
+    // Build full profile from Airtable record
     const profile = {
       orgName: f['Org Name'] || '',
       email: f['Email'] || email,
@@ -51,10 +51,13 @@ exports.handler = async function(event, context) {
       location: (f['City'] || '') + (f['State'] ? ', ' + f['State'] : ''),
     };
 
+    // Check Pro status from Airtable checkbox
+    const isPro = f['Pro'] === true;
+
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ success: true, profile })
+      body: JSON.stringify({ success: true, profile, isPro })
     };
 
   } catch (error) {
