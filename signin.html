@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Clearpath — Sign In</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;
+  --white:#fff;--off:#F8FAF9;--g200:#E2EAE6;--g400:#8BA89A;
+  --text:#111C17;--text-lt:#6B8A78;
+}
+html,body{min-height:100%;font-family:"Plus Jakarta Sans",sans-serif;background:var(--forest);-webkit-font-smoothing:antialiased;}
+nav{height:64px;display:flex;align-items:center;padding:0 32px;background:rgba(11,61,46,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nmark{width:30px;height:30px;border-radius:8px;background:rgba(52,199,123,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--mint);}
+.nname{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.3px;}
+.page{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;padding:32px 20px;}
+.card{width:100%;max-width:420px;background:var(--white);border-radius:20px;padding:48px;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mint);margin-bottom:12px;display:block;}
+.title{font-size:26px;font-weight:800;color:var(--forest);letter-spacing:-.8px;margin-bottom:8px;}
+.sub{font-size:14px;color:var(--text-lt);font-weight:300;line-height:1.6;margin-bottom:32px;}
+.form-group{margin-bottom:16px;}
+label{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text-lt);margin-bottom:6px;}
+input{width:100%;padding:13px 16px;background:var(--off);border:1.5px solid var(--g200);border-radius:10px;font-size:15px;color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;outline:none;transition:all .2s;}
+input:focus{border-color:var(--mint);background:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
+input::placeholder{color:var(--g400);}
+.submit-btn{width:100%;padding:14px;border-radius:10px;font-size:15px;font-weight:800;background:var(--forest);color:var(--white);border:none;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;transition:all .2s;margin-top:4px;}
+.submit-btn:hover{background:var(--sage);}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;}
+.error-msg{font-size:13px;color:#E24B4A;margin-top:8px;display:none;padding:10px 14px;background:rgba(234,67,53,.08);border-radius:8px;}
+.divider{height:1px;background:var(--g200);margin:24px 0;}
+.signup-link{text-align:center;font-size:14px;color:var(--text-lt);}
+.signup-link a{color:var(--sage);font-weight:600;text-decoration:none;}
+.note{font-size:12px;color:var(--g400);text-align:center;margin-top:14px;line-height:1.5;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nlogo">
+    <div class="nmark">C</div>
+    <span class="nname">Clearpath</span>
+  </a>
+</nav>
+<div class="page">
+  <div class="card">
+    <span class="eyebrow">Welcome back</span>
+    <h1 class="title">Sign in to Clearpath</h1>
+    <p class="sub">Enter your email to restore your program profile and pick up where you left off.</p>
+
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" id="email" placeholder="you@yourprogram.org" autocomplete="email"/>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Your password" autocomplete="current-password"/>
+    </div>
+
+    <div class="error-msg" id="error-msg">We couldn't find an account with that email. Please check and try again, or create a new account.</div>
+
+    <button class="submit-btn" id="signin-btn" onclick="handleSignIn()">Sign in →</button>
+    <p class="note">Your profile is restored from our database using your email.</p>
+
+    <div class="divider"></div>
+    <div class="signup-link">Don't have an account? <a href="/signup">Create one free →</a></div>
+  </div>
+</div>
+
+<script>
+// If already signed in, go to dashboard
+if (localStorage.getItem('clearpath_auth') === 'true') {
+  window.location.href = '/dashboard';
+}
+
+async function handleSignIn() {
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const btn = document.getElementById('signin-btn');
+  const err = document.getElementById('error-msg');
+
+  if (!email || !email.includes('@')) {
+    err.textContent = 'Please enter a valid email address.';
+    err.style.display = 'block';
+    return;
+  }
+  if (!password) {
+    err.textContent = 'Please enter your password.';
+    err.style.display = 'block';
+    return;
+  }
+
+  btn.textContent = 'Signing in...';
+  btn.disabled = true;
+  err.style.display = 'none';
+
+  try {
+    // Look up profile from Airtable by email
+    const res = await fetch('/.netlify/functions/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+
+    if (data.success && data.profile) {
+      // Restore profile to localStorage
+      localStorage.setItem('clearpath_auth', 'true');
+      localStorage.setItem('clearpath_onboarded', 'true');
+      localStorage.setItem('clearpath_user', JSON.stringify({ email, orgname: data.profile.orgName }));
+      localStorage.setItem('clearpath_profile', JSON.stringify(data.profile));
+      window.location.href = '/dashboard';
+    } else {
+      err.textContent = data.error || "We couldn't find an account with that email. Please check and try again.";
+      err.style.display = 'block';
+      btn.textContent = 'Sign in →';
+      btn.disabled = false;
+    }
+  } catch(e) {
+    err.textContent = 'Something went wrong. Please try again.';
+    err.style.display = 'block';
+    btn.textContent = 'Sign in →';
+    btn.disabled = false;
+  }
+}
+
+document.getElementById('password').addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleSignIn();
+});
+</script>
+</body>
+</html>

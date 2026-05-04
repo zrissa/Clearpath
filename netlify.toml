@@ -16,3 +16,18 @@
   from = "/onboarding"
   to = "/onboarding.html"
   status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard.html"
+  status = 200
+
+[[redirects]]
+  from = "/profile"
+  to = "/profile.html"
+  status = 200
+
+[[redirects]]
+  from = "/signin"
+  to = "/signin.html"
+  status = 200
