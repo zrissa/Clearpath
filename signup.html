@@ -12,106 +12,58 @@
 :root{
   --forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;
   --white:#FFFFFF;--off:#F8FAF9;--g100:#F2F5F3;--g200:#E2EAE6;--g400:#8BA89A;
-  --text:#111C17;--text-md:#3D5248;--text-lt:#6B8A78;
+  --text:#111C17;--text-lt:#6B8A78;
 }
-html,body{min-height:100%;font-family:'Plus Jakarta Sans',sans-serif;background:var(--forest);color:var(--text);}
+html,body{min-height:100%;font-family:'Plus Jakarta Sans',sans-serif;background:var(--forest);color:var(--text);-webkit-font-smoothing:antialiased;}
 
-nav{
-  height:64px;display:flex;align-items:center;padding:0 32px;
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(11,61,46,.95);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
+nav{height:64px;display:flex;align-items:center;padding:0 32px;background:rgba(11,61,46,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);position:fixed;top:0;left:0;right:0;z-index:100;}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.nav-mark{width:32px;height:32px;border-radius:8px;background:rgba(52,199,123,.2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--mint);}
-.nav-name{font-size:17px;font-weight:800;color:var(--white);letter-spacing:-.3px;}
-.nav-login{margin-left:auto;font-size:14px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
-.nav-login:hover{color:var(--white);}
+.nav-mark{width:30px;height:30px;border-radius:8px;background:rgba(52,199,123,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--mint);}
+.nav-name{font-size:16px;font-weight:800;color:var(--white);letter-spacing:-.3px;}
+.nav-right{margin-left:auto;}
+.nav-signin{font-size:14px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
+.nav-signin:hover{color:var(--white);}
 
-.page{
-  min-height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;
-  padding-top:64px;
+.page{min-height:100vh;padding-top:64px;display:flex;align-items:center;justify-content:center;}
+
+.card{
+  width:100%;max-width:440px;
+  background:var(--white);border-radius:20px;
+  padding:48px;margin:32px 20px;
 }
 
-/* LEFT — brand side */
-.left{
-  background:var(--forest);
-  padding:80px 64px;
-  display:flex;flex-direction:column;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.left::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 30% 50%,rgba(52,199,123,.08) 0%,transparent 60%);
-  pointer-events:none;
-}
-.left-tag{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mint);margin-bottom:20px;display:block;}
-.left-h{font-size:clamp(32px,3.5vw,48px);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-1.5px;margin-bottom:16px;}
-.left-h em{font-style:italic;color:var(--mint);}
-.left-p{font-size:16px;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300;margin-bottom:48px;max-width:380px;}
-.left-steps{display:flex;flex-direction:column;gap:20px;}
-.step{display:flex;gap:16px;align-items:flex-start;}
-.step-num{width:28px;height:28px;border-radius:50%;background:rgba(52,199,123,.15);border:1px solid rgba(52,199,123,.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--mint);flex-shrink:0;margin-top:2px;}
-.step-text{font-size:14px;color:rgba(255,255,255,.6);line-height:1.55;font-weight:300;}
-.step-text strong{color:rgba(255,255,255,.85);font-weight:600;}
+.card-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mint);margin-bottom:12px;display:block;}
+.card-title{font-size:26px;font-weight:800;color:var(--forest);letter-spacing:-.8px;margin-bottom:8px;}
+.card-sub{font-size:14px;color:var(--text-lt);line-height:1.6;margin-bottom:32px;font-weight:300;}
 
-/* RIGHT — form side */
-.right{
-  background:var(--white);
-  padding:80px 64px;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.form-header{margin-bottom:40px;}
-.form-title{font-size:28px;font-weight:800;color:var(--forest);letter-spacing:-1px;margin-bottom:8px;}
-.form-sub{font-size:15px;color:var(--text-lt);font-weight:300;line-height:1.6;}
-
-.form-group{margin-bottom:20px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+.form-group{margin-bottom:16px;}
 label{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text-lt);margin-bottom:6px;}
-input,select{
-  width:100%;padding:12px 14px;
-  background:var(--off);border:1.5px solid var(--g200);border-radius:10px;
-  font-size:14px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;
-  outline:none;transition:all .2s;
-  appearance:none;
-}
-input:focus,select:focus{border-color:var(--mint);background:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
+input{width:100%;padding:13px 16px;background:var(--off);border:1.5px solid var(--g200);border-radius:10px;font-size:15px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:all .2s;}
+input:focus{border-color:var(--mint);background:var(--white);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
 input::placeholder{color:var(--g400);}
-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238BA89A' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
-select option{color:var(--text);}
+.input-hint{font-size:12px;color:var(--g400);margin-top:5px;}
 
-.divider{height:1px;background:var(--g200);margin:28px 0;position:relative;}
-.divider-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--white);padding:0 12px;font-size:12px;color:var(--g400);}
+.error-msg{font-size:12px;color:#E24B4A;margin-top:5px;display:none;}
 
-.submit-btn{
-  width:100%;padding:15px;border-radius:10px;
-  font-size:15px;font-weight:800;letter-spacing:-.2px;
-  background:var(--forest);color:var(--white);
-  border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
-  transition:all .2s;
-}
-.submit-btn:hover{background:var(--sage);transform:translateY(-1px);box-shadow:0 8px 20px rgba(11,61,46,.2);}
+.submit-btn{width:100%;padding:14px;border-radius:10px;font-size:15px;font-weight:800;background:var(--forest);color:var(--white);border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;margin-top:8px;letter-spacing:-.2px;}
+.submit-btn:hover{background:var(--sage);transform:translateY(-1px);}
 .submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
 
-.form-note{font-size:12px;color:var(--g400);text-align:center;margin-top:14px;line-height:1.5;}
-.form-note a{color:var(--sage);text-decoration:none;}
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0;}
+.divider-line{flex:1;height:1px;background:var(--g200);}
+.divider-text{font-size:12px;color:var(--g400);}
 
-.error-msg{font-size:13px;color:#E24B4A;margin-top:6px;display:none;}
+.signin-link{text-align:center;font-size:14px;color:var(--text-lt);}
+.signin-link a{color:var(--sage);text-decoration:none;font-weight:600;}
+.signin-link a:hover{text-decoration:underline;}
 
-/* SUCCESS */
-.success-screen{display:none;text-align:center;padding:20px 0;}
-.success-icon{width:64px;height:64px;border-radius:50%;background:var(--mint-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;}
-.success-h{font-size:24px;font-weight:800;color:var(--forest);margin-bottom:8px;letter-spacing:-.5px;}
-.success-p{font-size:15px;color:var(--text-lt);margin-bottom:28px;line-height:1.6;}
-.success-btn{display:block;width:100%;padding:15px;border-radius:10px;font-size:15px;font-weight:800;background:var(--forest);color:var(--white);text-decoration:none;text-align:center;transition:all .2s;}
-.success-btn:hover{background:var(--sage);}
+.note{font-size:12px;color:var(--g400);text-align:center;margin-top:16px;line-height:1.5;}
 
-@media(max-width:900px){
-  .page{grid-template-columns:1fr;}
-  .left{display:none;}
-  .right{padding:80px 24px 40px;}
-}
+/* Password strength */
+.pw-strength{height:3px;background:var(--g200);border-radius:2px;margin-top:6px;overflow:hidden;}
+.pw-fill{height:100%;border-radius:2px;transition:all .3s;width:0%;}
+
+@media(max-width:500px){.card{padding:32px 24px;margin:16px;}}
 </style>
 </head>
 <body>
@@ -121,175 +73,121 @@ select option{color:var(--text);}
     <div class="nav-mark">C</div>
     <span class="nav-name">Clearpath</span>
   </a>
-  <a href="/coaching" class="nav-login">Already have an account? Sign in →</a>
+  <div class="nav-right">
+    <a href="/coaching" class="nav-signin">Already have an account? Sign in →</a>
+  </div>
 </nav>
 
 <div class="page">
+  <div class="card">
+    <span class="card-eyebrow">Get started free</span>
+    <h1 class="card-title">Create your account</h1>
+    <p class="card-sub">Free forever. No credit card required. You'll set up your program profile right after.</p>
 
-  <!-- LEFT -->
-  <div class="left">
-    <span class="left-tag">Get started free</span>
-    <h1 class="left-h">Your program advisor<br/><em>starts here.</em></h1>
-    <p class="left-p">Create your free account and Clearpath will build a personalized coaching profile for your program in under 5 minutes.</p>
-    <div class="left-steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text"><strong>Tell us about your program</strong> — sport, location, where you are in the journey.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text"><strong>Get your personalized AI advisor</strong> — specific to your program type, your city, your challenges.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text"><strong>Build, Fund, Run, and Grow</strong> — Clearpath walks you through every stage. Free forever.</div>
-      </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" id="email" placeholder="you@yourprogram.org" autocomplete="email"/>
+      <div class="error-msg" id="err-email">Please enter a valid email address</div>
     </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="At least 8 characters" autocomplete="new-password" oninput="checkStrength(this.value)"/>
+      <div class="pw-strength"><div class="pw-fill" id="pw-fill"></div></div>
+      <div class="input-hint" id="pw-hint">Use at least 8 characters</div>
+      <div class="error-msg" id="err-password">Password must be at least 8 characters</div>
+    </div>
+
+    <div class="form-group">
+      <label>Organization name</label>
+      <input type="text" id="orgname" placeholder="e.g. LK St. Clair Soccer" autocomplete="organization"/>
+      <div class="error-msg" id="err-org">Please enter your organization name</div>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="handleSignup()">Create my account →</button>
+    <p class="note">By creating an account you agree to our terms. No spam — ever.</p>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">Already have an account?</span>
+      <div class="divider-line"></div>
+    </div>
+    <div class="signin-link"><a href="/coaching">Sign in →</a></div>
   </div>
-
-  <!-- RIGHT — FORM -->
-  <div class="right">
-    <div id="form-screen">
-      <div class="form-header">
-        <h2 class="form-title">Create your free account</h2>
-        <p class="form-sub">No credit card. No trial period. Free to start — always.</p>
-      </div>
-
-      <div class="form-row">
-        <div>
-          <label>First name</label>
-          <input type="text" id="fname" placeholder="Maria"/>
-          <div class="error-msg" id="err-fname">Required</div>
-        </div>
-        <div>
-          <label>Last name</label>
-          <input type="text" id="lname" placeholder="Garcia"/>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Email address</label>
-        <input type="email" id="email" placeholder="maria@yourprogram.org"/>
-        <div class="error-msg" id="err-email">Please enter a valid email</div>
-      </div>
-
-      <div class="form-group">
-        <label>Organization name</label>
-        <input type="text" id="orgname" placeholder="e.g. LK St. Clair Soccer"/>
-        <div class="error-msg" id="err-org">Required</div>
-      </div>
-
-      <div class="form-row">
-        <div>
-          <label>Program type</label>
-          <select id="progtype">
-            <option value="" disabled selected>Select type</option>
-            <option>Youth Sports</option>
-            <option>After-School</option>
-            <option>STEM</option>
-            <option>Parks & Recreation</option>
-            <option>Community Program</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div>
-          <label>City & State</label>
-          <input type="text" id="location" placeholder="e.g. Mount Clemens, MI"/>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Where are you in your journey?</label>
-        <select id="stage">
-          <option value="" disabled selected>Select stage</option>
-          <option>Just starting — haven't launched yet</option>
-          <option>New — launched in the last year</option>
-          <option>Established — running for 2+ years</option>
-          <option>Growing — ready to expand</option>
-        </select>
-      </div>
-
-      <button class="submit-btn" id="submit-btn" onclick="handleSignup()">Create my free account →</button>
-      <p class="form-note">By creating an account you agree to our terms. No spam — ever. <br/>Already have an account? <a href="/coaching">Go to your advisor →</a></p>
-    </div>
-
-    <div class="success-screen" id="success-screen">
-      <div class="success-icon">✓</div>
-      <h2 class="success-h">You're in, <span id="success-name"></span>!</h2>
-      <p class="success-p">Your Clearpath profile is set up. Your AI advisor already knows your program and is ready to help you take the next step.</p>
-      <a href="/coaching" class="success-btn">Go to my program advisor →</a>
-    </div>
-  </div>
-
 </div>
 
 <script>
-// Prefill from URL params if coming from landing page
-const params = new URLSearchParams(window.location.search);
-if (params.get('email')) document.getElementById('email').value = params.get('email');
-if (params.get('fname')) document.getElementById('fname').value = params.get('fname');
-if (params.get('org')) document.getElementById('orgname').value = params.get('org');
+function checkStrength(pw) {
+  const fill = document.getElementById('pw-fill');
+  const hint = document.getElementById('pw-hint');
+  const len = pw.length;
+  if (len === 0) { fill.style.width = '0%'; fill.style.background = ''; hint.textContent = 'Use at least 8 characters'; return; }
+  if (len < 8) { fill.style.width = '25%'; fill.style.background = '#E24B4A'; hint.textContent = 'Too short'; return; }
+  if (len < 12) { fill.style.width = '60%'; fill.style.background = '#FFB800'; hint.textContent = 'Good'; return; }
+  fill.style.width = '100%'; fill.style.background = '#34C77B'; hint.textContent = 'Strong ✓';
+}
 
-function showError(id, show) {
+function showErr(id, show) {
   document.getElementById(id).style.display = show ? 'block' : 'none';
 }
 
 async function handleSignup() {
-  const fname = document.getElementById('fname').value.trim();
-  const lname = document.getElementById('lname').value.trim();
   const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
   const orgname = document.getElementById('orgname').value.trim();
-  const progtype = document.getElementById('progtype').value;
-  const location = document.getElementById('location').value.trim();
-  const stage = document.getElementById('stage').value;
 
   let valid = true;
-  if (!fname) { showError('err-fname', true); valid = false; } else showError('err-fname', false);
-  if (!email || !email.includes('@')) { showError('err-email', true); valid = false; } else showError('err-email', false);
-  if (!orgname) { showError('err-org', true); valid = false; } else showError('err-org', false);
+  if (!email || !email.includes('@')) { showErr('err-email', true); valid = false; } else showErr('err-email', false);
+  if (!password || password.length < 8) { showErr('err-password', true); valid = false; } else showErr('err-password', false);
+  if (!orgname) { showErr('err-org', true); valid = false; } else showErr('err-org', false);
   if (!valid) return;
 
   const btn = document.getElementById('submit-btn');
   btn.textContent = 'Creating your account...';
   btn.disabled = true;
 
-  const profile = {
-    orgName: orgname,
-    firstName: fname,
-    lastName: lname,
-    email: email,
-    programType: progtype || 'Not specified',
-    sportOrCategory: '',
-    location: location || 'Not specified',
-    participantCount: 'Not specified',
-    entityType: 'Not yet incorporated',
-    budgetRange: 'Under $25K',
-    grantExperience: 'Never applied',
-    biggestChallenge: 'Finding funding',
-    stage: stage || 'Not specified'
-  };
-
-  localStorage.setItem('clearpath_profile', JSON.stringify(profile));
-  localStorage.setItem('clearpath_user', JSON.stringify({ fname, email, orgname }));
+  // Save user to localStorage
+  const user = { email, orgname };
+  localStorage.setItem('clearpath_user', JSON.stringify(user));
   localStorage.setItem('clearpath_auth', 'true');
 
+  // Save basic profile
+  const profile = {
+    orgName: orgname,
+    email: email,
+  };
+  localStorage.setItem('clearpath_profile', JSON.stringify(profile));
+
+  // Save to Airtable via Netlify function
   try {
     await fetch('/.netlify/functions/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fname, lname, email, orgname, progtype, location, stage })
+      body: JSON.stringify({ email, orgname })
     });
   } catch(e) {
-    console.log('Airtable save failed — profile saved locally');
+    console.log('Signup save failed — proceeding anyway');
   }
 
-  document.getElementById('success-name').textContent = fname;
-  document.getElementById('form-screen').style.display = 'none';
-  document.getElementById('success-screen').style.display = 'block';
+  // Save to MailerLite
+  try {
+    await fetch('/.netlify/functions/mailerlite', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, orgname })
+    });
+  } catch(e) {
+    console.log('MailerLite save failed');
+  }
 
-  // Redirect to onboarding after 1.5 seconds
-  setTimeout(() => { window.location.href = '/onboarding'; }, 1500);
+  // Redirect to onboarding
+  window.location.href = '/onboarding';
 }
+
+// Prefill email from URL params
+const params = new URLSearchParams(window.location.search);
+if (params.get('email')) document.getElementById('email').value = params.get('email');
+if (params.get('org')) document.getElementById('orgname').value = params.get('org');
 </script>
 </body>
 </html>
