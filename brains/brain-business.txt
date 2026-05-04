@@ -1,0 +1,386 @@
+# CLEARPATH BRAIN 4 — GENERAL BUSINESS BUILDING
+# Version 1.0 | Last updated: May 2026
+# This document covers legal structure, nonprofit formation, financial management,
+# grant writing basics, and operational infrastructure for all program types.
+# Update annually every January from: IRS nonprofit data, National Council of Nonprofits, state filing fee changes.
+
+---
+
+## SECTION 1: LLC FORMATION BY STATE
+
+### What an LLC Does
+An LLC (Limited Liability Company) protects your personal assets from business liabilities. If someone sues your program, they can only go after the LLC's assets — not your personal bank account, car, or home. This is essential protection for any program director. Form one before your first event.
+
+### How to Form an LLC
+1. Choose a name (check availability on your state's Secretary of State website)
+2. File Articles of Organization with your state (online in most states)
+3. Pay filing fee
+4. Create an Operating Agreement (template available free online)
+5. Get EIN from IRS (free at irs.gov/ein)
+6. Open business bank account
+
+### State-by-State LLC Formation Guide
+
+**Alabama:** $200. sos.alabama.gov. Processing: 3–5 days.
+**Alaska:** $250. commerce.alaska.gov/web/cbpl/BusinessLicensing. Processing: 10–15 days.
+**Arizona:** $50. azcc.gov. Processing: 1–2 weeks.
+**Arkansas:** $45. sos.arkansas.gov. Processing: 3–5 days.
+**California:** $70 (+ $800/year franchise tax minimum). sos.ca.gov. Processing: 2–3 weeks.
+**Colorado:** $50. sos.state.co.us. Processing: immediate online.
+**Connecticut:** $120. ct.gov/sots. Processing: 1–3 days.
+**Delaware:** $90. corp.delaware.gov. Processing: 2–3 weeks.
+**Florida:** $125. sunbiz.org. Processing: immediate online.
+**Georgia:** $100. sos.ga.gov. Processing: 7–10 days.
+**Hawaii:** $50. cca.hawaii.gov. Processing: 3–5 days.
+**Idaho:** $100. sos.idaho.gov. Processing: 3–5 days.
+**Illinois:** $150. ilsos.gov. Processing: 10–15 days.
+**Indiana:** $95. inbiz.in.gov. Processing: immediate online.
+**Iowa:** $50. sos.iowa.gov. Processing: 1–2 days.
+**Kansas:** $160. sos.ks.gov. Processing: 3–5 days.
+**Kentucky:** $40. sos.ky.gov. Processing: 3–5 days.
+**Louisiana:** $100. sos.la.gov. Processing: 3–5 days.
+**Maine:** $175. maine.gov/sos. Processing: 5–7 days.
+**Maryland:** $100. dat.maryland.gov. Processing: 5–7 days.
+**Massachusetts:** $500. corp.sec.state.ma.us. Processing: 3–5 days.
+**Michigan:** $50. michigan.gov/lara. Processing: 5–10 days online.
+**Minnesota:** $155. sos.state.mn.us. Processing: 5–7 days.
+**Mississippi:** $50. sos.ms.gov. Processing: 3–5 days.
+**Missouri:** $50. sos.mo.gov. Processing: 3–5 days.
+**Montana:** $70. sos.mt.gov. Processing: 5–7 days.
+**Nebraska:** $100. sos.nebraska.gov. Processing: 5–7 days.
+**Nevada:** $75 (+$200 state business license). sos.nv.gov. Processing: 1–3 days.
+**New Hampshire:** $100. sos.nh.gov. Processing: 5–7 days.
+**New Jersey:** $125. njportal.com/dor. Processing: immediate online.
+**New Mexico:** $50. sos.nm.gov. Processing: 1–2 days.
+**New York:** $200. dos.ny.gov. Processing: 7–10 days.
+**North Carolina:** $125. sos.nc.gov. Processing: 3–5 days.
+**North Dakota:** $135. sos.nd.gov. Processing: 5–7 days.
+**Ohio:** $99. sos.state.oh.us. Processing: immediate online.
+**Oklahoma:** $100. sos.ok.gov. Processing: 3–5 days.
+**Oregon:** $100. oregonbusinessregistry.sos.oregon.gov. Processing: immediate online.
+**Pennsylvania:** $125. dos.pa.gov. Processing: 7–10 days.
+**Rhode Island:** $150. sos.ri.gov. Processing: 3–5 days.
+**South Carolina:** $110. sos.sc.gov. Processing: 3–5 days.
+**South Dakota:** $150. sdsos.gov. Processing: 3–5 days.
+**Tennessee:** $300. sos.tn.gov. Processing: 3–5 days.
+**Texas:** $300. sos.state.tx.us. Processing: 2–3 days.
+**Utah:** $54. corporations.utah.gov. Processing: immediate online.
+**Vermont:** $125. sos.vermont.gov. Processing: 3–5 days.
+**Virginia:** $100. scc.virginia.gov. Processing: immediate online.
+**Washington:** $200. dor.wa.gov. Processing: immediate online.
+**West Virginia:** $100. sos.wv.gov. Processing: immediate online.
+**Wisconsin:** $130. wdfi.org. Processing: immediate online.
+**Wyoming:** $100. wyomingllc.gov. Processing: immediate online.
+
+---
+
+## SECTION 2: NONPROFIT 501(c)(3) FORMATION
+
+### IRS Form 1023-EZ — For Most New Nonprofits
+**Cost:** $275
+**Where to file:** pay.gov (search "Form 1023-EZ")
+**Processing time:** 2–4 months (can expedite for fee)
+**Eligibility:** Organizations expecting to gross less than $50,000/year in first 3 years. Most new programs qualify.
+**What you need before filing:**
+- LLC or incorporated as a nonprofit corporation (not LLC — see below)
+- EIN
+- Articles of Incorporation
+- Brief description of activities
+
+**Important:** You must be incorporated as a Nonprofit Corporation — not an LLC — to file for 501(c)(3) status. If you formed an LLC, you have two options:
+1. Form a separate Nonprofit Corporation and apply for 501(c)(3) through that entity
+2. Convert your LLC to a nonprofit corporation (process varies by state)
+
+Most programs form a Nonprofit Corporation from the start if they plan to pursue grants immediately.
+
+### IRS Form 1023 — Full Version (for larger organizations)
+**Cost:** $600
+**Use when:** Expecting to gross more than $50,000/year, or if your application is complex
+**Processing time:** 3–6 months
+**Much more detailed** than 1023-EZ. Requires narrative descriptions of all activities, financial projections, governance documents.
+
+### Nonprofit Corporation Formation
+Similar to LLC but as a nonprofit corporation. Process:
+1. Choose a name (check with Secretary of State)
+2. File Articles of Incorporation as nonprofit corporation (state website)
+3. Create bylaws
+4. Appoint initial board of directors
+5. Hold organizational meeting
+6. Get EIN
+7. File IRS Form 1023-EZ or 1023
+
+### State Nonprofit Incorporation Fees (separate from IRS filing)
+- Michigan: $20 at michigan.gov/lara
+- Ohio: $99 at ohiosos.gov
+- Illinois: $50 at ilsos.gov
+- Most states: $20–$100
+
+### State Charity Registration
+Required in most states before soliciting donations. File with state Attorney General or Secretary of State.
+- Michigan: michigan.gov/ag (Charitable Trust Section). File annually. $0 for small organizations.
+- Threshold: Many states exempt organizations under $25,000/year. Check your state.
+- CharitiesNYS.com has a helpful guide for multi-state registration.
+
+---
+
+## SECTION 3: GOVERNANCE AND BYLAWS
+
+### Board of Directors — Requirements for 501(c)(3)
+- Minimum 3 board members required by IRS
+- Recommended: 5–9 members for small organizations
+- Board members must be independent (no family members of founder as majority)
+- Board is legally responsible for the organization
+- Board meets at minimum annually (quarterly recommended)
+
+### What Good Board Members Contribute
+Look for board members with skills in: accounting/finance, law, fundraising, marketing, the program's subject area, community connections, HR. Board members should open doors, not just fill seats.
+
+### Bylaws — What to Include
+Bylaws are the internal rules of your organization. Required for 501(c)(3) application. Key provisions:
+- Name and purpose of organization
+- Board composition, terms, elections
+- Officer roles (President, Secretary, Treasurer)
+- Meeting requirements and quorum
+- How decisions are made (voting procedures)
+- How to amend bylaws
+- Dissolution clause (where assets go if organization closes)
+
+**Free bylaws templates:**
+- National Council of Nonprofits: councilofnonprofits.org/tools-resources/nonprofit-bylaws
+- Rocket Lawyer: rocketlawyer.com (fill-in-the-blank templates)
+- Foundation Group: foundationgroup.com/resources
+
+### Conflict of Interest Policy
+Required by IRS for 501(c)(3). Board members must disclose and recuse themselves from decisions where they have a personal financial interest. Simple one-page policy. Template available from National Council of Nonprofits.
+
+---
+
+## SECTION 4: FINANCIAL MANAGEMENT
+
+### Opening a Bank Account
+Required before accepting any program payments or grants. Need:
+- EIN (Employer Identification Number from IRS)
+- Articles of Incorporation or organization documents
+- Board resolution authorizing the account (for nonprofits)
+- Two forms of ID
+
+**Best banks for small nonprofits:**
+- Chase for Nonprofits: No monthly fee for 501(c)(3) organizations. Widely available.
+- Bank of America: Nonprofit banking program.
+- Local credit unions: Often most flexible with small nonprofits.
+- Avoid: large banks with high minimum balance requirements.
+
+### Bookkeeping Basics
+Every program needs basic financial records from day one. At minimum:
+- Record all income: registration fees, grants, donations, sponsorships
+- Record all expenses: equipment, insurance, field fees, supplies, staff
+- Keep all receipts (digital copies are fine)
+- Reconcile bank statements monthly
+- Separate personal and business finances — never mix
+
+**Free/Low-Cost Tools:**
+- Wave Accounting (waveapps.com): Free. Excellent for nonprofits under $500K.
+- QuickBooks Nonprofit Edition: ~$50/month. Industry standard.
+- Google Sheets: Manual but free and effective for very small programs.
+
+### Chart of Accounts for Youth Programs
+Standard categories to track:
+**Income:**
+- Program registration fees
+- Grant revenue (track by grant)
+- Individual donations
+- Corporate sponsorships
+- Fundraising events
+- In-kind contributions (equipment, volunteer hours)
+
+**Expenses:**
+- Personnel (salaries, stipends, payroll taxes)
+- Facility rental
+- Equipment and supplies
+- Insurance
+- Marketing and communications
+- Travel
+- Professional development
+- Administrative (bank fees, software)
+- Indirect costs (overhead)
+
+### Budgeting Best Practices
+- Create annual budget before fiscal year starts
+- Build in 10–15% contingency for unexpected expenses
+- Separate program budget from administrative budget
+- Never spend grant funds on anything not in approved grant budget
+- Track budget vs. actual monthly
+
+### Grant Financial Management
+- Open separate tracking for each grant (not separate bank account)
+- Keep all receipts for grant-funded expenses
+- Never use grant funds for purposes other than approved in grant agreement
+- Submit financial reports on time (late reports jeopardize future funding)
+- Conduct internal audit or financial review annually for grants over $25,000
+
+---
+
+## SECTION 5: GRANT WRITING FUNDAMENTALS
+
+### Grant Writing Process
+1. Research: Find grants that match your program's focus, geography, and size
+2. Pre-application contact: Email program officer to confirm eligibility before writing
+3. Read instructions: Every funder has different requirements. Read them completely.
+4. Write narrative: Answer every question directly. Use funder's language.
+5. Gather attachments: IRS determination letter, budget, board list, financial statements
+6. Review and edit: Have someone unfamiliar with your program read for clarity
+7. Submit on time: Never submit late. Build 48-hour buffer into your timeline.
+8. Follow up: Send thank-you email. If rejected, ask for feedback.
+
+### Key Grant Narrative Sections
+
+**Statement of Need**
+Why does this program need to exist? Use data. Cite statistics about youth in your community. Connect your program to a documented gap. Sources: census data, school district data, state reports.
+
+**Program Description**
+What exactly do you do? Who do you serve? How many? Where? When? Be specific. Use numbers. Include curriculum or framework you follow.
+
+**Goals and Objectives**
+What will change because of your program? Goals are broad (increase youth sports participation). Objectives are specific and measurable (75 youth will participate in at least 8 sessions of soccer programming during the 2026 spring season).
+
+**Evaluation Plan**
+How will you know if you succeeded? What data will you collect? How will you collect it? Who is responsible? Funders want to know you'll track and report on outcomes.
+
+**Budget Narrative**
+Explain every line item. Why do you need this amount? How did you calculate it? Show you've thought carefully about costs.
+
+**Sustainability**
+How will the program continue after this grant ends? Multiple funding sources are essential. Show you're not 100% dependent on any single funder.
+
+### Common Grant Writing Mistakes
+- Answering a different question than what was asked
+- Using jargon or acronyms without explanation
+- Vague outcomes ("youth will be impacted")
+- No data to support need
+- Budget that doesn't match the narrative
+- Missing attachments
+- Submitting late
+- Applying for grants you're not eligible for
+
+### Building Relationships with Funders
+- Attend funder events and webinars
+- Follow funders on social media
+- Send brief annual impact update even when not applying
+- Say thank you — always send thank-you letter after receiving grant
+- If rejected, ask for feedback and address it next cycle
+
+---
+
+## SECTION 6: PROGRAM INSURANCE OVERVIEW
+
+### Types of Insurance Every Program Needs
+
+**General Liability Insurance**
+Covers injuries to participants, property damage, personal injury claims. Required by most venues and funders. Minimum: $1,000,000 per occurrence / $2,000,000 aggregate. Cost: $400–$2,000/year depending on program size and type.
+
+**Directors & Officers (D&O) Insurance**
+Protects board members and executives from personal liability for management decisions. Recommended once you have a formal board. Cost: $500–$2,000/year.
+
+**Commercial Property Insurance**
+Covers equipment and property you own. Important if you have significant equipment (robotics kits, laptops, sports equipment). Cost: Depends on value of property.
+
+**Workers Compensation**
+Required if you have paid employees. Covers work-related injuries. Required by law in most states. Cost: Varies by state and payroll.
+
+**Volunteer Accident Insurance**
+Secondary coverage for volunteer injuries. Not required but recommended. Cost: $100–$500/year.
+
+### Insurance Vendors for Nonprofits
+- Nonprofits Insurance Alliance (nonprofitsinsurance.org): Specializes in nonprofits. Competitive rates.
+- Philadelphia Insurance Companies (phly.com): Strong nonprofit program.
+- Markel Corporation: Youth organizations specialist.
+- HUB International: Large broker, good for multi-line coverage.
+- K&K Insurance: Excellent for sports organizations.
+
+---
+
+## SECTION 7: HUMAN RESOURCES BASICS
+
+### Volunteer vs. Employee Classification
+**Volunteer:** No expectation of compensation. Truly donating time. Cannot be reimbursed for time (only expenses). Cannot be a volunteer in their own business.
+
+**Employee:** Receives wages. Subject to payroll taxes (FICA, federal/state income tax withholding). Must receive W-2. Most workers providing regular services are employees, not independent contractors.
+
+**Independent Contractor:** Self-employed. Receives 1099-NEC (if paid $600+/year). Sets own hours. Uses own tools. Has multiple clients. Many nonprofits misclassify employees as contractors — this is a significant legal and tax risk.
+
+### Paying People
+- Employees: Use payroll service (Gusto, ADP, Paychex). Simplest for small nonprofits: Gusto ($40/month base + $6/person). Handles all tax withholding and filings.
+- Contractors: Pay via check or direct transfer. File 1099-NEC by January 31 for anyone paid $600+ in the year.
+- Stipends: Small payments to volunteers for specific contributions. Complicated tax treatment. Get advice from accountant.
+
+### Staff Policies Every Program Needs
+- Child protection / safeguarding policy
+- Anti-harassment policy
+- Social media policy (especially regarding youth participants)
+- Confidentiality policy (protecting youth and family information)
+- Conflict of interest policy
+- Expense reimbursement policy
+
+---
+
+## SECTION 8: COMMUNICATIONS AND MARKETING
+
+### Building Your Online Presence
+**Website:** Essential. Even a simple one-page site establishes credibility. clearpathgrants.org is a good example. Build with WordPress, Squarespace, or Wix for $0–$20/month.
+
+**Google for Nonprofits:** Free for 501(c)(3) organizations. Includes Google Workspace (Gmail, Docs, Sheets), Google Ad Grants ($10,000/month in free search advertising). Apply at google.com/nonprofits.
+
+**TechSoup (techsoup.org):** Deep discounts on software for nonprofits. Microsoft Office 365 ($20/year instead of $300). Adobe Creative Cloud discounts. Other tools.
+
+**Social Media:** Facebook and Instagram are most effective for youth programs. Post photos (with permission), schedule updates, success stories. Consistency matters more than volume.
+
+### Email Newsletter
+Build your email list from day one. Collect emails at every event. Send monthly or quarterly newsletter. Platforms:
+- MailerLite: Free up to 500 subscribers. Recommended.
+- Mailchimp: Free up to 500 contacts.
+- Constant Contact: ~$12/month.
+
+### Annual Report
+Even informal one-page annual report strengthens grant applications and donor relationships. Include: participants served, outcomes, stories, financials summary, thank you to funders and volunteers.
+
+---
+
+## SECTION 9: COMPLIANCE CALENDAR
+
+### Annual Compliance Checklist
+
+**January:**
+- Update all staff background checks (valid 1–2 years depending on state)
+- Review and update emergency contact information
+- Begin budget planning for new fiscal year
+- Review grant deadlines for the year
+
+**February–March:**
+- File annual report with Secretary of State (most states require this, ~$25 fee)
+- Update state charity registration if required
+- Review insurance coverage — is it still adequate?
+
+**April–May:**
+- File IRS Form 990 (annual nonprofit tax return) — due May 15 for December 31 fiscal year end
+  - 990-N (e-Postcard): For organizations with gross receipts under $50,000. Free. Online.
+  - 990-EZ: For organizations with gross receipts $50,000–$200,000. Simplified version.
+  - 990: Full version for organizations over $200,000.
+
+**September–October:**
+- Update SafeSport certifications for all staff (annual renewal)
+- Update First Aid/CPR certifications (valid 2 years)
+- Begin grant research for next funding cycle
+
+**November–December:**
+- Year-end fundraising push (December 31 is most important day for donations)
+- Send year-end thank-you to all donors
+- Begin fiscal year-end financial close
+
+---
+
+## SOURCES FOR ANNUAL BRAIN UPDATE (every January)
+- National Council of Nonprofits: councilofnonprofits.org
+- IRS Exempt Organizations data: irs.gov/charities-nonprofits
+- Foundation Center / Candid: candid.org
+- GuideStar (now Candid): guidestar.org
+- State filing fee changes: Check each state Secretary of State website annually

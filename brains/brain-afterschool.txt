@@ -1,0 +1,275 @@
+# CLEARPATH BRAIN 3 — AFTER-SCHOOL PROGRAMS
+# Version 1.0 | Last updated: May 2026
+# This document is the static knowledge base for all After-School program coaching.
+# Covers: Academic Enrichment, Tutoring & Homework Help, Leadership Development, Arts & Creative, General After-School
+# Update annually every January from: Afterschool Alliance America After 3PM, RAND, Mott Foundation, 21st CCLC federal data.
+
+---
+
+## SECTION 1: LEGAL STRUCTURE
+
+### Recommended Structure
+After-school programs should pursue nonprofit 501(c)(3) status as a priority. The largest funding source — 21st Century Community Learning Centers — requires nonprofit status or a school/government partnership. Form an LLC first for immediate legal protection, then file for 501(c)(3) status within 60 days.
+
+**State Charity Registration:**
+Most states require nonprofits to register before soliciting donations. This is separate from the IRS 501(c)(3) filing. Check your state attorney general's website for requirements. Michigan: sos.michigan.gov (charitable organization registration). Fee: $0–$200 depending on state.
+
+---
+
+## SECTION 2: SCHOOL DISTRICT PARTNERSHIPS
+
+### Why You Need a School Partnership
+After-school programs are dramatically more successful when formally partnered with a school district. Benefits:
+- Access to school facilities (gyms, classrooms, cafeterias) often at no cost
+- Access to student rosters and family contact information
+- Built-in referral pipeline for students
+- Required for 21st CCLC federal grant applications
+- Increases credibility with all funders
+
+### How to Approach a School District
+**Contact the district office — not individual schools.** School principals cannot make facility or partnership agreements. You need to talk to:
+- Assistant Superintendent for Academic Affairs or Curriculum
+- Director of Community Education or Extended Learning
+- Chief Financial Officer (for facility agreements)
+
+**What to bring to the first meeting:**
+- One-page program overview (what you do, who you serve, your qualifications)
+- Proof of insurance (general liability, minimum $1M/$2M)
+- Background check policy for all staff
+- Clear ask: You want a Memorandum of Understanding (MOU) to run an after-school program at one school
+
+**What the district needs from you:**
+- Insurance certificate naming the district as additional insured
+- Background checks on all staff and volunteers
+- Curriculum outline
+- Transportation plan (how students get home after program)
+- Emergency protocols
+
+### Memorandum of Understanding (MOU)
+An MOU is a formal agreement between your organization and the school district. It specifies:
+- Which school(s) you operate in
+- What spaces you can use
+- Operating hours
+- Supervision requirements
+- How student data is shared
+- Duration of agreement (typically 1 year, renewable)
+
+**Template MOUs are available from:**
+- Afterschool Alliance (afterschoolalliance.org/documents)
+- Your state's Department of Education after-school office
+
+### Facility Use Agreement
+Separate from the MOU, you may need a facility use agreement for using school buildings. Districts typically require:
+- Insurance certificate
+- Hold harmless agreement
+- Fee (often $0 for nonprofits serving district students, or $10–$50/hour)
+- Security deposit
+
+---
+
+## SECTION 3: STAFFING AND SUPERVISION
+
+### Staff-to-Student Ratios
+Required ratios vary by state and program type. General guidelines:
+- Ages 5–8: 1 staff per 8–10 students
+- Ages 9–12: 1 staff per 10–15 students
+- Ages 13–18: 1 staff per 15–20 students
+- Always have at least 2 adults present (two-adult rule)
+
+### Staff Qualifications
+**Background checks:** Required for all staff. Sterling Volunteers ($15–25/person) or NCSI.
+**SafeSport:** Recommended for all programs working with youth.
+**CPR/First Aid:** At least one certified staff member per site.
+**Academic Enrichment Staff:** Teaching experience or education degree preferred. Many programs use certified teachers, paraprofessionals, and college students in education programs.
+**Tutoring Staff:** Subject matter competence required. Tutors should be at least 2 grade levels above the students they serve.
+
+### Volunteer Integration
+Volunteers significantly extend program capacity at low cost:
+- College students (education, social work, psychology majors): Excellent tutors and mentors. Offer service learning credit.
+- AmeriCorps VISTA members: Full-time volunteers placed for one year. Stipend paid by federal government. Strong workforce for after-school programs.
+- Senior Corps: RSVP program places senior volunteers. Free.
+- Corporate volunteer programs: Many companies offer paid volunteer time to employees.
+
+---
+
+## SECTION 4: PROGRAM DESIGN AND CURRICULUM
+
+### Program Components (Best Practice)
+Research consistently shows highest-quality after-school programs include all three components:
+1. **Academic support** (homework help, tutoring, literacy, math skill building): 45–60 minutes
+2. **Enrichment activities** (arts, STEM, sports, life skills): 45–60 minutes
+3. **Snack time and social development**: 15–30 minutes
+
+### Homework Help Best Practices
+- Dedicate first 45–60 minutes to homework before enrichment activities
+- Create quiet, consistent workspace
+- Staff should guide without doing work for students
+- Track homework completion rates — report this to funders
+- Communicate with teachers about student progress
+
+### Literacy Enrichment
+- Read aloud sessions: 20–30 minutes daily for K-3 students
+- Independent reading time with self-selected books
+- Book discussions and comprehension activities
+- Summer slide prevention: programs that run year-round or into summer significantly reduce learning loss
+
+### STEM Enrichment in After-School Context
+See Brain 2 for full STEM content. In after-school context:
+- 45–60 minute STEM sessions work best
+- Project-based learning is more effective than lecture format
+- FIRST LEGO League teams are popular after-school enrichment activities
+- Code.org Hour of Code activities are excellent drop-in activities
+
+### Arts and Creative Enrichment
+- Visual arts, music, dance, and drama are all effective enrichment activities
+- Partner with local arts organizations for quality programming
+- Arts integration with academic content increases engagement and retention
+- Michigan-specific: Michigan Council for Arts and Cultural Affairs (MCACA) funds arts programming in schools and nonprofits
+
+### Leadership Development Programs
+- Student voice and choice: Give students input into program design
+- Youth leadership councils: Students help plan activities and advocate for the program
+- Community service projects: Students identify and address community needs
+- Life skills curriculum: Financial literacy, conflict resolution, public speaking
+
+---
+
+## SECTION 5: GRANTS AND FUNDING
+
+### 21st Century Community Learning Centers (21st CCLC) — The Largest Source
+
+**What it is:** Federal grant administered by state education departments. The largest dedicated after-school funding source in the United States. Over $1.3 billion awarded annually nationwide.
+
+**Amount:** $100,000–$500,000+ per year, multi-year grants (typically 3–5 years)
+
+**Eligibility:**
+- Must serve students in high-need schools (Title I schools preferred)
+- Must be in partnership with a public school
+- Must serve primarily K-12 students
+- Nonprofit, government, or school entity
+
+**Application process:**
+- Applications go to your STATE Department of Education, not federal government
+- Michigan: Michigan Department of Education, 21st CCLC program. michigan.gov/mde
+- Competitive application, reviewed annually
+- Strong applications include: needs assessment data, evidence-based curriculum, school partnership letter, evaluation plan, sustainability plan
+
+**Timeline:**
+- Applications typically released: January–February each year
+- Applications due: March–April
+- Awards announced: May–June
+- Programs start: September (following school year)
+
+**Key tips for strong applications:**
+- Include a letter of support from school principal AND district superintendent
+- Show clear need with data (% students below grade level, school demographics)
+- Use evidence-based programs (listed in What Works Clearinghouse)
+- Show clear outcomes and how you'll measure them
+- Include sustainability plan showing how program continues after grant
+
+### Title IV-A — Student Support and Academic Enrichment
+
+**What it is:** Federal funds that flow to school districts through the Every Student Succeeds Act (ESSA). Districts can use a portion to fund community after-school programs.
+
+**Amount:** Varies by district. Typically $10,000–$50,000 per partnership.
+
+**How to access:**
+- Talk to your district's Title IV-A coordinator
+- Ask if the district has unspent Title IV-A funds that could support your program
+- Frame your ask around STEM, healthy and safe students, or well-rounded education (the three Title IV-A pillars)
+
+### Tier 1 — Accessible Grants for New After-School Programs
+
+**Charles Stewart Mott Foundation**
+Amount: $25,000–$500,000
+Eligibility: Nonprofits focused on after-school and expanded learning
+Apply at: mott.org
+Notes: The largest private funder of after-school programming nationally. Relationship-building important. Start by attending their funded convenings.
+
+**Wallace Foundation**
+Amount: $50,000–$1,000,000+
+Eligibility: Nonprofits and schools focused on out-of-school time
+Apply at: wallacefoundation.org
+Notes: Highly competitive. Focus on summer learning and expanded learning time.
+
+**United Way Local Chapters**
+Amount: $5,000–$50,000
+Eligibility: Local nonprofits aligned with education priority areas
+Notes: Most United Way chapters have "Education" as a priority. After-school programs are strong fits. Build relationship with local United Way before applying.
+
+**Local Community Foundations**
+Amount: $1,000–$25,000
+Notes: Lowest competition. Best first grant for new programs. Apply before pursuing larger grants.
+
+### Tier 2 — Growth Stage Grants
+
+**Afterschool Alliance Member Grants**
+Various grant opportunities through afterschoolalliance.org/funding
+
+**Casey Family Programs**
+Focus on child welfare and education
+Apply at: casey.org
+
+**Robert Wood Johnson Foundation**
+Focus on health equity, including social determinants
+Apply at: rwjf.org
+
+**W.K. Kellogg Foundation**
+Focus on vulnerable children and families
+Apply at: wkkf.org
+
+**Michigan-Specific:**
+- Skillman Foundation (skillman.org): Detroit-focused youth development
+- Kresge Foundation (kresge.org): Detroit-focused
+- Community Foundation of Southeast Michigan (cfsem.org)
+
+---
+
+## SECTION 6: TRANSPORTATION AND SAFETY
+
+### Transportation Planning
+Transportation is often the biggest barrier to after-school program participation. Options:
+- School district transportation: Some districts provide late bus runs for after-school programs. Ask the district transportation department.
+- Parent pickup: Most common. Set a clear pickup time and enforce it.
+- Walking home: Only appropriate for older students in safe neighborhoods. Get written parent permission.
+- Partnerships with YMCA or Boys & Girls Club that have van transportation
+
+### Snack Requirements
+If program receives federal funding (21st CCLC, USDA), may need to follow snack guidelines:
+- USDA Child and Adult Care Food Program (CACFP): Free meals and snacks for qualifying programs
+- Apply through your state Department of Education
+- Requires tracking attendance and meals served
+- Reimbursement: ~$0.97 per snack for qualifying programs
+
+### Emergency Procedures
+- Maintain current emergency contact information for every student
+- Know your school's or facility's emergency procedures
+- Practice evacuation with students at least once per semester
+- Have written protocol for medical emergencies, student behavior emergencies, facility emergencies
+
+---
+
+## SECTION 7: MEASURING AND REPORTING OUTCOMES
+
+### What Funders Want to See (Especially 21st CCLC)
+- Attendance: Average daily attendance. Target 80%+ of enrolled students attending 3+ days/week.
+- Academic outcomes: Teacher surveys, report card grades, standardized test scores
+- Homework completion rates
+- Student behavior: School discipline referrals (reduction)
+- Family engagement: Events attended, surveys completed
+- Safety: Students in safe environment vs. unsupervised (key 21st CCLC metric)
+
+### Data Collection Tools
+- Attendance tracking: Daily sign-in sheets (paper or digital). TeamSnap, Apricot, or custom spreadsheet.
+- Teacher surveys: Annual or semester survey asking teachers about student progress. Template available from Afterschool Alliance.
+- Student surveys: Age-appropriate surveys about program experience, safety, goals.
+- Parent surveys: Program satisfaction, family engagement, perceived student benefit.
+
+---
+
+## SOURCES FOR ANNUAL BRAIN UPDATE (every January)
+- Afterschool Alliance America After 3PM Report: afterschoolalliance.org/documents/AA3PM
+- RAND Corporation After-School Research: rand.org
+- Charles Stewart Mott Foundation Annual Report: mott.org
+- 21st CCLC Federal Performance Data: ed.gov/programs/21stcclc
+- National Institute on Out-of-School Time (NIOST): niost.org

@@ -1,0 +1,287 @@
+# CLEARPATH BRAIN 2 — STEM PROGRAMS
+# Version 1.0 | Last updated: May 2026
+# This document is the static knowledge base for all STEM program coaching.
+# Covers: Coding & Technology, Robotics, Science & Engineering, Math Enrichment, General STEM
+# Update annually every January from: Code.org, CSTA, NSF, Google/Gallup, FIRST Robotics annual reports.
+
+---
+
+## SECTION 1: LEGAL STRUCTURE
+
+### Recommended Structure for STEM Programs
+Most STEM programs should form a nonprofit 501(c)(3) rather than an LLC. Reason: the largest STEM funders (Google.org, NSF, Verizon, Northrop Grumman) exclusively fund nonprofits. Unlike youth sports where you can run seasons as an LLC, STEM programs typically need grant funding from day one to cover equipment costs.
+
+**Timeline:**
+1. Form LLC immediately ($50–$200 depending on state) — gives legal protection now
+2. File IRS Form 1023-EZ at pay.gov ($275) — within 30–60 days of starting
+3. Get EIN at irs.gov/ein — free, takes 10 minutes
+4. Open nonprofit bank account after EIN received
+
+**Fiscal Sponsorship Alternative:**
+If 501(c)(3) application is pending, use a fiscal sponsor to receive grants. Organizations like Fractured Atlas or local community foundations will sponsor you for 5–15% of grant amounts. This lets you apply for grants before your status is official.
+
+---
+
+## SECTION 2: CURRICULUM FRAMEWORKS
+
+### Why Curriculum Framework Matters for Grants
+Grant funders want to see a proven curriculum framework. Programs using established frameworks receive significantly more funding than those with self-developed curricula. Choose one and build your program around it.
+
+### Code.org
+**Best for:** K-12 coding introduction, classroom-style programs
+**Cost:** Free for educators and programs
+**What it includes:** Hour of Code activities, CS Fundamentals (K-5), CS Discoveries (6-8), CS Principles (9-10)
+**Certification:** Code.org facilitator certification available
+**Website:** code.org
+**Grant alignment:** Code.org programs are viewed favorably by Google.org, Microsoft, and corporate STEM funders
+
+### FIRST (For Inspiration and Recognition of Science and Technology)
+**Best for:** Robotics programs, competition-based learning
+**Programs by age:**
+- FIRST LEGO League Discover (PreK-1): Introduction to STEM through play
+- FIRST LEGO League Explore (2-5): Hands-on LEGO models
+- FIRST LEGO League Challenge (4-8): Competitive robotics with programming
+- FIRST Tech Challenge (7-12): Robot design and competition
+- FIRST Robotics Competition (9-12): Varsity robotics
+**Cost:** Team registration $250–$5,000 depending on level. Equipment $500–$20,000+
+**Website:** firstinspires.org
+**Grant alignment:** FIRST has its own grant programs. Major corporate funders specifically fund FIRST teams.
+
+### Project Lead The Way (PLTW)
+**Best for:** School-affiliated programs, engineering and biomedical focus
+**Cost:** School licensing fee. Community programs can partner with PLTW schools.
+**Website:** pltw.org
+**Note:** Best suited for programs with formal school partnerships.
+
+### CS4All
+**Best for:** Urban programs focused on equity in CS education
+**Website:** csforall.org
+**Note:** Strong alignment with New York City and major urban districts.
+
+### Scratch (MIT Media Lab)
+**Best for:** Young learners (ages 8–16), creative coding
+**Cost:** Free
+**Website:** scratch.mit.edu
+**Note:** Excellent entry-level programming environment. No setup required.
+
+### Python for Kids
+**Best for:** Ages 10+, introduction to real programming
+**Resources:** Multiple free curricula available through Code.org and Khan Academy
+**Cost:** Free
+
+---
+
+## SECTION 3: EQUIPMENT AND TECHNOLOGY
+
+### Coding Programs — Equipment Needs
+**Minimum viable setup (per 10 students):**
+- 10 laptops or Chromebooks: $150–$350/device. Budget $1,500–$3,500 total.
+- WiFi router: $50–$150. Most venues have WiFi.
+- Extension cords and power strips: $20–$50.
+- Total minimum: ~$2,000–$4,000
+
+**Recommended:**
+- iPad or tablets for younger learners (ages 5–10): $329–$499/device
+- Headphones for individual work: $15–$30/device
+
+**Free/Low-Cost Device Sources:**
+- PCs for People (pcforpeople.org): Refurbished computers at 50–80% discount for nonprofits. National.
+- Connecting for Good: Similar to PCs for People.
+- Microsoft TEALS: Can include device donations.
+- Local school districts: Often have surplus devices available for community programs.
+- Grants4Computers: grantsforcomputers.com
+
+### Robotics Programs — Equipment Needs by Level
+
+**FIRST LEGO League (FLL) Explore/Challenge:**
+- LEGO Education SPIKE Prime kit: $330/kit. 1 kit per 2–3 students.
+- Laptop/tablet for programming: 1 per team (2–3 students)
+- Total for team of 6: ~$1,000–$1,500
+
+**FIRST Tech Challenge (FTC):**
+- REV Robotics starter kit: ~$700
+- Android phone or Control Hub: ~$150–$250
+- Assorted parts and tools: ~$200–$500
+- Total per team: ~$1,500–$3,000
+
+**FIRST Robotics Competition (FRC):**
+- Kickoff kit from FIRST: ~$1,000 (included in registration)
+- Additional parts and materials: $3,000–$10,000
+- Total per team: $5,000–$15,000+ per season
+
+**VEX Robotics (Alternative to FIRST):**
+- VEX IQ Starter Kit: ~$250–$350
+- VEX V5 (older students): ~$800–$1,200
+- vex.com
+
+**Micro:bit (Entry Level Electronics):**
+- Micro:bit device: $15–$20 each
+- Excellent for ages 10–14. Low cost. Real programming experience.
+- microbit.org
+
+### 3D Printing
+- Entry-level printer (Creality Ender 3): ~$200
+- Mid-range (Prusa Mini): ~$400
+- Filament: ~$20–$30/kg
+- Good for engineering and design programs
+
+---
+
+## SECTION 4: INSTRUCTOR AND VOLUNTEER MANAGEMENT
+
+### Instructor Qualifications
+STEM programs have more flexibility than sports programs regarding instructor certifications. However:
+- Background checks: Required for all adults working with youth. Sterling Volunteers ($15–25/person).
+- SafeSport: Required if program receives federal funding or is affiliated with certain governing bodies. Recommended regardless.
+- Subject knowledge: Instructors should have working knowledge of the technology being taught. Formal CS degree not required — industry experience, bootcamp graduates, and self-taught programmers are all effective.
+
+### Volunteer Recruitment
+**Best sources for STEM volunteers:**
+- Local tech companies: Google, Microsoft, Amazon, Salesforce all have employee volunteer programs. Contact their community relations teams.
+- University CS departments: College students looking for teaching experience and community service hours.
+- Local coding bootcamp graduates: Recent graduates eager to give back and build portfolios.
+- LinkedIn: Post volunteer opportunity with specific skills needed.
+- Retired engineers and technologists: Excellent mentors with deep expertise.
+
+### Corporate Volunteer Partnerships
+Many large tech companies have formal volunteer programs that include paid volunteer time. This means:
+- Employees can volunteer during work hours
+- Company may make a matching donation
+- Contact: [CompanyName] Community Relations or Corporate Responsibility team
+- Companies in Michigan: Ford, GM, Stellantis, Consumers Energy, DTE Energy, Quicken Loans/Rocket Companies all have strong community volunteer programs.
+
+---
+
+## SECTION 5: GRANTS AND FUNDING
+
+### Tier 1 — Best First Grants for New STEM Programs
+
+**Toshiba America Foundation**
+Amount: Up to $5,000 (K-5) or up to $10,000 (6-12)
+Eligibility: Schools and nonprofits with STEM programs
+Deadline: Applications reviewed quarterly
+Apply at: toshiba.com/taf
+Notes: Lower competition than larger funders. Good first grant. Straightforward application.
+
+**FIRST Robotics Grants**
+Amount: Varies by grant type. Team registration grants, equipment grants.
+Eligibility: FIRST-affiliated teams
+Apply at: firstinspires.org/ways-to-help/grants
+Notes: If you run a FIRST team, always apply for FIRST's own grant programs first.
+
+**Google.org Impact Challenge**
+Amount: $50,000–$1,000,000+
+Eligibility: Nonprofits using technology for social good
+Apply at: google.org
+Notes: Highly competitive. Better suited for established programs with track record. Apply after year 2.
+
+**Verizon Innovative Learning**
+Amount: Devices, curriculum, and cash grants
+Eligibility: Title I schools and nonprofits serving underserved communities
+Apply at: verizon.com/about/responsibility/verizon-innovative-learning
+Notes: Strong focus on underserved communities. Device grants are very accessible for qualifying programs.
+
+**Microsoft TEALS (Technology Education and Literacy in Schools)**
+Amount: Free curriculum, volunteer instructors, and some device grants
+Eligibility: Schools and community programs with limited CS resources
+Apply at: microsoft.com/teals
+Notes: Best for programs needing volunteer instruction support alongside equipment.
+
+### Tier 2 — Growth Stage STEM Grants
+
+**Northrop Grumman Foundation**
+Amount: $5,000–$100,000
+Eligibility: STEM education nonprofits
+Apply at: northropgrumman.com/giving-back
+Notes: Strong preference for aerospace and engineering focus. Relationship with local Northrop Grumman employees helps.
+
+**NSF Advancing Informal STEM Learning (AISL)**
+Amount: $300,000–$3,000,000
+Eligibility: Nonprofits and research institutions
+Apply at: nsf.gov/funding/opportunities
+Notes: Large grant, significant application requirements. Best for established programs with data and research partnerships.
+
+**AT&T Aspire**
+Amount: $10,000–$100,000
+Eligibility: Nonprofits focused on education and workforce readiness
+Apply at: att.com/csr/aspire
+Notes: Focus on technology and workforce pathways.
+
+**Amazon Future Engineer**
+Amount: Curriculum, scholarships, grants
+Eligibility: Schools and nonprofits in underserved communities
+Apply at: amazonfutureengineer.com
+Notes: Focus on CS education pathways from K-12 to college.
+
+### Tier 3 — Local and Corporate STEM Funding
+
+**Local Community Foundations**
+Always apply locally first. Community foundations have STEM education as a priority area in most regions. Lower competition, faster decisions.
+- In Michigan: Community Foundation of Southeast Michigan, Michigan Community Foundation
+
+**Corporate STEM Sponsorships**
+- Local tech companies and startups: Often willing to sponsor youth STEM programs for visibility and talent pipeline
+- Law and accounting firms: Many have community investment programs
+- Local hospitals and health systems: STEM pipeline for healthcare workforce
+
+**STEM-Specific Corporate Programs:**
+- Cognizant Making the Future (cognizant.com)
+- Salesforce.org (salesforce.org/grants)
+- SAP Education (sap.com/corporate-en/topics/education.html)
+
+---
+
+## SECTION 6: PROGRAM OPERATIONS
+
+### Class Size and Structure
+- Optimal class size: 8–15 students per instructor
+- Maximum without additional support: 20 students
+- Student-to-device ratio: 1:1 preferred. 2:1 acceptable for paired programming.
+- Session length: 60–90 minutes optimal for ages 8–12. 90–120 minutes for ages 13+.
+
+### Program Formats
+**After-School Program:** Most common format. 2–3 days/week, 60–90 minutes. Partners with school or runs at community center.
+
+**Saturday Academy:** Weekly 2–3 hour sessions. Good for families who prefer weekend schedules.
+
+**Summer Camp:** Intensive 1–2 week camps. Higher revenue per student. Full-day or half-day formats. $200–$500/student/week.
+
+**School-Day Enrichment:** Partnership with school to run during school day. Requires district agreement. Often funded by school's Title IV-A budget.
+
+### Measuring Impact
+Track and report these metrics for grant applications:
+- Students served (by age, gender, school, zip code)
+- % students from underserved communities
+- Hours of STEM instruction delivered
+- % students who continue to next level
+- Student projects completed
+- Competition placements (if applicable)
+- Teacher/instructor hours volunteered
+- Devices and equipment provided
+
+---
+
+## SECTION 7: COMPLIANCE AND SAFETY
+
+### Background Checks
+Same as Youth Sports: Sterling Volunteers or NCSI. Required for all adults.
+
+### Digital Safety
+- Never store personal data on student devices
+- Use school-appropriate content filters
+- Have a written technology use policy signed by parents
+- Do not allow students to use personal social media during program
+
+### Equipment Safety
+- 3D printers: Supervise at all times. Hot nozzle hazard. No students under 10 without direct supervision.
+- Soldering (advanced programs): Safety glasses required. No students under 12 without direct supervision.
+- Robotics: Secure all loose cables. Battery handling protocol. No pinch points on moving robots.
+
+---
+
+## SOURCES FOR ANNUAL BRAIN UPDATE (every January)
+- Code.org Annual Report: code.org/about/annualreport
+- CSTA K-12 CS Education Report: csteachers.org
+- NSF STEM Education data: nsf.gov/statistics
+- Google/Gallup CS Education research: goo.gle/cs-education
+- FIRST Robotics Annual Report: firstinspires.org/about/annual-report
