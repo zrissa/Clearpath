@@ -17,7 +17,6 @@
 }
 html,body{min-height:100%;font-family:"Plus Jakarta Sans",sans-serif;background:var(--off);color:var(--text);-webkit-font-smoothing:antialiased;}
 
-/* NAV */
 nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);display:flex;align-items:center;padding:0 24px;gap:8px;position:sticky;top:0;z-index:100;}
 .nlogo{display:flex;align-items:center;gap:8px;text-decoration:none;}
 .nmark{width:28px;height:28px;border-radius:7px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--mint);}
@@ -29,33 +28,43 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 .nav-plan{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--mint-pale);color:var(--sage);}
 .nav-avatar{width:30px;height:30px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--mint);cursor:pointer;text-decoration:none;}
 
-/* PAGE */
-.page{max-width:1080px;margin:0 auto;padding:24px 20px 48px;}
+.page{max-width:1080px;margin:0 auto;padding:24px 20px 60px;}
 
-/* STATE BANNER — changes based on journey */
-.state-banner{border-radius:16px;padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;}
+/* STATE BANNER */
+.state-banner{border-radius:16px;padding:22px 28px;margin-bottom:24px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;}
 .sb-starting{background:var(--forest);}
 .sb-running{background:linear-gradient(135deg,#0D5DBE,#1A73E8);}
 .sb-established{background:linear-gradient(135deg,#5B1FA0,#7B2D8B);}
 .state-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(255,255,255,.07) 0%,transparent 60%);pointer-events:none;}
-.sb-icon{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
-.sb-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;}
-.sb-title{font-size:20px;font-weight:800;color:var(--white);letter-spacing:-.5px;margin-bottom:4px;line-height:1.2;}
-.sb-sub{font-size:13px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.5;}
+.sb-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.sb-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px;}
+.sb-title{font-size:18px;font-weight:800;color:var(--white);letter-spacing:-.4px;margin-bottom:3px;line-height:1.2;}
+.sb-sub{font-size:13px;color:rgba(255,255,255,.5);font-weight:300;}
 .sb-right{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
-.sb-prog{text-align:right;}
-.sb-prog-num{font-size:28px;font-weight:800;color:var(--white);letter-spacing:-1px;line-height:1;}
-.sb-prog-lbl{font-size:11px;color:rgba(255,255,255,.4);}
-.sb-btn{padding:9px 18px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;transition:all .2s;white-space:nowrap;cursor:pointer;}
+.sb-pct{font-size:28px;font-weight:800;color:var(--white);letter-spacing:-1px;line-height:1;}
+.sb-pct-lbl{font-size:10px;color:rgba(255,255,255,.4);text-align:right;}
+.sb-btn{padding:8px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;transition:all .2s;cursor:pointer;white-space:nowrap;}
 .sb-btn:hover{background:rgba(255,255,255,.25);}
+
+/* INSIGHT CARD — Smart suggestion based on profile */
+.insight-card{background:var(--white);border:1.5px solid rgba(52,199,123,.3);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px;}
+.ic-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.ic-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:3px;}
+.ic-text{font-size:14px;font-weight:600;color:var(--forest);margin-bottom:4px;line-height:1.4;}
+.ic-sub{font-size:12px;color:var(--text-lt);font-weight:300;line-height:1.5;}
+.ic-actions{display:flex;gap:8px;margin-top:10px;}
+.ic-btn{padding:7px 14px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .2s;border:none;font-family:"Plus Jakarta Sans",sans-serif;}
+.ic-primary{background:var(--forest);color:var(--white);}
+.ic-primary:hover{background:var(--sage);}
+.ic-ghost{background:var(--g100);color:var(--text-lt);border:1px solid var(--g200);}
+.ic-ghost:hover{background:var(--g200);}
 
 /* PILLARS */
 .section-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g400);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
-.section-label span{font-size:12px;font-weight:500;color:var(--mint);letter-spacing:0;text-transform:none;cursor:pointer;}
+.sl-action{font-size:12px;font-weight:500;color:var(--mint);letter-spacing:0;text-transform:none;cursor:pointer;}
 .pillars-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
 .pill{background:var(--white);border:1.5px solid var(--g200);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;position:relative;}
 .pill:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(11,61,46,.07);}
-.pill.focused{border-width:2px;}
 .pill.focused.p-build{border-color:var(--mint);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
 .pill.focused.p-fund{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,184,0,.1);}
 .pill.focused.p-run{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,115,232,.1);}
@@ -68,110 +77,144 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 .pct-run{background:rgba(26,115,232,.1);color:var(--blue);}
 .pct-grow{background:rgba(123,45,139,.1);color:var(--purple);}
 .pill-name{font-size:14px;font-weight:800;color:var(--forest);letter-spacing:-.3px;margin-bottom:2px;}
-.pill-desc{font-size:11px;color:var(--text-lt);font-weight:300;margin-bottom:10px;}
-.pill-bar{height:3px;background:var(--g200);border-radius:2px;overflow:hidden;}
+.pill-desc{font-size:11px;color:var(--text-lt);font-weight:300;margin-bottom:10px;line-height:1.4;}
+.pill-bar{height:3px;background:var(--g200);border-radius:2px;overflow:hidden;margin-bottom:8px;}
 .pill-fill{height:100%;border-radius:2px;transition:width .5s ease;}
+.pill-complete-btn{display:block;width:100%;padding:5px;background:none;border:1px solid var(--g200);border-radius:6px;font-size:11px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;transition:all .15s;text-align:center;}
+.pill-complete-btn:hover{background:var(--g100);border-color:var(--g400);}
+.pill-complete-btn.all-done{background:var(--mint-pale);color:var(--sage);border-color:rgba(52,199,123,.3);}
 
 /* MAIN GRID */
-.main-grid{display:grid;grid-template-columns:1fr 320px;gap:16px;}
+.main-grid{display:grid;grid-template-columns:1fr 300px;gap:16px;}
 
 /* TASK PANEL */
 .task-panel{background:var(--white);border:1px solid var(--g200);border-radius:14px;overflow:hidden;}
-.task-header{padding:16px 20px;border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:space-between;}
+.task-header{padding:16px 20px;border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .task-title{font-size:15px;font-weight:700;color:var(--forest);}
 .task-meta{font-size:12px;color:var(--text-lt);}
-.task-filter{display:flex;gap:6px;padding:12px 20px;border-bottom:1px solid var(--g200);overflow-x:auto;}
-.tf{padding:5px 12px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid var(--g200);color:var(--text-lt);cursor:pointer;white-space:nowrap;transition:all .15s;background:none;font-family:"Plus Jakarta Sans",sans-serif;}
+.task-filter{display:flex;gap:5px;padding:10px 16px;border-bottom:1px solid var(--g200);overflow-x:auto;flex-wrap:nowrap;}
+.task-filter::-webkit-scrollbar{display:none;}
+.tf{padding:5px 11px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid var(--g200);color:var(--text-lt);cursor:pointer;white-space:nowrap;transition:all .15s;background:none;font-family:"Plus Jakarta Sans",sans-serif;}
 .tf.active{background:var(--forest);color:var(--white);border-color:var(--forest);}
-.task-list{padding:8px 0;max-height:520px;overflow-y:auto;}
+.task-list{max-height:500px;overflow-y:auto;}
 .task-list::-webkit-scrollbar{width:3px;}
 .task-list::-webkit-scrollbar-thumb{background:var(--g200);}
 
+/* ADD TASK */
+.add-task-row{padding:10px 16px;border-top:1px solid var(--g200);display:flex;gap:8px;}
+.add-task-input{flex:1;padding:9px 12px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;outline:none;transition:all .2s;}
+.add-task-input:focus{border-color:var(--mint);background:var(--white);}
+.add-task-input::placeholder{color:var(--g400);}
+.add-task-select{padding:9px 10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:12px;color:var(--text-lt);font-family:"Plus Jakarta Sans",sans-serif;outline:none;cursor:pointer;}
+.add-task-btn{padding:9px 14px;background:var(--forest);color:var(--white);border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;transition:all .2s;white-space:nowrap;}
+.add-task-btn:hover{background:var(--sage);}
+
 /* TASK ITEM */
-.task-item{display:flex;align-items:flex-start;gap:12px;padding:12px 20px;cursor:pointer;transition:background .15s;border-bottom:1px solid var(--g100);}
+.task-item{display:flex;align-items:flex-start;gap:10px;padding:11px 20px;cursor:pointer;transition:background .15s;border-bottom:1px solid var(--g100);}
 .task-item:hover{background:var(--off);}
-.task-item.done{opacity:.55;}
-.task-item.done .ti-title{text-decoration:line-through;color:var(--text-lt);}
-.task-check{width:20px;height:20px;border-radius:6px;border:2px solid var(--g200);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;cursor:pointer;}
-.task-item.done .task-check{background:var(--mint);border-color:var(--mint);color:white;font-size:11px;}
+.task-item:hover .ti-ask{opacity:1;}
+.task-item.done{opacity:.5;}
+.task-item.done .ti-title{text-decoration:line-through;}
+.task-item.custom{border-left:3px solid var(--mint);}
+.task-check{width:19px;height:19px;border-radius:5px;border:2px solid var(--g200);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.task-item.done .task-check{background:var(--mint);border-color:var(--mint);color:white;font-size:10px;}
 .ti-body{flex:1;min-width:0;}
-.ti-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:3px;}
+.ti-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:2px;}
 .ti-detail{font-size:12px;color:var(--text-lt);font-weight:300;line-height:1.5;}
-.ti-tags{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap;}
+.ti-tags{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap;}
 .ti-tag{font-size:10px;font-weight:600;padding:1px 7px;border-radius:100px;}
 .tag-build{background:var(--mint-pale);color:var(--sage);}
 .tag-fund{background:rgba(255,184,0,.1);color:#7A5A00;}
 .tag-run{background:rgba(26,115,232,.1);color:var(--blue);}
 .tag-grow{background:rgba(123,45,139,.1);color:var(--purple);}
 .tag-urgent{background:rgba(234,67,53,.1);color:var(--red);}
-.ti-ask{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mint);font-weight:600;margin-top:6px;opacity:0;transition:opacity .15s;}
-.task-item:hover .ti-ask{opacity:1;}
+.tag-custom{background:var(--mint-pale);color:var(--sage);}
+.ti-ask{font-size:11px;color:var(--mint);font-weight:600;margin-top:5px;opacity:0;transition:opacity .15s;cursor:pointer;display:inline-block;}
+.ti-delete{font-size:11px;color:var(--red);font-weight:600;margin-top:5px;opacity:0;transition:opacity .15s;cursor:pointer;display:inline-block;margin-left:8px;}
+.task-item:hover .ti-delete{opacity:1;}
 
-/* LOADING STATE */
+/* LOADING */
 .task-loading{padding:32px 20px;text-align:center;}
 .tl-icon{font-size:32px;margin-bottom:12px;animation:pulse 1.5s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 .tl-title{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:4px;}
-.tl-sub{font-size:12px;color:var(--text-lt);font-weight:300;}
+.tl-sub{font-size:12px;color:var(--text-lt);font-weight:300;line-height:1.6;}
 
-/* RIGHT SIDEBAR */
-.right-col{display:flex;flex-direction:column;gap:14px;}
+/* UPLOAD CARD */
+.upload-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;overflow:hidden;margin-bottom:14px;}
+.uc-header{padding:14px 16px;border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:space-between;}
+.uc-title{font-size:13px;font-weight:700;color:var(--forest);}
+.uc-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:rgba(26,115,232,.1);color:var(--blue);}
+.uc-body{padding:14px 16px;}
+.uc-drop{border:2px dashed var(--g200);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--off);}
+.uc-drop:hover,.uc-drop.drag-over{border-color:var(--mint);background:var(--mint-pale);}
+.uc-drop-icon{font-size:24px;margin-bottom:6px;}
+.uc-drop-title{font-size:13px;font-weight:600;color:var(--forest);margin-bottom:3px;}
+.uc-drop-sub{font-size:11px;color:var(--text-lt);font-weight:300;}
+.uc-limit{font-size:11px;color:var(--text-lt);margin-top:8px;text-align:center;}
+.uc-file{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--mint-pale);border-radius:8px;margin-top:8px;}
+.uc-file-name{font-size:12px;font-weight:600;color:var(--sage);flex:1;}
+.uc-file-btn{padding:5px 12px;background:var(--forest);color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;}
+.uc-processed{font-size:12px;color:var(--sage);margin-top:8px;text-align:center;font-weight:600;}
 
-/* NEXT STEP CARD */
-.next-card{background:var(--forest);border-radius:14px;padding:20px;cursor:pointer;transition:all .2s;}
+/* RIGHT COL */
+.right-col{display:flex;flex-direction:column;gap:12px;}
+
+.next-card{background:var(--forest);border-radius:14px;padding:18px;cursor:pointer;transition:all .2s;}
 .next-card:hover{background:var(--sage);}
-.nc-eye{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:8px;display:block;}
-.nc-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.3;}
-.nc-sub{font-size:12px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5;margin-bottom:12px;}
-.nc-btn{display:block;text-align:center;padding:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;transition:all .2s;}
-.nc-btn:hover{background:rgba(255,255,255,.2);}
+.nc-eye{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:6px;display:block;}
+.nc-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px;line-height:1.3;}
+.nc-sub{font-size:12px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5;margin-bottom:10px;}
+.nc-btn{display:block;text-align:center;padding:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:var(--white);}
 
-/* WHAT SHOULD I DO TODAY */
-.focus-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:20px;}
-.fc-title{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:4px;}
-.fc-sub{font-size:12px;color:var(--text-lt);font-weight:300;margin-bottom:14px;line-height:1.5;}
-.fc-btn{display:block;width:100%;padding:11px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:700;color:var(--forest);text-align:center;cursor:pointer;transition:all .2s;font-family:"Plus Jakarta Sans",sans-serif;text-decoration:none;}
+.focus-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:16px;}
+.fc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:4px;}
+.fc-sub{font-size:12px;color:var(--text-lt);font-weight:300;margin-bottom:12px;line-height:1.5;}
+.fc-btn{display:block;padding:10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:700;color:var(--forest);text-align:center;text-decoration:none;transition:all .2s;}
 .fc-btn:hover{background:var(--mint-pale);border-color:rgba(52,199,123,.3);}
 
-/* ROOT CARD */
-.root-card{background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:14px;padding:18px;}
-.rc-top{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.rc-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:15px;}
-.rc-name{font-size:14px;font-weight:700;color:var(--white);}
-.rc-sub{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:12px;font-weight:300;line-height:1.5;}
-.rc-btn{display:block;padding:9px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;text-align:center;transition:all .2s;}
+.stats-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:14px;}
+.sc-org{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:10px;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.stat{padding:10px;background:var(--off);border-radius:8px;text-align:center;}
+.stat-num{font-size:18px;font-weight:800;color:var(--forest);letter-spacing:-1px;line-height:1;}
+.stat-lbl{font-size:10px;color:var(--text-lt);margin-top:2px;}
+
+.root-card{background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:14px;padding:16px;}
+.rc-top{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.rc-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px;}
+.rc-name{font-size:13px;font-weight:700;color:var(--white);}
+.rc-sub{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:10px;font-weight:300;line-height:1.5;}
+.rc-btn{display:block;padding:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:7px;font-size:12px;font-weight:700;color:var(--white);text-decoration:none;text-align:center;transition:all .2s;}
 .rc-btn:hover{background:rgba(255,255,255,.22);}
 
-/* STATS */
-.stats-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:16px;}
-.sc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:12px;}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.stat{padding:12px;background:var(--off);border-radius:10px;text-align:center;}
-.stat-num{font-size:20px;font-weight:800;color:var(--forest);letter-spacing:-1px;line-height:1;}
-.stat-lbl{font-size:10px;color:var(--text-lt);margin-top:3px;font-weight:400;}
-
-/* QUICK LINKS */
-.quick-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:16px;}
-.qc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:10px;}
-.qlinks{display:flex;flex-direction:column;gap:6px;}
-.qlink{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--off);border-radius:8px;text-decoration:none;transition:all .15s;border:1px solid transparent;}
+.quick-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:14px;}
+.qc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;}
+.qlinks{display:flex;flex-direction:column;gap:5px;}
+.qlink{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--off);border-radius:7px;text-decoration:none;transition:all .15s;border:1px solid transparent;}
 .qlink:hover{background:var(--white);border-color:var(--g200);}
-.ql-icon{font-size:16px;width:20px;text-align:center;}
-.ql-text{font-size:13px;font-weight:600;color:var(--forest);}
-.ql-sub{font-size:11px;color:var(--text-lt);font-weight:300;}
+.ql-icon{font-size:14px;width:18px;text-align:center;}
+.ql-text{font-size:12px;font-weight:600;color:var(--forest);}
 
-/* MOBILE */
+/* TASK FROM COACHING TOAST */
+.coach-task-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--white);border:1.5px solid var(--g200);border-radius:14px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:300;max-width:480px;width:calc(100% - 40px);display:none;}
+.ctt-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:6px;}
+.ctt-task{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:10px;line-height:1.4;}
+.ctt-actions{display:flex;gap:8px;align-items:center;}
+.ctt-select{flex:1;padding:8px 10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;outline:none;}
+.ctt-add{padding:8px 16px;background:var(--forest);color:white;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;}
+.ctt-dismiss{padding:8px 12px;background:none;border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;}
+
 @media(max-width:900px){
   .main-grid{grid-template-columns:1fr;}
   .right-col{order:-1;}
+  .stats-card,.quick-card{display:none;}
   .pillars-row{grid-template-columns:1fr 1fr;}
   .nav-links{display:none;}
 }
 @media(max-width:480px){
-  .pillars-row{grid-template-columns:1fr 1fr;}
+  .page{padding:12px;}
   .state-banner{flex-wrap:wrap;}
-  .sb-right{flex-direction:row;align-items:center;width:100%;}
-  .page{padding:16px;}
 }
 </style>
 </head>
@@ -185,7 +228,7 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
     <a href="/profile" class="nav-link">Profile</a>
   </div>
   <div class="nav-right">
-    <span class="nav-plan">Free</span>
+    <span class="nav-plan" id="nav-plan">Free</span>
     <a href="/profile" class="nav-avatar" id="nav-avatar">Z</a>
   </div>
 </nav>
@@ -195,49 +238,61 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
   <!-- STATE BANNER -->
   <div class="state-banner sb-starting" id="state-banner">
     <div class="sb-icon" id="sb-icon">🌱</div>
-    <div>
+    <div style="flex:1;min-width:0;">
       <div class="sb-eyebrow" id="sb-eyebrow">Getting started</div>
       <div class="sb-title" id="sb-title">Let's build your program right.</div>
-      <div class="sb-sub" id="sb-sub">Your foundation determines everything that comes after it.</div>
+      <div class="sb-sub" id="sb-sub">Your foundation determines everything that comes after.</div>
     </div>
     <div class="sb-right">
-      <div class="sb-prog">
-        <div class="sb-prog-num" id="sb-prog-num">0%</div>
-        <div class="sb-prog-lbl">overall progress</div>
+      <div><div class="sb-pct" id="sb-pct">0%</div><div class="sb-pct-lbl">complete</div></div>
+      <div class="sb-btn" onclick="window.location.href='/coaching'">Talk to your advisor →</div>
+    </div>
+  </div>
+
+  <!-- SMART INSIGHT -->
+  <div class="insight-card" id="insight-card">
+    <div class="ic-icon" id="ic-icon">💡</div>
+    <div style="flex:1;">
+      <div class="ic-label">Clearpath recommends</div>
+      <div class="ic-text" id="ic-text">Loading your personalized recommendation...</div>
+      <div class="ic-sub" id="ic-sub"></div>
+      <div class="ic-actions">
+        <a class="ic-btn ic-primary" id="ic-cta" href="/coaching">Get help with this →</a>
+        <button class="ic-btn ic-ghost" onclick="dismissInsight()">Dismiss</button>
       </div>
-      <div class="sb-btn" onclick="window.location.href='/coaching'">Ask your advisor →</div>
     </div>
   </div>
 
   <!-- PILLARS -->
-  <div class="section-label">
-    Your four pillars
-    <span onclick="resetFocus()">Show all</span>
-  </div>
+  <div class="section-label">Your four pillars <span onclick="resetFocus()">Show all</span></div>
   <div class="pillars-row">
     <div class="pill p-build focused" id="pill-build" onclick="focusPillar('Build')">
       <div class="pill-top"><span class="pill-icon">🏗️</span><span class="pill-pct pct-build" id="pct-build">0%</span></div>
       <div class="pill-name">Build</div>
       <div class="pill-desc">Legal, compliance, facility</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-build" style="width:0%;background:var(--mint);"></div></div>
+      <button class="pill-complete-btn" id="cbtn-build" onclick="completePillar('Build', event)">Mark all complete</button>
     </div>
     <div class="pill p-fund" id="pill-fund" onclick="focusPillar('Fund')">
       <div class="pill-top"><span class="pill-icon">💰</span><span class="pill-pct pct-fund" id="pct-fund">0%</span></div>
       <div class="pill-name">Fund</div>
       <div class="pill-desc">Grants, pricing, sponsorship</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-fund" style="width:0%;background:var(--yellow);"></div></div>
+      <button class="pill-complete-btn" id="cbtn-fund" onclick="completePillar('Fund', event)">Mark all complete</button>
     </div>
     <div class="pill p-run" id="pill-run" onclick="focusPillar('Run')">
       <div class="pill-top"><span class="pill-icon">⚙️</span><span class="pill-pct pct-run" id="pct-run">0%</span></div>
       <div class="pill-name">Run</div>
       <div class="pill-desc">Powered by Root</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-run" style="width:0%;background:var(--blue);"></div></div>
+      <button class="pill-complete-btn" id="cbtn-run" onclick="completePillar('Run', event)">Mark all complete</button>
     </div>
     <div class="pill p-grow" id="pill-grow" onclick="focusPillar('Grow')">
       <div class="pill-top"><span class="pill-icon">📈</span><span class="pill-pct pct-grow" id="pct-grow">0%</span></div>
       <div class="pill-name">Grow</div>
       <div class="pill-desc">Impact, reports, expansion</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-grow" style="width:0%;background:var(--purple);"></div></div>
+      <button class="pill-complete-btn" id="cbtn-grow" onclick="completePillar('Grow', event)">Mark all complete</button>
     </div>
   </div>
 
@@ -245,74 +300,100 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
   <div class="main-grid">
 
     <!-- TASK PANEL -->
-    <div class="task-panel">
-      <div class="task-header">
-        <div>
-          <div class="task-title" id="task-panel-title">Your Tasks</div>
-          <div class="task-meta" id="task-panel-meta">Loading your personalized plan...</div>
+    <div>
+      <div class="task-panel">
+        <div class="task-header">
+          <div>
+            <div class="task-title" id="task-title">Your Tasks</div>
+            <div class="task-meta" id="task-meta">Loading...</div>
+          </div>
+        </div>
+        <div class="task-filter" id="task-filter">
+          <button class="tf active" onclick="filterTasks('all',this)">All</button>
+          <button class="tf" onclick="filterTasks('Build',this)">🏗️ Build</button>
+          <button class="tf" onclick="filterTasks('Fund',this)">💰 Fund</button>
+          <button class="tf" onclick="filterTasks('Run',this)">⚙️ Run</button>
+          <button class="tf" onclick="filterTasks('Grow',this)">📈 Grow</button>
+          <button class="tf" onclick="filterTasks('urgent',this)">🔥 Urgent</button>
+          <button class="tf" onclick="filterTasks('custom',this)">⭐ Mine</button>
+        </div>
+        <div class="task-list" id="task-list">
+          <div class="task-loading">
+            <div class="tl-icon">🧠</div>
+            <div class="tl-title">Building your personalized plan...</div>
+            <div class="tl-sub">Generating tasks specific to your program type, location, and stage. This only happens once.</div>
+          </div>
+        </div>
+        <div class="add-task-row">
+          <input class="add-task-input" id="new-task-input" placeholder="Add your own task..." onkeydown="if(event.key==='Enter')addCustomTask()"/>
+          <select class="add-task-select" id="new-task-pillar">
+            <option value="Build">Build</option>
+            <option value="Fund">Fund</option>
+            <option value="Run">Run</option>
+            <option value="Grow">Grow</option>
+          </select>
+          <button class="add-task-btn" onclick="addCustomTask()">+ Add</button>
         </div>
       </div>
-      <div class="task-filter" id="task-filter">
-        <button class="tf active" onclick="filterTasks('all', this)">All</button>
-        <button class="tf" onclick="filterTasks('Build', this)">🏗️ Build</button>
-        <button class="tf" onclick="filterTasks('Fund', this)">💰 Fund</button>
-        <button class="tf" onclick="filterTasks('Run', this)">⚙️ Run</button>
-        <button class="tf" onclick="filterTasks('Grow', this)">📈 Grow</button>
-        <button class="tf" onclick="filterTasks('urgent', this)">🔥 Urgent</button>
-      </div>
-      <div class="task-list" id="task-list">
-        <div class="task-loading">
-          <div class="tl-icon">🧠</div>
-          <div class="tl-title">Building your personalized plan...</div>
-          <div class="tl-sub">This only happens once. Generating tasks specific to your program, location, and stage.</div>
+
+      <!-- DATA UPLOAD -->
+      <div class="upload-card" style="margin-top:16px;">
+        <div class="uc-header">
+          <span class="uc-title">📂 Upload Your Program Data</span>
+          <span class="uc-badge">Pro · 1/month</span>
+        </div>
+        <div class="uc-body">
+          <div class="uc-drop" id="upload-drop" onclick="document.getElementById('file-input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
+            <div class="uc-drop-icon">📊</div>
+            <div class="uc-drop-title">Drop your data file here</div>
+            <div class="uc-drop-sub">CSV, Excel (.xlsx), or PDF · Participant data, registration records, season stats</div>
+          </div>
+          <div class="uc-limit" id="upload-limit">1 upload per month included with Pro · <span id="uploads-remaining">1 remaining this month</span></div>
+          <div id="upload-status"></div>
+          <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT COLUMN -->
+    <!-- RIGHT COL -->
     <div class="right-col">
 
-      <!-- NEXT STEP -->
       <div class="next-card" id="next-card" onclick="window.location.href='/coaching'">
         <span class="nc-eye">Your next step</span>
-        <div class="nc-title" id="nc-title">Loading your next action...</div>
+        <div class="nc-title" id="nc-title">Loading...</div>
         <div class="nc-sub" id="nc-sub"></div>
         <span class="nc-btn">Get help with this →</span>
       </div>
 
-      <!-- WHAT SHOULD I DO TODAY -->
       <div class="focus-card">
-        <div class="fc-title">Not sure where to focus?</div>
-        <div class="fc-sub">Ask your AI advisor what to work on today based on where your program is right now.</div>
+        <div class="fc-title">Not sure where to start today?</div>
+        <div class="fc-sub">Ask your AI advisor what to focus on based on where your program is right now.</div>
         <a href="/coaching?q=What+should+I+work+on+today+for+my+program?" class="fc-btn">What should I work on today? →</a>
       </div>
 
-      <!-- STATS -->
       <div class="stats-card">
-        <div class="sc-title" id="stats-org-name">Your Program</div>
+        <div class="sc-org" id="sc-org">Your Program</div>
         <div class="stats-grid">
-          <div class="stat"><div class="stat-num" id="stat-type">—</div><div class="stat-lbl">Program type</div></div>
-          <div class="stat"><div class="stat-num" id="stat-participants">—</div><div class="stat-lbl">Participants</div></div>
-          <div class="stat"><div class="stat-num" id="stat-tasks-done">0</div><div class="stat-lbl">Tasks done</div></div>
-          <div class="stat"><div class="stat-num" id="stat-budget">—</div><div class="stat-lbl">Budget range</div></div>
+          <div class="stat"><div class="stat-num" id="s-type">—</div><div class="stat-lbl">Type</div></div>
+          <div class="stat"><div class="stat-num" id="s-part">—</div><div class="stat-lbl">Participants</div></div>
+          <div class="stat"><div class="stat-num" id="s-done">0</div><div class="stat-lbl">Tasks done</div></div>
+          <div class="stat"><div class="stat-num" id="s-budget">—</div><div class="stat-lbl">Budget</div></div>
         </div>
       </div>
 
-      <!-- ROOT -->
       <div class="root-card">
         <div class="rc-top"><div class="rc-icon">⚽</div><div class="rc-name">Root</div></div>
-        <div class="rc-sub">The Complete Management Platform — registration, scheduling, payments, SafeSport.</div>
+        <div class="rc-sub">Complete Management Platform — registration, scheduling, payments, SafeSport.</div>
         <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn">Open Root →</a>
       </div>
 
-      <!-- QUICK LINKS -->
       <div class="quick-card">
         <div class="qc-title">Quick actions</div>
         <div class="qlinks">
-          <a href="/coaching" class="qlink"><div class="ql-icon">🤖</div><div><div class="ql-text">Ask AI Advisor</div><div class="ql-sub">Get specific guidance</div></div></a>
-          <a href="/coaching?q=What+grants+should+I+apply+for+first?" class="qlink"><div class="ql-icon">💸</div><div><div class="ql-text">Find grants</div><div class="ql-sub">Matched to your program</div></div></a>
-          <a href="/profile" class="qlink"><div class="ql-icon">✏️</div><div><div class="ql-text">Edit profile</div><div class="ql-sub">Keep your info current</div></div></a>
-          <a href="/consulting" class="qlink"><div class="ql-icon">📞</div><div><div class="ql-text">Book consulting</div><div class="ql-sub">1:1 · $150–$250/session</div></div></a>
+          <a href="/coaching" class="qlink"><div class="ql-icon">🤖</div><div class="ql-text">Ask AI Advisor</div></a>
+          <a href="/coaching?q=What+grants+should+I+apply+for+first?" class="qlink"><div class="ql-icon">💸</div><div class="ql-text">Find grants</div></a>
+          <a href="/profile" class="qlink"><div class="ql-icon">✏️</div><div class="ql-text">Edit profile</div></a>
+          <a href="/consulting" class="qlink"><div class="ql-icon">📞</div><div class="ql-text">Book consulting</div></a>
         </div>
       </div>
 
@@ -320,91 +401,184 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
   </div>
 </div>
 
+<!-- COACHING TASK TOAST -->
+<div class="coach-task-toast" id="coach-toast">
+  <div class="ctt-label">💡 Add to your dashboard?</div>
+  <div class="ctt-task" id="toast-task-text"></div>
+  <div class="ctt-actions">
+    <select class="ctt-select" id="toast-pillar">
+      <option value="Build">🏗️ Build</option>
+      <option value="Fund">💰 Fund</option>
+      <option value="Run">⚙️ Run</option>
+      <option value="Grow">📈 Grow</option>
+    </select>
+    <button class="ctt-add" onclick="confirmToastTask()">Add task</button>
+    <button class="ctt-dismiss" onclick="dismissToast()">Not now</button>
+  </div>
+</div>
+
 <script>
-// Auth gates
 if (!localStorage.getItem('clearpath_auth')) { window.location.href = '/signup'; }
 else if (!localStorage.getItem('clearpath_onboarded')) { window.location.href = '/onboarding'; }
 
-let profile = {};
-let allTasks = [];
-let progress = {};
-let currentFilter = 'all';
-let focusedPillar = null;
+let profile = {}, allTasks = [], progress = {}, currentFilter = 'all', focusedPillar = null;
 
-// ── LOAD ──────────────────────────────────────────────────────────
+// ── INIT ──────────────────────────────────────────────────────────
 function init() {
-  const stored = localStorage.getItem('clearpath_profile');
-  if (stored) { try { profile = JSON.parse(stored); } catch(e){} }
+  const s = localStorage.getItem('clearpath_profile');
+  if (s) { try { profile = JSON.parse(s); } catch(e){} }
   progress = JSON.parse(localStorage.getItem('clearpath_task_progress') || '{}');
 
   renderHeader();
-  renderStats();
   renderStateBanner();
+  renderInsight();
+  renderStats();
 
-  // Check for cached tasks
   const cached = localStorage.getItem('clearpath_tasks');
   if (cached) {
-    try {
-      allTasks = JSON.parse(cached);
-      renderTasks();
-      renderPillarProgress();
-      renderNextStep();
-    } catch(e) { generateTasks(); }
+    try { allTasks = JSON.parse(cached); renderAll(); }
+    catch(e) { generateTasks(); }
   } else {
     generateTasks();
   }
+
+  // Check for pending coaching task
+  const pending = localStorage.getItem('clearpath_pending_task');
+  if (pending) {
+    try {
+      const t = JSON.parse(pending);
+      showToast(t.text, t.pillar);
+      localStorage.removeItem('clearpath_pending_task');
+    } catch(e) {}
+  }
+
+  // Handle ?refresh
+  if (new URLSearchParams(window.location.search).get('refresh') === '1') {
+    localStorage.removeItem('clearpath_tasks');
+    window.location.href = '/dashboard';
+  }
+}
+
+function renderAll() {
+  renderTasks();
+  renderPillarProgress();
+  renderNextStep();
 }
 
 function renderHeader() {
   const initial = (profile.firstName || profile.orgName || 'U')[0].toUpperCase();
   document.getElementById('nav-avatar').textContent = initial;
-  document.getElementById('stats-org-name').textContent = profile.orgName || 'Your Program';
+  document.getElementById('sc-org').textContent = profile.orgName || 'Your Program';
 }
 
 function renderStats() {
   const type = profile.programType || '—';
-  const shortType = type.includes('Youth') ? 'Youth Sports' : type.includes('After') ? 'After-School' : type.includes('STEM') ? 'STEM' : type.includes('Parks') ? 'Parks & Rec' : type;
-  document.getElementById('stat-type').textContent = shortType;
-  document.getElementById('stat-participants').textContent = profile.participantCount || '—';
-  document.getElementById('stat-budget').textContent = profile.budgetRange ? profile.budgetRange.replace('Under ', '<') : '—';
+  const short = type.includes('Youth') ? 'Sports' : type.includes('After') ? 'After-School' : type.includes('STEM') ? 'STEM' : type.includes('Parks') ? 'Parks' : type;
+  document.getElementById('s-type').textContent = short;
+  document.getElementById('s-part').textContent = profile.participantCount || '—';
+  document.getElementById('s-budget').textContent = profile.budgetRange ? profile.budgetRange.replace('Under ','<').replace('Over ','').replace('$','$').split('–')[0] : '—';
 }
 
+// ── STATE BANNER ──────────────────────────────────────────────────
 function renderStateBanner() {
-  const journey = (profile.journey || '').toLowerCase();
+  const j = (profile.journey || '').toLowerCase();
   const banner = document.getElementById('state-banner');
-  const icon = document.getElementById('sb-icon');
-  const eyebrow = document.getElementById('sb-eyebrow');
-  const title = document.getElementById('sb-title');
-  const sub = document.getElementById('sb-sub');
+  const isEstablished = j.includes('established') || j.includes('expand');
+  const isRunning = j.includes('running') || j.includes('launched') || j.includes('new');
+  const name = profile.orgName || 'your program';
 
-  if (journey.includes('established') || journey.includes('expand')) {
+  if (isEstablished) {
     banner.className = 'state-banner sb-established';
-    icon.textContent = '🏆';
-    eyebrow.textContent = 'Established program';
-    title.textContent = `You've built something real. Let's scale ${profile.orgName || 'it'}.`;
-    sub.textContent = 'Your focus is Grow — turn your Root data into impact reports and expansion plans.';
-  } else if (journey.includes('running') || journey.includes('launched') || journey.includes('new')) {
+    document.getElementById('sb-icon').textContent = '🏆';
+    document.getElementById('sb-eyebrow').textContent = 'Established program';
+    document.getElementById('sb-title').textContent = `You've built something real. Time to scale ${name}.`;
+    document.getElementById('sb-sub').textContent = 'Focus on Grow — turn your Root data into impact reports and expansion plans.';
+  } else if (isRunning) {
     banner.className = 'state-banner sb-running';
-    icon.textContent = '⚡';
-    eyebrow.textContent = 'Program in progress';
-    title.textContent = `${profile.orgName || 'Your program'} is running. Let's level it up.`;
-    sub.textContent = 'Your focus is Fund and Run — find grants and get your operations on Root.';
+    document.getElementById('sb-icon').textContent = '⚡';
+    document.getElementById('sb-eyebrow').textContent = 'Program in progress';
+    document.getElementById('sb-title').textContent = `${name} is running. Let's level it up.`;
+    document.getElementById('sb-sub').textContent = 'Focus on Fund and Run — find grants and get operations on Root.';
   } else {
     banner.className = 'state-banner sb-starting';
-    icon.textContent = '🌱';
-    eyebrow.textContent = 'Just getting started';
-    title.textContent = `Let's build ${profile.orgName || 'your program'} right.`;
-    sub.textContent = 'Your foundation determines everything that comes after it. Start with Build.';
+    document.getElementById('sb-icon').textContent = '🌱';
+    document.getElementById('sb-eyebrow').textContent = 'Just getting started';
+    document.getElementById('sb-title').textContent = `Let's build ${name} right.`;
+    document.getElementById('sb-sub').textContent = 'Your foundation determines everything that comes after it.';
   }
 }
 
-// ── GENERATE TASKS (API — called once, cached) ────────────────────
-async function generateTasks() {
-  const journey = (profile.journey || '').toLowerCase();
-  const isEstablished = journey.includes('established') || journey.includes('expand');
-  const isRunning = journey.includes('running') || journey.includes('launched') || journey.includes('new');
+// ── SMART INSIGHT ─────────────────────────────────────────────────
+function renderInsight() {
+  const dismissed = localStorage.getItem('clearpath_insight_dismissed');
+  if (dismissed === new Date().toDateString()) {
+    document.getElementById('insight-card').style.display = 'none';
+    return;
+  }
 
-  const prompt = `You are Clearpath, an advisor for community program directors. Based on this program profile, generate a personalized task list.
+  const j = (profile.journey || '').toLowerCase();
+  const entity = profile.entityType || '';
+  const challenge = profile.biggestChallenge || '';
+  const grantExp = profile.grantExperience || '';
+  const doneCount = Object.values(progress).filter(v=>v).length;
+
+  let icon = '💡', text = '', sub = '', ctaText = 'Get help with this', ctaLink = '/coaching';
+
+  if (!entity || entity === 'Not yet incorporated') {
+    icon = '🏛️';
+    text = `${profile.orgName || 'Your program'} doesn't have a legal structure yet`;
+    sub = `Forming an LLC or nonprofit in ${profile.state || 'your state'} is your most urgent first step — it protects you personally and unlocks grant eligibility.`;
+    ctaLink = `/coaching?q=How+do+I+form+a+legal+entity+for+my+${encodeURIComponent(profile.programType||'program')}+in+${encodeURIComponent(profile.state||'my state')}`;
+  } else if (challenge.includes('funding') && grantExp === 'Never applied') {
+    icon = '💸';
+    text = 'Your biggest challenge is finding funding — and you\'ve never applied for a grant';
+    sub = 'Your local community foundation is the best first grant. Lower competition, faster decisions, and they specifically fund programs like yours.';
+    ctaLink = '/coaching?q=What+local+grants+should+I+apply+for+first?';
+  } else if (challenge.includes('funding') && grantExp !== 'Never applied') {
+    icon = '🎯';
+    text = `There are grants specific to ${profile.sportOrCategory || profile.programType || 'your program'} you may be missing`;
+    sub = 'Sport and program-specific funders are less competitive than general grants. Ask your advisor to match you to the right ones.';
+    ctaLink = `/coaching?q=What+grants+are+specific+to+${encodeURIComponent(profile.sportOrCategory||profile.programType||'my program')}?`;
+  } else if (j.includes('running') || j.includes('launched')) {
+    icon = '⚙️';
+    text = 'Your program is running — is it on Root yet?';
+    sub = 'Getting your registrations, schedule, and payments onto Root makes everything else easier — and unlocks your Grow data.';
+    ctaLink = '/coaching?q=How+do+I+set+up+Root+for+my+program?';
+  } else if (doneCount === 0) {
+    icon = '🚀';
+    text = `You haven't checked off any tasks yet — let's change that`;
+    sub = 'Your first task is the most important one. Click it to get step-by-step guidance from your AI advisor.';
+    ctaLink = '/coaching?q=What+is+the+single+most+important+first+step+for+my+program?';
+  } else if (j.includes('established')) {
+    icon = '📈';
+    text = 'You\'re established — your data should be working for you';
+    sub = 'Generate your first impact report from your Root data. Funders want proof, and you have it.';
+    ctaLink = '/coaching?q=How+do+I+create+an+impact+report+for+grant+funders?';
+  } else {
+    document.getElementById('insight-card').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('ic-icon').textContent = icon;
+  document.getElementById('ic-text').textContent = text;
+  document.getElementById('ic-sub').textContent = sub;
+  const cta = document.getElementById('ic-cta');
+  cta.textContent = ctaText + ' →';
+  cta.href = ctaLink;
+}
+
+function dismissInsight() {
+  localStorage.setItem('clearpath_insight_dismissed', new Date().toDateString());
+  document.getElementById('insight-card').style.display = 'none';
+}
+
+// ── GENERATE TASKS (API — once, cached) ───────────────────────────
+async function generateTasks() {
+  const j = (profile.journey || '').toLowerCase();
+  const isEstablished = j.includes('established') || j.includes('expand');
+  const isRunning = j.includes('running') || j.includes('launched') || j.includes('new');
+
+  const prompt = `You are Clearpath, an advisor for community program directors. Generate a personalized task list for this program.
 
 PROFILE:
 - Program: ${profile.orgName || 'Unknown'}
@@ -417,155 +591,126 @@ PROFILE:
 - Biggest challenge: ${profile.biggestChallenge || 'Unknown'}
 - Journey stage: ${profile.journey || 'Unknown'}
 
-Generate exactly 16 tasks: 5 Build tasks, 4 Fund tasks, 4 Run tasks, 3 Grow tasks.
+Rules:
+- Generate exactly 16 tasks: 5 Build, 4 Fund, 4 Run, 3 Grow
+- Tasks MUST be specific to their program type, state, entity status, and journey stage
+- If entity is "Not yet incorporated" → first Build task is forming LLC in ${profile.state || 'their state'}
+- If entity is 501c3 already → skip formation, focus on compliance and growth
+- If journey is "established" → Build tasks are about maintaining/improving not starting from scratch
+- If grant experience is "Never applied" → Fund tasks start with lowest-barrier grants first
+- Run tasks are all about getting set up on Root (rootsoccer.com)
+- Urgent = true only for tasks that block everything else (legal entity, EIN, insurance)
+- askPrompt = the exact question to ask the AI about this task, specific to their program
 
-Tasks must be SPECIFIC to their program type, location, and journey stage. Not generic. 
-- If they are "Not yet incorporated", their first Build task is about forming their specific legal structure.
-- If they already have 501c3, skip formation tasks.
-- If they are established, Build tasks should be about maintaining/improving not starting.
-- Fund tasks should match their grant experience level.
-- Run tasks should be about getting set up on Root.
-- Grow tasks only matter if they have seasons of data.
-
-Return ONLY a valid JSON array, no other text, no markdown:
-[
-  {
-    "id": "unique_id",
-    "title": "Specific task title",
-    "detail": "One sentence explaining exactly what to do and why it matters for their program",
-    "pillar": "Build|Fund|Run|Grow",
-    "urgent": true|false,
-    "askPrompt": "What the user should ask the AI about this task"
-  }
-]`;
+Return ONLY valid JSON array, no markdown:
+[{"id":"unique_id","title":"task title","detail":"one specific sentence","pillar":"Build|Fund|Run|Grow","urgent":true|false,"askPrompt":"exact question"}]`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'anthropic-version': '2023-06-01'
-      },
+      headers: { 'Content-Type': 'application/json', 'anthropic-version': '2023-06-01' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-5',
         max_tokens: 2000,
         messages: [{ role: 'user', content: prompt }]
       })
     });
-
     const data = await res.json();
-    const text = data.content?.[0]?.text || '[]';
-    const clean = text.replace(/```json|```/g, '').trim();
-    allTasks = JSON.parse(clean);
+    const text = (data.content?.[0]?.text || '[]').replace(/```json|```/g, '').trim();
+    allTasks = JSON.parse(text);
     localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
-    renderTasks();
-    renderPillarProgress();
-    renderNextStep();
+    renderAll();
   } catch(e) {
-    console.error('Task generation failed:', e);
-    // Fallback to default tasks
     allTasks = getDefaultTasks();
     localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
-    renderTasks();
-    renderPillarProgress();
-    renderNextStep();
+    renderAll();
   }
 }
 
 function getDefaultTasks() {
-  const journey = (profile.journey || '').toLowerCase();
-  const isEstablished = journey.includes('established');
   return [
-    {id:'b1',title:'Form your legal entity',detail:`File ${profile.entityType === 'LLC' ? 'LLC' : 'nonprofit corporation'} in ${profile.state || 'your state'} — search "[your state] secretary of state LLC filing"`,pillar:'Build',urgent:true,askPrompt:'How do I form my legal entity in my state?'},
-    {id:'b2',title:'Get your EIN from the IRS',detail:'Free at irs.gov/ein. Takes 10 minutes. Required before opening a bank account.',pillar:'Build',urgent:true,askPrompt:'How do I get an EIN from the IRS?'},
-    {id:'b3',title:'Open a business bank account',detail:'Bring your EIN and formation documents. Keep business and personal finances completely separate.',pillar:'Build',urgent:false,askPrompt:'How do I open a business bank account for my program?'},
-    {id:'b4',title:`Join your ${profile.programType === 'Youth Sports' ? 'governing body' : 'program network'}`,detail:`Register with the national governing body for ${profile.sportOrCategory || 'your program type'}.`,pillar:'Build',urgent:false,askPrompt:`What governing body should I join for ${profile.sportOrCategory || 'my program'}?`},
-    {id:'b5',title:'Get general liability insurance',detail:'Required before booking any field or facility. Apply through your governing body or K&K Insurance.',pillar:'Build',urgent:true,askPrompt:'What insurance do I need for my program?'},
-    {id:'f1',title:'Apply to your local community foundation',detail:'Lowest competition, fastest decisions. Your best first grant. Search "[your county] community foundation".',pillar:'Fund',urgent:false,askPrompt:'How do I find and apply to my local community foundation?'},
-    {id:'f2',title:'Set your registration pricing strategy',detail:'Research comparable programs in your area. Set a fair price with a scholarship option.',pillar:'Fund',urgent:false,askPrompt:'How should I price my program registration?'},
-    {id:'f3',title:`Apply for ${profile.programType === 'Youth Sports' ? 'sport-specific grants' : 'program-specific grants'}`,detail:`Find grants specific to ${profile.sportOrCategory || 'your program type'} — search "[sport] foundation grants youth programs"`,pillar:'Fund',urgent:false,askPrompt:`What grants exist specifically for ${profile.sportOrCategory || 'my program type'}?`},
-    {id:'f4',title:'Build a local sponsorship list',detail:'Identify 5 local businesses to approach. Law firms, medical practices, and car dealerships are strong targets.',pillar:'Fund',urgent:false,askPrompt:'How do I find and approach local sponsors?'},
+    {id:'b1',title:`Form ${profile.entityType||'LLC'} in ${profile.state||'your state'}`,detail:'File with your state Secretary of State — search "[your state] secretary of state LLC filing". Takes 10 minutes online.',pillar:'Build',urgent:true,askPrompt:`How do I form my legal entity in ${profile.state||'my state'}?`},
+    {id:'b2',title:'Get your EIN from the IRS',detail:'Free at irs.gov/ein. 10 minutes. Required before opening a bank account.',pillar:'Build',urgent:true,askPrompt:'How do I get an EIN from the IRS?'},
+    {id:'b3',title:'Open a business bank account',detail:'Bring your EIN and formation documents. Never mix personal and business finances.',pillar:'Build',urgent:false,askPrompt:'How do I open a business bank account?'},
+    {id:'b4',title:`Join your ${profile.programType==='Youth Sports'?'governing body':'program network'}`,detail:`Register with the national organization for ${profile.sportOrCategory||'your program type'}.`,pillar:'Build',urgent:false,askPrompt:`What governing body should I join for ${profile.sportOrCategory||'my program'}?`},
+    {id:'b5',title:'Get general liability insurance',detail:'Required before any field or facility will let you book. Apply through your governing body or K&K Insurance.',pillar:'Build',urgent:true,askPrompt:'What insurance do I need for my program?'},
+    {id:'f1',title:'Apply to your local community foundation',detail:'Lowest competition, fastest decisions. Search "[your county] community foundation grants".',pillar:'Fund',urgent:false,askPrompt:'How do I find my local community foundation and apply for a grant?'},
+    {id:'f2',title:'Set your registration pricing strategy',detail:'Research comparable programs. Set a fair price with a scholarship option.',pillar:'Fund',urgent:false,askPrompt:'How should I price my program registration?'},
+    {id:'f3',title:`Apply for ${profile.sportOrCategory||profile.programType||'program'}-specific grants`,detail:'Sport and program-specific funders have lower competition than general grants.',pillar:'Fund',urgent:false,askPrompt:`What grants exist specifically for ${profile.sportOrCategory||profile.programType||'my program'}?`},
+    {id:'f4',title:'Build a local sponsorship list',detail:'Identify 5 local businesses. Law firms, medical practices, and car dealerships are strong targets.',pillar:'Fund',urgent:false,askPrompt:'How do I find and approach local sponsors?'},
     {id:'r1',title:'Create your Root account',detail:'Go to rootsoccer.com and create your free account. Takes 5 minutes.',pillar:'Run',urgent:false,askPrompt:'How do I set up Root for my program?'},
-    {id:'r2',title:'Set up your league or club in Root',detail:'Configure your organization type, season structure, and division setup in Root.',pillar:'Run',urgent:false,askPrompt:'How do I configure Root for my specific program type?'},
-    {id:'r3',title:'Configure registration forms',detail:'Build your registration form in Root with all required fields including SafeSport uploads.',pillar:'Run',urgent:false,askPrompt:'What should I include in my registration form?'},
-    {id:'r4',title:'Share your registration link with families',detail:'Once Root is configured, share the link via email, social media, and your community channels.',pillar:'Run',urgent:false,askPrompt:'How do I get families to register for my program?'},
-    {id:'g1',title:'Complete your first full season on Root',detail:'Run a complete season through Root to build the data foundation for grant reports.',pillar:'Grow',urgent:false,askPrompt:'What data should I track during my season?'},
-    {id:'g2',title:'Generate your season impact report',detail:'Use your Root data to document participants served, attendance rates, and outcomes.',pillar:'Grow',urgent:false,askPrompt:'How do I create an impact report from my season data?'},
-    {id:'g3',title:'Plan next season expansion',detail:'Review what worked, what didn\'t, and what your data says about growth opportunities.',pillar:'Grow',urgent:false,askPrompt:'How do I know when I\'m ready to expand my program?'},
+    {id:'r2',title:'Set up your organization in Root',detail:'Configure your organization type, season structure, and division setup.',pillar:'Run',urgent:false,askPrompt:`How do I configure Root for a ${profile.programType||'youth'} program?`},
+    {id:'r3',title:'Build your registration form in Root',detail:'Include all required fields — SafeSport uploads, U18 consent, emergency contacts.',pillar:'Run',urgent:false,askPrompt:'What should I include in my registration form?'},
+    {id:'r4',title:'Share your registration link with families',detail:'Email, social media, school newsletters, and community channels.',pillar:'Run',urgent:false,askPrompt:'How do I get families to register for my program?'},
+    {id:'g1',title:'Complete your first full season on Root',detail:'Run a complete season through Root to build the data foundation for grant reports.',pillar:'Grow',urgent:false,askPrompt:'What data should I track during my season for grant reporting?'},
+    {id:'g2',title:'Generate your season impact report',detail:'Document participants, attendance rates, and outcomes using Root data.',pillar:'Grow',urgent:false,askPrompt:'How do I create an impact report from my season data?'},
+    {id:'g3',title:'Plan your next season expansion',detail:'Review what worked and what your data says about growth opportunities.',pillar:'Grow',urgent:false,askPrompt:'How do I know when I\'m ready to expand my program?'},
   ];
 }
 
-// ── RENDER TASKS ───────────────────────────────────────────────────
+// ── RENDER TASKS ──────────────────────────────────────────────────
 function renderTasks() {
   const list = document.getElementById('task-list');
   let tasks = allTasks;
 
-  // Apply pillar focus
-  if (focusedPillar) {
-    tasks = tasks.filter(t => t.pillar === focusedPillar);
-  }
+  if (currentFilter === 'urgent') tasks = tasks.filter(t => t.urgent && !progress[t.id]);
+  else if (currentFilter === 'custom') tasks = tasks.filter(t => t.custom);
+  else if (currentFilter !== 'all') tasks = tasks.filter(t => t.pillar === currentFilter);
 
-  // Apply filter
-  if (currentFilter !== 'all') {
-    if (currentFilter === 'urgent') {
-      tasks = tasks.filter(t => t.urgent && !progress[t.id]);
-    } else {
-      tasks = tasks.filter(t => t.pillar === currentFilter);
-    }
-  }
+  if (focusedPillar && currentFilter === 'all') tasks = tasks.filter(t => t.pillar === focusedPillar);
 
-  if (tasks.length === 0) {
-    list.innerHTML = '<div class="task-loading"><div class="tl-icon">✅</div><div class="tl-title">All tasks complete!</div><div class="tl-sub">You\'ve finished everything in this category. Check the other pillars.</div></div>';
-    return;
-  }
-
-  // Sort: incomplete first, then complete
   const incomplete = tasks.filter(t => !progress[t.id]);
   const complete = tasks.filter(t => progress[t.id]);
   const sorted = [...incomplete, ...complete];
 
-  list.innerHTML = sorted.map(t => {
-    const done = progress[t.id] === true;
-    const pillarClass = `tag-${t.pillar.toLowerCase()}`;
-    return `<div class="task-item ${done ? 'done' : ''}" id="task-${t.id}">
-      <div class="task-check" onclick="toggleTask('${t.id}', event)">${done ? '✓' : ''}</div>
-      <div class="ti-body">
-        <div class="ti-title">${t.title}</div>
-        <div class="ti-detail">${t.detail}</div>
-        <div class="ti-tags">
-          <span class="ti-tag ${pillarClass}">${t.pillar}</span>
-          ${t.urgent && !done ? '<span class="ti-tag tag-urgent">Urgent</span>' : ''}
+  if (sorted.length === 0) {
+    list.innerHTML = '<div class="task-loading"><div class="tl-icon">✅</div><div class="tl-title">All done here!</div><div class="tl-sub">Check another pillar or add your own tasks below.</div></div>';
+  } else {
+    list.innerHTML = sorted.map(t => {
+      const done = !!progress[t.id];
+      return `<div class="task-item ${done?'done':''} ${t.custom?'custom':''}" id="task-${t.id}">
+        <div class="task-check" onclick="toggleTask('${t.id}',event)">${done?'✓':''}</div>
+        <div class="ti-body">
+          <div class="ti-title">${t.title}</div>
+          <div class="ti-detail">${t.detail}</div>
+          <div class="ti-tags">
+            <span class="ti-tag tag-${t.pillar.toLowerCase()}">${t.pillar}</span>
+            ${t.urgent&&!done?'<span class="ti-tag tag-urgent">Urgent</span>':''}
+            ${t.custom?'<span class="ti-tag tag-custom">Custom</span>':''}
+          </div>
+          <span class="ti-ask" onclick="goAsk('${t.id}',event)">🤖 Ask AI about this →</span>
+          ${t.custom?`<span class="ti-delete" onclick="deleteTask('${t.id}',event)">✕ Remove</span>`:''}
         </div>
-        <div class="ti-ask" onclick="askAboutTask('${t.id}', event)">🤖 Ask AI about this →</div>
-      </div>
-    </div>`;
-  }).join('');
+      </div>`;
+    }).join('');
+  }
 
-  // Update meta
   const doneCount = allTasks.filter(t => progress[t.id]).length;
-  document.getElementById('task-panel-meta').textContent = `${doneCount} of ${allTasks.length} tasks complete`;
-  document.getElementById('stat-tasks-done').textContent = doneCount;
-
-  // Update panel title based on focus
-  document.getElementById('task-panel-title').textContent = focusedPillar ? `${focusedPillar} Tasks` : 'Your Tasks';
+  document.getElementById('task-meta').textContent = `${doneCount} of ${allTasks.length} complete`;
+  document.getElementById('task-title').textContent = focusedPillar ? `${focusedPillar} Tasks` : 'Your Tasks';
+  document.getElementById('s-done').textContent = doneCount;
 }
 
 function toggleTask(id, e) {
   e.stopPropagation();
   progress[id] = !progress[id];
   localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
-  renderTasks();
-  renderPillarProgress();
-  renderNextStep();
+  renderTasks(); renderPillarProgress(); renderNextStep();
 }
 
-function askAboutTask(id, e) {
+function goAsk(id, e) {
   e.stopPropagation();
   const task = allTasks.find(t => t.id === id);
-  if (task) {
-    const q = encodeURIComponent(task.askPrompt || task.title);
-    window.location.href = `/coaching?q=${q}`;
-  }
+  if (task) window.location.href = `/coaching?q=${encodeURIComponent(task.askPrompt || task.title)}`;
+}
+
+function deleteTask(id, e) {
+  e.stopPropagation();
+  allTasks = allTasks.filter(t => t.id !== id);
+  delete progress[id];
+  localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
+  localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
+  renderAll();
 }
 
 function filterTasks(filter, btn) {
@@ -575,15 +720,56 @@ function filterTasks(filter, btn) {
   renderTasks();
 }
 
-// ── PILLAR FOCUS ───────────────────────────────────────────────────
+function addCustomTask() {
+  const input = document.getElementById('new-task-input');
+  const pillar = document.getElementById('new-task-pillar').value;
+  const text = input.value.trim();
+  if (!text) return;
+  const task = {
+    id: 'custom_' + Date.now(),
+    title: text,
+    detail: 'Custom task added by you',
+    pillar,
+    urgent: false,
+    custom: true,
+    askPrompt: text
+  };
+  allTasks.push(task);
+  localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
+  input.value = '';
+  renderAll();
+}
+
+// ── PILLAR COMPLETE BUTTON ────────────────────────────────────────
+function completePillar(pillar, e) {
+  e.stopPropagation();
+  const pillarTasks = allTasks.filter(t => t.pillar === pillar);
+  const allDone = pillarTasks.every(t => progress[t.id]);
+
+  if (allDone) {
+    // Uncheck all
+    pillarTasks.forEach(t => { progress[t.id] = false; });
+    document.getElementById(`cbtn-${pillar.toLowerCase()}`).textContent = 'Mark all complete';
+    document.getElementById(`cbtn-${pillar.toLowerCase()}`).classList.remove('all-done');
+  } else {
+    // Check all
+    pillarTasks.forEach(t => { progress[t.id] = true; });
+    document.getElementById(`cbtn-${pillar.toLowerCase()}`).textContent = '✓ All complete — undo?';
+    document.getElementById(`cbtn-${pillar.toLowerCase()}`).classList.add('all-done');
+  }
+
+  localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
+  renderTasks(); renderPillarProgress(); renderNextStep();
+}
+
+// ── PILLAR FOCUS ──────────────────────────────────────────────────
 function focusPillar(pillar) {
   focusedPillar = pillar;
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('focused'));
   document.getElementById(`pill-${pillar.toLowerCase()}`).classList.add('focused');
-  currentFilter = pillar;
+  currentFilter = 'all';
   document.querySelectorAll('.tf').forEach(b => b.classList.remove('active'));
-  const btn = [...document.querySelectorAll('.tf')].find(b => b.textContent.includes(pillar));
-  if (btn) btn.classList.add('active');
+  document.querySelector('.tf').classList.add('active');
   renderTasks();
 }
 
@@ -591,61 +777,186 @@ function resetFocus() {
   focusedPillar = null;
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('focused'));
   document.getElementById('pill-build').classList.add('focused');
-  currentFilter = 'all';
-  document.querySelectorAll('.tf').forEach(b => b.classList.remove('active'));
-  document.querySelector('.tf').classList.add('active');
   renderTasks();
 }
 
-// ── PILLAR PROGRESS ────────────────────────────────────────────────
+// ── PILLAR PROGRESS ───────────────────────────────────────────────
 function renderPillarProgress() {
-  const pillars = ['Build','Fund','Run','Grow'];
   const colors = {Build:'var(--mint)',Fund:'var(--yellow)',Run:'var(--blue)',Grow:'var(--purple)'};
-  let totalPct = 0;
-
-  pillars.forEach(p => {
-    const pillarTasks = allTasks.filter(t => t.pillar === p);
-    if (pillarTasks.length === 0) return;
-    const done = pillarTasks.filter(t => progress[t.id]).length;
-    const pct = Math.round((done / pillarTasks.length) * 100);
-    totalPct += pct;
-    document.getElementById(`pct-${p.toLowerCase()}`).textContent = pct + '%';
-    document.getElementById(`fill-${p.toLowerCase()}`).style.width = pct + '%';
+  let total = 0;
+  ['Build','Fund','Run','Grow'].forEach(p => {
+    const tasks = allTasks.filter(t => t.pillar === p);
+    if (!tasks.length) return;
+    const done = tasks.filter(t => progress[t.id]).length;
+    const pct = Math.round((done/tasks.length)*100);
+    total += pct;
+    document.getElementById(`pct-${p.toLowerCase()}`).textContent = pct+'%';
+    document.getElementById(`fill-${p.toLowerCase()}`).style.width = pct+'%';
+    const btn = document.getElementById(`cbtn-${p.toLowerCase()}`);
+    if (pct === 100) { btn.textContent = '✓ All complete — undo?'; btn.classList.add('all-done'); }
+    else { btn.textContent = 'Mark all complete'; btn.classList.remove('all-done'); }
   });
-
-  const overall = Math.round(totalPct / 4);
-  document.getElementById('sb-prog-num').textContent = overall + '%';
+  const overall = Math.round(total/4);
+  document.getElementById('sb-pct').textContent = overall+'%';
 }
 
-// ── NEXT STEP ──────────────────────────────────────────────────────
+// ── NEXT STEP ─────────────────────────────────────────────────────
 function renderNextStep() {
-  // Find first incomplete urgent task, then first incomplete task
   const urgent = allTasks.find(t => t.urgent && !progress[t.id]);
   const next = urgent || allTasks.find(t => !progress[t.id]);
-
   if (!next) {
-    document.getElementById('nc-title').textContent = 'You\'ve completed all your tasks!';
+    document.getElementById('nc-title').textContent = 'All tasks complete!';
     document.getElementById('nc-sub').textContent = 'Book a consulting session to plan your next season.';
     return;
   }
-
-  const icons = {Build:'🏗️',Fund:'💰',Run:'⚙️',Grow:'📈'};
   document.getElementById('nc-title').textContent = next.title;
   document.getElementById('nc-sub').textContent = next.detail;
-  document.getElementById('next-card').onclick = () => {
-    const q = encodeURIComponent(next.askPrompt || next.title);
-    window.location.href = `/coaching?q=${q}`;
+  document.getElementById('next-card').onclick = () => window.location.href = `/coaching?q=${encodeURIComponent(next.askPrompt||next.title)}`;
+}
+
+// ── COACHING TASK TOAST ───────────────────────────────────────────
+function showToast(taskText, suggestedPillar) {
+  document.getElementById('toast-task-text').textContent = taskText;
+  if (suggestedPillar) {
+    document.getElementById('toast-pillar').value = suggestedPillar;
+  }
+  document.getElementById('coach-toast').style.display = 'block';
+}
+
+function confirmToastTask() {
+  const text = document.getElementById('toast-task-text').textContent;
+  const pillar = document.getElementById('toast-pillar').value;
+  const task = {
+    id: 'coach_' + Date.now(),
+    title: text,
+    detail: 'Task added from your AI coaching session',
+    pillar,
+    urgent: false,
+    custom: true,
+    askPrompt: text
   };
+  allTasks.push(task);
+  localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
+  dismissToast();
+  renderAll();
+  // Show confirmation
+  focusPillar(pillar);
 }
 
-// ── START ──────────────────────────────────────────────────────────
+function dismissToast() {
+  document.getElementById('coach-toast').style.display = 'none';
+}
+
+// ── FILE UPLOAD ───────────────────────────────────────────────────
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('upload-drop').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) handleFileSelect(file);
+}
+
+function handleFileSelect(file) {
+  if (!file) return;
+
+  const isPro = localStorage.getItem('clearpath_pro') === 'true';
+  if (!isPro) {
+    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;padding:8px 10px;background:rgba(234,67,53,.08);border-radius:6px;">⚠️ Data upload is a Pro feature. <a href="/signup?upgrade=true" style="color:var(--blue);font-weight:600;">Upgrade to Pro →</a></div>';
+    return;
+  }
+
+  const month = new Date().toISOString().slice(0,7);
+  const uploadKey = `clearpath_uploads_${month}`;
+  const uploads = parseInt(localStorage.getItem(uploadKey) || '0');
+
+  if (uploads >= 1) {
+    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;padding:8px 10px;background:rgba(234,67,53,.08);border-radius:6px;">⚠️ You\'ve used your 1 upload for this month. Resets on the 1st.</div>';
+    return;
+  }
+
+  const allowed = ['.csv','.xlsx','.xls','.pdf'];
+  const ext = '.' + file.name.split('.').pop().toLowerCase();
+  if (!allowed.includes(ext)) {
+    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;">Please upload a CSV, Excel, or PDF file.</div>';
+    return;
+  }
+
+  document.getElementById('upload-status').innerHTML = `<div class="uc-file"><span class="uc-file-name">📄 ${file.name}</span><button class="uc-file-btn" onclick="processFile()">Analyze with AI</button></div>`;
+
+  // Store file reference
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    localStorage.setItem('clearpath_upload_data', JSON.stringify({
+      name: file.name,
+      type: ext,
+      size: file.size,
+      preview: e.target.result.substring(0, 5000) // first 5KB for analysis
+    }));
+  };
+  if (ext === '.csv' || ext === '.txt') {
+    reader.readAsText(file);
+  } else {
+    reader.readAsDataURL(file);
+  }
+}
+
+async function processFile() {
+  const fileData = localStorage.getItem('clearpath_upload_data');
+  if (!fileData) return;
+
+  const file = JSON.parse(fileData);
+  document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--sage);margin-top:8px;text-align:center;padding:12px;background:var(--mint-pale);border-radius:8px;">🧠 Analyzing your data... this may take a moment.</div>';
+
+  // Track upload usage
+  const month = new Date().toISOString().slice(0,7);
+  localStorage.setItem(`clearpath_uploads_${month}`, '1');
+  document.getElementById('uploads-remaining').textContent = '0 remaining this month';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-5',
+        max_tokens: 1000,
+        messages: [{
+          role: 'user',
+          content: `You are Clearpath, a program management advisor. Analyze this program data file and provide a brief, practical summary.
+
+Program: ${profile.orgName || 'Unknown'} (${profile.programType || ''})
+File: ${file.name} (${file.type})
+Data preview:
+${file.preview || '[Binary file - PDF or Excel]'}
+
+Provide:
+1. What data this file contains (2-3 sentences)
+2. 3 key insights or observations from the data
+3. 2 specific recommendations for this program based on what you see
+4. Whether this data would strengthen a grant application (yes/no and why)
+
+Keep it concise and specific to their program.`
+        }]
+      })
+    });
+
+    const data = await res.json();
+    const analysis = data.content?.[0]?.text || 'Could not analyze file.';
+
+    const formatted = analysis.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br/>');
+    document.getElementById('upload-status').innerHTML = `
+      <div style="margin-top:10px;padding:14px;background:var(--off);border:1px solid var(--g200);border-radius:10px;">
+        <div style="font-size:11px;font-weight:700;color:var(--mint);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">📊 Data Analysis</div>
+        <div style="font-size:13px;color:var(--text);line-height:1.6;">${formatted}</div>
+        <a href="/coaching?q=Based+on+my+uploaded+data,+what+should+I+focus+on+next?" style="display:inline-block;margin-top:10px;padding:8px 14px;background:var(--forest);color:white;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;">Discuss with AI advisor →</a>
+      </div>`;
+
+    localStorage.removeItem('clearpath_upload_data');
+
+  } catch(e) {
+    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;">Analysis failed. Please try again.</div>';
+  }
+}
+
 init();
-
-// Handle ?refresh=1 to regenerate tasks
-if (new URLSearchParams(window.location.search).get('refresh') === '1') {
-  localStorage.removeItem('clearpath_tasks');
-  window.location.href = '/dashboard';
-}
 </script>
 </body>
 </html>

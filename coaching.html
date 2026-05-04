@@ -286,7 +286,9 @@ async function send() {
     });
     const data = await res.json();
     document.getElementById('typing')?.remove();
-    addMsg('assistant', data.reply || 'Something went wrong. Please try again.');
+    const reply = data.reply || 'Something went wrong. Please try again.';
+    addMsg('assistant', reply);
+    detectActionItems(reply);
   } catch(e) {
     document.getElementById('typing')?.remove();
     addMsg('assistant', 'Having trouble connecting. Please try again.');
@@ -378,6 +380,184 @@ function updateQuestionCounter(used, limit) {
     updateQuestionCounter(count, 10);
   }
 })();
+
+// ── TASK DETECTION FROM COACHING ─────────────────────────────────────
+function detectActionItems(text) {
+  const actionPhrases = [
+    /you should ([^.!?]{15,80})[.!?]/gi,
+    /next step[^:]*[:]\s*([^.!?]{15,80})[.!?]/gi,
+    /i recommend ([^.!?]{15,80})[.!?]/gi,
+    /action item[^:]*[:]\s*([^.!?]{15,80})[.!?]/gi,
+    /make sure to ([^.!?]{15,80})[.!?]/gi,
+    /\*\*([^*]{15,80})\*\*/g,
+  ];
+
+  const found = [];
+  for (const pattern of actionPhrases) {
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      const item = (match[1] || match[0]).replace(/\*\*/g,'').trim();
+      if (item.length > 10 && item.length < 100 && !found.includes(item)) {
+        found.push(item);
+      }
+    }
+    if (found.length >= 2) break;
+  }
+
+  if (found.length > 0) {
+    showTaskPrompt(found[0]);
+  }
+}
+
+function showTaskPrompt(taskTitle) {
+  // Remove any existing prompt
+  document.getElementById('task-prompt')?.remove();
+
+  // Guess pillar from task content
+  const t = taskTitle.toLowerCase();
+  let pillar = 'Build';
+  if (t.includes('grant') || t.includes('fund') || t.includes('sponsor') || t.includes('price') || t.includes('pricing')) pillar = 'Fund';
+  else if (t.includes('root') || t.includes('register') || t.includes('schedule') || t.includes('roster') || t.includes('payment')) pillar = 'Run';
+  else if (t.includes('report') || t.includes('impact') || t.includes('expand') || t.includes('grow') || t.includes('season data')) pillar = 'Grow';
+
+  const div = document.createElement('div');
+  div.id = 'task-prompt';
+  div.style.cssText = 'background:var(--mint-pale);border:1px solid rgba(52,199,123,.3);border-radius:10px;padding:12px 14px;margin:0 16px 8px;display:flex;align-items:center;gap:10px;animation:fadeUp .3s ease;';
+  div.innerHTML = `
+    <span style="font-size:16px;">💡</span>
+    <div style="flex:1;min-width:0;">
+      <div style="font-size:12px;font-weight:700;color:var(--forest);margin-bottom:2px;">Add this to your dashboard?</div>
+      <div style="font-size:12px;color:var(--text-lt);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${taskTitle}</div>
+    </div>
+    <select id="tp-pillar" style="padding:5px 8px;border:1px solid rgba(52,199,123,.3);border-radius:6px;font-size:11px;background:white;outline:none;font-family:'Plus Jakarta Sans',sans-serif;">
+      <option value="Build" ${pillar==='Build'?'selected':''}>🏗️ Build</option>
+      <option value="Fund" ${pillar==='Fund'?'selected':''}>💰 Fund</option>
+      <option value="Run" ${pillar==='Run'?'selected':''}>⚙️ Run</option>
+      <option value="Grow" ${pillar==='Grow'?'selected':''}>📈 Grow</option>
+    </select>
+    <button onclick="addTaskFromCoaching('${taskTitle.replace(/'/g,"\'")}',document.getElementById('tp-pillar').value)" style="padding:5px 12px;background:var(--forest);color:white;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Add</button>
+    <button onclick="this.parentElement.remove()" style="padding:5px 8px;background:none;border:none;font-size:14px;color:var(--text-lt);cursor:pointer;">✕</button>
+  `;
+
+  const thread = document.getElementById('thread');
+  thread.appendChild(div);
+  thread.scrollTop = thread.scrollHeight;
+
+  // Auto-dismiss after 15 seconds
+  setTimeout(() => div.remove(), 15000);
+}
+
+function addTaskFromCoaching(title, pillar) {
+  // Save to pending task for dashboard
+  localStorage.setItem('clearpath_pending_task', JSON.stringify({ title, pillar }));
+
+  // Also save directly to custom tasks
+  const customs = JSON.parse(localStorage.getItem('clearpath_custom_tasks') || '[]');
+  customs.push({
+    id: 'coaching_' + Date.now(),
+    title,
+    detail: 'Added from your coaching session.',
+    pillar,
+    urgent: false,
+    custom: true,
+    askPrompt: title
+  });
+  localStorage.setItem('clearpath_custom_tasks', JSON.stringify(customs));
+
+  // Remove prompt and show confirmation
+  document.getElementById('task-prompt')?.remove();
+
+  const confirm = document.createElement('div');
+  confirm.style.cssText = 'background:var(--mint-pale);border:1px solid rgba(52,199,123,.3);border-radius:10px;padding:10px 14px;margin:0 16px 8px;font-size:12px;color:var(--sage);font-weight:600;';
+  confirm.textContent = `✓ Added to your ${pillar} tasks on the dashboard`;
+  document.getElementById('thread').appendChild(confirm);
+  document.getElementById('thread').scrollTop = document.getElementById('thread').scrollHeight;
+  setTimeout(() => confirm.remove(), 4000);
+}
+
+
+// ── TASK DETECTION FROM COACHING ─────────────────────────────────
+function detectActionItem(text) {
+  // Look for action-oriented phrases in AI response
+  const actionPhrases = [
+    /your next step is (.{10,80})/i,
+    /you should (.{10,80})/i,
+    /i recommend (.{10,80})/i,
+    /action item[:\s]+(.{10,80})/i,
+    /make sure to (.{10,80})/i,
+    /first thing to do[:\s]+(.{10,80})/i,
+    /start by (.{10,80})/i,
+    /\*\*(.{10,60})\*\* — (.{10,80})/,
+  ];
+
+  let detected = null;
+  for (const pattern of actionPhrases) {
+    const match = text.match(pattern);
+    if (match) {
+      detected = (match[1] || match[0]).replace(/\*\*/g,'').trim();
+      // Clean up — remove trailing punctuation and cut at sentence end
+      detected = detected.split(/[.!?
+]/)[0].trim();
+      if (detected.length > 15 && detected.length < 100) break;
+      detected = null;
+    }
+  }
+
+  if (!detected) return;
+
+  // Detect likely pillar
+  const lower = detected.toLowerCase();
+  let pillar = 'Build';
+  if (lower.includes('grant') || lower.includes('fund') || lower.includes('sponsor') || lower.includes('budget') || lower.includes('price') || lower.includes('fee')) pillar = 'Fund';
+  else if (lower.includes('root') || lower.includes('registr') || lower.includes('schedule') || lower.includes('payment') || lower.includes('season')) pillar = 'Run';
+  else if (lower.includes('report') || lower.includes('impact') || lower.includes('expand') || lower.includes('grow') || lower.includes('data')) pillar = 'Grow';
+
+  // Show toast after short delay
+  setTimeout(() => {
+    showCoachingTaskPrompt(detected, pillar);
+  }, 1500);
+}
+
+function showCoachingTaskPrompt(taskText, pillar) {
+  // Don't spam — only show once per session
+  const shown = sessionStorage.getItem('task_prompt_shown');
+  if (shown) return;
+  sessionStorage.setItem('task_prompt_shown', '1');
+
+  // Store for dashboard to pick up
+  localStorage.setItem('clearpath_pending_task', JSON.stringify({ text: taskText, pillar }));
+
+  // Show small inline prompt at bottom of thread
+  const thread = document.getElementById('thread');
+  const prompt = document.createElement('div');
+  prompt.id = 'task-prompt';
+  prompt.style.cssText = 'margin:8px 0;padding:12px 16px;background:var(--mint-pale);border:1.5px solid rgba(52,199,123,.3);border-radius:10px;display:flex;align-items:center;gap:12px;';
+  prompt.innerHTML = `
+    <span style="font-size:16px;">📌</span>
+    <div style="flex:1;">
+      <div style="font-size:12px;font-weight:700;color:var(--sage);margin-bottom:2px;">Add to your dashboard?</div>
+      <div style="font-size:13px;color:var(--forest);font-weight:600;">${taskText}</div>
+    </div>
+    <button onclick="addToBoard('${taskText.replace(/'/g,"\'")}','${pillar}')" style="padding:7px 12px;background:var(--forest);color:white;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap;">Add to ${pillar}</button>
+    <button onclick="document.getElementById('task-prompt').remove();localStorage.removeItem('clearpath_pending_task');" style="padding:7px 10px;background:none;border:1px solid var(--g200);border-radius:7px;font-size:12px;color:var(--text-lt);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Not now</button>
+  `;
+  thread.appendChild(prompt);
+  thread.scrollTop = thread.scrollHeight;
+}
+
+function addToBoard(taskText, pillar) {
+  // Save as pending task for dashboard
+  localStorage.setItem('clearpath_pending_task', JSON.stringify({ text: taskText, pillar }));
+  document.getElementById('task-prompt')?.remove();
+
+  // Show confirmation
+  const thread = document.getElementById('thread');
+  const conf = document.createElement('div');
+  conf.style.cssText = 'margin:8px 0;padding:10px 16px;background:var(--mint-pale);border-radius:8px;font-size:13px;color:var(--sage);font-weight:600;';
+  conf.innerHTML = `✓ Added to your ${pillar} tasks — <a href="/dashboard" style="color:var(--forest);font-weight:700;">View dashboard →</a>`;
+  thread.appendChild(conf);
+  thread.scrollTop = thread.scrollHeight;
+}
 </script>
 </body>
 </html>
