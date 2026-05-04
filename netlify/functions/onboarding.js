@@ -25,7 +25,7 @@ exports.handler = async function(event, context) {
       'City': answers.city || answers.zip || '',
       'State': answers.state || '',
       'Program Type': answers.category || '',
-      'Sport or Category': answers.subcategory || '',
+      'Sport or Category': Array.isArray(answers.subcategory) ? answers.subcategory.join(', ') : (answers.subcategory || ''),
       'Entity Type': answers.entityType || '',
       'Annual Budget Range': answers.budgetRange || '',
       'Biggest Challenge': answers.biggestChallenge || '',
@@ -75,7 +75,7 @@ exports.handler = async function(event, context) {
         'City': answers.city || answers.zip || '',
         'State': answers.state || '',
         'Program Type': answers.category || '',
-        'Sport or Category': answers.subcategory || '',
+        'Sport or Category': Array.isArray(answers.subcategory) ? answers.subcategory.join(', ') : (answers.subcategory || ''),
         'Onboarding Complete': true,
         'Date Joined': new Date().toISOString().split('T')[0]
       };
