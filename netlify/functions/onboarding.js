@@ -15,94 +15,65 @@ exports.handler = async function(event, context) {
 
   try {
     const { email, orgname, answers } = JSON.parse(event.body);
-
     const baseId = process.env.AIRTABLE_ORGS_BASE_ID;
     const token = process.env.AIRTABLE_TOKEN;
 
-    console.log('Onboarding for email:', email);
-    console.log('Answers received:', JSON.stringify(answers));
+    console.log('Onboarding save for:', email);
+    console.log('Answers:', JSON.stringify(answers));
 
-    // Search for existing record by email
+    // Search for existing record
     const searchRes = await fetch(
       `https://api.airtable.com/v0/${baseId}/Orgs?filterByFormula=${encodeURIComponent(`{Email}="${email}"`)}`,
       { headers: { 'Authorization': `Bearer ${token}` } }
     );
-
     const searchData = await searchRes.json();
-    console.log('Search result count:', searchData.records?.length);
+    const record = searchData.records?.[0];
+    console.log('Record found:', record ? record.id : 'none');
 
     const fields = {
-      'Sport or Category': answers.sportOrCategory || '',
+      'Contact First Name': answers.firstName || '',
+      'Contact Last Name': answers.lastName || '',
+      'State': answers.state || '',
+      'Sport or Category': answers.subcategory || answers.category || '',
+      'Program Type': answers.category || '',
       'Entity Type': answers.entityType || '',
+      'Participant Count': answers.participantCount || '',
       'Annual Budget Range': answers.budgetRange || '',
       'Grant Experience': answers.grantExperience || '',
       'Biggest Challenge': answers.biggestChallenge || '',
       'Onboarding Complete': true,
     };
 
-    // Only add Participant Count if it exists as a field
-    if (answers.participantCount) {
-      fields['Participant Count'] = answers.participantCount;
-    }
+    // Add zip if field exists
+    if (answers.zip) fields['Zip Code'] = answers.zip;
+    if (answers.journey) fields['Onboarding Stage'] = answers.journey;
 
-    console.log('Fields to write:', JSON.stringify(fields));
+    console.log('Fields to save:', JSON.stringify(fields));
 
-    const record = searchData.records?.[0];
-
+    let res;
     if (record) {
-      console.log('Updating record:', record.id);
-      const updateRes = await fetch(
-        `https://api.airtable.com/v0/${baseId}/Orgs/${record.id}`,
-        {
-          method: 'PATCH',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ fields })
-        }
-      );
-      const updateData = await updateRes.json();
-      console.log('Update response:', JSON.stringify(updateData));
-
-      if (!updateRes.ok) {
-        throw new Error(updateData.error?.message || 'Update failed');
-      }
+      res = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs/${record.id}`, {
+        method: 'PATCH',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields })
+      });
     } else {
-      console.log('No record found — creating new');
-      const createRes = await fetch(
-        `https://api.airtable.com/v0/${baseId}/Orgs`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            fields: {
-              ...fields,
-              'Org Name': orgname || '',
-              'Email': email || '',
-            }
-          })
-        }
-      );
-      const createData = await createRes.json();
-      console.log('Create response:', JSON.stringify(createData));
+      res = await fetch(`https://api.airtable.com/v0/${baseId}/Orgs`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields: { ...fields, 'Org Name': orgname || '', 'Email': email || '' } })
+      });
     }
 
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ success: true })
-    };
+    const data = await res.json();
+    console.log('Airtable response:', JSON.stringify(data));
+
+    if (!res.ok) throw new Error(data.error?.message || 'Airtable error');
+
+    return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
 
   } catch (error) {
-    console.error('Onboarding error:', error.message);
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: error.message })
-    };
+    console.error('Error:', error.message);
+    return { statusCode: 500, headers, body: JSON.stringify({ error: error.message }) };
   }
 };
