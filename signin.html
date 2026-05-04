@@ -114,6 +114,14 @@ async function handleSignIn() {
       localStorage.setItem('clearpath_onboarded', 'true');
       localStorage.setItem('clearpath_user', JSON.stringify({ email, orgname: data.profile.orgName }));
       localStorage.setItem('clearpath_profile', JSON.stringify(data.profile));
+
+      // Set Pro status from Airtable
+      if (data.isPro) {
+        localStorage.setItem('clearpath_pro', 'true');
+      } else {
+        localStorage.removeItem('clearpath_pro');
+      }
+
       window.location.href = '/dashboard';
     } else {
       err.textContent = data.error || "We couldn't find an account with that email. Please check and try again.";
