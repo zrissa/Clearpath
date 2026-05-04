@@ -1,0 +1,386 @@
+# CLEARPATH BRAIN 5 — PARKS & RECREATION PROGRAMS
+# Version 1.0 | Last updated: May 2026
+# This document covers Parks & Recreation departments and municipally-operated community programs.
+# Covers: City/county rec departments, municipal sports leagues, aquatics, senior programs, youth camps, fitness classes, special events
+# Update annually every January from: NRPA Agency Performance Review, NRPA Field Report, NASPE, AAPRA annual reports.
+
+---
+
+## SECTION 1: UNDERSTANDING PARKS & REC STRUCTURE
+
+### How Parks & Rec is Different from Nonprofits
+Parks & Recreation programs operate fundamentally differently from nonprofit or private programs:
+
+- **Funding source:** City/county general fund budget, millage taxes, user fees, state grants — not private philanthropy
+- **Legal authority:** Governed by city council, county commission, or parks board — not a nonprofit board of directors
+- **Staff:** Government employees — subject to civil service rules, union agreements, public employee laws
+- **Procurement:** Must follow public procurement rules — competitive bidding, RFPs, vendor approval processes
+- **Transparency:** Subject to Freedom of Information Act (FOIA), open meetings laws, public records requirements
+- **Mission:** Serve ALL residents regardless of income — equity and access are core mandates
+- **Facilities:** City-owned parks, recreation centers, pools, fields — maintained by public works departments
+
+### Types of Parks & Rec Organizations
+**Municipal Recreation Department:** City or township department directly operating programs. Staff are city employees. Budget approved by city council.
+
+**County Parks Department:** County-level department managing larger parks systems. Often focuses on passive recreation (trails, nature areas) and some active programming.
+
+**Park District (Illinois, some other states):** Independent taxing body separate from city government. Has its own board, taxing authority, and budget. Very common in Illinois.
+
+**Recreation Authority:** Independent authority created by one or more municipalities. Can cross city/county lines. Has own governance structure.
+
+**Conservancy/Foundation:** Nonprofit partner organization that supports a public parks department. Raises private funds that supplement public budget. Not the department itself.
+
+---
+
+## SECTION 2: GOVERNANCE AND BUDGET
+
+### How Parks & Rec Gets Funded
+
+**General Fund Allocation:**
+The primary funding source. City council approves annual budget allocating money to parks & rec department. Advocate for your budget at council meetings. Show ROI through participation data, economic impact, and resident satisfaction.
+
+**Millage Tax:**
+Dedicated property tax specifically for parks. Common in Michigan. Requires voter approval. Provides stable, dedicated funding stream. Example: Macomb County Parks operates on a dedicated millage.
+
+**User Fees:**
+Registration fees, facility rentals, class fees. Most departments aim for user fees to cover 30–60% of program costs. Full cost recovery vs. partial subsidy is a policy decision made by council/board.
+
+**State Grants:**
+Michigan DNR (Department of Natural Resources): Major source for parks capital improvements. Programs include:
+- Michigan Natural Resources Trust Fund (MNRTF): Land acquisition and development grants. Up to $3M. mnrtf.com
+- Recreation Passport Program: Funds distributed to local parks based on vehicle registrations
+- Land and Water Conservation Fund (LWCF): Federal dollars administered by state. Facility and land grants.
+
+**Federal Grants:**
+- Community Development Block Grant (CDBG): For programs serving low-income residents. Administered by HUD through municipalities.
+- AmeriCorps: Can place members with rec departments for program delivery
+- USDA Rural Development: For rural parks and recreation facilities
+
+**Foundations and Corporate Grants:**
+Parks departments CAN apply for private grants but must follow procurement rules. Some grants require nonprofit status — use your parks foundation/conservancy partner for those.
+
+**Special Revenue Funds:**
+Many departments have dedicated funds for specific programs (senior programs, aquatics, etc.) separate from general fund.
+
+### Budget Cycle
+- Typically on fiscal year (October–September or January–December depending on municipality)
+- Budget requests submitted 3–4 months before fiscal year start
+- Public hearings required
+- Council/commission approval required
+- Mid-year amendments possible but require approval
+
+### Making the Case for Budget
+Document and present annually:
+- Total participants served (unduplicated count)
+- Participation by age group, zip code, income level
+- Economic impact (spending by participants, facilities revenue)
+- Social return on investment (health outcomes, crime reduction, youth development)
+- Benchmark against NRPA national standards (acres of parkland per 1,000 residents, etc.)
+- Resident satisfaction survey results
+
+---
+
+## SECTION 3: PROGRAMS AND SERVICES
+
+### Core Program Areas
+
+**Youth Sports Leagues:**
+- Soccer, basketball, baseball, flag football, volleyball most common
+- Registration typically $25–$75/season for residents (subsidized by general fund)
+- Non-resident fees typically 25–50% higher
+- Scholarship/fee waiver programs required for equity
+- Partnerships with youth sports organizations common (use existing leagues' governing body affiliations)
+
+**Aquatics:**
+- Public pools, splash pads, water parks
+- Swim lessons (most in-demand program nationally per NRPA data)
+- Competitive swim teams often partner with private clubs
+- Lifeguard staffing is largest cost and biggest challenge
+- American Red Cross Lifeguard certification required for all lifeguards
+- Pool water chemistry: daily testing required, maintain proper pH (7.2–7.8) and chlorine levels
+
+**Senior Programs:**
+- Senior centers, fitness classes, trips and social programs
+- Meal programs often partner with Area Agency on Aging
+- Title III funding (Older Americans Act) available through Area Agency on Aging
+- Transportation often the biggest barrier for senior participation
+
+**Youth Camps:**
+- Day camps (most common): 6–8 weeks summer, ages 5–12 typically
+- Specialty camps: sports, STEM, arts
+- State licensing required in most states for youth camps
+- In Michigan: Bureau of Community and Health Systems licenses youth camps. Requirements: background checks, staff ratios, health and safety protocols, facility standards
+- Staff ratio: 1:6 for ages 5–8, 1:8 for ages 9–12 typically required by state
+
+**Fitness and Wellness:**
+- Group fitness classes, personal training, weight rooms
+- Growing area — connects to public health mission
+- Silver Sneakers partnership for senior fitness (Medicare-covered)
+
+**Special Events:**
+- Community festivals, holiday events, outdoor concerts
+- Revenue generating through vendors, sponsorships, admission
+- Require event permits, liability insurance, sometimes police detail
+- Partnership opportunity with local businesses for sponsorship
+
+**Adaptive Recreation:**
+- Programs for residents with disabilities
+- ADA compliance required for all programs and facilities
+- Partnership with disability services organizations
+
+---
+
+## SECTION 4: STAFFING
+
+### Staff Types in Parks & Rec
+
+**Full-Time Staff:**
+Recreation Director, program supervisors, facility managers. Government employees. Civil service protections. Union may apply (AFSCME, Teamsters, or independent union most common in municipal recreation).
+
+**Part-Time/Seasonal Staff:**
+Majority of direct program delivery. Lifeguards, camp counselors, coaches, instructors. Often paid hourly. May not receive benefits. High turnover is industry-wide challenge.
+
+**Contractors/Instructors:**
+Independent contractors for specialty programs (fitness classes, arts, enrichment). File 1099-NEC. Follow IRS classification rules carefully — misclassification risk is significant.
+
+**Volunteers:**
+Background checks required. Liability waiver recommended. Volunteer agreements needed. Cannot replace paid employees under fair labor standards.
+
+### Hiring Challenges
+Lifeguard shortage is a national crisis — NRPA and Red Cross data consistently show shortage of certified lifeguards. Solutions:
+- Offer free or discounted lifeguard certification courses
+- Build a homegrown pipeline — train teens from your swim lessons
+- Competitive hourly wages ($15–$20+ depending on market)
+
+### Certifications Needed by Role
+- **Lifeguards:** American Red Cross Lifeguard Certification (valid 2 years), CPR/AED, First Aid
+- **Camp Counselors:** CPR/First Aid, state-required background checks
+- **Recreation Supervisors:** Often CPRP (Certified Parks and Recreation Professional) — NRPA certification
+- **Aquatics Director:** Aquatic Facility Operator (AFO) or Certified Pool Operator (CPO)
+- **All staff with youth contact:** Background check (required), SafeSport recommended
+
+### CPRP — Certified Parks and Recreation Professional
+National certification from NRPA. Demonstrates professional competency. Requirements: degree in parks/rec or related field + experience + exam. Valued for career advancement and department credibility. nrpa.org/certification
+
+---
+
+## SECTION 5: FACILITIES
+
+### ADA Compliance
+All public parks and recreation facilities must comply with Americans with Disabilities Act (ADA):
+- Accessible parking, pathways, entrances
+- Accessible playground equipment
+- Accessible restrooms
+- Accessible pool entry (pool lift required for public pools)
+- Program accessibility — not just physical access
+
+ADA compliance assessments required. Transition plans for non-compliant facilities. Contact your municipality's ADA coordinator.
+
+### Facility Maintenance
+- Annual preventive maintenance schedule for all facilities
+- Capital improvement plan (5–10 year outlook) for major repairs/replacements
+- Playground safety inspections: CPSC guidelines, ASTM standards. Certified Playground Safety Inspector (CPSI) recommended annually.
+- Pool inspections: Health department inspections, state licensing requirements
+
+### Park Planning
+- Master Plans: Comprehensive 5–10 year plans for parks system. Community engagement required. Used to support grant applications.
+- Level of Service standards: NRPA recommends 10 acres of parkland per 1,000 residents as a benchmark
+- Geographic equity: Distribution of parks and services across all neighborhoods
+
+---
+
+## SECTION 6: GRANTS AND FUNDING
+
+### Tier 1 — Best Grants for Parks & Rec Departments
+
+**Michigan Natural Resources Trust Fund (MNRTF)**
+Amount: Up to $3,000,000
+Purpose: Land acquisition and outdoor recreation development
+Eligibility: Local units of government (cities, townships, counties)
+Apply through: Michigan DNR at michigan.gov/dnr
+Deadline: Typically September 1 annually
+Notes: Highly competitive. Strong applications show community need, matching funds, and long-term maintenance plan. NRPA strongly recommends having a parks master plan before applying.
+
+**Land and Water Conservation Fund (LWCF)**
+Amount: Varies. Typically $50,000–$500,000 for local projects
+Purpose: Outdoor recreation land acquisition and development
+Apply through: Michigan DNR (state administers federal dollars)
+Notes: 50% match required. Must maintain as public recreation forever (Section 6(f) protection).
+
+**Community Development Block Grant (CDBG)**
+Amount: Varies by municipality
+Purpose: Programs and facilities serving low-to-moderate income residents
+Apply through: Your city/county CDBG office (HUD funds flow to municipalities)
+Notes: Parks & rec programs in low-income neighborhoods qualify. Capital and program costs eligible.
+
+**NRPA's Grant Programs**
+NRPA administers several grant programs for parks departments:
+- Tony Hawk Foundation: Skate park grants
+- NFL Foundation Grassroots: Field improvements for youth football
+- Various corporate-funded programs
+Apply at: nrpa.org/our-work/grants
+
+**Robert Wood Johnson Foundation**
+Amount: $50,000–$500,000
+Focus: Health equity, active living, parks as health infrastructure
+Apply at: rwjf.org
+Notes: Strong alignment with parks as public health. Active living research strongly supported.
+
+**Kaiser Permanente — Community Health Grants**
+Amount: Varies
+Focus: Physical activity and community health
+Notes: Available in Kaiser service areas. Strong fit for fitness and youth activity programs.
+
+**AARP Community Challenge Grants**
+Amount: $500–$50,000
+Focus: Livable communities, often includes parks and senior programs
+Apply at: aarp.org/livable-communities/community-challenge
+Notes: Fast turnaround. Good for small projects and senior-focused programming.
+
+### Tier 2 — Federal Programs
+
+**AmeriCorps VISTA**
+Places full-time members with parks departments for capacity building. Member stipend paid by federal government. Strong for program development, grant writing, volunteer coordination.
+
+**EPA Environmental Justice Grants**
+For parks serving environmental justice communities. Brownfield cleanup, green space development.
+
+**HUD Choice Neighborhoods**
+For parks in neighborhoods receiving Choice Neighborhoods grants.
+
+### Revenue Generation for Departments
+Beyond grants, parks departments generate revenue through:
+- Facility rentals (pavilions, fields, meeting rooms)
+- Special event permits and vendor fees
+- Corporate sponsorships for facilities and programs (naming rights, presenting sponsorships)
+- Foundation fundraising through parks conservancy/foundation partner
+- Merchandising and pro shop sales (golf courses, marinas)
+
+---
+
+## SECTION 7: COMMUNITY ENGAGEMENT
+
+### Why Engagement Matters for Parks & Rec
+Public parks belong to all residents. Meaningful community engagement:
+- Builds political support for budget
+- Ensures programs reflect actual community needs
+- Required for most grant applications
+- Increases program participation through buy-in
+
+### Engagement Methods
+**Community Surveys:** Annual or biennial community needs assessment. NRPA provides survey tools. Digital (SurveyMonkey, Qualtrics) and paper for accessibility.
+
+**Town Halls and Open Houses:** Public meetings on major decisions (master plans, facility closures, new programs). Notice required under open meetings laws.
+
+**Advisory Committees:** Parks and recreation advisory boards or commissions. Often formalized in city code. Citizen appointments by city council.
+
+**Partnerships with Community Organizations:** Schools, nonprofits, faith communities, neighborhood associations. Co-programming reduces cost and increases reach.
+
+**Social Media and Digital Outreach:** Facebook, Nextdoor, Instagram for program promotion and feedback. Email newsletters for registered participants.
+
+### Serving Underserved Populations
+Parks departments have an equity mandate:
+- **Income barriers:** Fee waiver programs, scholarship funds, free programming in low-income areas
+- **Language barriers:** Bilingual staff and materials where community demographics require
+- **Geographic barriers:** Mobile recreation programs, satellite locations
+- **Disability barriers:** Adaptive recreation programs, ADA-accessible facilities
+
+---
+
+## SECTION 8: PARTNERSHIPS
+
+### School District Partnerships
+Joint use agreements allow sharing of facilities between parks departments and school districts. School gyms, fields, and courts used for rec programming evenings and weekends. Parks fields used by school sports programs.
+
+**Joint Use Agreement elements:**
+- Which facilities are shared
+- Scheduling priority (who gets first claim)
+- Maintenance responsibilities
+- Insurance and liability
+- Cost sharing
+
+### Nonprofit Organization Partnerships
+Parks departments frequently partner with nonprofits to deliver specialized programming:
+- YMCAs: Aquatics, fitness, youth programs
+- Boys & Girls Clubs: After-school, youth development
+- Youth sports organizations: Leagues and travel programs using public facilities
+- Arts organizations: Performing arts, cultural programming
+
+### Health System Partnerships
+Growing trend: hospitals and health systems partnering with parks departments on community health programs. Mutually beneficial — parks deliver programs, health systems fund them as community benefit.
+
+### Corporate Partnerships and Sponsorships
+Parks departments can accept sponsorships. Naming rights to facilities and programs are common:
+- Facility naming: $10,000–$500,000+ depending on facility size and visibility
+- Program presenting sponsorship: $1,000–$50,000/year
+- Event sponsorship: $500–$25,000
+
+Create a formal sponsorship program with tiered benefits. Approach local businesses, regional corporations, and national brands with community presence.
+
+---
+
+## SECTION 9: NATIONAL STANDARDS AND BENCHMARKS
+
+### NRPA Agency Performance Review Benchmarks
+National Recreation and Park Association (NRPA) publishes annual benchmarks:
+- **Park acres per 1,000 residents:** Median 10.9 acres
+- **Operating expenditure per resident:** Median $82/resident/year
+- **Revenue recovery ratio:** Median 28% (fees cover 28% of operating costs)
+- **Staff per 10,000 residents:** Varies by agency type
+
+Use these benchmarks when presenting budget requests and grant applications.
+
+### Level of Service Standards
+- One recreation center per 25,000–50,000 residents
+- One community park per 5,000 residents
+- One neighborhood park per 1,000 residents
+- 10 acres of parkland per 1,000 residents (NRPA standard)
+
+### Program Quality Standards
+- Track Net Promoter Score for programs
+- Participant satisfaction surveys
+- Staff-to-participant ratios meeting state requirements
+- Incident/injury tracking and reporting
+
+---
+
+## SECTION 10: COMPLIANCE AND LEGAL
+
+### Open Meetings Act (Michigan)
+All meetings of public bodies (parks commissions, city councils deciding on parks) must be open to the public. Notice requirements (18 hours minimum in Michigan for most meetings). Minutes must be kept and made public. Closed sessions only for specific legal reasons.
+
+### Freedom of Information Act (FOIA)
+All public records are subject to FOIA requests. Parks departments must have a FOIA coordinator and response policy. Budget documents, contracts, personnel records (limited), meeting minutes all requestable.
+
+### Procurement Rules
+Purchasing goods and services must follow municipal procurement policies:
+- Small purchases: Often $1,000–$5,000 threshold — simplified process
+- Mid-range: Competitive quotes from multiple vendors
+- Large purchases: Formal bid process (RFP or IFB), public notice, sealed bids
+- Professional services: Often RFP process with qualifications-based selection
+
+Violating procurement rules can result in grant disallowances and legal liability.
+
+### Insurance Requirements
+Municipal self-insurance pools most common for parks departments:
+- Michigan: MMRMA (Michigan Municipal Risk Management Authority) is most common
+- General liability, property, vehicle, workers compensation
+- Special event certificates of insurance required for facility rentals
+- Tenant users liability insurance (TULIP) policies available for event rentals
+
+### Youth Camp Licensing (Michigan)
+Michigan Department of Health and Human Services licenses youth camps:
+- Applies to programs operating 5+ days with overnight OR day programs serving youth
+- Application process: Annual license, facility inspection
+- Requirements: Staff background checks, staff ratios, health protocols, emergency plans
+- Contact: MDHHS Bureau of Community and Health Systems
+
+---
+
+## SOURCES FOR ANNUAL BRAIN UPDATE (every January)
+- NRPA Agency Performance Review: nrpa.org/publications-research/research/agency-performance-review
+- NRPA Field Reports: nrpa.org/publications-research/research/field-reports
+- Michigan DNR grant program updates: michigan.gov/dnr/grants
+- AAPRA (American Academy for Park and Recreation Administration): aapra.org
+- National Association of State Park Directors: naspd.indstate.edu
+- NASPE (National Association of Sport and Physical Education): shapeamerica.org
