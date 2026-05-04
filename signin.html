@@ -77,6 +77,13 @@ if (localStorage.getItem('clearpath_auth') === 'true') {
   window.location.href = '/dashboard';
 }
 
+async function hashPassword(password) {
+  const msgBuffer = new TextEncoder().encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 async function handleSignIn() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
@@ -100,10 +107,11 @@ async function handleSignIn() {
 
   try {
     // Look up profile from Airtable by email
+    const passwordHash = await hashPassword(password);
     const res = await fetch('/.netlify/functions/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, passwordHash })
     });
 
     const data = await res.json();

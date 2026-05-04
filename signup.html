@@ -158,12 +158,15 @@ async function handleSignup() {
   };
   localStorage.setItem('clearpath_profile', JSON.stringify(profile));
 
+  // Hash password
+  const hashedPassword = await hashPassword(password);
+
   // Save to Airtable via Netlify function
   try {
     await fetch('/.netlify/functions/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, orgname })
+      body: JSON.stringify({ email, orgname, password: hashedPassword })
     });
   } catch(e) {
     console.log('Signup save failed — proceeding anyway');

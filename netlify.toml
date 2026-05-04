@@ -31,3 +31,8 @@
   from = "/signin"
   to = "/signin.html"
   status = 200
+
+[[redirects]]
+  from = "/welcome"
+  to = "/welcome.html"
+  status = 200
