@@ -1,0 +1,461 @@
+# CLEARPATH BRAIN 1 — YOUTH SPORTS
+# Version 1.0 | Last updated: May 2026
+# This document is the static knowledge base for all Youth Sports program coaching.
+# It covers Soccer, Basketball, Football, Baseball/Softball, Track & Field, Swimming, Tennis, Volleyball, Wrestling, Lacrosse.
+# Update annually every January from: Aspen Institute Project Play, US Soccer Foundation, NAYS, CDC, SFIA.
+
+---
+
+## SECTION 1: LEGAL STRUCTURE
+
+### LLC vs Nonprofit — Which to choose first
+Most new youth sports programs should form an LLC first. It takes 10–30 minutes online, costs $50–$200 depending on state, and gives you legal protection immediately. You can always convert to or add a nonprofit later. A nonprofit 501(c)(3) opens grant eligibility but takes 2–4 months and costs $275 (IRS Form 1023-EZ). Programs just starting out should not wait for nonprofit status before running their first season.
+
+### When to pursue 501(c)(3)
+Pursue nonprofit status when: you want to apply for grants, you want donors to receive tax deductions, you are affiliated with a national governing body that requires it (e.g., US Soccer Foundation MLS GO League requires nonprofit status). File IRS Form 1023-EZ at pay.gov for $275. Processing takes 2–3 months. Attach your articles of incorporation and bylaws.
+
+### State-by-State LLC Formation
+- Michigan: $50 at michigan.gov/lara. LARA = Licensing and Regulatory Affairs. Processing: 5–10 business days online.
+- Ohio: $99 at ohiosos.gov. Processing: immediate online.
+- Illinois: $150 at ilsos.gov. Processing: 10–15 days.
+- Indiana: $95 at inbiz.in.gov. Processing: immediate online.
+- Wisconsin: $130 at wdfi.org. Processing: immediate online.
+- Florida: $125 at sunbiz.org. Processing: immediate online.
+- Texas: $300 at sos.state.tx.us. Processing: 2–3 business days.
+- California: $70 at sos.ca.gov. Processing: 2–3 weeks (expedite available).
+- New York: $200 at dos.ny.gov. Processing: 7–10 business days.
+- Pennsylvania: $125 at dos.pa.gov. Processing: 7–10 business days.
+- All other states: visit [state].gov secretary of state website. Average cost $50–$150.
+
+### EIN (Employer Identification Number)
+Apply for free at irs.gov/ein. Takes 10 minutes online. Required before opening a bank account, hiring staff, or applying for most grants. Get this immediately after forming your LLC or nonprofit.
+
+### Fiscal Sponsorship Alternative
+If you want to receive grants before getting nonprofit status, find a fiscal sponsor. The fiscal sponsor is an existing 501(c)(3) that agrees to receive grants on your behalf in exchange for a fee (typically 5–15% of grant amount). Organizations like Fractured Atlas or local community foundations often offer fiscal sponsorship. This is a legitimate path for new programs.
+
+---
+
+## SECTION 2: GOVERNING BODY AFFILIATIONS
+
+### Soccer
+- US Youth Soccer Association (USYSA): The primary governing body for recreational and competitive youth soccer. Membership required for most leagues and tournaments. State associations vary — in Michigan, it is Michigan Youth Soccer Association (MYSA). Registration at usyouthsoccer.org.
+- US Soccer: National governing body. US Soccer Foundation administers community grants. ussoccer.org.
+- MLS GO League: MLS-affiliated recreational league program. Requires nonprofit status and community focus. Provides branding, resources, and grant access. mlsgo.com.
+- American Youth Soccer Organization (AYSO): Alternative to USYSA for recreational programs. Focus on balanced play and volunteer coaching. ayso.org.
+- US Futsal: For indoor futsal programs. usfutsal.com.
+
+### Basketball
+- USA Basketball: National governing body. usab.com.
+- NBA Jr. NBA League: Recreational basketball program with resources and grant access. nba.com/jr-nba.
+- AAU Basketball: For travel and competitive teams. aausports.org.
+
+### Football
+- USA Football: National governing body. Heads Up Football certification required for most programs. usafootball.com.
+- Pop Warner: Oldest and largest youth football organization. Includes cheerleading. popwarner.com.
+
+### Baseball / Softball
+- USA Baseball: National governing body. usabaseball.com.
+- Little League International: World's largest youth baseball/softball organization. littleleague.org. Provides field, equipment grants.
+- Babe Ruth League: Alternative to Little League. baberuthleague.org.
+- Cal Ripken Baseball: Division of Babe Ruth League for younger players. calripken.org.
+- USA Softball: National governing body for softball. usasoftball.com.
+
+### Track & Field
+- USATF (USA Track & Field): National governing body. usatf.org. Youth membership required for competition.
+- AAU Track & Field: Major competition circuit. aausports.org.
+
+### Swimming
+- USA Swimming: National governing body. usaswimming.org. Club membership required.
+- YMCA Swimming: YMCA affiliated programs have their own structure.
+
+### Tennis
+- USTA (United States Tennis Association): National governing body. usta.com. Net Generation program for youth tennis.
+
+### Volleyball
+- USA Volleyball: National governing body. usav.org.
+- AAU Volleyball: Major club volleyball circuit. aausports.org.
+
+### Wrestling
+- USA Wrestling: National governing body. themat.com.
+- NWCA (National Wrestling Coaches Association): High school and youth wrestling resources.
+
+### Lacrosse
+- US Lacrosse: National governing body. uslacrosse.org. Youth membership and field access resources.
+
+---
+
+## SECTION 3: INSURANCE
+
+### General Liability Insurance — Required for all programs
+Every youth sports program needs general liability insurance before the first practice. Most parks departments and school districts require proof of insurance before granting field access. Minimum recommended: $1,000,000 per occurrence / $2,000,000 aggregate.
+
+**Path A — Through governing body membership (recommended)**
+Most national governing bodies include liability insurance as part of membership. This is the cheapest and fastest path.
+- US Youth Soccer / MYSA membership: includes $1M/$2M general liability. ~$3–8/player/year.
+- USA Basketball: includes liability through membership.
+- Little League: includes liability through charter.
+- USA Football: includes liability through Heads Up Football registration.
+
+**Path B — Standalone policy**
+If not affiliated with a governing body, purchase standalone:
+- K&K Insurance (kk-ins.com): Specializes in sports organizations. Budget $400–$800/year for programs under 100 participants.
+- Philadelphia Insurance Companies (phly.com): Youth sports specialist. Similar pricing.
+- Sport Insurance (sportinsurance.com): Online quotes available.
+- Hub International: Larger programs and multi-sport organizations.
+
+### Directors & Officers (D&O) Insurance
+Recommended once you form a nonprofit board. Protects board members from personal liability. Budget $500–$1,500/year. Available through same carriers as general liability.
+
+### Accident/Medical Insurance
+Some programs purchase secondary accident insurance to cover participant injuries beyond their health insurance. K&K and other sports carriers offer this. ~$3–10/player/year. Optional but recommended for contact sports.
+
+### Workers Compensation
+Required if you have paid employees. Not required for volunteers. Check state requirements — some states require it even for part-time employees.
+
+---
+
+## SECTION 4: COACHING CERTIFICATIONS
+
+### SafeSport Certification — REQUIRED for all adults working with youth
+Free at safesport.org. Online course takes approximately 90 minutes. Must be renewed annually (refresher takes 30 minutes). Required by virtually every governing body and most insurance carriers. Covers abuse prevention, reporting requirements, and safe environment practices. ALL coaches, volunteers, and staff who have direct contact with minor athletes must be certified. This is non-negotiable.
+
+### Background Checks — REQUIRED for all adults working with youth
+Required by all governing bodies and most insurance policies.
+- Sterling Volunteers (sterlingvolunteers.com): Most widely accepted. $15–25/person. Results in 24–72 hours.
+- NCSI (nationalcrimesearch.com): Alternative provider. Similar pricing.
+- Verified Volunteers (verifiedvolunteers.com): Integrated with some governing body platforms.
+- Run background checks before any adult has unsupervised access to youth.
+
+### Soccer — Coaching License Pathways
+- US Soccer Grassroots D License: Entry-level coaching license. Recommended for all recreational coaches. 2-day in-person course. ~$150. Offered through state associations. In Michigan: mysa.org.
+- US Soccer Grassroots E License: Online introductory course. Free through ussoccer.com. Good starting point.
+- US Soccer C License: Next level for more serious coaches. Multi-day course. ~$500.
+
+### Basketball
+- USA Basketball LevelOne Coach: Free online course at coaching.usab.com. Recommended for all youth coaches.
+- NBA Jr. NBA Coach Training: Free resources at nba.com/jr-nba.
+
+### Football
+- USA Football Heads Up Football Certification: Required by most programs. Free online at usafootball.com/headsupcertification. Covers concussion protocol, tackling techniques, heat safety.
+
+### Baseball / Softball
+- Little League Coaching Training: Free online through Little League University at littleleague.org/university.
+- USA Baseball Coach Certification: Available through usabaseball.com.
+
+### General Youth Sports Coaching
+- NAYS (National Alliance for Youth Sports) Coach Training: Widely recognized. ~$20/coach. nays.org.
+- ASEP (American Sport Education Program): Widely used for school-affiliated programs. ~$50–80/coach. asep.com.
+- First Aid/CPR/AED: Required by most governing bodies. Red Cross or American Heart Association certification. Valid 2 years. ~$30–60/person.
+
+---
+
+## SECTION 5: FACILITY ACCESS
+
+### Finding a Field or Gym — Always Check Both Sources
+Most programs only check one source and miss better options. Always contact BOTH:
+
+**1. City/Municipal Parks Departments**
+City parks often have lower demand and more flexible scheduling than county parks. Contact the city parks department directly — not just the county.
+- Ask for: "Athletic Field Reservation" or "Facility Rental"
+- What you need: Proof of insurance, LLC/nonprofit paperwork, completed permit application
+- Timeline: Apply 6–8 weeks before your season starts
+- Cost: $0–$50/hour depending on city. Many cities offer nonprofit discounts or free fields.
+- Spring fields: Apply January–February. Fall fields: Apply May–June.
+
+**2. School District Athletic Departments**
+School districts regularly rent gyms, fields, and courts to community programs — especially nonprofits. This is the most overlooked resource for new programs. Contact the district office (not individual schools) and ask for the "Facilities Use" or "Community Use" coordinator.
+- Cost: Often $0–$25/hour for nonprofits. Sometimes free for youth programs.
+- Best times: Evenings (6–9pm) and weekends when schools are not in use.
+- What you need: Insurance certificate, background check confirmation, application form.
+
+**Michigan / Macomb County Specific:**
+- Macomb County Parks & Recreation: (586) 469-5050. Ask for Athletic Field Reservation. Main fields at Stony Creek, Wolcott Mill, Lake St. Clair Metropark areas.
+- Mount Clemens City Parks: City Hall at (586) 469-6818. Lower demand than county. Good for small leagues.
+- L'Anse Creuse Public Schools: Contact district office for gym/field rental. (586) 783-6300.
+- Mount Clemens Community Schools: Contact district office. (586) 469-6110.
+- Chesterfield Township Parks: (586) 949-0400.
+- Shelby Township Parks & Recreation: (586) 731-0300.
+
+### Indoor Facilities — Gyms and Recreation Centers
+- YMCA branches: Often partner with youth sports programs. Contact local branch directly.
+- Church gyms and fellowship halls: Often available evenings and weekends. Free or very low cost.
+- Community centers: Check city and township community centers.
+- Fitness centers with courts: Some LA Fitness, Planet Fitness facilities have courts.
+
+### Field Setup Requirements
+- Soccer: Minimum field size varies by age group. U6/U8: 25x15 yards. U10: 50x30 yards. U12: 70x40 yards. U14+: Full size 110x70 yards. Goals, corner flags, line marking required.
+- Basketball: Standard court 94x50 feet. Half court acceptable for U8 and under.
+- Baseball: Field dimensions vary by age. 60-foot bases for younger players, 90-foot for older.
+
+---
+
+## SECTION 6: REGISTRATION AND PRICING
+
+### Pricing Strategy by Program Type and Market
+
+**Recreational Soccer (per player per season):**
+- Small market / low-income community: $40–$75
+- Mid-size market (suburban): $75–$150
+- Larger market / higher income area: $100–$200
+- Travel/competitive team add-on: +$200–$600/season
+
+**Basketball (per player per season):**
+- Recreational: $50–$125
+- Travel/AAU: $300–$800/season plus tournament fees
+
+**Baseball/Softball:**
+- Recreational: $75–$175
+- Travel: $500–$1,500/season
+
+**Football:**
+- Recreational: $75–$200 (higher due to equipment costs)
+- Equipment costs (helmet, pads, etc.): $200–$500 if not provided
+
+**Track & Field:**
+- Recreational: $30–$80
+- Club/competitive: $100–$300
+
+### Financial Assistance and Scholarship Policy
+Always offer financial assistance. This is required by most grant programs and reflects community mission. Create a simple sliding scale or "pay what you can" option. Never turn away a child who wants to play. Document your scholarship policy — grant funders look for this.
+
+### Registration Platforms
+- Stripe: 2.9% + $0.30 per transaction. Clearpath recommended.
+- TeamSnap: Registration module. $7.99–$15.99/month for the team plan.
+- LeagueApps: Sports-specific registration. 3–5% transaction fee.
+- SportsEngine: Comprehensive platform. Pricing by program size.
+- Square: Simple alternative for small programs.
+
+### What to Collect at Registration
+- Player name, date of birth
+- Parent/guardian name and contact
+- Emergency contact
+- Medical information and allergies
+- Waiver and liability release (signed)
+- Photo release (signed)
+- Payment
+
+---
+
+## SECTION 7: GRANTS AND FUNDING
+
+### Tier 1 — Best First Grants for New Youth Sports Programs
+
+**US Soccer Foundation — Passback Program**
+Amount: $5,000–$25,000 in equipment and resources
+Eligibility: Youth soccer nonprofits in underserved communities
+Requires: 501(c)(3) status, focus on underserved youth
+Apply at: ussoccerfoundation.org/passback
+Notes: Very accessible for new organizations. Equipment grants don't require extensive track record.
+
+**US Soccer Foundation — Live Your Dream**
+Amount: $2,500–$10,000 cash grants
+Eligibility: Nonprofit youth soccer programs
+Apply at: ussoccerfoundation.org
+Cycle: Annual, typically opens spring
+
+**MLS GO League Grants**
+Amount: Varies. Equipment, resources, cash
+Eligibility: MLS GO League member organizations (requires nonprofit and MLS territory alignment)
+Apply at: mlsgo.com
+Notes: Detroit City FC territory covers Southeast Michigan. Strong alignment with Macomb County programs.
+
+**Sports Matter — Dick's Sporting Goods Foundation**
+Amount: Up to $25,000 cash + equipment
+Eligibility: Youth sports nonprofits in need
+Apply at: sportsmatter.org
+Cycle: Open applications, competitive
+Notes: Strong preference for programs serving underserved communities and demonstrating financial need.
+
+**All Kids Play**
+Amount: $1,000–$5,000
+Eligibility: Youth sports programs focused on removing financial barriers
+Apply at: allkidsplay.org
+Notes: Good first grant. Lower competition than national funders. Emphasize scholarship policy.
+
+**Ralph C. Wilson Jr. Foundation**
+Amount: $10,000–$250,000
+Eligibility: Nonprofits in Southeast Michigan and Western New York
+Focus: Youth sports, active play, recreational access
+Apply at: rcwjrf.org
+Notes: Significant Michigan funder. Strong fit for Macomb County programs. Relationship-building important.
+
+**Nike Community Impact Fund**
+Amount: Up to $25,000
+Eligibility: Nonprofits near Nike retail locations
+Apply at: nike.com/community
+Notes: Apply through local Nike store community liaison.
+
+### Tier 2 — Growth Stage Grants
+
+**NFL Foundation Grassroots Program**
+Amount: $5,000–$30,000
+Eligibility: Youth football nonprofits
+Apply at: nflfoundation.org/grassroots
+Notes: For established programs with track record.
+
+**NBA Foundation**
+Amount: Varies
+Eligibility: Nonprofits focused on economic empowerment through basketball
+Apply at: nbafoundation.org
+
+**Little League Baseball Foundation**
+Amount: Equipment and field improvement grants
+Eligibility: Little League chartered programs
+Apply at: littleleague.org/play-little-league/grants-and-financial-assistance
+
+**USTA Foundation**
+Amount: $5,000–$50,000
+Eligibility: Youth tennis nonprofits
+Apply at: ustafoundation.com
+
+### Tier 3 — Local and Community Grants
+
+**Community Foundations (every region has one)**
+Amount: $1,000–$25,000
+Eligibility: Local nonprofits
+Notes: Lowest competition of any grant category. Strong preference for local impact. In Michigan:
+- Community Foundation of Southeast Michigan (cfsem.org)
+- Macomb Community Foundation (macombfoundation.org)
+- Kresge Foundation (kresge.org) — Detroit focus
+- Hudson-Webber Foundation — Detroit focus
+
+**United Way Local Chapters**
+Amount: Varies by chapter
+Eligibility: Local nonprofits aligned with United Way focus areas
+Notes: Build relationship with local United Way first. Apply through community impact fund.
+
+**Corporate Sponsorships**
+Local businesses, law firms, dental offices, medical practices, and car dealerships are strong sponsorship targets for youth sports programs. Offer jersey naming rights, banner placement, social media recognition. Target businesses that serve families and have community presence.
+- In Macomb County: Switalski Law (seen on LK St. Clair jerseys), Balanced Physical Therapy, Opal Dental Group are examples of successful youth sports sponsors.
+
+---
+
+## SECTION 8: FAMILY AND COMMUNITY OUTREACH
+
+### Reaching Families for Recruitment
+
+**Digital Outreach:**
+- Nextdoor app: Highly effective for neighborhood-level youth program recruitment. Post in every relevant neighborhood.
+- Facebook Groups: "Macomb County Parents," city-specific parent groups, youth sports groups. Post flyers and registration links.
+- Instagram and Facebook pages: Create program page. Post photos, schedules, registration info.
+- School district newsletters: Contact district communications office to include program info in parent newsletters.
+
+**Physical Outreach:**
+- Church bulletins and bulletin boards: Especially effective in communities with strong church attendance.
+- Elementary school flyers: Request permission to distribute flyers in take-home folders.
+- Community centers and YMCAs: Post flyers on bulletin boards.
+- Local libraries: Bulletin boards and program listings.
+
+**Macomb County Specific:**
+- Mount Clemens has approximately 35% Hispanic/Latino population. Bilingual outreach in English and Spanish significantly increases registration. Translate flyers and registration forms.
+- Sacred Heart Parish bulletin board and announcement (Mount Clemens)
+- L'Anse Creuse parent newsletters
+- Mount Clemens Community Schools parent communication
+
+### Parent Communication During Season
+- Use group text or team app (TeamSnap, GroupMe) for weekly updates
+- Send practice and game schedule at least 2 weeks in advance
+- Communicate cancellations as early as possible
+- Monthly newsletter or update email builds trust and retention
+
+---
+
+## SECTION 9: COMPLIANCE AND SAFETY
+
+### Concussion Protocol
+Required by all governing bodies and most states have youth concussion laws. Key requirements:
+- Any athlete showing concussion symptoms must be removed from play immediately
+- Cannot return to play same day
+- Must be cleared by licensed healthcare provider before returning
+- Coaches must complete concussion awareness training (often included in governing body certification)
+- In Michigan: Youth Concussion Act requires written information to athletes and parents, removal from play protocol, medical clearance before return.
+
+### Heat Safety
+- Monitor heat index, not just temperature
+- Heat index above 103°F: Cancel or move practice indoors
+- Provide water breaks every 20–30 minutes minimum
+- Never restrict water access
+- Recognize heat exhaustion and heat stroke symptoms
+- Acclimatization period for athletes new to heat: 7–14 days of gradual exposure
+
+### Emergency Action Plan (EAP)
+Every program should have a written EAP that includes:
+- Emergency contact list
+- Nearest hospital and directions
+- AED location (if available)
+- Protocol for medical emergencies
+- Who is responsible for calling 911
+- Post the EAP at every practice location
+
+### Child Protection Policies
+- Two-adult rule: No adult should ever be alone with a single minor athlete. Always have two adults present or in sight.
+- No private messaging: Adults should not privately message minor athletes. Use group chats or copy parents.
+- Physical contact guidelines: Follow SafeSport training guidelines on appropriate vs inappropriate physical contact.
+- Reporting: Know your mandatory reporting obligations. Most states require coaches to report suspected abuse or neglect.
+
+---
+
+## SECTION 10: PROGRAM OPERATIONS BEST PRACTICES
+
+### Season Planning Timeline
+- 12 weeks before season: Book fields/facilities, finalize schedule
+- 8 weeks before: Open registration, begin coach recruitment
+- 6 weeks before: Run background checks on all coaches/volunteers
+- 4 weeks before: Confirm team rosters, assign coaches to teams
+- 2 weeks before: Send full season schedule to families
+- 1 week before: Confirm field access, equipment inventory
+- Season start: Collect all signed waivers before first practice
+
+### Volunteer Coaching Best Practices (from Aspen Institute Project Play research)
+- Coaches who focus on fun and skill development over winning produce better long-term athlete development
+- Multi-sport participation until age 12 reduces burnout and overuse injuries
+- Early specialization (single sport before age 12) is associated with higher dropout rates
+- Positive coaching style and psychological safety are stronger predictors of youth sports participation than winning
+
+### Equipment Management
+- Create an equipment inventory spreadsheet before every season
+- Assign numbered jerseys and track returns
+- Store equipment in labeled bins by size
+- Budget 10–15% of annual budget for equipment replacement
+- Collect equipment at end of season — do not let families keep jerseys/equipment without replacing
+
+### Impact Measurement — What to Track
+Track this every season. It strengthens grant applications and demonstrates program value:
+- Total participants (by age, gender, zip code)
+- Attendance rate per participant
+- Participants receiving financial assistance
+- Coaches and volunteers (hours contributed)
+- Community events hosted
+- Participants who return season over season (retention rate)
+- Stories and testimonials (with permission)
+
+---
+
+## SECTION 11: YEAR 1 CHECKLIST FOR NEW YOUTH SPORTS PROGRAMS
+
+1. Form LLC or nonprofit (LLC first, nonprofit when ready for grants)
+2. Get EIN from IRS (free, online, 10 minutes)
+3. Open business bank account
+4. Join appropriate governing body (US Youth Soccer, USA Basketball, etc.)
+5. Purchase general liability insurance
+6. Complete SafeSport certification (all adults)
+7. Run background checks (all adults)
+8. Complete coach certifications (sport-specific + First Aid/CPR)
+9. Book field or gym
+10. Set registration fees and open registration
+11. Create registration form with waiver
+12. Create team communication channel
+13. Run first season
+14. Track all participation data
+15. Apply for first grant (local community foundation is best first target)
+16. File for 501(c)(3) if not already done
+
+---
+
+## SOURCES FOR ANNUAL BRAIN UPDATE (every January)
+- Aspen Institute Project Play State of Play report: aspenprojectplay.org/state-of-play
+- US Soccer Foundation annual report: ussoccerfoundation.org
+- NAYS (National Alliance for Youth Sports): nays.org
+- CDC Physical Activity Guidelines: cdc.gov/physicalactivity
+- Sports & Fitness Industry Association Participation Report: sfia.org
+- National Council of Nonprofits: councilofnonprofits.org
