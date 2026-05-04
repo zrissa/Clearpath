@@ -47,6 +47,28 @@ exports.handler = async function(event, context) {
 
     if (!res.ok) throw new Error(data.error?.message || 'Airtable error');
 
+    // Trigger welcome email
+    try {
+      const welcomeData = {
+        email: email || '',
+        firstName: answers.firstName || '',
+        orgName: orgname || '',
+        programType: answers.category || '',
+        city: answers.city || '',
+        state: answers.state || '',
+        biggestChallenge: answers.biggestChallenge || '',
+      };
+
+      // Fire and forget — don't await so it doesn't slow down onboarding
+      fetch(`${process.env.URL}/.netlify/functions/welcome`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(welcomeData)
+      }).catch(e => console.log('Welcome email failed:', e.message));
+    } catch(e) {
+      console.log('Welcome email error:', e.message);
+    }
+
     return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
 
   } catch (error) {
