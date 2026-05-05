@@ -3,20 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Clearpath — Dashboard</title>
+<title>Clearpath Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;
-  --white:#fff;--off:#F8FAF9;--g100:#F2F5F3;--g200:#E2EAE6;--g400:#8BA89A;
-  --text:#111C17;--text-md:#3D5248;--text-lt:#6B8A78;
-  --yellow:#FFB800;--blue:#1A73E8;--red:#EA4335;--purple:#7B2D8B;
-}
+:root{--forest:#0B3D2E;--sage:#1A6B47;--mint:#34C77B;--mint-pale:#E6F9F0;--white:#fff;--off:#F8FAF9;--g100:#F2F5F3;--g200:#E2EAE6;--g400:#8BA89A;--text:#111C17;--text-lt:#6B8A78;--yellow:#FFB800;--blue:#1A73E8;--red:#EA4335;--purple:#7B2D8B;}
 html,body{min-height:100%;font-family:"Plus Jakarta Sans",sans-serif;background:var(--off);color:var(--text);-webkit-font-smoothing:antialiased;}
-
 nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);display:flex;align-items:center;padding:0 24px;gap:8px;position:sticky;top:0;z-index:100;}
 .nlogo{display:flex;align-items:center;gap:8px;text-decoration:none;}
 .nmark{width:28px;height:28px;border-radius:7px;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--mint);}
@@ -26,51 +20,41 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 .nav-link:hover,.nav-link.active{color:var(--forest);background:var(--g100);font-weight:600;}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;}
 .nav-plan{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--mint-pale);color:var(--sage);}
+.nav-signout{font-size:13px;font-weight:500;color:var(--text-lt);padding:6px 12px;border-radius:7px;cursor:pointer;background:none;border:none;font-family:inherit;transition:all .15s;}
+.nav-signout:hover{background:var(--g100);color:var(--text);}
 .nav-avatar{width:30px;height:30px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--mint);cursor:pointer;text-decoration:none;}
-
 .page{max-width:1080px;margin:0 auto;padding:24px 20px 60px;}
-
-/* STATE BANNER */
 .state-banner{border-radius:16px;padding:22px 28px;margin-bottom:24px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;}
 .sb-starting{background:var(--forest);}
 .sb-running{background:linear-gradient(135deg,#0D5DBE,#1A73E8);}
 .sb-established{background:linear-gradient(135deg,#5B1FA0,#7B2D8B);}
 .state-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(255,255,255,.07) 0%,transparent 60%);pointer-events:none;}
 .sb-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.sb-text{flex:1;min-width:0;}
 .sb-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:3px;}
-.sb-title{font-size:18px;font-weight:800;color:var(--white);letter-spacing:-.4px;margin-bottom:3px;line-height:1.2;}
+.sb-title{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.4px;margin-bottom:3px;line-height:1.2;}
 .sb-sub{font-size:13px;color:rgba(255,255,255,.5);font-weight:300;}
 .sb-right{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
-.sb-pct{font-size:28px;font-weight:800;color:var(--white);letter-spacing:-1px;line-height:1;}
+.sb-pct{font-size:28px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;}
 .sb-pct-lbl{font-size:10px;color:rgba(255,255,255,.4);text-align:right;}
-.sb-btn{padding:8px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:var(--white);text-decoration:none;transition:all .2s;cursor:pointer;white-space:nowrap;}
-.sb-btn:hover{background:rgba(255,255,255,.25);}
-
-/* INSIGHT CARD — Smart suggestion based on profile */
+.sb-btn{padding:8px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;white-space:nowrap;}
 .insight-card{background:var(--white);border:1.5px solid rgba(52,199,123,.3);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px;}
-.ic-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
 .ic-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:3px;}
 .ic-text{font-size:14px;font-weight:600;color:var(--forest);margin-bottom:4px;line-height:1.4;}
 .ic-sub{font-size:12px;color:var(--text-lt);font-weight:300;line-height:1.5;}
-.ic-actions{display:flex;gap:8px;margin-top:10px;}
-.ic-btn{padding:7px 14px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .2s;border:none;font-family:"Plus Jakarta Sans",sans-serif;}
-.ic-primary{background:var(--forest);color:var(--white);}
-.ic-primary:hover{background:var(--sage);}
-.ic-ghost{background:var(--g100);color:var(--text-lt);border:1px solid var(--g200);}
-.ic-ghost:hover{background:var(--g200);}
-
-/* PILLARS */
+.ic-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.ic-primary{padding:7px 14px;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;background:var(--forest);color:#fff;border:none;cursor:pointer;font-family:inherit;}
+.ic-ghost{padding:7px 14px;border-radius:7px;font-size:12px;font-weight:700;background:var(--g100);color:var(--text-lt);border:1px solid var(--g200);cursor:pointer;font-family:inherit;}
 .section-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g400);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
 .sl-action{font-size:12px;font-weight:500;color:var(--mint);letter-spacing:0;text-transform:none;cursor:pointer;}
 .pillars-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
-.pill{background:var(--white);border:1.5px solid var(--g200);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;position:relative;}
+.pill{background:var(--white);border:1.5px solid var(--g200);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;}
 .pill:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(11,61,46,.07);}
 .pill.focused.p-build{border-color:var(--mint);box-shadow:0 0 0 3px rgba(52,199,123,.1);}
 .pill.focused.p-fund{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,184,0,.1);}
 .pill.focused.p-run{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,115,232,.1);}
 .pill.focused.p-grow{border-color:var(--purple);box-shadow:0 0 0 3px rgba(123,45,139,.1);}
 .pill-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.pill-icon{font-size:20px;}
 .pill-pct{font-size:11px;font-weight:700;padding:2px 7px;border-radius:100px;}
 .pct-build{background:var(--mint-pale);color:var(--sage);}
 .pct-fund{background:rgba(255,184,0,.1);color:#7A5A00;}
@@ -79,45 +63,35 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 .pill-name{font-size:14px;font-weight:800;color:var(--forest);letter-spacing:-.3px;margin-bottom:2px;}
 .pill-desc{font-size:11px;color:var(--text-lt);font-weight:300;margin-bottom:10px;line-height:1.4;}
 .pill-bar{height:3px;background:var(--g200);border-radius:2px;overflow:hidden;margin-bottom:8px;}
-.pill-fill{height:100%;border-radius:2px;transition:width .5s ease;}
-.pill-complete-btn{display:block;width:100%;padding:5px;background:none;border:1px solid var(--g200);border-radius:6px;font-size:11px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;transition:all .15s;text-align:center;}
-.pill-complete-btn:hover{background:var(--g100);border-color:var(--g400);}
+.pill-fill{height:100%;border-radius:2px;transition:width .5s;}
+.pill-complete-btn{display:block;width:100%;padding:5px;background:none;border:1px solid var(--g200);border-radius:6px;font-size:11px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:inherit;text-align:center;transition:all .15s;}
+.pill-complete-btn:hover{background:var(--g100);}
 .pill-complete-btn.all-done{background:var(--mint-pale);color:var(--sage);border-color:rgba(52,199,123,.3);}
-
-/* MAIN GRID */
 .main-grid{display:grid;grid-template-columns:1fr 300px;gap:16px;}
-
-/* TASK PANEL */
 .task-panel{background:var(--white);border:1px solid var(--g200);border-radius:14px;overflow:hidden;}
-.task-header{padding:16px 20px;border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:space-between;gap:10px;}
-.task-title{font-size:15px;font-weight:700;color:var(--forest);}
-.task-meta{font-size:12px;color:var(--text-lt);}
-.task-filter{display:flex;gap:5px;padding:10px 16px;border-bottom:1px solid var(--g200);overflow-x:auto;flex-wrap:nowrap;}
+.task-header{padding:16px 20px;border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:space-between;}
+.task-title-el{font-size:15px;font-weight:700;color:var(--forest);}
+.task-meta-el{font-size:12px;color:var(--text-lt);}
+.task-filter{display:flex;gap:5px;padding:10px 16px;border-bottom:1px solid var(--g200);overflow-x:auto;}
 .task-filter::-webkit-scrollbar{display:none;}
-.tf{padding:5px 11px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid var(--g200);color:var(--text-lt);cursor:pointer;white-space:nowrap;transition:all .15s;background:none;font-family:"Plus Jakarta Sans",sans-serif;}
-.tf.active{background:var(--forest);color:var(--white);border-color:var(--forest);}
-.task-list{max-height:500px;overflow-y:auto;}
+.tf{padding:5px 11px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid var(--g200);color:var(--text-lt);cursor:pointer;white-space:nowrap;transition:all .15s;background:none;font-family:inherit;}
+.tf.active{background:var(--forest);color:#fff;border-color:var(--forest);}
+.task-list{max-height:520px;overflow-y:auto;}
 .task-list::-webkit-scrollbar{width:3px;}
 .task-list::-webkit-scrollbar-thumb{background:var(--g200);}
-
-/* ADD TASK */
 .add-task-row{padding:10px 16px;border-top:1px solid var(--g200);display:flex;gap:8px;}
-.add-task-input{flex:1;padding:9px 12px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;outline:none;transition:all .2s;}
+.add-task-input{flex:1;padding:9px 12px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;color:var(--text);font-family:inherit;outline:none;}
 .add-task-input:focus{border-color:var(--mint);background:var(--white);}
 .add-task-input::placeholder{color:var(--g400);}
-.add-task-select{padding:9px 10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:12px;color:var(--text-lt);font-family:"Plus Jakarta Sans",sans-serif;outline:none;cursor:pointer;}
-.add-task-btn{padding:9px 14px;background:var(--forest);color:var(--white);border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;transition:all .2s;white-space:nowrap;}
-.add-task-btn:hover{background:var(--sage);}
-
-/* TASK ITEM */
-.task-item{display:flex;align-items:flex-start;gap:10px;padding:11px 20px;cursor:pointer;transition:background .15s;border-bottom:1px solid var(--g100);}
+.add-task-select{padding:9px 10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:12px;color:var(--text-lt);font-family:inherit;outline:none;cursor:pointer;}
+.add-task-btn{padding:9px 14px;background:var(--forest);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.task-item{display:flex;align-items:flex-start;gap:10px;padding:11px 20px;transition:background .15s;border-bottom:1px solid var(--g100);}
 .task-item:hover{background:var(--off);}
-.task-item:hover .ti-ask{opacity:1;}
 .task-item.done{opacity:.5;}
 .task-item.done .ti-title{text-decoration:line-through;}
 .task-item.custom{border-left:3px solid var(--mint);}
-.task-check{width:19px;height:19px;border-radius:5px;border:2px solid var(--g200);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.task-item.done .task-check{background:var(--mint);border-color:var(--mint);color:white;font-size:10px;}
+.task-check{width:19px;height:19px;border-radius:5px;border:2px solid var(--g200);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
+.task-item.done .task-check{background:var(--mint);border-color:var(--mint);color:#fff;font-size:10px;}
 .ti-body{flex:1;min-width:0;}
 .ti-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:2px;}
 .ti-detail{font-size:12px;color:var(--text-lt);font-weight:300;line-height:1.5;}
@@ -130,92 +104,51 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 .tag-urgent{background:rgba(234,67,53,.1);color:var(--red);}
 .tag-custom{background:var(--mint-pale);color:var(--sage);}
 .ti-ask{font-size:11px;color:var(--mint);font-weight:600;margin-top:5px;opacity:0;transition:opacity .15s;cursor:pointer;display:inline-block;}
+.task-item:hover .ti-ask{opacity:1;}
 .ti-delete{font-size:11px;color:var(--red);font-weight:600;margin-top:5px;opacity:0;transition:opacity .15s;cursor:pointer;display:inline-block;margin-left:8px;}
 .task-item:hover .ti-delete{opacity:1;}
-
-/* LOADING */
-.task-loading{padding:32px 20px;text-align:center;}
-.tl-icon{font-size:32px;margin-bottom:12px;animation:pulse 1.5s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-.tl-title{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:4px;}
-.tl-sub{font-size:12px;color:var(--text-lt);font-weight:300;line-height:1.6;}
-
-/* UPLOAD CARD */
-.upload-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;overflow:hidden;margin-bottom:14px;}
-.uc-header{padding:14px 16px;border-bottom:1px solid var(--g200);display:flex;align-items:center;justify-content:space-between;}
-.uc-title{font-size:13px;font-weight:700;color:var(--forest);}
-.uc-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:rgba(26,115,232,.1);color:var(--blue);}
-.uc-body{padding:14px 16px;}
-.uc-drop{border:2px dashed var(--g200);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--off);}
-.uc-drop:hover,.uc-drop.drag-over{border-color:var(--mint);background:var(--mint-pale);}
-.uc-drop-icon{font-size:24px;margin-bottom:6px;}
-.uc-drop-title{font-size:13px;font-weight:600;color:var(--forest);margin-bottom:3px;}
-.uc-drop-sub{font-size:11px;color:var(--text-lt);font-weight:300;}
-.uc-limit{font-size:11px;color:var(--text-lt);margin-top:8px;text-align:center;}
-.uc-file{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--mint-pale);border-radius:8px;margin-top:8px;}
-.uc-file-name{font-size:12px;font-weight:600;color:var(--sage);flex:1;}
-.uc-file-btn{padding:5px 12px;background:var(--forest);color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;}
-.uc-processed{font-size:12px;color:var(--sage);margin-top:8px;text-align:center;font-weight:600;}
-
-/* RIGHT COL */
+.task-empty{padding:32px 20px;text-align:center;}
+.task-empty-title{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:4px;}
+.task-empty-sub{font-size:12px;color:var(--text-lt);font-weight:300;}
 .right-col{display:flex;flex-direction:column;gap:12px;}
-
 .next-card{background:var(--forest);border-radius:14px;padding:18px;cursor:pointer;transition:all .2s;}
 .next-card:hover{background:var(--sage);}
 .nc-eye{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:6px;display:block;}
-.nc-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px;line-height:1.3;}
+.nc-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;line-height:1.3;}
 .nc-sub{font-size:12px;color:rgba(255,255,255,.5);font-weight:300;line-height:1.5;margin-bottom:10px;}
-.nc-btn{display:block;text-align:center;padding:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:var(--white);}
-
+.nc-btn{display:block;text-align:center;padding:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:#fff;}
 .focus-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:16px;}
 .fc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:4px;}
 .fc-sub{font-size:12px;color:var(--text-lt);font-weight:300;margin-bottom:12px;line-height:1.5;}
-.fc-btn{display:block;padding:10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:700;color:var(--forest);text-align:center;text-decoration:none;transition:all .2s;}
-.fc-btn:hover{background:var(--mint-pale);border-color:rgba(52,199,123,.3);}
-
+.fc-btn{display:block;padding:10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:700;color:var(--forest);text-align:center;text-decoration:none;}
 .stats-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:14px;}
 .sc-org{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:10px;}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .stat{padding:10px;background:var(--off);border-radius:8px;text-align:center;}
 .stat-num{font-size:18px;font-weight:800;color:var(--forest);letter-spacing:-1px;line-height:1;}
 .stat-lbl{font-size:10px;color:var(--text-lt);margin-top:2px;}
-
 .root-card{background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:14px;padding:16px;}
 .rc-top{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
-.rc-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px;}
-.rc-name{font-size:13px;font-weight:700;color:var(--white);}
+.rc-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;}
+.rc-name{font-size:13px;font-weight:700;color:#fff;}
 .rc-sub{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:10px;font-weight:300;line-height:1.5;}
-.rc-btn{display:block;padding:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:7px;font-size:12px;font-weight:700;color:var(--white);text-decoration:none;text-align:center;transition:all .2s;}
-.rc-btn:hover{background:rgba(255,255,255,.22);}
-
+.rc-btn{display:block;padding:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:7px;font-size:12px;font-weight:700;color:#fff;text-decoration:none;text-align:center;}
 .quick-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:14px;}
 .qc-title{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;}
 .qlinks{display:flex;flex-direction:column;gap:5px;}
-.qlink{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--off);border-radius:7px;text-decoration:none;transition:all .15s;border:1px solid transparent;}
+.qlink{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--off);border-radius:7px;text-decoration:none;border:1px solid transparent;}
 .qlink:hover{background:var(--white);border-color:var(--g200);}
 .ql-icon{font-size:14px;width:18px;text-align:center;}
 .ql-text{font-size:12px;font-weight:600;color:var(--forest);}
-
-/* TASK FROM COACHING TOAST */
-.coach-task-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--white);border:1.5px solid var(--g200);border-radius:14px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:300;max-width:480px;width:calc(100% - 40px);display:none;}
+.coach-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--white);border:1.5px solid var(--g200);border-radius:14px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:300;max-width:480px;width:calc(100% - 40px);display:none;}
 .ctt-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mint);margin-bottom:6px;}
 .ctt-task{font-size:14px;font-weight:700;color:var(--forest);margin-bottom:10px;line-height:1.4;}
 .ctt-actions{display:flex;gap:8px;align-items:center;}
-.ctt-select{flex:1;padding:8px 10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;outline:none;}
-.ctt-add{padding:8px 16px;background:var(--forest);color:white;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;}
-.ctt-dismiss{padding:8px 12px;background:none;border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:"Plus Jakarta Sans",sans-serif;}
-
-@media(max-width:900px){
-  .main-grid{grid-template-columns:1fr;}
-  .right-col{order:-1;}
-  .stats-card,.quick-card{display:none;}
-  .pillars-row{grid-template-columns:1fr 1fr;}
-  .nav-links{display:none;}
-}
-@media(max-width:480px){
-  .page{padding:12px;}
-  .state-banner{flex-wrap:wrap;}
-}
+.ctt-select{flex:1;padding:8px 10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;color:var(--text);font-family:inherit;outline:none;}
+.ctt-add{padding:8px 16px;background:var(--forest);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;}
+.ctt-dismiss{padding:8px 12px;background:none;border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:inherit;}
+@media(max-width:900px){.main-grid{grid-template-columns:1fr;}.right-col{order:-1;}.stats-card,.quick-card{display:none;}.pillars-row{grid-template-columns:1fr 1fr;}.nav-links{display:none;}}
+@media(max-width:480px){.page{padding:12px;}.state-banner{flex-wrap:wrap;}}
 </style>
 </head>
 <body>
@@ -229,176 +162,161 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
   </div>
   <div class="nav-right">
     <span class="nav-plan" id="nav-plan">Free</span>
-  <script>document.getElementById("nav-plan").textContent=localStorage.getItem("clearpath_pro")==="true"?"Pro ✓":"Free";if(localStorage.getItem("clearpath_pro")==="true"){document.getElementById("nav-plan").style.background="var(--forest)";document.getElementById("nav-plan").style.color="var(--mint)";}</script>
-    <a href="#" onclick="signOut()" style="font-size:13px;font-weight:500;color:var(--text-lt);text-decoration:none;padding:6px 12px;border-radius:7px;transition:all .15s;" onmouseover="this.style.background='var(--g100)'" onmouseout="this.style.background='none'">Sign out</a>
+    <button class="nav-signout" onclick="signOut()">Sign out</button>
     <a href="/profile" class="nav-avatar" id="nav-avatar">Z</a>
   </div>
 </nav>
 
 <div class="page">
 
-  <!-- STATE BANNER -->
   <div class="state-banner sb-starting" id="state-banner">
-    <div class="sb-icon" id="sb-icon">🌱</div>
-    <div style="flex:1;min-width:0;">
+    <div class="sb-icon" id="sb-icon">&#127807;</div>
+    <div class="sb-text">
       <div class="sb-eyebrow" id="sb-eyebrow">Getting started</div>
       <div class="sb-title" id="sb-title">Let's build your program right.</div>
       <div class="sb-sub" id="sb-sub">Your foundation determines everything that comes after.</div>
     </div>
     <div class="sb-right">
       <div><div class="sb-pct" id="sb-pct">0%</div><div class="sb-pct-lbl">complete</div></div>
-      <div class="sb-btn" onclick="window.location.href='/coaching'">Talk to your advisor →</div>
+      <a href="/coaching" class="sb-btn">Talk to your advisor</a>
     </div>
   </div>
 
-  <!-- SMART INSIGHT -->
   <div class="insight-card" id="insight-card">
-    <div class="ic-icon" id="ic-icon">💡</div>
+    <div style="font-size:22px;flex-shrink:0;margin-top:2px;">&#128161;</div>
     <div style="flex:1;">
       <div class="ic-label">Clearpath recommends</div>
-      <div class="ic-text" id="ic-text">Loading your personalized recommendation...</div>
+      <div class="ic-text" id="ic-text">Loading your recommendation...</div>
       <div class="ic-sub" id="ic-sub"></div>
       <div class="ic-actions">
-        <a class="ic-btn ic-primary" id="ic-cta" href="/coaching">Get help with this →</a>
-        <button class="ic-btn ic-ghost" onclick="dismissInsight()">Dismiss</button>
+        <a class="ic-primary" id="ic-cta" href="/coaching">Get help with this</a>
+        <button class="ic-ghost" onclick="dismissInsight()">Dismiss</button>
       </div>
     </div>
   </div>
 
-  <!-- PILLARS -->
-  <div class="section-label">Your four pillars <span onclick="resetFocus()">Show all</span></div>
+  <div class="section-label">Your four pillars <span class="sl-action" onclick="resetFocus()">Show all</span></div>
   <div class="pillars-row">
     <div class="pill p-build focused" id="pill-build" onclick="focusPillar('Build')">
-      <div class="pill-top"><span class="pill-icon">🏗️</span><span class="pill-pct pct-build" id="pct-build">0%</span></div>
-      <div class="pill-name">Build</div>
-      <div class="pill-desc">Legal, compliance, facility</div>
+      <div class="pill-top"><span style="font-size:20px;">&#127959;</span><span class="pill-pct pct-build" id="pct-build">0%</span></div>
+      <div class="pill-name">Build</div><div class="pill-desc">Legal, compliance, facility</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-build" style="width:0%;background:var(--mint);"></div></div>
-      <button class="pill-complete-btn" id="cbtn-build" onclick="completePillar('Build', event)">Mark all complete</button>
+      <button class="pill-complete-btn" id="cbtn-build" onclick="completePillar('Build',event)">Mark all complete</button>
     </div>
     <div class="pill p-fund" id="pill-fund" onclick="focusPillar('Fund')">
-      <div class="pill-top"><span class="pill-icon">💰</span><span class="pill-pct pct-fund" id="pct-fund">0%</span></div>
-      <div class="pill-name">Fund</div>
-      <div class="pill-desc">Grants, pricing, sponsorship</div>
+      <div class="pill-top"><span style="font-size:20px;">&#128176;</span><span class="pill-pct pct-fund" id="pct-fund">0%</span></div>
+      <div class="pill-name">Fund</div><div class="pill-desc">Grants, pricing, sponsorship</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-fund" style="width:0%;background:var(--yellow);"></div></div>
-      <button class="pill-complete-btn" id="cbtn-fund" onclick="completePillar('Fund', event)">Mark all complete</button>
+      <button class="pill-complete-btn" id="cbtn-fund" onclick="completePillar('Fund',event)">Mark all complete</button>
     </div>
     <div class="pill p-run" id="pill-run" onclick="focusPillar('Run')">
-      <div class="pill-top"><span class="pill-icon">⚙️</span><span class="pill-pct pct-run" id="pct-run">0%</span></div>
-      <div class="pill-name">Run</div>
-      <div class="pill-desc">Powered by Root</div>
+      <div class="pill-top"><span style="font-size:20px;">&#9881;</span><span class="pill-pct pct-run" id="pct-run">0%</span></div>
+      <div class="pill-name">Run</div><div class="pill-desc">Powered by Root</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-run" style="width:0%;background:var(--blue);"></div></div>
-      <button class="pill-complete-btn" id="cbtn-run" onclick="completePillar('Run', event)">Mark all complete</button>
+      <button class="pill-complete-btn" id="cbtn-run" onclick="completePillar('Run',event)">Mark all complete</button>
     </div>
     <div class="pill p-grow" id="pill-grow" onclick="focusPillar('Grow')">
-      <div class="pill-top"><span class="pill-icon">📈</span><span class="pill-pct pct-grow" id="pct-grow">0%</span></div>
-      <div class="pill-name">Grow</div>
-      <div class="pill-desc">Impact, reports, expansion</div>
+      <div class="pill-top"><span style="font-size:20px;">&#128200;</span><span class="pill-pct pct-grow" id="pct-grow">0%</span></div>
+      <div class="pill-name">Grow</div><div class="pill-desc">Impact, reports, expansion</div>
       <div class="pill-bar"><div class="pill-fill" id="fill-grow" style="width:0%;background:var(--purple);"></div></div>
-      <button class="pill-complete-btn" id="cbtn-grow" onclick="completePillar('Grow', event)">Mark all complete</button>
+      <button class="pill-complete-btn" id="cbtn-grow" onclick="completePillar('Grow',event)">Mark all complete</button>
     </div>
   </div>
 
-  <!-- MAIN GRID -->
   <div class="main-grid">
-
-    <!-- TASK PANEL -->
     <div>
       <div class="task-panel">
         <div class="task-header">
-          <div>
-            <div class="task-title" id="task-title">Your Tasks</div>
-            <div class="task-meta" id="task-meta">Loading...</div>
-          </div>
+          <div><div class="task-title-el" id="task-title">Your Tasks</div><div class="task-meta-el" id="task-meta">Loading...</div></div>
         </div>
-        <div class="task-filter" id="task-filter">
+        <div class="task-filter">
           <button class="tf active" onclick="filterTasks('all',this)">All</button>
-          <button class="tf" onclick="filterTasks('Build',this)">🏗️ Build</button>
-          <button class="tf" onclick="filterTasks('Fund',this)">💰 Fund</button>
-          <button class="tf" onclick="filterTasks('Run',this)">⚙️ Run</button>
-          <button class="tf" onclick="filterTasks('Grow',this)">📈 Grow</button>
-          <button class="tf" onclick="filterTasks('urgent',this)">🔥 Urgent</button>
-          <button class="tf" onclick="filterTasks('custom',this)">⭐ Mine</button>
+          <button class="tf" onclick="filterTasks('Build',this)">Build</button>
+          <button class="tf" onclick="filterTasks('Fund',this)">Fund</button>
+          <button class="tf" onclick="filterTasks('Run',this)">Run</button>
+          <button class="tf" onclick="filterTasks('Grow',this)">Grow</button>
+          <button class="tf" onclick="filterTasks('urgent',this)">Urgent</button>
+          <button class="tf" onclick="filterTasks('custom',this)">Mine</button>
         </div>
-        <div class="task-list" id="task-list">
-          <div class="task-loading">
-            <div class="tl-icon">🧠</div>
-            <div class="tl-title">Building your personalized plan...</div>
-            <div class="tl-sub">Generating tasks specific to your program type, location, and stage. This only happens once.</div>
-          </div>
-        </div>
+        <div class="task-list" id="task-list"><div class="task-empty"><div class="task-empty-title">Loading...</div></div></div>
         <div class="add-task-row">
           <input class="add-task-input" id="new-task-input" placeholder="Add your own task..." onkeydown="if(event.key==='Enter')addCustomTask()"/>
           <select class="add-task-select" id="new-task-pillar">
-            <option value="Build">Build</option>
-            <option value="Fund">Fund</option>
-            <option value="Run">Run</option>
-            <option value="Grow">Grow</option>
+            <option value="Build">Build</option><option value="Fund">Fund</option>
+            <option value="Run">Run</option><option value="Grow">Grow</option>
           </select>
           <button class="add-task-btn" onclick="addCustomTask()">+ Add</button>
         </div>
       </div>
-
     </div>
 
-    <!-- RIGHT COL -->
     <div class="right-col">
-
-      <div class="next-card" id="next-card" onclick="window.location.href='/coaching'">
+      <div class="next-card" id="next-card">
         <span class="nc-eye">Your next step</span>
         <div class="nc-title" id="nc-title">Loading...</div>
         <div class="nc-sub" id="nc-sub"></div>
-        <span class="nc-btn">Get help with this →</span>
+        <span class="nc-btn">Get help with this</span>
       </div>
 
       <div class="focus-card">
         <div class="fc-title">Not sure where to start today?</div>
         <div class="fc-sub">Ask your AI advisor what to focus on based on where your program is right now.</div>
-        <a href="/coaching?q=What+should+I+work+on+today+for+my+program?" class="fc-btn">What should I work on today? →</a>
+        <a href="/coaching?q=What+should+I+work+on+today+for+my+program?" class="fc-btn">What should I work on today?</a>
       </div>
 
       <div class="stats-card">
         <div class="sc-org" id="sc-org">Your Program</div>
         <div class="stats-grid">
-          <div class="stat"><div class="stat-num" id="s-type">—</div><div class="stat-lbl">Type</div></div>
-          <div class="stat"><div class="stat-num" id="s-part">—</div><div class="stat-lbl">Participants</div></div>
+          <div class="stat"><div class="stat-num" id="s-type">-</div><div class="stat-lbl">Type</div></div>
+          <div class="stat"><div class="stat-num" id="s-part">-</div><div class="stat-lbl">Participants</div></div>
           <div class="stat"><div class="stat-num" id="s-done">0</div><div class="stat-lbl">Tasks done</div></div>
-          <div class="stat"><div class="stat-num" id="s-budget">—</div><div class="stat-lbl">Budget</div></div>
+          <div class="stat"><div class="stat-num" id="s-budget">-</div><div class="stat-lbl">Budget</div></div>
         </div>
       </div>
 
-      <div class="quick-card" style="background:linear-gradient(135deg,#1557A0,#1A73E8);border-color:transparent;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <div style="width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px;">⚽</div>
-          <span style="font-size:13px;font-weight:700;color:white;">Root</span>
+      <div id="root-connected">
+        <div class="root-card">
+          <div class="rc-top"><div class="rc-icon">&#9917;</div><div class="rc-name">Root - Run Pillar</div></div>
+          <div class="rc-sub">Registration, scheduling, payments, SafeSport - all in one place.</div>
+          <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn" style="margin-bottom:8px;">Open Root</a>
+          <button onclick="optOutOfRoot()" style="display:block;width:100%;padding:6px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:6px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:inherit;margin-top:6px;">Not using Root? Upload your own data</button>
         </div>
-        <div style="font-size:11px;color:rgba(255,255,255,.55);margin-bottom:10px;font-weight:300;line-height:1.5;">Operations platform — set up in the Run pillar</div>
-        <a href="https://www.rootsoccer.com" target="_blank" style="display:block;padding:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:7px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;">Open Root →</a>
+      </div>
+
+      <div id="root-optout" style="display:none;">
+        <div class="quick-card">
+          <div style="font-size:12px;font-weight:700;color:var(--forest);margin-bottom:4px;">Using your own data</div>
+          <div style="font-size:12px;color:var(--text-lt);margin-bottom:10px;font-weight:300;line-height:1.5;">Root gives better insights. <button onclick="switchToRoot()" style="background:none;border:none;color:var(--blue);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;padding:0;">Switch to Root</button></div>
+          <label style="display:block;border:2px dashed var(--g200);border-radius:8px;padding:14px;text-align:center;cursor:pointer;background:var(--off);">
+            <input type="file" id="dash-file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
+            <div style="font-size:13px;font-weight:600;color:var(--forest);">Drop data file here</div>
+            <div style="font-size:11px;color:var(--text-lt);margin-top:2px;">CSV, Excel, or PDF - 1 per month (Pro)</div>
+          </label>
+          <div id="upload-status" style="margin-top:8px;"></div>
+          <button onclick="markRunComplete()" style="display:block;width:100%;margin-top:8px;padding:9px;background:var(--forest);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">Mark Run pillar complete</button>
+        </div>
       </div>
 
       <div class="quick-card">
         <div class="qc-title">Quick actions</div>
         <div class="qlinks">
-          <a href="/coaching" class="qlink"><div class="ql-icon">🤖</div><div class="ql-text">Ask AI Advisor</div></a>
-          <a href="/coaching?q=What+grants+should+I+apply+for+first?" class="qlink"><div class="ql-icon">💸</div><div class="ql-text">Find grants</div></a>
-          <a href="/profile" class="qlink"><div class="ql-icon">✏️</div><div class="ql-text">Edit profile</div></a>
-          <a href="/consulting" class="qlink"><div class="ql-icon">📞</div><div class="ql-text">Book consulting</div></a>
+          <a href="/coaching" class="qlink"><div class="ql-icon">&#129302;</div><div class="ql-text">Ask AI Advisor</div></a>
+          <a href="/coaching?q=What+grants+should+I+apply+for+first?" class="qlink"><div class="ql-icon">&#128184;</div><div class="ql-text">Find grants</div></a>
+          <a href="/profile" class="qlink"><div class="ql-icon">&#9999;</div><div class="ql-text">Edit profile</div></a>
+          <a href="/consulting" class="qlink"><div class="ql-icon">&#128222;</div><div class="ql-text">Book consulting</div></a>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- COACHING TASK TOAST -->
-<div class="coach-task-toast" id="coach-toast">
-  <div class="ctt-label">💡 Add to your dashboard?</div>
+<div class="coach-toast" id="coach-toast">
+  <div class="ctt-label">Add to your dashboard?</div>
   <div class="ctt-task" id="toast-task-text"></div>
   <div class="ctt-actions">
     <select class="ctt-select" id="toast-pillar">
-      <option value="Build">🏗️ Build</option>
-      <option value="Fund">💰 Fund</option>
-      <option value="Run">⚙️ Run</option>
-      <option value="Grow">📈 Grow</option>
+      <option value="Build">Build</option><option value="Fund">Fund</option>
+      <option value="Run">Run</option><option value="Grow">Grow</option>
     </select>
     <button class="ctt-add" onclick="confirmToastTask()">Add task</button>
     <button class="ctt-dismiss" onclick="dismissToast()">Not now</button>
@@ -409,368 +327,281 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 if (!localStorage.getItem('clearpath_auth')) { window.location.href = '/signup'; }
 else if (!localStorage.getItem('clearpath_onboarded')) { window.location.href = '/onboarding'; }
 
-let profile = {}, allTasks = [], progress = {}, currentFilter = 'all', focusedPillar = null;
+var profile = {};
+var allTasks = [];
+var progress = {};
+var currentFilter = 'all';
+var focusedPillar = null;
 
-// ── INIT ──────────────────────────────────────────────────────────
+function s(id, val) { var e = document.getElementById(id); if (e) e.textContent = val; }
+
 function init() {
-  const s = localStorage.getItem('clearpath_profile');
-  if (s) { try { profile = JSON.parse(s); } catch(e){} }
-  progress = JSON.parse(localStorage.getItem('clearpath_task_progress') || '{}');
+  try { profile = JSON.parse(localStorage.getItem('clearpath_profile') || '{}'); } catch(e) {}
+  try { progress = JSON.parse(localStorage.getItem('clearpath_task_progress') || '{}'); } catch(e) {}
 
-  renderHeader();
-  renderStateBanner();
-  renderInsight();
+  var isPro = localStorage.getItem('clearpath_pro') === 'true';
+  var badge = document.getElementById('nav-plan');
+  if (badge) { badge.textContent = isPro ? 'Pro' : 'Free'; if (isPro) { badge.style.background = '#0B3D2E'; badge.style.color = '#34C77B'; } }
+
+  var av = document.getElementById('nav-avatar');
+  if (av) av.textContent = (profile.firstName || profile.orgName || 'U').charAt(0).toUpperCase();
+  s('sc-org', profile.orgName || 'Your Program');
+
   renderStats();
+  renderBanner();
+  renderInsight();
 
-  // Invalidate cache if profile has changed since tasks were generated
-  const cachedProfile = localStorage.getItem('clearpath_tasks_profile');
-  const currentProfileKey = [profile.entityType, profile.journey, profile.programType, profile.sportOrCategory, profile.grantExperience].join('|');
-  const cached = localStorage.getItem('clearpath_tasks');
-
-  if (cached && cachedProfile === currentProfileKey) {
-    try { allTasks = JSON.parse(cached); renderAll(); }
-    catch(e) { generateTasks(); }
+  var profileKey = [profile.entityType, profile.journey, profile.programType, profile.sportOrCategory, profile.grantExperience].join('|');
+  var cachedKey = localStorage.getItem('clearpath_tasks_profile');
+  var cached = localStorage.getItem('clearpath_tasks');
+  if (cached && cachedKey === profileKey) {
+    try { allTasks = JSON.parse(cached); } catch(e) { allTasks = buildTasks(); saveTaskCache(profileKey); }
   } else {
-    // Profile changed or no cache — regenerate
-    localStorage.removeItem('clearpath_tasks');
-    localStorage.setItem('clearpath_tasks_profile', currentProfileKey);
-    generateTasks();
+    allTasks = buildTasks();
+    saveTaskCache(profileKey);
   }
+  renderAll();
 
-  // Check for pending coaching task
-  const pending = localStorage.getItem('clearpath_pending_task');
-  if (pending) {
-    try {
-      const t = JSON.parse(pending);
-      showToast(t.text, t.pillar);
-      localStorage.removeItem('clearpath_pending_task');
-    } catch(e) {}
-  }
+  var pending = localStorage.getItem('clearpath_pending_task');
+  if (pending) { try { var t = JSON.parse(pending); showToast(t.text, t.pillar); localStorage.removeItem('clearpath_pending_task'); } catch(e) {} }
 
-  // Handle ?refresh
-  if (new URLSearchParams(window.location.search).get('refresh') === '1') {
-    localStorage.removeItem('clearpath_tasks');
-    window.location.href = '/dashboard';
+  if (localStorage.getItem('clearpath_root_optout') === 'true') {
+    var rc = document.getElementById('root-connected'); var ro = document.getElementById('root-optout');
+    if (rc) rc.style.display = 'none'; if (ro) ro.style.display = 'block';
   }
 }
 
-function renderAll() {
-  renderTasks();
-  renderPillarProgress();
-  renderNextStep();
-}
-
-function renderHeader() {
-  const initial = (profile.firstName || profile.orgName || 'U')[0].toUpperCase();
-  document.getElementById('nav-avatar').textContent = initial;
-  document.getElementById('sc-org').textContent = profile.orgName || 'Your Program';
+function saveTaskCache(key) {
+  localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
+  localStorage.setItem('clearpath_tasks_profile', key);
 }
 
 function renderStats() {
-  const type = profile.programType || '—';
-  const short = type.includes('Youth') ? 'Sports' : type.includes('After') ? 'After-School' : type.includes('STEM') ? 'STEM' : type.includes('Parks') ? 'Parks' : type;
-  document.getElementById('s-type').textContent = short;
-  document.getElementById('s-part').textContent = profile.participantCount || '—';
-  document.getElementById('s-budget').textContent = profile.budgetRange ? profile.budgetRange.replace('Under ','<').replace('Over ','').replace('$','$').split('–')[0] : '—';
+  var type = profile.programType || '';
+  var short = type.indexOf('Youth') > -1 ? 'Sports' : type.indexOf('After') > -1 ? 'After-School' : type.indexOf('STEM') > -1 ? 'STEM' : type.indexOf('Parks') > -1 ? 'Parks' : (type || '-');
+  s('s-type', short); s('s-part', profile.participantCount || '-');
+  var budget = profile.budgetRange || '-';
+  if (budget !== '-') { budget = budget.replace('Under ', '<'); budget = budget.split('-')[0]; budget = budget.split('\u2013')[0]; }
+  s('s-budget', budget);
 }
 
-// ── STATE BANNER ──────────────────────────────────────────────────
-function renderStateBanner() {
-  const j = (profile.journey || '').toLowerCase();
-  const banner = document.getElementById('state-banner');
-  const isEstablished = j.includes('established') || j.includes('expand');
-  const isRunning = j.includes('running') || j.includes('launched') || j.includes('new');
-  const name = profile.orgName || 'your program';
-
-  if (isEstablished) {
+function renderBanner() {
+  var j = (profile.journey || '').toLowerCase();
+  var banner = document.getElementById('state-banner'); if (!banner) return;
+  var isEst = j.indexOf('established') > -1 || j.indexOf('expand') > -1;
+  var isRun = j.indexOf('running') > -1 || j.indexOf('launched') > -1 || j.indexOf('new') > -1;
+  var name = profile.orgName || 'your program';
+  if (isEst) {
     banner.className = 'state-banner sb-established';
-    document.getElementById('sb-icon').textContent = '🏆';
-    document.getElementById('sb-eyebrow').textContent = 'Established program';
-    document.getElementById('sb-title').textContent = `You've built something real. Time to scale ${name}.`;
-    document.getElementById('sb-sub').textContent = 'Focus on Grow — turn your Root data into impact reports and expansion plans.';
-  } else if (isRunning) {
+    s('sb-eyebrow', 'Established program');
+    s('sb-title', 'You have built something real. Time to scale ' + name + '.');
+    s('sb-sub', 'Focus on Grow - turn your data into impact reports and expansion plans.');
+  } else if (isRun) {
     banner.className = 'state-banner sb-running';
-    document.getElementById('sb-icon').textContent = '⚡';
-    document.getElementById('sb-eyebrow').textContent = 'Program in progress';
-    document.getElementById('sb-title').textContent = `${name} is running. Let's level it up.`;
-    document.getElementById('sb-sub').textContent = 'Focus on Fund and Run — find grants and get operations on Root.';
+    s('sb-eyebrow', 'Program in progress');
+    s('sb-title', name + ' is running. Time to level it up.');
+    s('sb-sub', 'Focus on Fund and Run - find grants and get operations on Root.');
   } else {
     banner.className = 'state-banner sb-starting';
-    document.getElementById('sb-icon').textContent = '🌱';
-    document.getElementById('sb-eyebrow').textContent = 'Just getting started';
-    document.getElementById('sb-title').textContent = `Let's build ${name} right.`;
-    document.getElementById('sb-sub').textContent = 'Your foundation determines everything that comes after it.';
+    s('sb-eyebrow', 'Just getting started');
+    s('sb-title', "Let's build " + name + " right.");
+    s('sb-sub', 'Your foundation determines everything that comes after it.');
   }
 }
 
-// ── SMART INSIGHT ─────────────────────────────────────────────────
 function renderInsight() {
-  const dismissed = localStorage.getItem('clearpath_insight_dismissed');
-  if (dismissed === new Date().toDateString()) {
-    document.getElementById('insight-card').style.display = 'none';
-    return;
-  }
-
-  const j = (profile.journey || '').toLowerCase();
-  const entity = profile.entityType || '';
-  const challenge = profile.biggestChallenge || '';
-  const grantExp = profile.grantExperience || '';
-  const doneCount = Object.values(progress).filter(v=>v).length;
-
-  let icon = '💡', text = '', sub = '', ctaText = 'Get help with this', ctaLink = '/coaching';
-
+  var card = document.getElementById('insight-card'); if (!card) return;
+  if (localStorage.getItem('clearpath_insight_dismissed') === new Date().toDateString()) { card.style.display = 'none'; return; }
+  var entity = profile.entityType || '';
+  var challenge = profile.biggestChallenge || '';
+  var grantExp = profile.grantExperience || '';
+  var j = (profile.journey || '').toLowerCase();
+  var text = '', sub = '', ctaLink = '/coaching';
   if (!entity || entity === 'Not yet incorporated') {
-    icon = '🏛️';
-    text = `${profile.orgName || 'Your program'} doesn't have a legal structure yet`;
-    sub = `Forming an LLC or nonprofit in ${profile.state || 'your state'} is your most urgent first step — it protects you personally and unlocks grant eligibility.`;
-    ctaLink = `/coaching?q=How+do+I+form+a+legal+entity+for+my+${encodeURIComponent(profile.programType||'program')}+in+${encodeURIComponent(profile.state||'my state')}`;
-  } else if (challenge.includes('funding') && grantExp === 'Never applied') {
-    icon = '💸';
-    text = 'Your biggest challenge is finding funding — and you\'ve never applied for a grant';
-    sub = 'Your local community foundation is the best first grant. Lower competition, faster decisions, and they specifically fund programs like yours.';
+    text = (profile.orgName || 'Your program') + ' does not have a legal structure yet';
+    sub = 'Forming an LLC or nonprofit in ' + (profile.state || 'your state') + ' is your most urgent first step.';
+    ctaLink = '/coaching?q=' + encodeURIComponent('How do I form a legal entity for my program?');
+  } else if (challenge.indexOf('funding') > -1 && grantExp === 'Never applied') {
+    text = 'Your biggest challenge is funding and you have never applied for a grant';
+    sub = 'Your local community foundation is the best first grant. Lower competition, faster decisions.';
     ctaLink = '/coaching?q=What+local+grants+should+I+apply+for+first?';
-  } else if (challenge.includes('funding') && grantExp !== 'Never applied') {
-    icon = '🎯';
-    text = `There are grants specific to ${profile.sportOrCategory || profile.programType || 'your program'} you may be missing`;
-    sub = 'Sport and program-specific funders are less competitive than general grants. Ask your advisor to match you to the right ones.';
-    ctaLink = `/coaching?q=What+grants+are+specific+to+${encodeURIComponent(profile.sportOrCategory||profile.programType||'my program')}?`;
-  } else if (j.includes('running') || j.includes('launched')) {
-    icon = '⚙️';
-    text = 'Your program is running — is it on Root yet?';
-    sub = 'Getting your registrations, schedule, and payments onto Root makes everything else easier — and unlocks your Grow data.';
+  } else if (j.indexOf('running') > -1 || j.indexOf('launched') > -1) {
+    text = 'Your program is running - is it on Root yet?';
+    sub = 'Getting your registrations and payments onto Root unlocks your Grow data.';
     ctaLink = '/coaching?q=How+do+I+set+up+Root+for+my+program?';
-  } else if (doneCount === 0) {
-    icon = '🚀';
-    text = `You haven't checked off any tasks yet — let's change that`;
-    sub = 'Your first task is the most important one. Click it to get step-by-step guidance from your AI advisor.';
-    ctaLink = '/coaching?q=What+is+the+single+most+important+first+step+for+my+program?';
-  } else if (j.includes('established')) {
-    icon = '📈';
-    text = 'You\'re established — your data should be working for you';
-    sub = 'Generate your first impact report from your Root data. Funders want proof, and you have it.';
+  } else if (j.indexOf('established') > -1) {
+    text = 'You are established - your data should be working for you';
+    sub = 'Generate your first impact report. Funders want proof, and you have it.';
     ctaLink = '/coaching?q=How+do+I+create+an+impact+report+for+grant+funders?';
-  } else {
-    document.getElementById('insight-card').style.display = 'none';
-    return;
-  }
-
-  document.getElementById('ic-icon').textContent = icon;
-  document.getElementById('ic-text').textContent = text;
-  document.getElementById('ic-sub').textContent = sub;
-  const cta = document.getElementById('ic-cta');
-  cta.textContent = ctaText + ' →';
-  cta.href = ctaLink;
+  } else { card.style.display = 'none'; return; }
+  s('ic-text', text); s('ic-sub', sub);
+  var cta = document.getElementById('ic-cta'); if (cta) { cta.textContent = 'Get help with this'; cta.href = ctaLink; }
 }
 
 function dismissInsight() {
   localStorage.setItem('clearpath_insight_dismissed', new Date().toDateString());
-  document.getElementById('insight-card').style.display = 'none';
+  var card = document.getElementById('insight-card'); if (card) card.style.display = 'none';
 }
 
-// ── GENERATE TASKS (API — once, cached) ───────────────────────────
-async function generateTasks() {
-  const j = (profile.journey || '').toLowerCase();
-  const isEstablished = j.includes('established') || j.includes('expand');
-  const isRunning = j.includes('running') || j.includes('launched') || j.includes('new');
+function buildTasks() {
+  var entity = profile.entityType || '';
+  var j = (profile.journey || '').toLowerCase();
+  var isEst = j.indexOf('established') > -1 || j.indexOf('expand') > -1;
+  var isRun = j.indexOf('running') > -1 || j.indexOf('launched') > -1 || j.indexOf('new') > -1;
+  var hasLegal = entity.indexOf('501') > -1 || entity.indexOf('LLC') > -1 || entity.indexOf('Municipal') > -1 || entity.indexOf('Sole') > -1;
+  var has501 = entity.indexOf('501') > -1;
+  var neverGranted = profile.grantExperience === 'Never applied';
+  var sport = profile.sportOrCategory || profile.programType || 'program';
+  var state = profile.state || 'your state';
+  var city = profile.city || 'your community';
+  var tasks = [];
 
-  const entity = profile.entityType || '';
-  const journey = (profile.journey || '').toLowerCase();
-  const grantExp = profile.grantExperience || '';
-  const challenge = profile.biggestChallenge || '';
-  const isEstablished = journey.includes('established') || journey.includes('expand');
-  const isRunning = journey.includes('running') || journey.includes('launched') || journey.includes('new');
-  const isStarting = !isEstablished && !isRunning;
-  const hasLegal = entity.includes('501') || entity.includes('LLC') || entity.includes('Municipal') || entity.includes('Sole');
-  const has501c3 = entity.includes('501');
-  const neverGranted = grantExp === 'Never applied';
-
-  const prompt = `You are Clearpath, an advisor for community program directors. Generate a hyper-personalized task list.
-
-PROFILE:
-- Program: ${profile.orgName}
-- Type: ${profile.programType} — ${profile.sportOrCategory}
-- Location: ${profile.city}, ${profile.state}
-- Legal structure: ${entity}
-- Participants: ${profile.participantCount}
-- Budget: ${profile.budgetRange}
-- Grant experience: ${grantExp}
-- Biggest challenge: ${challenge}
-- Journey: ${profile.journey}
-
-CRITICAL RULES — follow exactly:
-
-BUILD TASKS (5 tasks):
-${isStarting && !hasLegal ? `- Task 1: Form ${entity || 'LLC'} in ${profile.state} — URGENT
-- Task 2: Get EIN from IRS (irs.gov/ein) — URGENT
-- Task 3: Open business bank account
-- Task 4: Get general liability insurance — URGENT
-- Task 5: Join governing body for ${profile.sportOrCategory || profile.programType}` : ''}
-${isStarting && hasLegal ? `- Focus on compliance setup — background checks, SafeSport, certifications, facility permits
-- DO NOT include legal formation tasks — they already have ${entity}` : ''}
-${isRunning ? `- Focus on compliance maintenance — renew certifications, review insurance, update registrations
-- Add 1-2 operational improvement tasks specific to ${profile.programType}
-- DO NOT include basic formation tasks` : ''}
-${isEstablished ? `- Focus on governance — annual board meeting, state charity registration renewal, insurance review
-- Add expansion or new program tasks
-- DO NOT include any basic startup tasks` : ''}
-
-FUND TASKS (4 tasks):
-${neverGranted ? `- Start with lowest-barrier grants — local community foundation first
-- Include pricing strategy and scholarship policy
-- Include sponsorship outreach to local businesses` : ''}
-${!neverGranted && !isEstablished ? `- Include mid-tier sport-specific grants for ${profile.sportOrCategory || profile.programType}
-- Include grant calendar and deadline tracking
-- Include sponsorship deck creation` : ''}
-${isEstablished ? `- Include grant renewal and reporting
-- Include major donor cultivation
-- Include new funding stream development` : ''}
-
-RUN TASKS (4 tasks):
-- Always include Root setup tasks (rootsoccer.com)
-- Make them specific to ${profile.programType} operations
-- Include registration, scheduling, SafeSport tracking
-
-GROW TASKS (3 tasks):
-${isStarting ? `- Focus on planning — what data to track, how to measure outcomes` : ''}
-${isRunning ? `- Focus on documenting current season, building impact report` : ''}
-${isEstablished ? `- Focus on year-over-year analysis, expansion planning, new program development` : ''}
-
-Make every task title and detail specific to: ${profile.programType}, ${profile.sportOrCategory}, ${profile.state}, ${entity}, ${profile.journey}
-
-Return ONLY valid JSON array, no markdown:
-[{"id":"unique_id","title":"specific task title","detail":"one specific sentence with their program details","pillar":"Build|Fund|Run|Grow","urgent":true|false,"askPrompt":"exact question specific to their program"}]`;
-
-  try {
-    const res = await fetch('/.netlify/functions/tasks', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ profile })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Task generation failed');
-    allTasks = data.tasks;
-    localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
-    localStorage.setItem('clearpath_tasks_profile', [profile.entityType, profile.journey, profile.programType, profile.sportOrCategory, profile.grantExperience].join('|'));
-    renderAll();
-  } catch(e) {
-    allTasks = getDefaultTasks();
-    localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
-    renderAll();
+  if (!hasLegal) {
+    tasks.push({id:'b1',title:'Form ' + (entity || 'LLC') + ' in ' + state,detail:'File online at your state Secretary of State website. Takes 10 minutes, costs $50-$150.',pillar:'Build',urgent:true,askPrompt:'How do I form my legal entity in ' + state + '?'});
+    tasks.push({id:'b2',title:'Get your EIN from the IRS',detail:'Free at irs.gov/ein. 10 minutes online. Required before opening a bank account.',pillar:'Build',urgent:true,askPrompt:'How do I get an EIN from the IRS?'});
+    tasks.push({id:'b3',title:'Open a business bank account',detail:'Bring your EIN and formation documents. Never mix personal and business finances.',pillar:'Build',urgent:false,askPrompt:'How do I open a business bank account for my program?'});
+    tasks.push({id:'b4',title:'Join the governing body for ' + sport,detail:'Register with the national governing body - unlocks insurance, compliance, and competition access.',pillar:'Build',urgent:false,askPrompt:'What governing body should I join for ' + sport + '?'});
+    tasks.push({id:'b5',title:'Get general liability insurance',detail:'Required before any field or facility will book you. Apply through your governing body or K&K Insurance.',pillar:'Build',urgent:true,askPrompt:'What insurance does my program need?'});
+  } else if (isEst) {
+    tasks.push({id:'b1',title:'Hold your annual board meeting',detail:'Required for nonprofit compliance. Review financials, elect officers, approve next year budget.',pillar:'Build',urgent:false,askPrompt:'What do I need to cover in my annual board meeting?'});
+    tasks.push({id:'b2',title:'Renew your state charity registration',detail:'Most states require annual renewal. Search your state name plus charity registration renewal.',pillar:'Build',urgent:false,askPrompt:'How do I renew my state charity registration?'});
+    tasks.push({id:'b3',title:'Renew SafeSport certifications',detail:'Annual renewal at safesport.org for all adults working with youth. Takes 30 minutes.',pillar:'Build',urgent:true,askPrompt:'How do I manage annual SafeSport renewals?'});
+    tasks.push({id:'b4',title:'Review and renew insurance coverage',detail:'Annual review of general liability, D&O, and sport-specific coverage.',pillar:'Build',urgent:false,askPrompt:'What insurance should my established program carry?'});
+    tasks.push({id:'b5',title:'Plan a new ' + sport + ' division or age group',detail:'Expansion is the next natural step. Assess demand and capacity before committing.',pillar:'Build',urgent:false,askPrompt:'How do I add a new division to my ' + sport + ' program?'});
+  } else {
+    tasks.push({id:'b1',title:'Complete SafeSport certification for all staff',detail:'Free at safesport.org. Required for all adults working with youth. Takes about 90 minutes.',pillar:'Build',urgent:true,askPrompt:'How do I manage SafeSport certification for my program?'});
+    tasks.push({id:'b2',title:'Run background checks on all coaches',detail:'Required by all governing bodies. Sterling Volunteers at sterlingvolunteers.com - $15-25 per person.',pillar:'Build',urgent:true,askPrompt:'How do I set up background checks for my coaches?'});
+    tasks.push({id:'b3',title:'Book your ' + sport + ' field or facility',detail:'Contact your city parks department and local school district - both often have space for ' + sport + ' programs.',pillar:'Build',urgent:false,askPrompt:'How do I find and book a field for my ' + sport + ' program in ' + state + '?'});
+    tasks.push({id:'b4',title:'Complete coaching certifications',detail:'Get sport-specific coaching license plus First Aid and CPR. Required by your governing body.',pillar:'Build',urgent:false,askPrompt:'What coaching certifications do I need for ' + sport + '?'});
+    tasks.push({id:'b5',title:(has501 ? 'File your annual IRS Form 990' : 'Apply for 501c3 nonprofit status'),detail:(has501 ? 'Annual nonprofit tax return due May 15. Use 990-N if under $50K gross receipts.' : 'File IRS Form 1023-EZ at pay.gov for $275. Opens grant eligibility.'),pillar:'Build',urgent:false,askPrompt:(has501 ? 'How do I file my nonprofit Form 990?' : 'How do I apply for 501c3 status?')});
   }
+
+  if (neverGranted) {
+    tasks.push({id:'f1',title:'Apply to your local community foundation',detail:'Lowest competition and fastest decisions for new programs. Search your county name plus community foundation grants.',pillar:'Fund',urgent:false,askPrompt:'How do I find my local community foundation and apply?'});
+    tasks.push({id:'f2',title:'Set your ' + sport + ' registration pricing strategy',detail:'Research comparable ' + sport + ' programs in your area. Set a fair price with a scholarship option.',pillar:'Fund',urgent:false,askPrompt:'How should I price registration for my ' + sport + ' program?'});
+    tasks.push({id:'f3',title:'Create a financial aid and scholarship policy',detail:'Required by most grant funders. Document that you never turn away a child for financial reasons.',pillar:'Fund',urgent:false,askPrompt:'How do I create a financial aid policy for my program?'});
+    tasks.push({id:'f4',title:'Identify 5 local business sponsors',detail:'Law firms, medical and dental practices, and car dealerships are the most consistent youth program sponsors.',pillar:'Fund',urgent:false,askPrompt:'How do I approach local businesses for sponsorships?'});
+  } else if (isEst) {
+    tasks.push({id:'f1',title:'Submit ' + sport + ' grant renewals',detail:'Renewal rates are much higher than new applications. Prioritize renewing existing grants first.',pillar:'Fund',urgent:true,askPrompt:'What grants should I renew for my established ' + sport + ' program?'});
+    tasks.push({id:'f2',title:'Cultivate 5 major donor prospects',detail:'Individual donors giving $1000 or more require personal cultivation. Identify prospects from your network.',pillar:'Fund',urgent:false,askPrompt:'How do I build a major donor program for my nonprofit?'});
+    tasks.push({id:'f3',title:'Apply for national ' + sport + ' foundation grants',detail:'National funders offer larger grants to established programs with proven track records.',pillar:'Fund',urgent:false,askPrompt:'What large national grants exist for established ' + sport + ' programs?'});
+    tasks.push({id:'f4',title:'Build a corporate sponsorship deck',detail:'A professional deck with your impact data opens doors to $5000 and up in corporate sponsors.',pillar:'Fund',urgent:false,askPrompt:'How do I create a corporate sponsorship deck?'});
+  } else {
+    tasks.push({id:'f1',title:'Apply for ' + sport + '-specific grants',detail:'Sport and program-specific funders have lower competition than general grants.',pillar:'Fund',urgent:false,askPrompt:'What grants exist specifically for ' + sport + ' programs?'});
+    tasks.push({id:'f2',title:'Build a grant deadline calendar',detail:'Track deadlines for your 5 target grants. Most have annual cycles - missing them means waiting a full year.',pillar:'Fund',urgent:false,askPrompt:'How do I build a grant calendar for my program?'});
+    tasks.push({id:'f3',title:'Apply to your local community foundation',detail:'Strong second grant after your first success. Lower competition than national funders.',pillar:'Fund',urgent:false,askPrompt:'How do I apply to my local community foundation?'});
+    tasks.push({id:'f4',title:'Create a sponsorship outreach list',detail:'Build a list of 10 local businesses. Law firms, medical practices, and family businesses are strong targets.',pillar:'Fund',urgent:false,askPrompt:'How do I find and approach local sponsors?'});
+  }
+
+  tasks.push({id:'r1',title:'Create your Root account',detail:'Go to rootsoccer.com and create your free account. The complete management platform for your operations.',pillar:'Run',urgent:false,askPrompt:'How do I set up Root for my ' + sport + ' program?'});
+  tasks.push({id:'r2',title:'Configure your ' + sport + ' organization in Root',detail:'Set up your organization type, season structure, and ' + sport + '-specific division setup.',pillar:'Run',urgent:false,askPrompt:'How do I configure Root for ' + sport + '?'});
+  tasks.push({id:'r3',title:'Build your registration form in Root',detail:'Include SafeSport uploads, U18 consent, emergency contacts, medical info, and payment options.',pillar:'Run',urgent:false,askPrompt:'What should I include in my Root registration form?'});
+  tasks.push({id:'r4',title:'Share your registration link with families',detail:'Email, social media, school newsletters, and community channels in ' + city + '.',pillar:'Run',urgent:false,askPrompt:'How do I get families to register for my ' + sport + ' program?'});
+
+  if (isEst) {
+    tasks.push({id:'g1',title:'Run your year-over-year program analysis',detail:'Compare participants, retention, revenue, and outcomes from your last 3 seasons to find trends.',pillar:'Grow',urgent:false,askPrompt:'How do I run a year-over-year analysis of my program?'});
+    tasks.push({id:'g2',title:'Build your expansion business case',detail:'Use your data to justify adding a new division, location, or program type.',pillar:'Grow',urgent:false,askPrompt:'How do I build a case to expand my ' + sport + ' program?'});
+    tasks.push({id:'g3',title:'Generate a funder-ready impact report',detail:'Compile participation data, outcomes, and success stories into a report that wins grant renewals.',pillar:'Grow',urgent:false,askPrompt:'How do I create an impact report that wins grant renewals?'});
+  } else if (isRun) {
+    tasks.push({id:'g1',title:'Document this season outcomes',detail:'Track participants served, attendance rates, scholarship recipients, and success stories.',pillar:'Grow',urgent:false,askPrompt:'What data should I track this season for grant applications?'});
+    tasks.push({id:'g2',title:'Create your first impact report',detail:'Even a one-page impact summary significantly strengthens your next grant application.',pillar:'Grow',urgent:false,askPrompt:'How do I create my first program impact report?'});
+    tasks.push({id:'g3',title:'Plan next season improvements',detail:'Review what worked and what families asked for to improve next season.',pillar:'Grow',urgent:false,askPrompt:'How do I plan improvements for next season of my ' + sport + ' program?'});
+  } else {
+    tasks.push({id:'g1',title:'Define your program success metrics',detail:'Decide what you will measure - participants, retention, attendance - before your first season.',pillar:'Grow',urgent:false,askPrompt:'What should I track and measure for my program from day one?'});
+    tasks.push({id:'g2',title:'Set up a simple data tracking system',detail:'A spreadsheet tracking participants, attendance, and demographics is enough to start.',pillar:'Grow',urgent:false,askPrompt:'How do I set up data tracking for my program?'});
+    tasks.push({id:'g3',title:'Plan your first season impact report',detail:'Know what story you want to tell funders before the season starts so you collect the right data.',pillar:'Grow',urgent:false,askPrompt:'How do I plan to measure and report program impact?'});
+  }
+  return tasks;
 }
 
-function getDefaultTasks() {
-  return [
-    {id:'b1',title:`Form ${profile.entityType||'LLC'} in ${profile.state||'your state'}`,detail:'File with your state Secretary of State — search "[your state] secretary of state LLC filing". Takes 10 minutes online.',pillar:'Build',urgent:true,askPrompt:`How do I form my legal entity in ${profile.state||'my state'}?`},
-    {id:'b2',title:'Get your EIN from the IRS',detail:'Free at irs.gov/ein. 10 minutes. Required before opening a bank account.',pillar:'Build',urgent:true,askPrompt:'How do I get an EIN from the IRS?'},
-    {id:'b3',title:'Open a business bank account',detail:'Bring your EIN and formation documents. Never mix personal and business finances.',pillar:'Build',urgent:false,askPrompt:'How do I open a business bank account?'},
-    {id:'b4',title:`Join your ${profile.programType==='Youth Sports'?'governing body':'program network'}`,detail:`Register with the national organization for ${profile.sportOrCategory||'your program type'}.`,pillar:'Build',urgent:false,askPrompt:`What governing body should I join for ${profile.sportOrCategory||'my program'}?`},
-    {id:'b5',title:'Get general liability insurance',detail:'Required before any field or facility will let you book. Apply through your governing body or K&K Insurance.',pillar:'Build',urgent:true,askPrompt:'What insurance do I need for my program?'},
-    {id:'f1',title:'Apply to your local community foundation',detail:'Lowest competition, fastest decisions. Search "[your county] community foundation grants".',pillar:'Fund',urgent:false,askPrompt:'How do I find my local community foundation and apply for a grant?'},
-    {id:'f2',title:'Set your registration pricing strategy',detail:'Research comparable programs. Set a fair price with a scholarship option.',pillar:'Fund',urgent:false,askPrompt:'How should I price my program registration?'},
-    {id:'f3',title:`Apply for ${profile.sportOrCategory||profile.programType||'program'}-specific grants`,detail:'Sport and program-specific funders have lower competition than general grants.',pillar:'Fund',urgent:false,askPrompt:`What grants exist specifically for ${profile.sportOrCategory||profile.programType||'my program'}?`},
-    {id:'f4',title:'Build a local sponsorship list',detail:'Identify 5 local businesses. Law firms, medical practices, and car dealerships are strong targets.',pillar:'Fund',urgent:false,askPrompt:'How do I find and approach local sponsors?'},
-    {id:'r1',title:'Create your Root account',detail:'Go to rootsoccer.com and create your free account. Takes 5 minutes.',pillar:'Run',urgent:false,askPrompt:'How do I set up Root for my program?'},
-    {id:'r2',title:'Set up your organization in Root',detail:'Configure your organization type, season structure, and division setup.',pillar:'Run',urgent:false,askPrompt:`How do I configure Root for a ${profile.programType||'youth'} program?`},
-    {id:'r3',title:'Build your registration form in Root',detail:'Include all required fields — SafeSport uploads, U18 consent, emergency contacts.',pillar:'Run',urgent:false,askPrompt:'What should I include in my registration form?'},
-    {id:'r4',title:'Share your registration link with families',detail:'Email, social media, school newsletters, and community channels.',pillar:'Run',urgent:false,askPrompt:'How do I get families to register for my program?'},
-    {id:'g1',title:'Complete your first full season on Root',detail:'Run a complete season through Root to build the data foundation for grant reports.',pillar:'Grow',urgent:false,askPrompt:'What data should I track during my season for grant reporting?'},
-    {id:'g2',title:'Generate your season impact report',detail:'Document participants, attendance rates, and outcomes using Root data.',pillar:'Grow',urgent:false,askPrompt:'How do I create an impact report from my season data?'},
-    {id:'g3',title:'Plan your next season expansion',detail:'Review what worked and what your data says about growth opportunities.',pillar:'Grow',urgent:false,askPrompt:'How do I know when I\'m ready to expand my program?'},
-  ];
-}
+function renderAll() { renderTasks(); renderPillarProgress(); renderNextStep(); }
 
-// ── RENDER TASKS ──────────────────────────────────────────────────
 function renderTasks() {
-  const list = document.getElementById('task-list');
-  let tasks = allTasks;
+  var list = document.getElementById('task-list'); if (!list) return;
+  var tasks = allTasks.slice();
+  if (currentFilter === 'urgent') tasks = tasks.filter(function(t) { return t.urgent && !progress[t.id]; });
+  else if (currentFilter === 'custom') tasks = tasks.filter(function(t) { return t.custom; });
+  else if (currentFilter !== 'all') tasks = tasks.filter(function(t) { return t.pillar === currentFilter; });
+  if (focusedPillar && currentFilter === 'all') tasks = tasks.filter(function(t) { return t.pillar === focusedPillar; });
 
-  if (currentFilter === 'urgent') tasks = tasks.filter(t => t.urgent && !progress[t.id]);
-  else if (currentFilter === 'custom') tasks = tasks.filter(t => t.custom);
-  else if (currentFilter !== 'all') tasks = tasks.filter(t => t.pillar === currentFilter);
+  list.innerHTML = '';
 
-  if (focusedPillar && currentFilter === 'all') tasks = tasks.filter(t => t.pillar === focusedPillar);
-
-  const incomplete = tasks.filter(t => !progress[t.id]);
-  const complete = tasks.filter(t => progress[t.id]);
-  const sorted = [...incomplete, ...complete];
-
-  // Show Root card at top of task list when Run is focused
-  let runHeader = '';
-  if (focusedPillar === 'Run' || currentFilter === 'Run') {
-    const isOptout = localStorage.getItem('clearpath_root_optout') === 'true';
-    if (!isOptout) {
-      runHeader = `<div style="margin:12px 20px;padding:16px;background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:12px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;">⚽</div>
-          <div><div style="font-size:14px;font-weight:700;color:white;">Root — The Complete Management Platform</div><div style="font-size:11px;color:rgba(255,255,255,.5);">Registration · Scheduling · Payments · SafeSport</div></div>
-        </div>
-        <div style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;font-weight:300;line-height:1.5;">Set up Root to complete your Run pillar. Root handles all your day-to-day operations so you can focus on growing your program.</div>
-        <div style="display:flex;gap:8px;">
-          <a href="https://www.rootsoccer.com" target="_blank" style="flex:1;display:block;padding:9px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;">Set up Root →</a>
-          <button onclick="optOutOfRoot()" style="padding:9px 12px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:8px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:inherit;white-space:nowrap;">Upload my own data</button>
-        </div>
-      </div>`;
-    } else {
-      runHeader = `<div style="margin:12px 20px;padding:14px;background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.2);border-radius:12px;">
-        <div style="font-size:12px;color:var(--forest);font-weight:700;margin-bottom:4px;">📂 Using your own data</div>
-        <div style="font-size:12px;color:var(--text-lt);margin-bottom:10px;font-weight:300;line-height:1.5;">Root gives your AI better insights. <button onclick="switchToRoot()" style="background:none;border:none;color:var(--blue);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;padding:0;">Switch to Root instead →</button></div>
-        <div class="uc-drop" style="padding:14px;" onclick="document.getElementById('file-input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
-          <div style="font-size:20px;margin-bottom:4px;">📊</div>
-          <div style="font-size:13px;font-weight:600;color:var(--forest);">Drop your data file</div>
-          <div style="font-size:11px;color:var(--text-lt);">CSV, Excel, or PDF · 1 upload/month (Pro)</div>
-        </div>
-        <div id="upload-status" style="margin-top:8px;"></div>
-        <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
-        <button onclick="markRunComplete()" style="display:block;width:100%;margin-top:8px;padding:9px;background:var(--forest);color:white;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">✓ Mark Run pillar complete</button>
-      </div>`;
-    }
+  if ((focusedPillar === 'Run' || currentFilter === 'Run') && localStorage.getItem('clearpath_root_optout') !== 'true') {
+    var rh = document.createElement('div');
+    rh.style.cssText = 'margin:12px 20px 4px;padding:16px;background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:12px;';
+    var rtop = document.createElement('div'); rtop.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:8px;';
+    var rico = document.createElement('div'); rico.style.cssText = 'width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;'; rico.textContent = 'R';
+    var rtxt = document.createElement('div');
+    var rt1 = document.createElement('div'); rt1.style.cssText = 'font-size:14px;font-weight:700;color:white;'; rt1.textContent = 'Root - Complete Management Platform';
+    var rt2 = document.createElement('div'); rt2.style.cssText = 'font-size:11px;color:rgba(255,255,255,.5);'; rt2.textContent = 'Registration - Scheduling - Payments - SafeSport';
+    rtxt.appendChild(rt1); rtxt.appendChild(rt2);
+    rtop.appendChild(rico); rtop.appendChild(rtxt);
+    var rdesc = document.createElement('div'); rdesc.style.cssText = 'font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;'; rdesc.textContent = 'Set up Root to complete your Run pillar and unlock Grow features.';
+    var rbtns = document.createElement('div'); rbtns.style.cssText = 'display:flex;gap:8px;';
+    var rlink = document.createElement('a'); rlink.href = 'https://www.rootsoccer.com'; rlink.target = '_blank'; rlink.style.cssText = 'flex:1;display:block;padding:9px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;'; rlink.textContent = 'Set up Root';
+    var ropt = document.createElement('button'); ropt.style.cssText = 'padding:9px 12px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:8px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:inherit;'; ropt.textContent = 'Upload my own data'; ropt.onclick = optOutOfRoot;
+    rbtns.appendChild(rlink); rbtns.appendChild(ropt);
+    rh.appendChild(rtop); rh.appendChild(rdesc); rh.appendChild(rbtns);
+    list.appendChild(rh);
   }
+
+  var incomplete = tasks.filter(function(t) { return !progress[t.id]; });
+  var complete = tasks.filter(function(t) { return progress[t.id]; });
+  var sorted = incomplete.concat(complete);
 
   if (sorted.length === 0) {
-    list.innerHTML = runHeader + '<div class="task-loading"><div class="tl-icon">✅</div><div class="tl-title">All done here!</div><div class="tl-sub">Check another pillar or add your own tasks below.</div></div>';
+    var empty = document.createElement('div'); empty.className = 'task-empty';
+    var et = document.createElement('div'); et.className = 'task-empty-title'; et.textContent = 'All done here!';
+    var es = document.createElement('div'); es.className = 'task-empty-sub'; es.textContent = 'Check another pillar or add your own tasks.';
+    empty.appendChild(et); empty.appendChild(es); list.appendChild(empty);
   } else {
-    list.innerHTML = runHeader + sorted.map(t => {
-      const done = !!progress[t.id];
-      return `<div class="task-item ${done?'done':''} ${t.custom?'custom':''}" id="task-${t.id}">
-        <div class="task-check" onclick="toggleTask('${t.id}',event)">${done?'✓':''}</div>
-        <div class="ti-body">
-          <div class="ti-title">${t.title}</div>
-          <div class="ti-detail">${t.detail}</div>
-          <div class="ti-tags">
-            <span class="ti-tag tag-${t.pillar.toLowerCase()}">${t.pillar}</span>
-            ${t.urgent&&!done?'<span class="ti-tag tag-urgent">Urgent</span>':''}
-            ${t.custom?'<span class="ti-tag tag-custom">Custom</span>':''}
-          </div>
-          <span class="ti-ask" onclick="goAsk('${t.id}',event)">🤖 Ask AI about this →</span>
-          ${t.custom?`<span class="ti-delete" onclick="deleteTask('${t.id}',event)">✕ Remove</span>`:''}
-        </div>
-      </div>`;
-    }).join('');
+    for (var i = 0; i < sorted.length; i++) list.appendChild(makeTaskEl(sorted[i]));
   }
 
-  const doneCount = allTasks.filter(t => progress[t.id]).length;
-  document.getElementById('task-meta').textContent = `${doneCount} of ${allTasks.length} complete`;
-  document.getElementById('task-title').textContent = focusedPillar ? `${focusedPillar} Tasks` : 'Your Tasks';
-  document.getElementById('s-done').textContent = doneCount;
+  var doneCount = allTasks.filter(function(t) { return progress[t.id]; }).length;
+  s('task-meta', doneCount + ' of ' + allTasks.length + ' complete');
+  s('task-title', focusedPillar ? (focusedPillar + ' Tasks') : 'Your Tasks');
+  s('s-done', doneCount);
 }
 
-function toggleTask(id, e) {
-  e.stopPropagation();
+function makeTaskEl(t) {
+  var done = !!progress[t.id];
+  var item = document.createElement('div');
+  item.className = 'task-item' + (done ? ' done' : '') + (t.custom ? ' custom' : '');
+  item.id = 'task-' + t.id;
+
+  var check = document.createElement('div');
+  check.className = 'task-check';
+  if (done) check.textContent = String.fromCharCode(10003);
+  check.onclick = (function(id) { return function(e) { e.stopPropagation(); toggleTask(id); }; })(t.id);
+
+  var body = document.createElement('div'); body.className = 'ti-body';
+  var tit = document.createElement('div'); tit.className = 'ti-title'; tit.textContent = t.title;
+  var det = document.createElement('div'); det.className = 'ti-detail'; det.textContent = t.detail;
+  var tags = document.createElement('div'); tags.className = 'ti-tags';
+  var ptag = document.createElement('span'); ptag.className = 'ti-tag tag-' + t.pillar.toLowerCase(); ptag.textContent = t.pillar; tags.appendChild(ptag);
+  if (t.urgent && !done) { var utag = document.createElement('span'); utag.className = 'ti-tag tag-urgent'; utag.textContent = 'Urgent'; tags.appendChild(utag); }
+  if (t.custom) { var ctag = document.createElement('span'); ctag.className = 'ti-tag tag-custom'; ctag.textContent = 'Custom'; tags.appendChild(ctag); }
+  var ask = document.createElement('span'); ask.className = 'ti-ask'; ask.textContent = 'Ask AI about this';
+  ask.onclick = (function(task) { return function(e) { e.stopPropagation(); window.location.href = '/coaching?q=' + encodeURIComponent(task.askPrompt || task.title); }; })(t);
+  body.appendChild(tit); body.appendChild(det); body.appendChild(tags); body.appendChild(ask);
+  if (t.custom) {
+    var del = document.createElement('span'); del.className = 'ti-delete'; del.textContent = 'Remove';
+    del.onclick = (function(id) { return function(e) { e.stopPropagation(); deleteTask(id); }; })(t.id);
+    body.appendChild(del);
+  }
+  item.appendChild(check); item.appendChild(body);
+  return item;
+}
+
+function toggleTask(id) {
   progress[id] = !progress[id];
   localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
-  renderTasks(); renderPillarProgress(); renderNextStep();
+  renderAll();
 }
 
-function goAsk(id, e) {
-  e.stopPropagation();
-  const task = allTasks.find(t => t.id === id);
-  if (task) window.location.href = `/coaching?q=${encodeURIComponent(task.askPrompt || task.title)}`;
-}
-
-function deleteTask(id, e) {
-  e.stopPropagation();
-  allTasks = allTasks.filter(t => t.id !== id);
+function deleteTask(id) {
+  allTasks = allTasks.filter(function(t) { return t.id !== id; });
   delete progress[id];
   localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
   localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
@@ -779,297 +610,133 @@ function deleteTask(id, e) {
 
 function filterTasks(filter, btn) {
   currentFilter = filter;
-  document.querySelectorAll('.tf').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  var btns = document.querySelectorAll('.tf');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  if (btn) btn.classList.add('active');
   renderTasks();
 }
 
 function addCustomTask() {
-  const input = document.getElementById('new-task-input');
-  const pillar = document.getElementById('new-task-pillar').value;
-  const text = input.value.trim();
-  if (!text) return;
-  const task = {
-    id: 'custom_' + Date.now(),
-    title: text,
-    detail: 'Custom task added by you',
-    pillar,
-    urgent: false,
-    custom: true,
-    askPrompt: text
-  };
-  allTasks.push(task);
+  var input = document.getElementById('new-task-input');
+  var pel = document.getElementById('new-task-pillar');
+  if (!input || !pel) return;
+  var text = input.value.trim(); if (!text) return;
+  allTasks.push({id:'c_' + Date.now(), title:text, detail:'Custom task added by you', pillar:pel.value, urgent:false, custom:true, askPrompt:text});
   localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
-  input.value = '';
+  input.value = ''; renderAll();
+}
+
+function completePillar(pillar, e) {
+  if (e) e.stopPropagation();
+  var pts = allTasks.filter(function(t) { return t.pillar === pillar; });
+  var allDone = pts.every(function(t) { return !!progress[t.id]; });
+  pts.forEach(function(t) { progress[t.id] = !allDone; });
+  localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
   renderAll();
 }
 
-// ── PILLAR COMPLETE BUTTON ────────────────────────────────────────
-function completePillar(pillar, e) {
-  e.stopPropagation();
-  const pillarTasks = allTasks.filter(t => t.pillar === pillar);
-  const allDone = pillarTasks.every(t => progress[t.id]);
-
-  if (allDone) {
-    // Uncheck all
-    pillarTasks.forEach(t => { progress[t.id] = false; });
-    document.getElementById(`cbtn-${pillar.toLowerCase()}`).textContent = 'Mark all complete';
-    document.getElementById(`cbtn-${pillar.toLowerCase()}`).classList.remove('all-done');
-  } else {
-    // Check all
-    pillarTasks.forEach(t => { progress[t.id] = true; });
-    document.getElementById(`cbtn-${pillar.toLowerCase()}`).textContent = '✓ All complete — undo?';
-    document.getElementById(`cbtn-${pillar.toLowerCase()}`).classList.add('all-done');
-  }
-
-  localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
-  renderTasks(); renderPillarProgress(); renderNextStep();
-}
-
-// ── PILLAR FOCUS ──────────────────────────────────────────────────
 function focusPillar(pillar) {
   focusedPillar = pillar;
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('focused'));
-  document.getElementById(`pill-${pillar.toLowerCase()}`).classList.add('focused');
+  var pills = document.querySelectorAll('.pill');
+  for (var i = 0; i < pills.length; i++) pills[i].classList.remove('focused');
+  var pill = document.getElementById('pill-' + pillar.toLowerCase()); if (pill) pill.classList.add('focused');
   currentFilter = 'all';
-  document.querySelectorAll('.tf').forEach(b => b.classList.remove('active'));
-  document.querySelector('.tf').classList.add('active');
+  var btns = document.querySelectorAll('.tf'); for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  var first = document.querySelector('.tf'); if (first) first.classList.add('active');
   renderTasks();
 }
 
 function resetFocus() {
   focusedPillar = null;
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('focused'));
-  document.getElementById('pill-build').classList.add('focused');
+  var pills = document.querySelectorAll('.pill'); for (var i = 0; i < pills.length; i++) pills[i].classList.remove('focused');
+  var bp = document.getElementById('pill-build'); if (bp) bp.classList.add('focused');
   renderTasks();
 }
 
-// ── PILLAR PROGRESS ───────────────────────────────────────────────
 function renderPillarProgress() {
-  const colors = {Build:'var(--mint)',Fund:'var(--yellow)',Run:'var(--blue)',Grow:'var(--purple)'};
-  let total = 0;
-  ['Build','Fund','Run','Grow'].forEach(p => {
-    const tasks = allTasks.filter(t => t.pillar === p);
-    if (!tasks.length) return;
-    const done = tasks.filter(t => progress[t.id]).length;
-    const pct = Math.round((done/tasks.length)*100);
-    total += pct;
-    document.getElementById(`pct-${p.toLowerCase()}`).textContent = pct+'%';
-    document.getElementById(`fill-${p.toLowerCase()}`).style.width = pct+'%';
-    const btn = document.getElementById(`cbtn-${p.toLowerCase()}`);
-    if (pct === 100) { btn.textContent = '✓ All complete — undo?'; btn.classList.add('all-done'); }
-    else { btn.textContent = 'Mark all complete'; btn.classList.remove('all-done'); }
-  });
-  const overall = Math.round(total/4);
-  document.getElementById('sb-pct').textContent = overall+'%';
+  var pillars = ['Build','Fund','Run','Grow']; var total = 0;
+  for (var p = 0; p < pillars.length; p++) {
+    var pillar = pillars[p];
+    var pts = allTasks.filter(function(t) { return t.pillar === pillar; }); if (!pts.length) continue;
+    var done = pts.filter(function(t) { return !!progress[t.id]; }).length;
+    var pct = Math.round((done / pts.length) * 100); total += pct;
+    s('pct-' + pillar.toLowerCase(), pct + '%');
+    var fillEl = document.getElementById('fill-' + pillar.toLowerCase()); if (fillEl) fillEl.style.width = pct + '%';
+    var btn = document.getElementById('cbtn-' + pillar.toLowerCase());
+    if (btn) { btn.textContent = pct === 100 ? 'All complete - undo?' : 'Mark all complete'; if (pct === 100) btn.classList.add('all-done'); else btn.classList.remove('all-done'); }
+  }
+  s('sb-pct', Math.round(total / 4) + '%');
 }
 
-// ── NEXT STEP ─────────────────────────────────────────────────────
 function renderNextStep() {
-  const urgent = allTasks.find(t => t.urgent && !progress[t.id]);
-  const next = urgent || allTasks.find(t => !progress[t.id]);
-  if (!next) {
-    document.getElementById('nc-title').textContent = 'All tasks complete!';
-    document.getElementById('nc-sub').textContent = 'Book a consulting session to plan your next season.';
-    return;
-  }
-  document.getElementById('nc-title').textContent = next.title;
-  document.getElementById('nc-sub').textContent = next.detail;
-  document.getElementById('next-card').onclick = () => window.location.href = `/coaching?q=${encodeURIComponent(next.askPrompt||next.title)}`;
+  var item = null;
+  for (var i = 0; i < allTasks.length; i++) { if (allTasks[i].urgent && !progress[allTasks[i].id]) { item = allTasks[i]; break; } }
+  if (!item) { for (var i = 0; i < allTasks.length; i++) { if (!progress[allTasks[i].id]) { item = allTasks[i]; break; } } }
+  var card = document.getElementById('next-card');
+  if (!item) { s('nc-title', 'All tasks complete!'); s('nc-sub', 'Book a consulting session to plan your next season.'); if (card) card.onclick = function() { window.location.href = '/consulting'; }; return; }
+  s('nc-title', item.title); s('nc-sub', item.detail);
+  if (card) card.onclick = (function(it) { return function() { window.location.href = '/coaching?q=' + encodeURIComponent(it.askPrompt || it.title); }; })(item);
 }
 
-// ── COACHING TASK TOAST ───────────────────────────────────────────
-function showToast(taskText, suggestedPillar) {
-  document.getElementById('toast-task-text').textContent = taskText;
-  if (suggestedPillar) {
-    document.getElementById('toast-pillar').value = suggestedPillar;
-  }
-  document.getElementById('coach-toast').style.display = 'block';
-}
-
-function confirmToastTask() {
-  const text = document.getElementById('toast-task-text').textContent;
-  const pillar = document.getElementById('toast-pillar').value;
-  const task = {
-    id: 'coach_' + Date.now(),
-    title: text,
-    detail: 'Task added from your AI coaching session',
-    pillar,
-    urgent: false,
-    custom: true,
-    askPrompt: text
-  };
-  allTasks.push(task);
-  localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
-  dismissToast();
-  renderAll();
-  // Show confirmation
-  focusPillar(pillar);
-}
-
-function dismissToast() {
-  document.getElementById('coach-toast').style.display = 'none';
-}
-
-// ── FILE UPLOAD ───────────────────────────────────────────────────
-function handleDrop(e) {
-  e.preventDefault();
-  document.getElementById('upload-drop').classList.remove('drag-over');
-  const file = e.dataTransfer.files[0];
-  if (file) handleFileSelect(file);
-}
-
-function handleFileSelect(file) {
-  if (!file) return;
-
-  const isPro = localStorage.getItem('clearpath_pro') === 'true';
-  if (!isPro) {
-    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;padding:8px 10px;background:rgba(234,67,53,.08);border-radius:6px;">⚠️ Data upload is a Pro feature. <a href="/signup?upgrade=true" style="color:var(--blue);font-weight:600;">Upgrade to Pro →</a></div>';
-    return;
-  }
-
-  const month = new Date().toISOString().slice(0,7);
-  const uploadKey = `clearpath_uploads_${month}`;
-  const uploads = parseInt(localStorage.getItem(uploadKey) || '0');
-
-  if (uploads >= 1) {
-    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;padding:8px 10px;background:rgba(234,67,53,.08);border-radius:6px;">⚠️ You\'ve used your 1 upload for this month. Resets on the 1st.</div>';
-    return;
-  }
-
-  const allowed = ['.csv','.xlsx','.xls','.pdf'];
-  const ext = '.' + file.name.split('.').pop().toLowerCase();
-  if (!allowed.includes(ext)) {
-    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;">Please upload a CSV, Excel, or PDF file.</div>';
-    return;
-  }
-
-  document.getElementById('upload-status').innerHTML = `<div class="uc-file"><span class="uc-file-name">📄 ${file.name}</span><button class="uc-file-btn" onclick="processFile()">Analyze with AI</button></div>`;
-
-  // Store file reference
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    localStorage.setItem('clearpath_upload_data', JSON.stringify({
-      name: file.name,
-      type: ext,
-      size: file.size,
-      preview: e.target.result.substring(0, 5000) // first 5KB for analysis
-    }));
-  };
-  if (ext === '.csv' || ext === '.txt') {
-    reader.readAsText(file);
-  } else {
-    reader.readAsDataURL(file);
-  }
-}
-
-async function processFile() {
-  const fileData = localStorage.getItem('clearpath_upload_data');
-  if (!fileData) return;
-
-  const file = JSON.parse(fileData);
-  document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--sage);margin-top:8px;text-align:center;padding:12px;background:var(--mint-pale);border-radius:8px;">🧠 Analyzing your data... this may take a moment.</div>';
-
-  // Track upload usage
-  const month = new Date().toISOString().slice(0,7);
-  localStorage.setItem(`clearpath_uploads_${month}`, '1');
-  document.getElementById('uploads-remaining').textContent = '0 remaining this month';
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
-        max_tokens: 1000,
-        messages: [{
-          role: 'user',
-          content: `You are Clearpath, a program management advisor. Analyze this program data file and provide a brief, practical summary.
-
-Program: ${profile.orgName || 'Unknown'} (${profile.programType || ''})
-File: ${file.name} (${file.type})
-Data preview:
-${file.preview || '[Binary file - PDF or Excel]'}
-
-Provide:
-1. What data this file contains (2-3 sentences)
-2. 3 key insights or observations from the data
-3. 2 specific recommendations for this program based on what you see
-4. Whether this data would strengthen a grant application (yes/no and why)
-
-Keep it concise and specific to their program.`
-        }]
-      })
-    });
-
-    const data = await res.json();
-    const analysis = data.content?.[0]?.text || 'Could not analyze file.';
-
-    const formatted = analysis.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br/>');
-    document.getElementById('upload-status').innerHTML = `
-      <div style="margin-top:10px;padding:14px;background:var(--off);border:1px solid var(--g200);border-radius:10px;">
-        <div style="font-size:11px;font-weight:700;color:var(--mint);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">📊 Data Analysis</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.6;">${formatted}</div>
-        <a href="/coaching?q=Based+on+my+uploaded+data,+what+should+I+focus+on+next?" style="display:inline-block;margin-top:10px;padding:8px 14px;background:var(--forest);color:white;border-radius:7px;font-size:12px;font-weight:700;text-decoration:none;">Discuss with AI advisor →</a>
-      </div>`;
-
-    localStorage.removeItem('clearpath_upload_data');
-
-  } catch(e) {
-    document.getElementById('upload-status').innerHTML = '<div style="font-size:12px;color:var(--red);margin-top:8px;">Analysis failed. Please try again.</div>';
-  }
-}
-
-// Root opt-out
 function optOutOfRoot() {
   localStorage.setItem('clearpath_root_optout', 'true');
-  document.getElementById('root-connected').style.display = 'none';
-  document.getElementById('root-optout').style.display = 'block';
+  var rc = document.getElementById('root-connected'); var ro = document.getElementById('root-optout');
+  if (rc) rc.style.display = 'none'; if (ro) ro.style.display = 'block';
+  focusPillar('Run');
 }
 
 function switchToRoot() {
   localStorage.removeItem('clearpath_root_optout');
-  document.getElementById('root-optout').style.display = 'none';
-  document.getElementById('root-connected').style.display = 'block';
+  var rc = document.getElementById('root-connected'); var ro = document.getElementById('root-optout');
+  if (rc) rc.style.display = 'block'; if (ro) ro.style.display = 'none';
+  focusPillar('Run');
 }
 
 function markRunComplete() {
-  // Mark all Run tasks complete
-  allTasks.filter(t => t.pillar === 'Run').forEach(t => { progress[t.id] = true; });
+  allTasks.filter(function(t) { return t.pillar === 'Run'; }).forEach(function(t) { progress[t.id] = true; });
   localStorage.setItem('clearpath_task_progress', JSON.stringify(progress));
-  renderAll();
-  // Close upload panel and show success
-  switchToRoot();
-  const rootCard = document.getElementById('root-connected');
-  rootCard.innerHTML = rootCard.innerHTML.replace('Not using Root? Upload your own data →', '');
-  const conf = document.createElement('div');
-  conf.style.cssText = 'margin-top:8px;padding:8px 10px;background:rgba(52,199,123,.15);border-radius:7px;font-size:12px;color:var(--mint);font-weight:600;text-align:center;';
-  conf.textContent = '✓ Run pillar marked complete';
-  rootCard.appendChild(conf);
+  switchToRoot(); renderAll();
 }
 
-// Restore opt-out state on load
-(function(){
-  if (localStorage.getItem('clearpath_root_optout') === 'true') {
-    document.getElementById('root-connected').style.display = 'none';
-    document.getElementById('root-optout').style.display = 'block';
+function handleFileSelect(file) {
+  if (!file) return;
+  var statusEl = document.getElementById('upload-status');
+  if (localStorage.getItem('clearpath_pro') !== 'true') {
+    if (statusEl) { statusEl.style.cssText = 'font-size:12px;color:#EA4335;padding:8px;background:rgba(234,67,53,.08);border-radius:6px;margin-top:8px;'; statusEl.textContent = 'Data upload is a Pro feature. Upgrade to Pro.'; }
+    return;
   }
-})();
+  var month = new Date().toISOString().slice(0, 7);
+  if (parseInt(localStorage.getItem('clearpath_uploads_' + month) || '0') >= 1) {
+    if (statusEl) { statusEl.style.cssText = 'font-size:12px;color:#EA4335;padding:8px;background:rgba(234,67,53,.08);border-radius:6px;margin-top:8px;'; statusEl.textContent = 'You have used your 1 upload for this month. Resets on the 1st.'; }
+    return;
+  }
+  localStorage.setItem('clearpath_uploads_' + month, '1');
+  if (statusEl) { statusEl.style.cssText = 'font-size:12px;color:var(--sage);padding:8px;background:var(--mint-pale);border-radius:6px;margin-top:8px;'; statusEl.textContent = 'File received: ' + file.name; }
+}
 
-init();
+function showToast(taskText, pillar) {
+  var textEl = document.getElementById('toast-task-text'); var pelEl = document.getElementById('toast-pillar'); var toast = document.getElementById('coach-toast');
+  if (textEl) textEl.textContent = taskText; if (pelEl && pillar) pelEl.value = pillar; if (toast) toast.style.display = 'block';
+}
 
-// Sign out
+function confirmToastTask() {
+  var textEl = document.getElementById('toast-task-text'); var pelEl = document.getElementById('toast-pillar'); if (!textEl) return;
+  var pillar = pelEl ? pelEl.value : 'Build';
+  allTasks.push({id:'coach_' + Date.now(), title:textEl.textContent, detail:'Task added from your AI coaching session', pillar:pillar, urgent:false, custom:true, askPrompt:textEl.textContent});
+  localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks)); dismissToast(); renderAll(); focusPillar(pillar);
+}
+
+function dismissToast() { var toast = document.getElementById('coach-toast'); if (toast) toast.style.display = 'none'; }
+
 function signOut() {
-  localStorage.removeItem('clearpath_auth');
-  localStorage.removeItem('clearpath_pro');
-  localStorage.removeItem('clearpath_onboarded');
-  localStorage.removeItem('clearpath_profile');
-  localStorage.removeItem('clearpath_user');
-  localStorage.removeItem('clearpath_tasks');
-  localStorage.removeItem('clearpath_task_progress');
-  localStorage.removeItem('clearpath_pending_task');
+  var keys = ['clearpath_auth','clearpath_pro','clearpath_onboarded','clearpath_profile','clearpath_user',
+    'clearpath_tasks','clearpath_task_progress','clearpath_pending_task','clearpath_tasks_profile',
+    'clearpath_root_optout','clearpath_insight_dismissed','clearpath_q_count'];
+  for (var i = 0; i < keys.length; i++) localStorage.removeItem(keys[i]);
   window.location.href = '/signin';
 }
+
+init();
 </script>
 </body>
 </html>
