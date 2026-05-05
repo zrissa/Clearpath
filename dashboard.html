@@ -530,6 +530,16 @@ function renderTasks() {
 
   list.innerHTML = '';
 
+  if ((focusedPillar === 'Run' || currentFilter === 'Run') && localStorage.getItem('clearpath_root_optout') === 'true') {
+    var wo = document.createElement('div');
+    wo.style.cssText = 'margin:12px 20px 4px;padding:12px 14px;background:rgba(255,184,0,.08);border:1px solid rgba(255,184,0,.3);border-radius:10px;';
+    var wt = document.createElement('div'); wt.style.cssText = 'font-size:11px;font-weight:700;color:#7A5A00;margin-bottom:5px;'; wt.textContent = 'Why Root gives better results';
+    var wb = document.createElement('div'); wb.style.cssText = 'font-size:11px;color:#3D5248;line-height:1.6;font-weight:300;margin-bottom:8px;'; wb.textContent = 'Your AI advisor pulls live registration, payment, and attendance data directly from Root - no uploads needed. Manual files are snapshots. Root is a live feed.';
+    var wbtn = document.createElement('button'); wbtn.style.cssText = 'padding:7px 12px;background:#0B3D2E;color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;'; wbtn.textContent = 'Connect Root instead'; wbtn.onclick = switchToRoot;
+    wo.appendChild(wt); wo.appendChild(wb); wo.appendChild(wbtn);
+    list.appendChild(wo);
+  }
+
   if ((focusedPillar === 'Run' || currentFilter === 'Run') && localStorage.getItem('clearpath_root_optout') !== 'true') {
     var rh = document.createElement('div');
     rh.style.cssText = 'margin:12px 20px 4px;padding:16px;background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:12px;';
