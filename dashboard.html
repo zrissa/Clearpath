@@ -641,18 +641,14 @@ Return ONLY valid JSON array, no markdown:
 [{"id":"unique_id","title":"specific task title","detail":"one specific sentence with their program details","pillar":"Build|Fund|Run|Grow","urgent":true|false,"askPrompt":"exact question specific to their program"}]`;
 
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch('/.netlify/functions/tasks', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
-        max_tokens: 2000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ profile })
     });
     const data = await res.json();
-    const text = (data.content?.[0]?.text || '[]').replace(/```json|```/g, '').trim();
-    allTasks = JSON.parse(text);
+    if (!res.ok) throw new Error(data.error || 'Task generation failed');
+    allTasks = data.tasks;
     localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
     localStorage.setItem('clearpath_tasks_profile', [profile.entityType, profile.journey, profile.programType, profile.sportOrCategory, profile.grantExperience].join('|'));
     renderAll();
