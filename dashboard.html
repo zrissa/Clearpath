@@ -285,8 +285,12 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 
       <div id="root-optout" style="display:none;">
         <div class="quick-card">
-          <div style="font-size:12px;font-weight:700;color:var(--forest);margin-bottom:4px;">Using your own data</div>
-          <div style="font-size:12px;color:var(--text-lt);margin-bottom:10px;font-weight:300;line-height:1.5;">Root gives better insights. <button onclick="switchToRoot()" style="background:none;border:none;color:var(--blue);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;padding:0;">Switch to Root</button></div>
+          <div style="font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px;">Using your own data</div>
+          <div style="background:rgba(255,184,0,.08);border:1px solid rgba(255,184,0,.25);border-radius:8px;padding:10px 12px;margin-bottom:10px;">
+            <div style="font-size:11px;font-weight:700;color:#7A5A00;margin-bottom:5px;">Why Root gives better results</div>
+            <div style="font-size:11px;color:var(--text-lt);line-height:1.6;font-weight:300;">Your AI advisor pulls live registration, payment, and attendance data directly from Root - no uploads needed. Manual files are snapshots. Root is a live feed.</div>
+            <button onclick="switchToRoot()" style="display:block;width:100%;margin-top:8px;padding:7px;background:var(--forest);color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Connect Root instead</button>
+          </div>
           <label style="display:block;border:2px dashed var(--g200);border-radius:8px;padding:14px;text-align:center;cursor:pointer;background:var(--off);">
             <input type="file" id="dash-file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
             <div style="font-size:13px;font-weight:600;color:var(--forest);">Drop data file here</div>
