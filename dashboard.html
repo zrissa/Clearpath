@@ -366,39 +366,13 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
         </div>
       </div>
 
-      <div id="root-module">
-        <!-- ROOT CONNECTED STATE (default) -->
-        <div id="root-connected" class="root-card">
-          <div class="rc-top"><div class="rc-icon">⚽</div><div class="rc-name">Root — Run Pillar</div></div>
-          <div class="rc-sub">The Complete Management Platform for your day-to-day operations. Registration, scheduling, payments, and SafeSport — all in one place.</div>
-          <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn" style="margin-bottom:8px;">Open Root →</a>
-          <button onclick="optOutOfRoot()" style="display:block;width:100%;padding:7px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:7px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-top:6px;transition:all .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Not using Root? Upload your own data →</button>
+      <div class="quick-card" style="background:linear-gradient(135deg,#1557A0,#1A73E8);border-color:transparent;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <div style="width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px;">⚽</div>
+          <span style="font-size:13px;font-weight:700;color:white;">Root</span>
         </div>
-
-        <!-- OPT-OUT STATE (shown after clicking opt out) -->
-        <div id="root-optout" style="display:none;">
-          <div class="upload-card">
-            <div class="uc-header">
-              <span class="uc-title">📂 Upload Your Program Data</span>
-              <span class="uc-badge">Pro · 1/month</span>
-            </div>
-            <div class="uc-body">
-              <div style="font-size:12px;color:var(--text-lt);background:rgba(255,184,0,.08);border:1px solid rgba(255,184,0,.2);border-radius:8px;padding:10px 12px;margin-bottom:12px;line-height:1.5;">
-                💡 <strong style="color:var(--forest);">Root gives your AI better data.</strong> Uploading your own data works, but structured Root data produces more accurate impact reports and growth plans.
-                <button onclick="switchToRoot()" style="display:block;margin-top:6px;background:none;border:none;color:var(--blue);font-size:11px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;padding:0;">← Switch to Root instead</button>
-              </div>
-              <div class="uc-drop" id="upload-drop" onclick="document.getElementById('file-input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
-                <div class="uc-drop-icon">📊</div>
-                <div class="uc-drop-title">Drop your data file here</div>
-                <div class="uc-drop-sub">CSV, Excel, or PDF · Participant data, registration records, season stats</div>
-              </div>
-              <div class="uc-limit">1 upload per month · <span id="uploads-remaining">1 remaining this month</span></div>
-              <div id="upload-status"></div>
-              <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
-              <button onclick="markRunComplete()" style="display:block;width:100%;margin-top:10px;padding:9px;background:var(--forest);color:white;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">✓ Mark Run pillar complete</button>
-            </div>
-          </div>
-        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.55);margin-bottom:10px;font-weight:300;line-height:1.5;">Operations platform — set up in the Run pillar</div>
+        <a href="https://www.rootsoccer.com" target="_blank" style="display:block;padding:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:7px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;">Open Root →</a>
       </div>
 
       <div class="quick-card">
@@ -448,11 +422,18 @@ function init() {
   renderInsight();
   renderStats();
 
+  // Invalidate cache if profile has changed since tasks were generated
+  const cachedProfile = localStorage.getItem('clearpath_tasks_profile');
+  const currentProfileKey = [profile.entityType, profile.journey, profile.programType, profile.sportOrCategory, profile.grantExperience].join('|');
   const cached = localStorage.getItem('clearpath_tasks');
-  if (cached) {
+
+  if (cached && cachedProfile === currentProfileKey) {
     try { allTasks = JSON.parse(cached); renderAll(); }
     catch(e) { generateTasks(); }
   } else {
+    // Profile changed or no cache — regenerate
+    localStorage.removeItem('clearpath_tasks');
+    localStorage.setItem('clearpath_tasks_profile', currentProfileKey);
     generateTasks();
   }
 
@@ -592,32 +573,72 @@ async function generateTasks() {
   const isEstablished = j.includes('established') || j.includes('expand');
   const isRunning = j.includes('running') || j.includes('launched') || j.includes('new');
 
-  const prompt = `You are Clearpath, an advisor for community program directors. Generate a personalized task list for this program.
+  const entity = profile.entityType || '';
+  const journey = (profile.journey || '').toLowerCase();
+  const grantExp = profile.grantExperience || '';
+  const challenge = profile.biggestChallenge || '';
+  const isEstablished = journey.includes('established') || journey.includes('expand');
+  const isRunning = journey.includes('running') || journey.includes('launched') || journey.includes('new');
+  const isStarting = !isEstablished && !isRunning;
+  const hasLegal = entity.includes('501') || entity.includes('LLC') || entity.includes('Municipal') || entity.includes('Sole');
+  const has501c3 = entity.includes('501');
+  const neverGranted = grantExp === 'Never applied';
+
+  const prompt = `You are Clearpath, an advisor for community program directors. Generate a hyper-personalized task list.
 
 PROFILE:
-- Program: ${profile.orgName || 'Unknown'}
-- Type: ${profile.programType || 'Unknown'} — ${profile.sportOrCategory || ''}
-- Location: ${profile.city || 'Unknown'}, ${profile.state || 'Unknown'}
-- Legal structure: ${profile.entityType || 'Unknown'}
-- Participants: ${profile.participantCount || 'Unknown'}
-- Budget: ${profile.budgetRange || 'Unknown'}
-- Grant experience: ${profile.grantExperience || 'Unknown'}
-- Biggest challenge: ${profile.biggestChallenge || 'Unknown'}
-- Journey stage: ${profile.journey || 'Unknown'}
+- Program: ${profile.orgName}
+- Type: ${profile.programType} — ${profile.sportOrCategory}
+- Location: ${profile.city}, ${profile.state}
+- Legal structure: ${entity}
+- Participants: ${profile.participantCount}
+- Budget: ${profile.budgetRange}
+- Grant experience: ${grantExp}
+- Biggest challenge: ${challenge}
+- Journey: ${profile.journey}
 
-Rules:
-- Generate exactly 16 tasks: 5 Build, 4 Fund, 4 Run, 3 Grow
-- Tasks MUST be specific to their program type, state, entity status, and journey stage
-- If entity is "Not yet incorporated" → first Build task is forming LLC in ${profile.state || 'their state'}
-- If entity is 501c3 already → skip formation, focus on compliance and growth
-- If journey is "established" → Build tasks are about maintaining/improving not starting from scratch
-- If grant experience is "Never applied" → Fund tasks start with lowest-barrier grants first
-- Run tasks are all about getting set up on Root (rootsoccer.com)
-- Urgent = true only for tasks that block everything else (legal entity, EIN, insurance)
-- askPrompt = the exact question to ask the AI about this task, specific to their program
+CRITICAL RULES — follow exactly:
+
+BUILD TASKS (5 tasks):
+${isStarting && !hasLegal ? `- Task 1: Form ${entity || 'LLC'} in ${profile.state} — URGENT
+- Task 2: Get EIN from IRS (irs.gov/ein) — URGENT
+- Task 3: Open business bank account
+- Task 4: Get general liability insurance — URGENT
+- Task 5: Join governing body for ${profile.sportOrCategory || profile.programType}` : ''}
+${isStarting && hasLegal ? `- Focus on compliance setup — background checks, SafeSport, certifications, facility permits
+- DO NOT include legal formation tasks — they already have ${entity}` : ''}
+${isRunning ? `- Focus on compliance maintenance — renew certifications, review insurance, update registrations
+- Add 1-2 operational improvement tasks specific to ${profile.programType}
+- DO NOT include basic formation tasks` : ''}
+${isEstablished ? `- Focus on governance — annual board meeting, state charity registration renewal, insurance review
+- Add expansion or new program tasks
+- DO NOT include any basic startup tasks` : ''}
+
+FUND TASKS (4 tasks):
+${neverGranted ? `- Start with lowest-barrier grants — local community foundation first
+- Include pricing strategy and scholarship policy
+- Include sponsorship outreach to local businesses` : ''}
+${!neverGranted && !isEstablished ? `- Include mid-tier sport-specific grants for ${profile.sportOrCategory || profile.programType}
+- Include grant calendar and deadline tracking
+- Include sponsorship deck creation` : ''}
+${isEstablished ? `- Include grant renewal and reporting
+- Include major donor cultivation
+- Include new funding stream development` : ''}
+
+RUN TASKS (4 tasks):
+- Always include Root setup tasks (rootsoccer.com)
+- Make them specific to ${profile.programType} operations
+- Include registration, scheduling, SafeSport tracking
+
+GROW TASKS (3 tasks):
+${isStarting ? `- Focus on planning — what data to track, how to measure outcomes` : ''}
+${isRunning ? `- Focus on documenting current season, building impact report` : ''}
+${isEstablished ? `- Focus on year-over-year analysis, expansion planning, new program development` : ''}
+
+Make every task title and detail specific to: ${profile.programType}, ${profile.sportOrCategory}, ${profile.state}, ${entity}, ${profile.journey}
 
 Return ONLY valid JSON array, no markdown:
-[{"id":"unique_id","title":"task title","detail":"one specific sentence","pillar":"Build|Fund|Run|Grow","urgent":true|false,"askPrompt":"exact question"}]`;
+[{"id":"unique_id","title":"specific task title","detail":"one specific sentence with their program details","pillar":"Build|Fund|Run|Grow","urgent":true|false,"askPrompt":"exact question specific to their program"}]`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -633,6 +654,7 @@ Return ONLY valid JSON array, no markdown:
     const text = (data.content?.[0]?.text || '[]').replace(/```json|```/g, '').trim();
     allTasks = JSON.parse(text);
     localStorage.setItem('clearpath_tasks', JSON.stringify(allTasks));
+    localStorage.setItem('clearpath_tasks_profile', [profile.entityType, profile.journey, profile.programType, profile.sportOrCategory, profile.grantExperience].join('|'));
     renderAll();
   } catch(e) {
     allTasks = getDefaultTasks();
@@ -677,10 +699,42 @@ function renderTasks() {
   const complete = tasks.filter(t => progress[t.id]);
   const sorted = [...incomplete, ...complete];
 
+  // Show Root card at top of task list when Run is focused
+  let runHeader = '';
+  if (focusedPillar === 'Run' || currentFilter === 'Run') {
+    const isOptout = localStorage.getItem('clearpath_root_optout') === 'true';
+    if (!isOptout) {
+      runHeader = `<div style="margin:12px 20px;padding:16px;background:linear-gradient(135deg,#1557A0,#1A73E8);border-radius:12px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;">⚽</div>
+          <div><div style="font-size:14px;font-weight:700;color:white;">Root — The Complete Management Platform</div><div style="font-size:11px;color:rgba(255,255,255,.5);">Registration · Scheduling · Payments · SafeSport</div></div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;font-weight:300;line-height:1.5;">Set up Root to complete your Run pillar. Root handles all your day-to-day operations so you can focus on growing your program.</div>
+        <div style="display:flex;gap:8px;">
+          <a href="https://www.rootsoccer.com" target="_blank" style="flex:1;display:block;padding:9px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;">Set up Root →</a>
+          <button onclick="optOutOfRoot()" style="padding:9px 12px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:8px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:inherit;white-space:nowrap;">Upload my own data</button>
+        </div>
+      </div>`;
+    } else {
+      runHeader = `<div style="margin:12px 20px;padding:14px;background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.2);border-radius:12px;">
+        <div style="font-size:12px;color:var(--forest);font-weight:700;margin-bottom:4px;">📂 Using your own data</div>
+        <div style="font-size:12px;color:var(--text-lt);margin-bottom:10px;font-weight:300;line-height:1.5;">Root gives your AI better insights. <button onclick="switchToRoot()" style="background:none;border:none;color:var(--blue);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;padding:0;">Switch to Root instead →</button></div>
+        <div class="uc-drop" style="padding:14px;" onclick="document.getElementById('file-input').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
+          <div style="font-size:20px;margin-bottom:4px;">📊</div>
+          <div style="font-size:13px;font-weight:600;color:var(--forest);">Drop your data file</div>
+          <div style="font-size:11px;color:var(--text-lt);">CSV, Excel, or PDF · 1 upload/month (Pro)</div>
+        </div>
+        <div id="upload-status" style="margin-top:8px;"></div>
+        <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
+        <button onclick="markRunComplete()" style="display:block;width:100%;margin-top:8px;padding:9px;background:var(--forest);color:white;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">✓ Mark Run pillar complete</button>
+      </div>`;
+    }
+  }
+
   if (sorted.length === 0) {
-    list.innerHTML = '<div class="task-loading"><div class="tl-icon">✅</div><div class="tl-title">All done here!</div><div class="tl-sub">Check another pillar or add your own tasks below.</div></div>';
+    list.innerHTML = runHeader + '<div class="task-loading"><div class="tl-icon">✅</div><div class="tl-title">All done here!</div><div class="tl-sub">Check another pillar or add your own tasks below.</div></div>';
   } else {
-    list.innerHTML = sorted.map(t => {
+    list.innerHTML = runHeader + sorted.map(t => {
       const done = !!progress[t.id];
       return `<div class="task-item ${done?'done':''} ${t.custom?'custom':''}" id="task-${t.id}">
         <div class="task-check" onclick="toggleTask('${t.id}',event)">${done?'✓':''}</div>
