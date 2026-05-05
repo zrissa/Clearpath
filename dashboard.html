@@ -147,8 +147,48 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
 .ctt-select{flex:1;padding:8px 10px;background:var(--off);border:1.5px solid var(--g200);border-radius:8px;font-size:13px;color:var(--text);font-family:inherit;outline:none;}
 .ctt-add{padding:8px 16px;background:var(--forest);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;}
 .ctt-dismiss{padding:8px 12px;background:none;border:1.5px solid var(--g200);border-radius:8px;font-size:13px;font-weight:600;color:var(--text-lt);cursor:pointer;font-family:inherit;}
-@media(max-width:900px){.main-grid{grid-template-columns:1fr;}.right-col{order:-1;}.stats-card,.quick-card{display:none;}.pillars-row{grid-template-columns:1fr 1fr;}.nav-links{display:none;}}
-@media(max-width:480px){.page{padding:12px;}.state-banner{flex-wrap:wrap;}}
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr;}
+  .right-col{order:-1;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .next-card{grid-column:1/-1;}
+  .focus-card{grid-column:1/-1;}
+  .stats-card,.quick-card{display:none;}
+  .pillars-row{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+  .root-card{display:none;}
+}
+@media(max-width:600px){
+  .page{padding:12px 12px 80px;}
+  .right-col{display:flex;flex-direction:column;}
+  .pillars-row{grid-template-columns:1fr 1fr;gap:8px;}
+  .pill{padding:12px;}
+  .pill-desc{display:none;}
+  .pill-complete-btn{display:none;}
+  .state-banner{padding:16px;gap:12px;}
+  .sb-right{display:none;}
+  .sb-title{font-size:15px;}
+  .sb-sub{font-size:12px;}
+  .sb-icon{width:36px;height:36px;font-size:16px;}
+  .insight-card{padding:12px 14px;}
+  nav{padding:0 14px;}
+  .nname{display:none;}
+  .task-check{width:24px;height:24px;border-radius:6px;flex-shrink:0;}
+  .task-item{padding:12px 14px;gap:12px;}
+  .ti-ask,.ti-delete{opacity:1;}
+  .add-task-row{flex-wrap:wrap;}
+  .add-task-input{min-width:0;width:100%;}
+  .add-task-select{flex:1;}
+  .add-task-btn{flex:1;}
+  .task-filter{padding:8px 12px;gap:4px;}
+  .tf{padding:4px 9px;font-size:11px;}
+  .nc-sub{display:none;}
+  .focus-card{display:none;}
+  .mob-bottom-nav{display:flex;}
+}
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:60px;background:var(--white);border-top:1px solid var(--g200);z-index:200;align-items:stretch;}
+.mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--text-lt);font-size:9px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .15s;padding:8px 0;}
+.mbn-item.active,.mbn-item:hover{color:var(--forest);}
+.mbn-icon{font-size:18px;line-height:1;}
 </style>
 </head>
 <body>
@@ -291,9 +331,9 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
             <div style="font-size:11px;color:var(--text-lt);line-height:1.6;font-weight:300;">Your AI advisor pulls live registration, payment, and attendance data directly from Root - no uploads needed. Manual files are snapshots. Root is a live feed.</div>
             <button onclick="switchToRoot()" style="display:block;width:100%;margin-top:8px;padding:7px;background:var(--forest);color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;">Connect Root instead</button>
           </div>
-          <label style="display:block;border:2px dashed var(--g200);border-radius:8px;padding:14px;text-align:center;cursor:pointer;background:var(--off);">
-            <input type="file" id="dash-file-input" accept=".csv,.xlsx,.xls,.pdf" style="display:none" onchange="handleFileSelect(this.files[0])"/>
-            <div style="font-size:13px;font-weight:600;color:var(--forest);">Drop data file here</div>
+          <label for="dash-file-input" style="display:block;border:2px dashed var(--g200);border-radius:8px;padding:14px;text-align:center;cursor:pointer;background:var(--off);">
+            <input type="file" id="dash-file-input" accept=".csv,.xlsx,.xls,.pdf,.xls" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" onchange="handleFileSelect(this.files[0])"/>
+            <div style="font-size:13px;font-weight:600;color:var(--forest);">Tap to upload your data file</div>
             <div style="font-size:11px;color:var(--text-lt);margin-top:2px;">CSV, Excel, or PDF - 1 per month (Pro)</div>
           </label>
           <div id="upload-status" style="margin-top:8px;"></div>
@@ -535,8 +575,14 @@ function renderTasks() {
     wo.style.cssText = 'margin:12px 20px 4px;padding:12px 14px;background:rgba(255,184,0,.08);border:1px solid rgba(255,184,0,.3);border-radius:10px;';
     var wt = document.createElement('div'); wt.style.cssText = 'font-size:11px;font-weight:700;color:#7A5A00;margin-bottom:5px;'; wt.textContent = 'Why Root gives better results';
     var wb = document.createElement('div'); wb.style.cssText = 'font-size:11px;color:#3D5248;line-height:1.6;font-weight:300;margin-bottom:8px;'; wb.textContent = 'Your AI advisor pulls live registration, payment, and attendance data directly from Root - no uploads needed. Manual files are snapshots. Root is a live feed.';
-    var wbtn = document.createElement('button'); wbtn.style.cssText = 'padding:7px 12px;background:#0B3D2E;color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;'; wbtn.textContent = 'Connect Root instead'; wbtn.onclick = switchToRoot;
-    wo.appendChild(wt); wo.appendChild(wb); wo.appendChild(wbtn);
+    var wbtn = document.createElement('button'); wbtn.style.cssText = 'padding:7px 12px;background:#0B3D2E;color:white;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;margin-bottom:8px;display:block;width:100%;'; wbtn.textContent = 'Connect Root instead'; wbtn.onclick = switchToRoot;
+    var wlabel = document.createElement('label'); wlabel.setAttribute('for','inline-file-input'); wlabel.style.cssText = 'display:block;border:2px dashed #E2EAE6;border-radius:8px;padding:12px;text-align:center;cursor:pointer;background:#F8FAF9;margin-top:4px;';
+    var wfi = document.createElement('input'); wfi.type = 'file'; wfi.id = 'inline-file-input'; wfi.accept = '.csv,.xlsx,.xls,.pdf'; wfi.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;'; wfi.onchange = function() { handleFileSelect(this.files[0]); };
+    var wft = document.createElement('div'); wft.style.cssText = 'font-size:12px;font-weight:600;color:#0B3D2E;'; wft.textContent = 'Tap to upload your data file';
+    var wfs = document.createElement('div'); wfs.style.cssText = 'font-size:11px;color:#6B8A78;margin-top:2px;'; wfs.textContent = 'CSV, Excel, or PDF - 1 per month (Pro)';
+    var wstatus = document.createElement('div'); wstatus.id = 'upload-status-inline'; wstatus.style.marginTop = '6px';
+    wlabel.appendChild(wfi); wlabel.appendChild(wft); wlabel.appendChild(wfs);
+    wo.appendChild(wt); wo.appendChild(wb); wo.appendChild(wbtn); wo.appendChild(wlabel); wo.appendChild(wstatus);
     list.appendChild(wo);
   }
 
@@ -714,18 +760,23 @@ function markRunComplete() {
 
 function handleFileSelect(file) {
   if (!file) return;
-  var statusEl = document.getElementById('upload-status');
+  function setStatus(msg, isError) {
+    var errStyle = 'font-size:12px;color:#EA4335;padding:8px;background:rgba(234,67,53,.08);border-radius:6px;margin-top:8px;';
+    var okStyle = 'font-size:12px;color:#1A6B47;padding:8px;background:#E6F9F0;border-radius:6px;margin-top:8px;';
+    ['upload-status','upload-status-inline'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) { el.style.cssText = isError ? errStyle : okStyle; el.textContent = msg; }
+    });
+  }
   if (localStorage.getItem('clearpath_pro') !== 'true') {
-    if (statusEl) { statusEl.style.cssText = 'font-size:12px;color:#EA4335;padding:8px;background:rgba(234,67,53,.08);border-radius:6px;margin-top:8px;'; statusEl.textContent = 'Data upload is a Pro feature. Upgrade to Pro.'; }
-    return;
+    setStatus('Data upload is a Pro feature. Upgrade to Pro at clearpathgrants.org.', true); return;
   }
   var month = new Date().toISOString().slice(0, 7);
   if (parseInt(localStorage.getItem('clearpath_uploads_' + month) || '0') >= 1) {
-    if (statusEl) { statusEl.style.cssText = 'font-size:12px;color:#EA4335;padding:8px;background:rgba(234,67,53,.08);border-radius:6px;margin-top:8px;'; statusEl.textContent = 'You have used your 1 upload for this month. Resets on the 1st.'; }
-    return;
+    setStatus('You have used your 1 upload this month. Resets on the 1st.', true); return;
   }
   localStorage.setItem('clearpath_uploads_' + month, '1');
-  if (statusEl) { statusEl.style.cssText = 'font-size:12px;color:var(--sage);padding:8px;background:var(--mint-pale);border-radius:6px;margin-top:8px;'; statusEl.textContent = 'File received: ' + file.name; }
+  setStatus('Received: ' + file.name + ' - your AI advisor will reference this data.', false);
 }
 
 function showToast(taskText, pillar) {
@@ -752,5 +803,11 @@ function signOut() {
 
 init();
 </script>
+<nav class="mob-bottom-nav">
+  <a href="/dashboard" class="mbn-item active"><span class="mbn-icon">&#9783;</span>Dashboard</a>
+  <a href="/coaching" class="mbn-item"><span class="mbn-icon">&#129302;</span>Advisor</a>
+  <a href="/coaching?q=What+grants+should+I+apply+for+first?" class="mbn-item"><span class="mbn-icon">&#128184;</span>Grants</a>
+  <a href="/profile" class="mbn-item"><span class="mbn-icon">&#9999;</span>Profile</a>
+</nav>
 </body>
 </html>
