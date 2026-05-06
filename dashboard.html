@@ -498,6 +498,10 @@ function buildTasks() {
   var sport = profile.sportOrCategory || profile.programType || 'program';
   var state = profile.state || 'your state';
   var city = profile.city || 'your community';
+  var progType = (profile.programType || '').toLowerCase();
+  var isSports = progType.indexOf('youth') > -1 || progType.indexOf('sport') > -1 || progType.indexOf('parks') > -1 || progType.indexOf('recreation') > -1;
+  var isSTEM = progType.indexOf('stem') > -1;
+  var isAfterSchool = progType.indexOf('after') > -1;
   var tasks = [];
 
   if (!hasLegal) {
@@ -509,12 +513,14 @@ function buildTasks() {
   } else if (isEst) {
     tasks.push({id:'b1',title:'Hold your annual board meeting',detail:'Required for nonprofit compliance. Review financials, elect officers, approve next year budget.',pillar:'Build',urgent:false,askPrompt:'What do I need to cover in my annual board meeting?'});
     tasks.push({id:'b2',title:'Renew your state charity registration',detail:'Most states require annual renewal. Search your state name plus charity registration renewal.',pillar:'Build',urgent:false,askPrompt:'How do I renew my state charity registration?'});
-    tasks.push({id:'b3',title:'Renew SafeSport certifications',detail:'Annual renewal at safesport.org for all adults working with youth. Takes 30 minutes.',pillar:'Build',urgent:true,askPrompt:'How do I manage annual SafeSport renewals?'});
+    if (isSports) tasks.push({id:'b3',title:'Renew SafeSport certifications',detail:'Annual renewal at safesport.org for all adults working with youth. Takes 30 minutes.',pillar:'Build',urgent:true,askPrompt:'How do I manage annual SafeSport renewals?'});
+    else tasks.push({id:'b3',title:'Review staff screening and background check policy',detail:'Annual review of background check requirements for all staff and volunteers working with youth.',pillar:'Build',urgent:false,askPrompt:'What background screening do I need for my ' + sport + ' program?'});
     tasks.push({id:'b4',title:'Review and renew insurance coverage',detail:'Annual review of general liability, D&O, and sport-specific coverage.',pillar:'Build',urgent:false,askPrompt:'What insurance should my established program carry?'});
     tasks.push({id:'b5',title:'Plan a new ' + sport + ' division or age group',detail:'Expansion is the next natural step. Assess demand and capacity before committing.',pillar:'Build',urgent:false,askPrompt:'How do I add a new division to my ' + sport + ' program?'});
   } else {
-    tasks.push({id:'b1',title:'Complete SafeSport certification for all staff',detail:'Free at safesport.org. Required for all adults working with youth. Takes about 90 minutes.',pillar:'Build',urgent:true,askPrompt:'How do I manage SafeSport certification for my program?'});
-    tasks.push({id:'b2',title:'Run background checks on all coaches',detail:'Required by all governing bodies. Sterling Volunteers at sterlingvolunteers.com - $15-25 per person.',pillar:'Build',urgent:true,askPrompt:'How do I set up background checks for my coaches?'});
+    if (isSports) tasks.push({id:'b1',title:'Complete SafeSport certification for all staff',detail:'Free at safesport.org. Required for all adults working with youth. Takes about 90 minutes.',pillar:'Build',urgent:true,askPrompt:'How do I manage SafeSport certification for my program?'});
+    else tasks.push({id:'b1',title:'Establish your youth protection policy',detail:'Document your code of conduct, supervision ratios, and reporting procedures for working with minors.',pillar:'Build',urgent:true,askPrompt:'What youth protection policies does my ' + sport + ' program need?'});
+    tasks.push({id:'b2',title:'Run background checks on all staff and volunteers',detail:isSports ? 'Required by all governing bodies. Sterling Volunteers at sterlingvolunteers.com - $15-25 per person.' : 'Required for anyone working with minors. Sterling Volunteers at sterlingvolunteers.com - $15-25 per person.',pillar:'Build',urgent:true,askPrompt:'How do I set up background checks for my ' + sport + ' program staff?'});
     tasks.push({id:'b3',title:'Book your ' + sport + ' field or facility',detail:'Contact your city parks department and local school district - both often have space for ' + sport + ' programs.',pillar:'Build',urgent:false,askPrompt:'How do I find and book a field for my ' + sport + ' program in ' + state + '?'});
     tasks.push({id:'b4',title:'Complete coaching certifications',detail:'Get sport-specific coaching license plus First Aid and CPR. Required by your governing body.',pillar:'Build',urgent:false,askPrompt:'What coaching certifications do I need for ' + sport + '?'});
     tasks.push({id:'b5',title:(has501 ? 'File your annual IRS Form 990' : 'Apply for 501c3 nonprofit status'),detail:(has501 ? 'Annual nonprofit tax return due May 15. Use 990-N if under $50K gross receipts.' : 'File IRS Form 1023-EZ at pay.gov for $275. Opens grant eligibility.'),pillar:'Build',urgent:false,askPrompt:(has501 ? 'How do I file my nonprofit Form 990?' : 'How do I apply for 501c3 status?')});
@@ -539,7 +545,7 @@ function buildTasks() {
 
   tasks.push({id:'r1',title:'Create your Root account',detail:'Go to rootsoccer.com and create your free account. The complete management platform for your operations.',pillar:'Run',urgent:false,askPrompt:'How do I set up Root for my ' + sport + ' program?'});
   tasks.push({id:'r2',title:'Configure your ' + sport + ' organization in Root',detail:'Set up your organization type, season structure, and ' + sport + '-specific division setup.',pillar:'Run',urgent:false,askPrompt:'How do I configure Root for ' + sport + '?'});
-  tasks.push({id:'r3',title:'Build your registration form in Root',detail:'Include SafeSport uploads, U18 consent, emergency contacts, medical info, and payment options.',pillar:'Run',urgent:false,askPrompt:'What should I include in my Root registration form?'});
+  tasks.push({id:'r3',title:'Build your registration form in Root',detail:isSports ? 'Include SafeSport uploads, U18 consent, emergency contacts, medical info, and payment options.' : 'Include U18 consent, emergency contacts, medical info, liability waiver, and payment options.',pillar:'Run',urgent:false,askPrompt:'What should I include in my Root registration form for a ' + sport + ' program?'});
   tasks.push({id:'r4',title:'Share your registration link with families',detail:'Email, social media, school newsletters, and community channels in ' + city + '.',pillar:'Run',urgent:false,askPrompt:'How do I get families to register for my ' + sport + ' program?'});
 
   if (isEst) {
