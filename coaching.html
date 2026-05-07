@@ -311,8 +311,22 @@ function switchPillar(btn, pillar) {
   if (pillar === 'Run') {
     addMsg('assistant', `The **Run** pillar is powered by **Root** — a purpose-built platform for league management, registration, scheduling, payments, and SafeSport compliance.\n\n**Here's how to get started with Root:**\n1. Go to rootsoccer.com and create a free account\n2. Set up your league or club\n3. Configure your registration forms and pricing\n4. Share your registration link with families\n\nOnce your program is running on Root, come back to the **Grow** pillar and Clearpath will help you turn that data into impact reports and expansion plans.\n\nWant me to walk you through the Root setup for your specific program type?`);
   } else {
-    ask(`I want to focus on the ${pillar} pillar. What should I know and do next for ${profile.orgName}?`);
+    addMsg('assistant', getPillarProbe(pillar));
   }
+}
+
+function getPillarProbe(pillar) {
+  const orgName = profile.orgName || 'your program';
+  if (pillar === 'Build') {
+    return `You're in the **Build** pillar — this is where we set up the foundation for **${orgName}**. What are you working on right now?\n\n• 🏛️ **Forming the org** — LLC or nonprofit, EIN, bank account\n• 🏗️ **Launching a new program** — picking sports or STEM tracks, age groups, season structure\n• 👥 **Staff & coaches** — hiring, background checks, certifications\n• 📋 **Compliance & policies** — SafeSport, insurance, governing body registration\n• 🏟️ **Facilities** — booking fields, spaces, equipment\n\nTell me which one (or something else specific) and I'll get specific to your program.`;
+  }
+  if (pillar === 'Fund') {
+    return `You're in the **Fund** pillar. What part of funding are you working on for **${orgName}**?\n\n• 🔍 **Finding grants** you qualify for\n• ✍️ **Writing a grant application** — LOI, full proposal, budget narrative\n• 🤝 **Sponsorships** — local businesses, corporate partners\n• 💵 **Pricing your program** — registration fees, payment plans, scholarships\n• 🎉 **Fundraising events** — tournaments, banquets, donor outreach\n\nTell me which (or something else) and I'll dig in.`;
+  }
+  if (pillar === 'Grow') {
+    return `You're in the **Grow** pillar — once you're up and running, this is how you scale **${orgName}**. What does growing look like for you right now?\n\n• 📊 **Impact reports** for funders, sponsors, or your board\n• ➕ **Expansion** — new age group, new location, new program type\n• 🔁 **Retention** — keeping kids and families coming back season after season\n• 🤝 **Partnerships** — schools, parks & rec, other community orgs\n• 📣 **Marketing & outreach** — getting the word out, growing enrollment\n\nWhich one are you focused on?`;
+  }
+  return `You're now in the **${pillar}** pillar. What would you like help with?`;
 }
 
 // Auth + onboarding gates
