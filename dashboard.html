@@ -319,7 +319,6 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
           <div class="rc-top"><div class="rc-icon">&#9917;</div><div class="rc-name">Root - Run Pillar</div></div>
           <div class="rc-sub">Registration, scheduling, payments, SafeSport - all in one place.</div>
           <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn" style="margin-bottom:8px;">Open Root</a>
-          <button onclick="optOutOfRoot()" style="display:block;width:100%;padding:6px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:6px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:inherit;margin-top:6px;">Not using Root? Upload your own data</button>
         </div>
       </div>
 
@@ -380,6 +379,10 @@ var focusedPillar = null;
 function s(id, val) { var e = document.getElementById(id); if (e) e.textContent = val; }
 
 function init() {
+  // Clean up: Root opt-out path is disabled while the upload feature is being built.
+  // Anyone in a stale opted-out state gets pulled back to the Root-connected default.
+  localStorage.removeItem('clearpath_root_optout');
+
   try { profile = JSON.parse(localStorage.getItem('clearpath_profile') || '{}'); } catch(e) {}
   try { progress = JSON.parse(localStorage.getItem('clearpath_task_progress') || '{}'); } catch(e) {}
 
@@ -603,11 +606,8 @@ function renderTasks() {
     rtxt.appendChild(rt1); rtxt.appendChild(rt2);
     rtop.appendChild(rico); rtop.appendChild(rtxt);
     var rdesc = document.createElement('div'); rdesc.style.cssText = 'font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;'; rdesc.textContent = 'Set up Root to complete your Run pillar and unlock Grow features.';
-    var rbtns = document.createElement('div'); rbtns.style.cssText = 'display:flex;gap:8px;';
-    var rlink = document.createElement('a'); rlink.href = 'https://www.rootsoccer.com'; rlink.target = '_blank'; rlink.style.cssText = 'flex:1;display:block;padding:9px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;'; rlink.textContent = 'Set up Root';
-    var ropt = document.createElement('button'); ropt.style.cssText = 'padding:9px 12px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:8px;font-size:11px;font-weight:600;color:rgba(255,255,255,.4);cursor:pointer;font-family:inherit;'; ropt.textContent = 'Upload my own data'; ropt.onclick = optOutOfRoot;
-    rbtns.appendChild(rlink); rbtns.appendChild(ropt);
-    rh.appendChild(rtop); rh.appendChild(rdesc); rh.appendChild(rbtns);
+    var rlink = document.createElement('a'); rlink.href = 'https://www.rootsoccer.com'; rlink.target = '_blank'; rlink.style.cssText = 'display:block;padding:9px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;'; rlink.textContent = 'Set up Root';
+    rh.appendChild(rtop); rh.appendChild(rdesc); rh.appendChild(rlink);
     list.appendChild(rh);
   }
 
