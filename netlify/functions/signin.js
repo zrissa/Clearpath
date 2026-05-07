@@ -32,9 +32,11 @@ exports.handler = async function(event, context) {
 
     const f = record.fields;
 
-    // Validate password hash
+    // Validate password hash — fail-closed
+    // Rejects: missing stored hash, missing submitted hash, OR mismatch
+    // Previously this was fail-open: empty storedHash silently let any password through
     const storedHash = f['Password'] || '';
-    if (storedHash && passwordHash && storedHash !== passwordHash) {
+    if (!storedHash || !passwordHash || storedHash !== passwordHash) {
       return {
         statusCode: 200,
         headers,
