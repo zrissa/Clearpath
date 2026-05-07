@@ -131,6 +131,13 @@ function showErr(id, show) {
   document.getElementById(id).style.display = show ? 'block' : 'none';
 }
 
+async function hashPassword(password) {
+  const msgBuffer = new TextEncoder().encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 async function handleSignup() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
