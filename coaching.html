@@ -307,12 +307,7 @@ function switchPillar(btn, pillar) {
   currentPillar = pillar;
   document.getElementById('ch-context').textContent = `${profile.programType || ''} · ${profile.city || ''} · ${pillar} pillar`;
 
-  // Special handling for Run pillar
-  if (pillar === 'Run') {
-    addMsg('assistant', `The **Run** pillar is powered by **Root** — a purpose-built platform for league management, registration, scheduling, payments, and SafeSport compliance.\n\n**Here's how to get started with Root:**\n1. Go to rootsoccer.com and create a free account\n2. Set up your league or club\n3. Configure your registration forms and pricing\n4. Share your registration link with families\n\nOnce your program is running on Root, come back to the **Grow** pillar and Clearpath will help you turn that data into impact reports and expansion plans.\n\nWant me to walk you through the Root setup for your specific program type?`);
-  } else {
-    addMsg('assistant', getPillarProbe(pillar));
-  }
+  addMsg('assistant', getPillarProbe(pillar));
 }
 
 function getPillarProbe(pillar) {
@@ -322,6 +317,9 @@ function getPillarProbe(pillar) {
   }
   if (pillar === 'Fund') {
     return `You're in the **Fund** pillar. What part of funding are you working on for **${orgName}**?\n\n• 🔍 **Finding grants** you qualify for\n• ✍️ **Writing a grant application** — LOI, full proposal, budget narrative\n• 🤝 **Sponsorships** — local businesses, corporate partners\n• 💵 **Pricing your program** — registration fees, payment plans, scholarships\n• 🎉 **Fundraising events** — tournaments, banquets, donor outreach\n\nTell me which (or something else) and I'll dig in.`;
+  }
+  if (pillar === 'Run') {
+    return `You're in the **Run** pillar — strategy and day-to-day operations for **${orgName}**. What's on your mind?\n\n• 📅 **Season planning** — schedules, formats, communication cadence\n• 💬 **Family communication** — parent meetings, expectations, season updates\n• 🤝 **Volunteers & staff** — recruiting parent helpers, day-of coordination\n• 🚨 **Conduct & safety** — incident protocols, behavior issues, parent disputes\n• 💵 **Edge cases** — refunds, mid-season exits, conflict resolution\n\nFor the software side — registration, payments, scheduling — we recommend **Root** at rootsoccer.com. **Live Clearpath integration is coming soon** for real-time program analysis.\n\nWhat are you working on?`;
   }
   if (pillar === 'Grow') {
     return `You're in the **Grow** pillar — once you're up and running, this is how you scale **${orgName}**. What does growing look like for you right now?\n\n• 📊 **Impact reports** for funders, sponsors, or your board\n• ➕ **Expansion** — new age group, new location, new program type\n• 🔁 **Retention** — keeping kids and families coming back season after season\n• 🤝 **Partnerships** — schools, parks & rec, other community orgs\n• 📣 **Marketing & outreach** — getting the word out, growing enrollment\n\nWhich one are you focused on?`;
