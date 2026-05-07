@@ -319,6 +319,7 @@ nav{height:60px;background:var(--white);border-bottom:1px solid var(--g200);disp
           <div class="rc-top"><div class="rc-icon">&#9917;</div><div class="rc-name">Root - Run Pillar</div></div>
           <div class="rc-sub">Registration, scheduling, payments, SafeSport - all in one place.</div>
           <a href="https://www.rootsoccer.com" target="_blank" class="rc-btn" style="margin-bottom:8px;">Open Root</a>
+          <div style="margin-top:10px;padding:8px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:100px;text-align:center;font-size:11px;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.2px;">✨ Coming soon: Live Clearpath integration</div>
         </div>
       </div>
 
@@ -546,10 +547,12 @@ function buildTasks() {
     tasks.push({id:'f4',title:'Create a sponsorship outreach list',detail:'Build a list of 10 local businesses. Law firms, medical practices, and family businesses are strong targets.',pillar:'Fund',urgent:false,askPrompt:'How do I find and approach local sponsors?'});
   }
 
-  tasks.push({id:'r1',title:'Create your Root account',detail:'Go to rootsoccer.com and create your free account. The complete management platform for your operations.',pillar:'Run',urgent:false,askPrompt:'How do I set up Root for my ' + sport + ' program?'});
-  tasks.push({id:'r2',title:'Configure your ' + sport + ' organization in Root',detail:'Set up your organization type, season structure, and ' + sport + '-specific division setup.',pillar:'Run',urgent:false,askPrompt:'How do I configure Root for ' + sport + '?'});
-  tasks.push({id:'r3',title:'Build your registration form in Root',detail:isSports ? 'Include SafeSport uploads, U18 consent, emergency contacts, medical info, and payment options.' : 'Include U18 consent, emergency contacts, medical info, liability waiver, and payment options.',pillar:'Run',urgent:false,askPrompt:'What should I include in my Root registration form for a ' + sport + ' program?'});
-  tasks.push({id:'r4',title:'Share your registration link with families',detail:'Email, social media, school newsletters, and community channels in ' + city + '.',pillar:'Run',urgent:false,askPrompt:'How do I get families to register for my ' + sport + ' program?'});
+  tasks.push({id:'r1',title:'Plan your season structure and communication cadence',detail:'Decide your schedule format, how often you communicate with families, and what they get when - welcome packet, mid-season update, end-of-season recap.',pillar:'Run',urgent:false,askPrompt:'Help me plan my season structure and family communication for my ' + sport + ' program'});
+  tasks.push({id:'r2',title:'Set family expectations before the season starts',detail:'Most parent issues come from unclear expectations. Run a kickoff meeting or send a "what to expect" doc covering attendance, behavior, refunds, and how decisions get made.',pillar:'Run',urgent:false,askPrompt:'How do I set clear expectations with families before the season starts?'});
+  tasks.push({id:'r3',title:'Build your volunteer and staff coordination plan',detail:'Decide who helps with what - registration day, snacks, transportation, photos - and how you will recruit and manage them through the season.',pillar:'Run',urgent:false,askPrompt:'How do I recruit and coordinate volunteers for my ' + sport + ' program?'});
+  tasks.push({id:'r4',title:'Establish your code of conduct and incident protocol',detail:isSports ? 'Critical for sports - clear behavior expectations for staff, families, and players, plus a process for reporting and handling incidents.' : 'A clear policy covering behavior expectations for staff, families, and participants, and what happens when something goes wrong.',pillar:'Run',urgent:isSports,askPrompt:'How do I write a code of conduct and incident protocol for my ' + sport + ' program?'});
+  tasks.push({id:'r5',title:'Document your refund and mid-season exit policy',detail:'When a parent pulls their kid mid-season or asks for a refund, having a written policy prevents personal negotiations and reduces conflict.',pillar:'Run',urgent:false,askPrompt:'What should my refund and mid-season exit policy include for my ' + sport + ' program?'});
+  tasks.push({id:'r6',title:'Set up your registration and payment software',detail:'For collecting signups, payments, and managing schedules, we recommend Root at rootsoccer.com - a purpose-built platform for youth program operations. Live Clearpath integration coming soon for real-time program analysis.',pillar:'Run',urgent:false,askPrompt:'How do I set up Root for my ' + sport + ' program?'});
 
   if (isEst) {
     tasks.push({id:'g1',title:'Run your year-over-year program analysis',detail:'Compare participants, retention, revenue, and outcomes from your last 3 seasons to find trends.',pillar:'Grow',urgent:false,askPrompt:'How do I run a year-over-year analysis of my program?'});
@@ -607,7 +610,8 @@ function renderTasks() {
     rtop.appendChild(rico); rtop.appendChild(rtxt);
     var rdesc = document.createElement('div'); rdesc.style.cssText = 'font-size:12px;color:rgba(255,255,255,.6);margin-bottom:12px;line-height:1.5;'; rdesc.textContent = 'Set up Root to complete your Run pillar and unlock Grow features.';
     var rlink = document.createElement('a'); rlink.href = 'https://www.rootsoccer.com'; rlink.target = '_blank'; rlink.style.cssText = 'display:block;padding:9px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:12px;font-weight:700;color:white;text-decoration:none;text-align:center;'; rlink.textContent = 'Set up Root';
-    rh.appendChild(rtop); rh.appendChild(rdesc); rh.appendChild(rlink);
+    var rsoon = document.createElement('div'); rsoon.style.cssText = 'margin-top:10px;padding:8px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:100px;text-align:center;font-size:11px;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.2px;'; rsoon.textContent = '✨ Coming soon: Live Clearpath integration';
+    rh.appendChild(rtop); rh.appendChild(rdesc); rh.appendChild(rlink); rh.appendChild(rsoon);
     list.appendChild(rh);
   }
 
